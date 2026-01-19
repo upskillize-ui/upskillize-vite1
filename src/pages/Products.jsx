@@ -17,7 +17,7 @@ export default function Products() {
   const products = [
     {
       id: 1,
-      name: "OptiCost",
+      name: "Optimize",
       tagline: "AI-Powered Cost Optimization",
       description: "Reduce infrastructure costs by up to 40% with intelligent AI-driven recommendations and automated optimizations for cloud, data storage, and compute resources.",
       icon: <DollarSign className="w-8 h-8" />,
@@ -29,12 +29,12 @@ export default function Products() {
         "Predictive cost analytics"
       ],
       savings: "$43,500/month average savings",
-      link: "/products/opti-cost",
+      link: "/products/optimize",
       available: true
     },
     {
       id: 2,
-      name: "GDPR",
+      name: "Compliize",
       tagline: "Smart Pricing Intelligence",
       description: "Dynamic pricing optimization platform that helps you maximize revenue through data-driven pricing strategies and competitive intelligence.",
       icon: <ShoppingCart className="w-8 h-8" />,
@@ -46,12 +46,12 @@ export default function Products() {
         "Revenue optimization"
       ],
       savings: "15-25% revenue increase",
-      link: "/products/gdpr",
+      link: "/products/compliize",
       available: false
     },
     {
       id: 3,
-      name: "VRA Platform",
+      name: "Vendorize",
       tagline: "Voice Recognition & Analytics",
       description: "Enterprise-grade voice recognition and analytics platform for customer service, compliance monitoring, and business intelligence.",
       icon: <Mic className="w-8 h-8" />,
@@ -63,7 +63,7 @@ export default function Products() {
         "Custom voice models"
       ],
       savings: "50% faster insights",
-      link: "/products/vra-platform",
+      link: "/products/vendorize",
       available: false
     }
   ];
@@ -241,7 +241,7 @@ export default function Products() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
-                  to="/products/opti-cost"
+                  to="/products/optimize"
                   className="bg-white text-indigo-600 px-10 py-5 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all shadow-2xl hover:scale-105 inline-flex items-center justify-center gap-2"
                 >
                   <Zap className="w-5 h-5" />

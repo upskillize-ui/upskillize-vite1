@@ -25,9 +25,9 @@ import About from "./pages/About";
 import Solutions from "./pages/Products";
 import CorporateConsulting from "./pages/Corporate/CorporateConsulting";
 import CorporateTraining from "./pages/Corporate/CorporateTraining";
-import OptiCost from "./pages/OptiCost";
-import GDPR from "./pages/GDPR";
-import VRM from "./pages/VRM";
+import Compliize from "./pages/Compliize";
+import Optimize from "./pages/Optimize";
+import Vendorize from "./pages/Vendorize";
 
 // Courses pages
 import BFSIDomainExcellence from "./pages/courses/BFSIDomainExcellence";
@@ -76,9 +76,9 @@ function App() {
             <Route path="/courses" element={<Navigate to="/academic" replace />} />
             <Route path="/course/:slug" element={<CourseDetails />} />
             <Route path="/courses/:category" element={<CoursesPage />} />
-            <Route path="/products/opti-cost" element={<OptiCost />} />
-            <Route path="/products/gdpr" element={<GDPR />} />
-            <Route path="/products/vra-platform" element={<VRM />} />
+            <Route path="/products/optimize" element={<Optimize />} />
+            <Route path="/products/compliize" element={<Compliize />} />
+            <Route path="/products/vendorize" element={<Vendorize />} />
 
             {/* LEGAL */}
             <Route path="/privacy" element={<Privacy />} />

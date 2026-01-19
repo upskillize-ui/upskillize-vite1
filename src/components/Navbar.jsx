@@ -423,9 +423,9 @@ export default function Navbar() {
                     <ChevronDown size={16} className="dropdown-icon" />
                   </button>
                   <div className="dropdown-menu">
-                    <a href="/products/gdpr" className="dropdown-link">GDPR</a>
-                    <a href="/products/opti-cost" className="dropdown-link">Opticost</a>
-                    <a href="/products/vra-platform" className="dropdown-link">VRA Platform</a>
+                    <a href="/products/compliize" className="dropdown-link">Compliize</a>
+                    <a href="/products/optimize" className="dropdown-link">Optimize</a>
+                    <a href="/products/Vendorize" className="dropdown-link">Vendorize</a>
                   </div>
                 </div>
               </nav>
@@ -484,9 +484,9 @@ export default function Navbar() {
                 <ChevronDown size={20} className={`dropdown-icon ${isProductsOpen ? 'rotate-180' : ''}`} />
               </button>
               <div className={`mobile-dropdown-content ${isProductsOpen ? 'open' : ''}`}>
-                <a href="/products/gdpr" onClick={closeMobileMenu} className="mobile-dropdown-link">GDPR</a>
-                <a href="/products/opti-cost" onClick={closeMobileMenu} className="mobile-dropdown-link">Opticost</a>
-                <a href="/products/vra-platform" onClick={closeMobileMenu} className="mobile-dropdown-link">VRA Platform</a>
+                <a href="/products/compliize" onClick={closeMobileMenu} className="mobile-dropdown-link">Compliize</a>
+                <a href="/products/optimize" onClick={closeMobileMenu} className="mobile-dropdown-link">Optimize</a>
+                <a href="/products/vendorize" onClick={closeMobileMenu} className="mobile-dropdown-link">Vendorize</a>
               </div>
             </div>
 

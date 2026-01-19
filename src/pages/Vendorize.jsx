@@ -35,7 +35,7 @@ import {
   Mail
 } from 'lucide-react';
 
-export default function VendorRiskProductTool() {
+export default function Vendorize() {
   const [activeProcess, setActiveProcess] = useState(0);
   const [selectedRisk, setSelectedRisk] = useState(0);
 

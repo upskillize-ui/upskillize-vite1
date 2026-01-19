@@ -31,7 +31,7 @@ import {
   Smartphone
 } from 'lucide-react';
 
-export default function GDPR() {
+export default function Compliize() {
   const [activeRisk, setActiveRisk] = useState(0);
   const [activeFeature, setActiveFeature] = useState(0);
 
