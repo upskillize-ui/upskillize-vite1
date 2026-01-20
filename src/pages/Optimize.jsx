@@ -33,7 +33,7 @@ import {
 } from 'lucide-react';
 import { Link } from "react-router-dom";
 
-export default function OptiCost() {
+export default function Optimize() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [animatedSavings, setAnimatedSavings] = useState(0);
   const [selectedFeature, setSelectedFeature] = useState('cost-allocation');
@@ -273,7 +273,7 @@ export default function OptiCost() {
             </div>
             
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight">
-              OptiCost
+              Optimize
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 mt-3">
                 AI-Powered Cost Allocation Platform
               </span>
