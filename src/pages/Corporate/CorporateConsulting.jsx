@@ -33,28 +33,71 @@ export default function CorporateConsulting() {
       {/* ===== HERO SECTION ===== */}
       <section className="py-16 sm:py-20 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Business Consulting Services
-            </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-8">
-              Strategic consulting services powered by industry veterans to transform your business for the digital age
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-indigo-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-indigo-700 transition-all shadow-xl hover:shadow-2xl transform hover:scale-105"
-              >
-                Schedule Consultation
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <a
-                href="#services"
-                className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-lg font-bold text-lg border-2 border-white/30 hover:bg-white/20 transition-all"
-              >
-                Explore Services
-              </a>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            
+            {/* Text Content */}
+            <div className="text-center lg:text-left">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                Business Consulting Services
+              </h1>
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-8">
+                Strategic consulting services powered by industry veterans to transform your business for the digital age
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center gap-2 bg-indigo-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-indigo-700 transition-all shadow-xl hover:shadow-2xl transform hover:scale-105"
+                >
+                  Schedule Consultation
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+                <a
+                  href="#services"
+                  className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-lg font-bold text-lg border-2 border-white/30 hover:bg-white/20 transition-all"
+                >
+                  Explore Services
+                </a>
+              </div>
             </div>
+
+            {/* Hero Image */}
+            <div className="relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-indigo-500/30 transform hover:scale-105 transition-transform duration-300">
+                <img 
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop" 
+                  alt="Business consulting team meeting"
+                  className="w-full h-auto object-cover"
+                />
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/40 to-transparent"></div>
+              </div>
+              
+              {/* Floating Stats Cards */}
+              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-2xl hidden sm:block">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center">
+                    <Users className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-gray-800">100+</p>
+                    <p className="text-sm text-gray-600">Projects Delivered</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="absolute -top-6 -right-6 bg-white rounded-xl p-4 shadow-2xl hidden sm:block">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center">
+                    <Award className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-gray-800">22+</p>
+                    <p className="text-sm text-gray-600">Industry Experts</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
