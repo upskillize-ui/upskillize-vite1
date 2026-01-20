@@ -12,6 +12,44 @@ export default function CoursesPage() {
   // Find the category data
   const categoryData = courses.find(c => c.slug === category);
 
+  // Category-specific hero backgrounds - each category gets its own unique image
+  const categoryHeroImages = {
+    "ai-fintech": {
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&h=600&fit=crop",
+      overlay: "from-blue-900/90 via-indigo-900/75 to-transparent"
+    },
+    "product-leadership": {
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=600&fit=crop",
+      overlay: "from-purple-900/90 via-pink-900/75 to-transparent"
+    },
+    "data-analytics-genai-bi": {
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&h=600&fit=crop",
+      overlay: "from-cyan-900/90 via-blue-900/75 to-transparent"
+    },
+    "technology-digital-transformation": {
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=600&fit=crop",
+      overlay: "from-indigo-900/90 via-purple-900/75 to-transparent"
+    },
+    "integrated-courses": {
+      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&h=600&fit=crop",
+      overlay: "from-slate-900/90 via-gray-900/75 to-transparent"
+    },
+    "cybersecurity": {
+      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1920&h=600&fit=crop",
+      overlay: "from-red-900/90 via-orange-900/75 to-transparent"
+    },
+    "mental-health-social-wellness": {
+      image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1920&h=600&fit=crop",
+      overlay: "from-green-900/90 via-emerald-900/75 to-transparent"
+    }
+  };
+
+  // Get hero background for current category, fallback to default
+  const heroBackground = categoryHeroImages[category] || {
+    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=600&fit=crop",
+    overlay: "from-slate-900/90 via-gray-900/75 to-transparent"
+  };
+
   if (!categoryData) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-red-50 to-red-100 flex items-center justify-center px-4 sm:px-6 overflow-x-hidden">
@@ -134,34 +172,141 @@ export default function CoursesPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0f1729] via-[#1a2847] to-[#243452] overflow-x-hidden">
-      {/* Back Navigation */}
-      <div className="bg-[#1a2847] py-3 sm:py-4 border-b border-gray-700">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <div className="w-full overflow-x-hidden">
+      <style>{`
+        @keyframes shimmer {
+          0% { background-position: -1000px 0; }
+          100% { background-position: 1000px 0; }
+        }
+
+        .shimmer-text {
+          background: linear-gradient(
+            90deg,
+            rgba(96, 165, 250, 0.4) 0%,
+            rgba(147, 197, 253, 0.8) 25%,
+            rgba(96, 165, 250, 1) 50%,
+            rgba(147, 197, 253, 0.8) 75%,
+            rgba(96, 165, 250, 0.4) 100%
+          );
+          background-size: 2000px 100%;
+          animation: shimmer 3s infinite linear;
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        .floating-dots {
+          animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+        }
+
+        .glow-border {
+          animation: glow-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes glow-pulse {
+          0%, 100% { box-shadow: 0 0 20px rgba(96, 165, 250, 0.3); }
+          50% { box-shadow: 0 0 40px rgba(96, 165, 250, 0.6); }
+        }
+      `}</style>
+
+      {/* ================= HERO SECTION WITH CATEGORY-SPECIFIC BACKGROUND ================= */}
+      <section className="relative bg-gradient-to-br from-[#0a1628] via-[#1a2d4a] to-[#1e3a5f] text-white overflow-hidden min-h-screen">
+        
+        {/* Static Background Image - Unique per Category */}
+        <div className="absolute inset-0">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url(${heroBackground.image})`,
+              minHeight: '100vh'
+            }}
+          />
+          <div className={`absolute inset-0 bg-gradient-to-r ${heroBackground.overlay}`}></div>
+        </div>
+
+        {/* Animated gradient overlay for extra depth */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/50"></div>
+
+        {/* Floating Particles Effect */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="floating-dots absolute top-20 left-10 w-3 h-3 bg-cyan-400/30 rounded-full blur-sm"></div>
+          <div className="floating-dots absolute top-40 right-20 w-2 h-2 bg-blue-400/40 rounded-full blur-sm" style={{animationDelay: '1s'}}></div>
+          <div className="floating-dots absolute bottom-32 left-1/4 w-4 h-4 bg-purple-400/20 rounded-full blur-sm" style={{animationDelay: '2s'}}></div>
+          <div className="floating-dots absolute top-1/3 right-1/3 w-2 h-2 bg-cyan-400/50 rounded-full blur-sm" style={{animationDelay: '0.5s'}}></div>
+        </div>
+
+        {/* Back Navigation - Positioned over hero */}
+        <div className="absolute top-4 left-4 z-10">
           <Link 
             to="/"
-            className="inline-flex items-center text-sm sm:text-base text-cyan-400 hover:text-cyan-300 font-semibold transition"
+            className="inline-flex items-center text-sm sm:text-base text-white bg-white/10 backdrop-blur-sm hover:bg-white/20 px-4 py-2 rounded-lg font-semibold transition border border-white/30"
           >
             <ArrowLeft size={18} className="sm:w-5 sm:h-5 mr-2" />
             Back to Home
           </Link>
         </div>
-      </div>
 
-      {/* Header Section */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-3 sm:mb-4 px-4">
-            {categoryData.mainCategory}
-          </h1>
-          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-4">
-            {categoryData.shortDesc}
-          </p>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 z-10 flex items-center min-h-screen">
+          {/* Hero Heading - Image-Based Design */}
+          <div className="text-center w-full">
+            {/* Decorative top line with animated dots */}
+            <div className="flex items-center justify-center mb-8">
+              <div className="h-px bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent w-16 sm:w-24"></div>
+              <div className="mx-3 sm:mx-4 flex gap-1.5">
+                <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse"></div>
+                <div className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                <div className="w-1.5 h-1.5 bg-purple-400 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+              </div>
+              <div className="h-px bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent w-16 sm:w-24"></div>
+            </div>
+
+            {/* Main Category Title with Visual Treatment */}
+            <div className="relative inline-block mb-10">
+              {/* Multi-layered glow effect behind text */}
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 via-blue-500/30 to-purple-500/30 blur-3xl animate-pulse"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-blue-400/20 to-purple-400/20 blur-2xl"></div>
+              
+              {/* Main Title with Shimmer Effect */}
+              <h1 className="relative text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight px-4 py-2">
+                <span className="shimmer-text font-extrabold tracking-tight">
+                  {categoryData.mainCategory}
+                </span>
+              </h1>
+              
+              {/* Animated underline with gradient */}
+              <div className="mt-6 mx-auto">
+                <div className="h-1.5 w-32 sm:w-40 mx-auto bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 rounded-full glow-border"></div>
+                <div className="h-0.5 w-20 sm:w-24 mx-auto bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full mt-2"></div>
+              </div>
+            </div>
+
+            {/* Description with elegant frame */}
+            <div className="max-w-4xl mx-auto px-4">
+              <div className="relative">
+                {/* Corner decorations */}
+                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-cyan-400/40 rounded-tl-lg"></div>
+                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-cyan-400/40 rounded-tr-lg"></div>
+                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-purple-400/40 rounded-bl-lg"></div>
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-purple-400/40 rounded-br-lg"></div>
+                
+                <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-100 font-medium leading-relaxed py-8 px-6 sm:px-8 backdrop-blur-sm bg-white/5 rounded-lg border border-white/10">
+                  {categoryData.shortDesc}
+                </p>
+              </div>
+            </div>
+
+
+          </div>
         </div>
       </section>
 
-      {/* Courses Grid */}
-      <section className="pb-12 sm:pb-16 lg:pb-20 px-4 sm:px-6">
+      {/* ================= COURSES GRID SECTION ================= */}
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-to-br from-[#0f1729] via-[#1a2847] to-[#243452]">
         <div className="max-w-7xl mx-auto">
           <div className={`grid gap-6 ${
             sortedCourses.length === 1 

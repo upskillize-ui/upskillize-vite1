@@ -22,7 +22,7 @@ export default function Contact() {
     try {
       console.log("Sending request to backend...");
       
-      const res = await fetch("http://localhost:5000/send-mail", {
+      const res = await fetch("https://upskillize-vite1.onrender.com/send-mail", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -47,7 +47,7 @@ export default function Contact() {
       console.error("Error details:", error);
       
       if (error.message.includes("Failed to fetch")) {
-        setStatus("❌ Cannot connect to server. Make sure the backend is running on port 5000.");
+        setStatus("❌ Cannot connect to server. Please check your internet connection and try again.");
       } else if (error.message.includes("NetworkError")) {
         setStatus("❌ Network error. Please check your internet connection.");
       } else {
