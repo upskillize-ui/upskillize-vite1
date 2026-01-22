@@ -19,7 +19,7 @@ const EMAIL_PASS = process.env.EMAIL_PASS; // MUST be set in Render environment 
 // Middleware Configuration
 // ============================================
 app.use(cors({
-  origin: '*', // Allow all origins (or specify your frontend URL)
+  origin: '*',
   methods: ['GET', 'POST'],
   credentials: true
 }));
@@ -32,7 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 const storage = multer.memoryStorage();
 const upload = multer({
   storage: storage,
-  limits: { fileSize: 3 * 1024 * 1024 }, // 3MB limit
+  limits: { fileSize: 3 * 1024 * 1024 },
   fileFilter: (req, file, cb) => {
     const allowedTypes = [
       'application/pdf',
@@ -57,15 +57,42 @@ if (!EMAIL_PASS) {
 }
 
 // ============================================
-// SMTP Configuration with Auto-Detection
+// SMTP Configuration - OPTIMIZED FOR RENDER
 // ============================================
-// Try multiple SMTP configurations for Zoho
+// Priority order: Try alternative ports first, then standard ports
 const smtpConfigs = [
+  // BEST: Port 2525 - Alternative SMTP port (less likely to be blocked)
   {
-    name: 'Zoho India - Port 465 (SSL)',
+    name: 'Zoho Global - Port 2525 (Alternative)',
+    host: 'smtp.zoho.com',
+    port: 2525,
+    secure: false,
+  },
+  {
+    name: 'Zoho India - Port 2525 (Alternative)',
     host: 'smtp.zoho.in',
-    port: 465,
-    secure: true,
+    port: 2525,
+    secure: false,
+  },
+  // Try Port 25 (sometimes allowed on cloud servers)
+  {
+    name: 'Zoho Global - Port 25 (SMTP)',
+    host: 'smtp.zoho.com',
+    port: 25,
+    secure: false,
+  },
+  {
+    name: 'Zoho India - Port 25 (SMTP)',
+    host: 'smtp.zoho.in',
+    port: 25,
+    secure: false,
+  },
+  // Standard ports (often blocked on Render)
+  {
+    name: 'Zoho Global - Port 587 (TLS)',
+    host: 'smtp.zoho.com',
+    port: 587,
+    secure: false,
   },
   {
     name: 'Zoho India - Port 587 (TLS)',
@@ -80,8 +107,14 @@ const smtpConfigs = [
     secure: true,
   },
   {
-    name: 'Zoho Global - Port 587 (TLS)',
-    host: 'smtp.zoho.com',
+    name: 'Zoho India - Port 465 (SSL)',
+    host: 'smtp.zoho.in',
+    port: 465,
+    secure: true,
+  },
+  {
+    name: 'Zoho Europe - Port 587 (TLS)',
+    host: 'smtp.zoho.eu',
     port: 587,
     secure: false,
   },
@@ -101,7 +134,7 @@ let workingConfig = null;
 // ============================================
 async function initializeTransporter() {
   console.log('🔍 Testing SMTP configurations...\n');
-  console.log('This will try multiple servers until one works.\n');
+  console.log('Trying alternative ports first (2525, 25) - more likely to work on Render\n');
   
   for (const config of smtpConfigs) {
     try {
@@ -119,23 +152,26 @@ async function initializeTransporter() {
           pass: EMAIL_PASS,
         },
         tls: {
-          rejectUnauthorized: false,
-          minVersion: 'TLSv1.2'
+          rejectUnauthorized: false, // Important for cloud servers
+          minVersion: 'TLSv1.2',
+          ciphers: 'SSLv3' // Fallback for compatibility
         },
-        connectionTimeout: 10000, // 10 seconds timeout
-        greetingTimeout: 10000,
-        socketTimeout: 10000,
+        connectionTimeout: 15000, // Increased to 15 seconds
+        greetingTimeout: 15000,
+        socketTimeout: 15000,
+        logger: false, // Disable verbose logging
+        debug: false, // Disable debug mode
       });
 
-      // Test the connection with a timeout
+      // Test the connection with timeout
       await Promise.race([
         testTransporter.verify(),
         new Promise((_, reject) => 
-          setTimeout(() => reject(new Error('Connection timeout')), 10000)
+          setTimeout(() => reject(new Error('Connection timeout')), 15000)
         )
       ]);
       
-      // If we get here, connection was successful!
+      // Connection successful!
       transporter = testTransporter;
       workingConfig = config;
       
@@ -157,17 +193,24 @@ async function initializeTransporter() {
     console.error('❌ ALL SMTP CONFIGURATIONS FAILED!');
     console.error('❌ ============================================\n');
     console.error('🔧 Troubleshooting Steps:');
-    console.error('1. Verify EMAIL_PASS is set correctly in Render Environment Variables');
-    console.error('2. Generate NEW Zoho App Password:');
-    console.error('   → https://accounts.zoho.com/home#security/application_pwd');
-    console.error('3. Enable IMAP/SMTP in Zoho Mail Settings:');
-    console.error('   → Zoho Mail → Settings → Mail Accounts → IMAP Access');
-    console.error('4. Check Zoho account region:');
-    console.error('   → India: smtp.zoho.in');
-    console.error('   → Global: smtp.zoho.com');
-    console.error('   → Europe: smtp.zoho.eu');
-    console.error('5. Verify no firewall blocking ports 465 or 587');
-    console.error('6. Consider using Gmail instead (more reliable on cloud servers)');
+    console.error('\n1. VERIFY ZOHO APP PASSWORD:');
+    console.error('   → Generate NEW app password: https://accounts.zoho.in/home#security/application_pwd');
+    console.error('   → Update EMAIL_PASS in Render Environment Variables');
+    console.error('\n2. ENABLE IMAP/SMTP IN ZOHO:');
+    console.error('   → Go to: https://mail.zoho.in');
+    console.error('   → Settings → Mail Accounts → Enable IMAP Access');
+    console.error('\n3. CHECK ZOHO REGION:');
+    console.error('   → India accounts: use smtp.zoho.in');
+    console.error('   → Global accounts: use smtp.zoho.com');
+    console.error('   → Europe accounts: use smtp.zoho.eu');
+    console.error('\n4. CONTACT RENDER SUPPORT:');
+    console.error('   → Email: support@render.com');
+    console.error('   → Request: "Please unblock SMTP ports (587, 465, 25, 2525) for my service"');
+    console.error('   → Include your service URL');
+    console.error('\n5. ALTERNATIVE SOLUTIONS:');
+    console.error('   → Switch to Gmail SMTP (more reliable on cloud servers)');
+    console.error('   → Use SendGrid/Mailgun (designed for servers)');
+    console.error('   → Use Zoho Mail API instead of SMTP');
     console.error('\n⚠️  EMAIL WILL NOT WORK UNTIL THIS IS FIXED!\n');
   }
 }
@@ -192,7 +235,6 @@ app.post('/send-mail', async (req, res) => {
   console.log('Name:', name);
   console.log('Inquiry:', inquiry);
 
-  // Check if transporter is ready
   if (!transporter) {
     console.error('❌ Email not configured - cannot send');
     return res.status(503).json({ 
@@ -202,7 +244,6 @@ app.post('/send-mail', async (req, res) => {
     });
   }
 
-  // Validate required fields
   if (!name || !email || !inquiry || !message) {
     console.error('❌ Missing required fields');
     return res.status(400).json({ 
@@ -214,7 +255,7 @@ app.post('/send-mail', async (req, res) => {
   try {
     console.log(`Using SMTP: ${workingConfig.name}`);
     
-    // Email to admin (BOTH ADMIN EMAILS)
+    // Email to admin
     const adminEmail = await transporter.sendMail({
       from: EMAIL_USER,
       to: ALL_ADMIN_EMAILS,
@@ -345,7 +386,6 @@ app.post('/send-career-application', upload.single('resume'), async (req, res) =
     console.log(`Using SMTP: ${workingConfig.name}`);
     console.log('Resume file:', resume.originalname, `(${resume.size} bytes)`);
     
-    // Email to admin with resume attachment
     const adminEmail = await transporter.sendMail({
       from: EMAIL_USER,
       to: ALL_ADMIN_EMAILS,
@@ -408,7 +448,6 @@ Resume attached: ${resume.originalname}
     console.log('✅ Admin email sent successfully');
     console.log('   Message ID:', adminEmail.messageId);
 
-    // Confirmation to applicant
     const userEmail = await transporter.sendMail({
       from: EMAIL_USER,
       to: email,
@@ -471,7 +510,6 @@ app.post('/send-notification', async (req, res) => {
   try {
     console.log(`Using SMTP: ${workingConfig.name}`);
     
-    // Email to admin
     const adminEmail = await transporter.sendMail({
       from: EMAIL_USER,
       to: ALL_ADMIN_EMAILS,
@@ -515,7 +553,6 @@ Action Required: Add this user to the notification list for ${courseName}
     console.log('✅ Admin notification sent successfully');
     console.log('   Message ID:', adminEmail.messageId);
 
-    // Confirmation to user
     const userEmail = await transporter.sendMail({
       from: EMAIL_USER,
       to: email,
@@ -583,7 +620,7 @@ app.get('/health', (req, res) => {
 app.get('/', (req, res) => {
   res.json({
     message: 'Upskillize Email API',
-    version: '2.0.0',
+    version: '2.1.0',
     endpoints: [
       'POST /send-mail',
       'POST /send-career-application',
@@ -592,7 +629,7 @@ app.get('/', (req, res) => {
     ],
     emailStatus: transporter ? '✅ Configured' : '❌ Not configured',
     smtpConfig: workingConfig ? workingConfig.name : 'None',
-    documentation: 'See README.md for API documentation'
+    documentation: 'Optimized for Render with alternative SMTP ports'
   });
 });
 
@@ -615,10 +652,10 @@ app.use((err, req, res, next) => {
 // Start Server
 // ============================================
 app.listen(PORT, () => {
-  console.log('\n╔════════════════════════════════════════════╗');
+  console.log('\n╔═══════════════════════════════════════════╗');
   console.log('║   🚀 UPSKILLIZE EMAIL API SERVER         ║');
-  console.log('╚════════════════════════════════════════════╝\n');
-  console.log(`🌍 Server running on port: ${PORT}`);
+  console.log('╚═══════════════════════════════════════════╝\n');
+  console.log(`🌐 Server running on port: ${PORT}`);
   console.log(`📧 Email User: ${EMAIL_USER}`);
   console.log(`📬 Admin Recipients: ${ALL_ADMIN_EMAILS}`);
   console.log(`🔧 Environment: ${process.env.NODE_ENV || 'development'}`);
@@ -628,7 +665,7 @@ app.listen(PORT, () => {
   console.log(`   POST /send-notification`);
   console.log(`   GET  /health`);
   console.log(`   GET  /\n`);
-  console.log('╔════════════════════════════════════════════╗');
+  console.log('╔═══════════════════════════════════════════╗');
   console.log('║   Server Ready - Waiting for requests     ║');
-  console.log('╚════════════════════════════════════════════╝\n');
+  console.log('╚═══════════════════════════════════════════╝\n');
 });
