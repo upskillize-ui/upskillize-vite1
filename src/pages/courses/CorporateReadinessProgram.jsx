@@ -9,22 +9,22 @@ export default function CorporateReadinessProgram() {
   const heroBackgrounds = [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=600&fit=crop",
+      image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&h=600&fit=crop",
       overlay: "from-black/80 via-black/60 to-transparent"
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
+      image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=600&fit=crop",
       overlay: "from-indigo-900/80 via-indigo-900/60 to-transparent"
     },
     {
       id: 3,
-      image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=600&fit=crop",
+      image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800&h=600&fit=crop",
       overlay: "from-purple-900/80 via-purple-900/60 to-transparent"
     },
     {
       id: 4,
-      image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=600&fit=crop",
+      image: "https://images.unsplash.com/photo-1560439514-4e9645039924?w=800&h=600&fit=crop",
       overlay: "from-blue-900/80 via-blue-900/60 to-transparent"
     }
   ];
