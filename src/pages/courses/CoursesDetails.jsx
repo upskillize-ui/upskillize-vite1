@@ -59,7 +59,8 @@ export default function CourseDetails() {
     'data-decisions': DataToDecisionsPowerBI,
     'mba-plus-plus': MBAPlusPlus,
     'ai-ml-business-leaders': CIPLandingPage,
-    'digital-business-strategy-innovation': DigitalStrategyProgram
+    'digital-business-strategy-innovation': DigitalStrategyProgram,
+    'mental-health-wellness': CorporateReadinessPrograms
   };
 
   // Check if this course has a detailed page component

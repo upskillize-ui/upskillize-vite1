@@ -400,7 +400,7 @@ export default function Navbar() {
                     <a href="/courses/technology-digital-transformation" className="dropdown-link">Technology & Digital Transformation</a>
                     <a href="/courses/integrated-courses" className="dropdown-link">Integrated Courses</a>
                     <a href="/courses/cybersecurity" className="dropdown-link">Cybersecurity</a>
-                    <a href="/courses/mental-health-wellness" className="dropdown-link">Mental Health & Social Wellness</a>
+                    <a href="/courses/corporate-readiness-program" className="dropdown-link">Mental Health & Social Wellness</a>
                   </div>
                 </div>
                 

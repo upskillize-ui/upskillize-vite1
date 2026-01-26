@@ -39,7 +39,7 @@ import DataToDecisionsPowerBI from "./pages/courses/DataToDecisionsPowerBI";
 import MBAPlusPlus from "./pages/courses/MBAPlusPlus";
 import CAIPLandingPage from "./pages/courses/CIPLandingPage";
 import DigitalStrategyProgram from "./pages/courses/DigitalStrategyProgram";
-
+import CorporateReadinessProgram from "./pages/courses/CorporateReadinessProgram";
 import "./App.css";
 
 
@@ -76,6 +76,10 @@ function App() {
             <Route path="/courses" element={<Navigate to="/academic" replace />} />
             <Route path="/course/:slug" element={<CourseDetails />} />
             <Route path="/courses/:category" element={<CoursesPage />} />
+            
+            {/* Redirect Corporate Readiness Program from /courses/ to /course/ */}
+            <Route path="/courses/corporate-readiness-program" element={<Navigate to="/course/corporate-readiness-program" replace />} />
+            
             <Route path="/products/optimize" element={<Optimize />} />
             <Route path="/products/compliize" element={<Compliize />} />
             <Route path="/products/vendorize" element={<Vendorize />} />
@@ -94,6 +98,7 @@ function App() {
             <Route path="/courses/mba-plus-plus" element={<MBAPlusPlus />} />
             <Route path="/courses/ai-ml-business-leaders" element={<CAIPLandingPage />} />
             <Route path="/courses/digital-business-strategy-innovation" element={<DigitalStrategyProgram />} />
+             <Route path="/course/corporate-readiness-program" element={<CorporateReadinessProgram />} />
 
             {/* FALLBACK */}
             <Route path="*" element={<NotFound />} />

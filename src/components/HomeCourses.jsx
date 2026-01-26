@@ -8,6 +8,7 @@ import {
   HeartHandshake,
   Briefcase,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const COURSES = [
   {
@@ -15,48 +16,56 @@ const COURSES = [
     desc: "AI-driven solutions for banking, fraud detection, risk analysis, and digital payments.",
     icon: <Cpu size={36} />,
     color: "from-blue-500 to-cyan-500",
+    link: "/courses/ai-fintech",
   },
   {
     title: "Product Leadership",
     desc: "Product strategy, roadmapping, execution, and leadership for high-impact products.",
     icon: <Briefcase size={36} />,
     color: "from-orange-500 to-amber-500",
+    link: "/courses/product-leadership",
   },
   {
     title: "Data Analytics",
     desc: "Analyze, visualize, and interpret data to drive smarter business decisions.",
     icon: <BarChart3 size={36} />,
     color: "from-emerald-500 to-teal-500",
+    link: "/courses/data-analytics-genai-bi",
   },
   {
     title: "GenAI & Business Intelligence",
     desc: "Generative AI, dashboards, and intelligent business insights.",
     icon: <Brain size={36} />,
     color: "from-purple-500 to-pink-500",
+    link: "/courses/data-analytics-genai-bi",
   },
   {
     title: "Technology & Digital Transformation",
     desc: "Cloud, AI adoption, automation, and enterprise digital transformation.",
     icon: <Layers size={36} />,
     color: "from-indigo-500 to-blue-500",
+    link: "/courses/technology-digital-transformation",
   },
   {
     title: "Integrated Courses",
     desc: "Cross-disciplinary programs combining technology, business, and leadership.",
     icon: <LineChart size={36} />,
     color: "from-sky-500 to-indigo-500",
+    link: "/courses/integrated-courses",
   },
   {
     title: "Cybersecurity",
     desc: "Network security, threat detection, compliance, and cyber defense.",
     icon: <ShieldCheck size={36} />,
     color: "from-red-500 to-rose-500",
+    link: "/courses/cybersecurity",
   },
   {
     title: "Mental Health & Social Wellness",
     desc: "Emotional well-being, workplace wellness, and social resilience.",
     icon: <HeartHandshake size={36} />,
     color: "from-green-500 to-lime-500",
+    link: "/course/corporate-readiness-program",
   },
 ];
 
@@ -74,11 +83,11 @@ export default function HomeCourses() {
 
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {COURSES.map((item, index) => (
-              <div
-                  key={index}
-                  className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden"
-              >
-
+            <Link
+              key={index}
+              to={item.link}
+              className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden block"
+            >
               <div
                 className={`p-6 bg-gradient-to-r ${item.color} text-white`}
               >
@@ -94,11 +103,11 @@ export default function HomeCourses() {
                   {item.desc}
                 </p>
 
-                <button className="mt-5 text-indigo-600 font-semibold group-hover:underline">
+                <div className="mt-5 text-indigo-600 font-semibold group-hover:underline">
                   View Programs →
-                </button>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

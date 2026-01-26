@@ -81,7 +81,7 @@ export default function Footer() {
                  </Link>
                </li>
              <li>
-               <Link to="/courses/mental-health-wellness" className="text-white/80 transition-colors">
+               <Link to="/course/corporate-readiness-program" className="text-white/80 transition-colors">
                  Mental Health & Social Wellness
                </Link>
              </li>

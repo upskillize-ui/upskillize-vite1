@@ -420,11 +420,37 @@ export const courses = [
   },
   {
     id: 7,
+    slug: "mental-health-social-wellness",
     mainCategory: "Mental Health & Social Wellness",
-    slug: "mental-health-wellness",
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=500",
+    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=500",
     shortDesc: "Emotional resilience, workplace wellness, and social well-being programs.",
     color: "from-green-500 to-lime-500",
-    subCourses: []
+    subCourses: [
+      {
+        id: "corporate-readiness-program",
+        slug: "corporate-readiness-program",
+        title: "Corporate Readiness Program",
+        duration: "40-60 Hours",
+        certification: "Certificate of Completion from Upskillize",
+        shortCode: "CRP",
+        certType: "Professional",
+        hasDetailPage: true,
+        highlights: [
+          "Workplace Communication Excellence",
+          "Emotional Intelligence & Self-Awareness",
+          "Professional Ethics & Workplace Behavior",
+          "Team Collaboration & Leadership",
+          "Adaptability & Growth Mindset",
+          "Mental Health & Well-being at Work",
+        ],
+        fullDescription: "Comprehensive soft skills development program for fresh graduates and early-career professionals",
+        targetAudience: [
+          "Fresh graduates preparing for their first job",
+          "College students in final year seeking internships",
+          "Early-career professionals (0-2 years experience)",
+          "Career changers entering corporate roles",
+        ],
+      },
+    ],
   }
 ];

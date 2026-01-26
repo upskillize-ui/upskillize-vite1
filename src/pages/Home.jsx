@@ -155,15 +155,23 @@ export default function Home() {
           </div>
         ))}
 
-        <button onClick={prevSlide} className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/10 backdrop-blur-sm p-3 rounded-full hover:bg-white/20 transition-all duration-300 group">
+        <button 
+          onClick={prevSlide} 
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 backdrop-blur-md p-4 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110 active:scale-95 shadow-xl border border-white/30 cursor-pointer"
+          aria-label="Previous slide"
+        >
           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
           </svg>
         </button>
 
-        <button onClick={nextSlide} className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/10 backdrop-blur-sm p-3 rounded-full hover:bg-white/20 transition-all duration-300 group">
+        <button 
+          onClick={nextSlide} 
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 backdrop-blur-md p-4 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110 active:scale-95 shadow-xl border border-white/30 cursor-pointer"
+          aria-label="Next slide"
+        >
           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
           </svg>
         </button>
 
@@ -268,6 +276,11 @@ export default function Home() {
                     <p className="text-gray-300 mb-4 min-h-[60px]">{category.shortDesc}</p>
                     {hasContent ? (
                       <Link to={`/courses/${category.slug}`} className="inline-flex items-center gap-2 text-blue-400 font-semibold hover:text-blue-300 group-hover:gap-3 transition-all">
+                        View Programs
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    ) : category.slug === 'mental-health-social-wellness' ? (
+                      <Link to="/course/corporate-readiness-program" className="inline-flex items-center gap-2 text-blue-400 font-semibold hover:text-blue-300 group-hover:gap-3 transition-all">
                         View Programs
                         <ArrowRight className="w-4 h-4" />
                       </Link>

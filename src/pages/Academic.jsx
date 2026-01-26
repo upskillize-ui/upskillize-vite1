@@ -31,7 +31,7 @@ export default function Courses() {
     return course.hasDetailPage === true || 
            ['bfsi-domain-excellence-program', 'investment-banking-wealth-tech', 'risk-management-regtech-program', 
             'ai-product-management-mastery', 'the-mini-ceo-program', 'data-decisions', 
-            'mba-plus-plus', 'ai-ml-business-leaders', 'digital-business-strategy-innovation'].includes(course.slug);
+            'mba-plus-plus', 'ai-ml-business-leaders', 'digital-business-strategy-innovation', 'corporate-readiness-program'].includes(course.slug);
   };
 
   const handleComingSoonClick = (course, category) => {
@@ -442,7 +442,7 @@ export default function Courses() {
                                 <div className="flex gap-3 pt-4 border-t border-cyan-400/20 mt-auto">
                                   {isAvailable ? (
                                     <Link
-                                      to={`/courses/${course.slug}`}
+                                      to={course.slug === 'corporate-readiness-program' ? '/course/corporate-readiness-program' : `/course/${course.slug}`}
                                       className="flex-1 text-center px-4 py-3 rounded-xl bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 hover:from-cyan-500 hover:via-blue-500 hover:to-indigo-500 transition-all duration-300 text-white text-sm font-bold shadow-lg hover:shadow-cyan-500/50 transform hover:-translate-y-0.5"
                                     >
                                       Learn More
