@@ -658,7 +658,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* VETERANS FROM LEADING ORGANIZATIONS */}
+            {/* VETERANS FROM LEADING ORGANIZATIONS */}
       <section className="py-20 bg-gradient-to-br from-[#0a1628] via-[#0f1f3d] to-[#152847] relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl"></div>
