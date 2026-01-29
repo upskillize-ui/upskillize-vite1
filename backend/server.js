@@ -243,8 +243,8 @@ app.post('/send-mail', async (req, res) => {
       error: 'SMTP_NOT_CONFIGURED'
     });
   }
-
   if (!name || !email || !inquiry || !message) {
+
     console.error('❌ Missing required fields');
     return res.status(400).json({ 
       success: false, 
@@ -262,15 +262,15 @@ app.post('/send-mail', async (req, res) => {
       replyTo: email,
       subject: `New Contact Form - ${inquiry}`,
       text: `
-Name: ${name}
-Email: ${email}
-Phone: ${phone || 'Not provided'}
-Company: ${company || 'Not provided'}
-Inquiry: ${inquiry}
+        Name: ${name}
+        Email: ${email}
+        Phone: ${phone || 'Not provided'}
+        Company: ${company || 'Not provided'}
+        Inquiry: ${inquiry}
 
-Message:
-${message}
-      `,
+        Message:
+        ${message}
+        `,
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f5f5f5;">
           <div style="background-color: white; padding: 30px; border-radius: 10px; max-width: 600px; margin: 0 auto;">
