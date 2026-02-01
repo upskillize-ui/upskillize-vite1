@@ -1,0 +1,26 @@
+# Redirect HTTP to HTTPS
+[[redirects]]
+  from = "http://upskillize.com/*"
+  to = "https://www.upskillize.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.upskillize.com/*"
+  to = "https://www.upskillize.com/:splat"
+  status = 301
+  force = true
+
+# Redirect non-www to www
+[[redirects]]
+  from = "https://upskillize.com/*"
+  to = "https://www.upskillize.com/:splat"
+  status = 301
+  force = true
+
+# Redirect Netlify subdomain to custom domain
+[[redirects]]
+  from = "https://upskillize.netlify.app/*"
+  to = "https://www.upskillize.com/:splat"
+  status = 301
+  force = true
