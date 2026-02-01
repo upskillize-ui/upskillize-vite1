@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const express = require('express');
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 const multer = require('multer');
 const cors = require('cors');
 
@@ -15,9 +15,9 @@ const ADMIN_EMAIL_1 = process.env.ADMIN_EMAIL_1 || 'amit@upskillize.com';
 const ADMIN_EMAIL_2 = process.env.ADMIN_EMAIL_2 || 'ramesh@upskillize.com';
 const ALL_ADMIN_EMAILS = [ADMIN_EMAIL_1, ADMIN_EMAIL_2];
 
-// Gmail Configuration
-const GMAIL_USER = process.env.GMAIL_USER || 'upskillize@gmail.com';
-const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD;
+// Resend Configuration
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
+const FROM_EMAIL = process.env.FROM_EMAIL || 'onboarding@resend.dev'; // Change this after verifying your domain
 
 // ============================================
 // Middleware
@@ -44,43 +44,26 @@ const upload = multer({
 });
 
 // ============================================
-// Gmail SMTP Configuration
+// Resend Configuration
 // ============================================
-let transporter = null;
+let resend = null;
 
-if (!GMAIL_APP_PASSWORD) {
+if (!RESEND_API_KEY) {
   console.error('\n⚠️  ============================================');
-  console.error('⚠️  WARNING: GMAIL_APP_PASSWORD not set!');
-  console.error('⚠️  Get app password: https://myaccount.google.com/apppasswords');
+  console.error('⚠️  WARNING: RESEND_API_KEY not set!');
+  console.error('⚠️  Get API key: https://resend.com/api-keys');
   console.error('⚠️  ============================================\n');
 } else {
   try {
-    transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: GMAIL_USER,
-        pass: GMAIL_APP_PASSWORD,
-      },
-      tls: {
-        rejectUnauthorized: false
-      }
-    });
-
-    transporter.verify((error, success) => {
-      if (error) {
-        console.error('\n❌ Gmail SMTP connection failed:', error.message);
-        transporter = null;
-      } else {
-        console.log('\n✅ ============================================');
-        console.log('✅ Gmail SMTP configured successfully!');
-        console.log('✅ ============================================');
-        console.log(`📧 From Email: ${GMAIL_USER}`);
-        console.log(`📬 Admin Emails: ${ALL_ADMIN_EMAILS.join(', ')}\n`);
-      }
-    });
+    resend = new Resend(RESEND_API_KEY);
+    console.log('\n✅ ============================================');
+    console.log('✅ Resend API configured successfully!');
+    console.log('✅ ============================================');
+    console.log(`📧 From Email: ${FROM_EMAIL}`);
+    console.log(`📬 Admin Emails: ${ALL_ADMIN_EMAILS.join(', ')}\n`);
   } catch (error) {
-    console.error('\n❌ Gmail SMTP initialization failed:', error.message);
-    transporter = null;
+    console.error('\n❌ Resend initialization failed:', error.message);
+    resend = null;
   }
 }
 
@@ -95,20 +78,21 @@ app.post('/send-mail', async (req, res) => {
   console.log('Email:', email);
   console.log('Inquiry:', inquiry);
 
-  if (!transporter) {
-    console.error('❌ Gmail SMTP not configured');
-    return res.status(503).json({ 
-      success: false, 
+  if (!resend) {
+    console.error('❌ Resend not configured');
+    return res.status(503).json({
+      success: false,
       message: 'Email service not configured',
-      error: 'GMAIL_NOT_CONFIGURED'
+      error: 'RESEND_NOT_CONFIGURED'
     });
   }
 
   try {
-    await transporter.sendMail({
-      from: `"Upskillize Contact" <${GMAIL_USER}>`,
+    // Send to admins
+    const adminEmail = await resend.emails.send({
+      from: FROM_EMAIL,
       to: ALL_ADMIN_EMAILS,
-      replyTo: email,
+      reply_to: email,
       subject: `New Contact: ${inquiry} - ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f5f5f5;">
@@ -145,10 +129,11 @@ app.post('/send-mail', async (req, res) => {
       `,
     });
 
-    console.log('✅ Admin notification sent');
+    console.log('✅ Admin notification sent:', adminEmail.id);
 
-    await transporter.sendMail({
-      from: `"Upskillize" <${GMAIL_USER}>`,
+    // Send confirmation to user
+    const userEmail = await resend.emails.send({
+      from: FROM_EMAIL,
       to: email,
       subject: 'Thank you for contacting Upskillize',
       html: `
@@ -164,9 +149,9 @@ app.post('/send-mail', async (req, res) => {
       `,
     });
 
-    console.log('✅ User confirmation sent\n');
+    console.log('✅ User confirmation sent:', userEmail.id, '\n');
     res.json({ success: true, message: 'Message sent successfully!' });
-    
+
   } catch (error) {
     console.error('❌ Email failed:', error.message);
     res.status(500).json({ success: false, message: 'Failed to send', error: error.message });
@@ -184,15 +169,15 @@ app.post('/send-career-application', upload.single('resume'), async (req, res) =
   console.log('Name:', name);
   console.log('Opportunity:', opportunity);
 
-  if (!transporter) {
+  if (!resend) {
     return res.status(503).json({ success: false, message: 'Email not configured' });
   }
 
   try {
-    const mailOptions = {
-      from: `"Upskillize Careers" <${GMAIL_USER}>`,
+    const emailData = {
+      from: FROM_EMAIL,
       to: ALL_ADMIN_EMAILS,
-      replyTo: email,
+      reply_to: email,
       subject: `Career Application: ${opportunity} - ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px;">
@@ -202,24 +187,25 @@ app.post('/send-career-application', upload.single('resume'), async (req, res) =
           <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
           <p><strong>Opportunity:</strong> ${opportunity}</p>
           <p><strong>Portfolio:</strong> ${portfolio || 'Not provided'}</p>
-          <p>📎 Resume attached</p>
+          ${resume ? '<p>📎 Resume attached</p>' : ''}
         </div>
       `,
     };
 
+    // Add attachment if resume exists
     if (resume) {
-      mailOptions.attachments = [{
+      emailData.attachments = [{
         filename: resume.originalname,
         content: resume.buffer,
-        contentType: resume.mimetype
       }];
     }
 
-    await transporter.sendMail(mailOptions);
-    console.log('✅ Admin notification sent');
+    const adminEmail = await resend.emails.send(emailData);
+    console.log('✅ Admin notification sent:', adminEmail.id);
 
-    await transporter.sendMail({
-      from: `"Upskillize" <${GMAIL_USER}>`,
+    // Send confirmation to applicant
+    const userEmail = await resend.emails.send({
+      from: FROM_EMAIL,
       to: email,
       subject: `Application Received - ${opportunity}`,
       html: `
@@ -233,9 +219,9 @@ app.post('/send-career-application', upload.single('resume'), async (req, res) =
       `,
     });
 
-    console.log('✅ User confirmation sent\n');
+    console.log('✅ User confirmation sent:', userEmail.id, '\n');
     res.json({ success: true, message: 'Application submitted' });
-    
+
   } catch (error) {
     console.error('❌ Email failed:', error.message);
     res.status(500).json({ success: false, message: 'Failed to submit', error: error.message });
@@ -252,15 +238,16 @@ app.post('/send-notification', async (req, res) => {
   console.log('Email:', email);
   console.log('Course:', courseName);
 
-  if (!transporter) {
+  if (!resend) {
     return res.status(503).json({ success: false, message: 'Email not configured' });
   }
 
   try {
-    await transporter.sendMail({
-      from: `"Upskillize" <${GMAIL_USER}>`,
+    // Notify admins
+    const adminEmail = await resend.emails.send({
+      from: FROM_EMAIL,
       to: ALL_ADMIN_EMAILS,
-      replyTo: email,
+      reply_to: email,
       subject: `Course Notification: ${courseName}`,
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px;">
@@ -272,8 +259,11 @@ app.post('/send-notification', async (req, res) => {
       `,
     });
 
-    await transporter.sendMail({
-      from: `"Upskillize" <${GMAIL_USER}>`,
+    console.log('✅ Admin notification sent:', adminEmail.id);
+
+    // Send confirmation to user
+    const userEmail = await resend.emails.send({
+      from: FROM_EMAIL,
       to: email,
       subject: `You're on the list! - ${courseName}`,
       html: `
@@ -286,9 +276,9 @@ app.post('/send-notification', async (req, res) => {
       `,
     });
 
-    console.log('✅ Notification sent\n');
+    console.log('✅ Notification sent:', userEmail.id, '\n');
     res.json({ success: true, message: 'Notification request sent' });
-    
+
   } catch (error) {
     console.error('❌ Email failed:', error.message);
     res.status(500).json({ success: false, message: 'Failed', error: error.message });
@@ -299,11 +289,11 @@ app.post('/send-notification', async (req, res) => {
 // Health Check
 // ============================================
 app.get('/health', (req, res) => {
-  res.json({ 
+  res.json({
     status: 'OK',
-    emailConfigured: transporter !== null,
-    emailProvider: 'Gmail SMTP',
-    emailUser: GMAIL_USER,
+    emailConfigured: resend !== null,
+    emailProvider: 'Resend',
+    fromEmail: FROM_EMAIL,
     adminEmails: ALL_ADMIN_EMAILS
   });
 });
@@ -314,8 +304,8 @@ app.get('/health', (req, res) => {
 app.get('/', (req, res) => {
   res.json({
     message: 'Upskillize Email API',
-    version: '3.0.0 - Gmail',
-    emailStatus: transporter ? '✅ Configured' : '❌ Not configured',
+    version: '4.0.0 - Resend',
+    emailStatus: resend ? '✅ Configured' : '❌ Not configured',
     endpoints: [
       'POST /send-mail',
       'POST /send-career-application',
@@ -339,12 +329,12 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log('\n╔═══════════════════════════════════════════╗');
   console.log('║   🚀 UPSKILLIZE EMAIL API SERVER         ║');
-  console.log('║   📧 Powered by Gmail SMTP               ║');
+  console.log('║   📧 Powered by Resend                   ║');
   console.log('╚═══════════════════════════════════════════╝\n');
   console.log(`🌐 Port: ${PORT}`);
-  console.log(`📧 Gmail: ${GMAIL_USER}`);
+  console.log(`📧 From: ${FROM_EMAIL}`);
   console.log(`📬 Admin Emails: ${ALL_ADMIN_EMAILS.join(', ')}`);
-  console.log(`📮 Status: ${transporter ? '✅ Ready' : '❌ Not Configured'}`);
+  console.log(`📮 Status: ${resend ? '✅ Ready' : '❌ Not Configured'}`);
   console.log('\n╔═══════════════════════════════════════════╗');
   console.log('║   Server Ready                            ║');
   console.log('╚═══════════════════════════════════════════╝\n');

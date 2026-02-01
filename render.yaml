@@ -10,10 +10,10 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
-      - key: GMAIL_USER
+      - key: RESEND_API_KEY
         sync: false
-      - key: GMAIL_APP_PASSWORD
-        sync: false
+      - key: FROM_EMAIL
+        value: onboarding@resend.dev
       - key: ADMIN_EMAIL_1
         sync: false
       - key: ADMIN_EMAIL_2
