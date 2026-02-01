@@ -1,3 +1,5 @@
+require('dotenv').config(); // loads .env into process.env
+
 const express = require('express');
 const nodemailer = require('nodemailer');
 const multer = require('multer');
@@ -11,7 +13,7 @@ const PORT = process.env.PORT || 5000;
 // ============================================
 const ADMIN_EMAIL_1 = process.env.ADMIN_EMAIL_1 || 'amit@upskillize.com';
 const ADMIN_EMAIL_2 = process.env.ADMIN_EMAIL_2 || 'ramesh@upskillize.com';
-const ALL_ADMIN_EMAILS = `${ADMIN_EMAIL_1}, ${ADMIN_EMAIL_2}`;
+const ALL_ADMIN_EMAILS = [ADMIN_EMAIL_1, ADMIN_EMAIL_2];
 const EMAIL_USER = process.env.EMAIL_USER || 'amit@upskillize.com';
 const EMAIL_PASS = process.env.EMAIL_PASS; // MUST be set in Render environment variables
 
@@ -180,7 +182,7 @@ async function initializeTransporter() {
       console.log(`✅ Email server is ready to send messages!`);
       console.log(`✅ ============================================`);
       console.log(`📧 Configured for: ${EMAIL_USER}`);
-      console.log(`📬 Admin recipients: ${ALL_ADMIN_EMAILS}\n`);
+      console.log(`📬 Admin Emails: ${ALL_ADMIN_EMAILS}\n`);
       break;
       
     } catch (error) {
@@ -657,7 +659,7 @@ app.listen(PORT, () => {
   console.log('╚═══════════════════════════════════════════╝\n');
   console.log(`🌐 Server running on port: ${PORT}`);
   console.log(`📧 Email User: ${EMAIL_USER}`);
-  console.log(`📬 Admin Recipients: ${ALL_ADMIN_EMAILS}`);
+  console.log(`📬 Admin Emails: ${ALL_ADMIN_EMAILS}`);
   console.log(`🔧 Environment: ${process.env.NODE_ENV || 'development'}`);
   console.log(`\n📋 Available Endpoints:`);
   console.log(`   POST /send-mail`);
