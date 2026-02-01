@@ -10,7 +10,11 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
-      - key: EMAIL_USER
+      - key: GMAIL_USER
         sync: false
-      - key: EMAIL_PASS
+      - key: GMAIL_APP_PASSWORD
+        sync: false
+      - key: ADMIN_EMAIL_1
+        sync: false
+      - key: ADMIN_EMAIL_2
         sync: false
