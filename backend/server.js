@@ -20,42 +20,58 @@ const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const FROM_EMAIL = process.env.FROM_EMAIL || 'ramesh@upskillize.com';
 
 // ============================================
-// Middleware
+// Middleware - CORS Configuration
 // ============================================
-// Enhanced CORS configuration for production
+
+// Define allowed origins
+const allowedOrigins = [
+  'https://upskillize.com',
+  'https://www.upskillize.com',
+  'http://localhost:5173',
+  'http://localhost:3000',
+  'http://localhost:5000'
+];
+
+// CORS configuration
 const corsOptions = {
   origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
+    // Allow requests with no origin (mobile apps, Postman, curl)
+    if (!origin) {
+      console.log('✅ Request with no origin allowed');
+      return callback(null, true);
+    }
     
-    // Allowed origins
-    const allowedOrigins = [
-      'https://upskillize.com',
-      'https://www.upskillize.com',
-      'http://localhost:5173',
-      'http://localhost:3000',
-      'http://localhost:5000'
-    ];
-    
-    if (allowedOrigins.indexOf(origin) !== -1) {
+    // Check if origin is in allowed list
+    if (allowedOrigins.includes(origin)) {
+      console.log('✅ Origin allowed:', origin);
       callback(null, true);
     } else {
-      callback(null, true); // Allow all origins for now (you can restrict later)
+      console.log('⚠️ Origin not in whitelist but allowing:', origin);
+      // For now, allow all origins (change to callback(new Error('Not allowed by CORS')) to restrict)
+      callback(null, true);
     }
   },
-  methods: ['GET', 'POST', 'OPTIONS'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
   credentials: true,
-  optionsSuccessStatus: 200
+  optionsSuccessStatus: 200,
+  preflightContinue: false
 };
 
+// Apply CORS middleware (automatically handles OPTIONS preflight requests)
 app.use(cors(corsOptions));
 
+// Body parsers
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Request logging
+// Request logging with CORS info
 app.use((req, res, next) => {
-  console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`);
+  console.log(`\n${'='.repeat(50)}`);
+  console.log(`${new Date().toISOString()}`);
+  console.log(`${req.method} ${req.path}`);
+  console.log(`Origin: ${req.get('origin') || 'No origin'}`);
+  console.log(`${'='.repeat(50)}\n`);
   next();
 });
 
@@ -65,14 +81,18 @@ app.use((req, res, next) => {
 const storage = multer.memoryStorage();
 const upload = multer({
   storage: storage,
-  limits: { fileSize: 3 * 1024 * 1024 },
+  limits: { fileSize: 3 * 1024 * 1024 }, // 3MB limit
   fileFilter: (req, file, cb) => {
     const allowedTypes = [
       'application/pdf',
       'application/msword',
       'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
     ];
-    allowedTypes.includes(file.mimetype) ? cb(null, true) : cb(new Error('Only PDF, DOC, DOCX allowed'));
+    if (allowedTypes.includes(file.mimetype)) {
+      cb(null, true);
+    } else {
+      cb(new Error('Only PDF, DOC, DOCX files are allowed'));
+    }
   },
 });
 
@@ -266,7 +286,11 @@ app.post('/send-mail', async (req, res) => {
   } catch (error) {
     console.error('❌ Email failed:', error.message);
     console.error('Error details:', error);
-    res.status(500).json({ success: false, message: 'Failed to send email', error: error.message });
+    res.status(500).json({ 
+      success: false, 
+      message: 'Failed to send email', 
+      error: error.message 
+    });
   }
 });
 
@@ -280,9 +304,23 @@ app.post('/send-career-application', upload.single('resume'), async (req, res) =
   console.log('\n📨 New Career Application');
   console.log('Name:', name);
   console.log('Opportunity:', opportunity);
+  console.log('Origin:', req.get('origin'));
+
+  // Validation
+  if (!name || !email || !opportunity) {
+    console.log('❌ Missing required fields');
+    return res.status(400).json({
+      success: false,
+      message: 'Missing required fields: name, email, and opportunity are required'
+    });
+  }
 
   if (!resend) {
-    return res.status(503).json({ success: false, message: 'Email not configured' });
+    console.error('❌ Resend not configured');
+    return res.status(503).json({ 
+      success: false, 
+      message: 'Email service not configured' 
+    });
   }
 
   try {
@@ -292,14 +330,33 @@ app.post('/send-career-application', upload.single('resume'), async (req, res) =
       reply_to: email,
       subject: `Career Application: ${opportunity} - ${name}`,
       html: `
-        <div style="font-family: Arial, sans-serif; padding: 20px;">
-          <h2>💼 New Career Application</h2>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
-          <p><strong>Opportunity:</strong> ${opportunity}</p>
-          <p><strong>Portfolio:</strong> ${portfolio || 'Not provided'}</p>
-          ${resume ? '<p>📎 Resume attached</p>' : ''}
+        <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f5f5f5;">
+          <div style="background-color: white; padding: 30px; border-radius: 10px; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #4f46e5;">💼 New Career Application</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+              <tr>
+                <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #eee;">Name:</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">${name}</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #eee;">Email:</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"><a href="mailto:${email}">${email}</a></td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #eee;">Phone:</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">${phone || 'Not provided'}</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #eee;">Opportunity:</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>${opportunity}</strong></td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #eee;">Portfolio:</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">${portfolio || 'Not provided'}</td>
+              </tr>
+            </table>
+            ${resume ? '<p style="margin-top: 20px;">📎 <strong>Resume attached</strong></p>' : '<p style="margin-top: 20px; color: #999;">No resume attached</p>'}
+          </div>
         </div>
       `,
     };
@@ -321,22 +378,41 @@ app.post('/send-career-application', upload.single('resume'), async (req, res) =
       to: email,
       subject: `Application Received - ${opportunity}`,
       html: `
-        <div style="font-family: Arial, sans-serif; padding: 20px;">
-          <h2>Application Received!</h2>
-          <p>Hi ${name},</p>
-          <p>Thank you for applying for <strong>${opportunity}</strong>!</p>
-          <p>We'll review within 1-3 business days.</p>
-          <p>Best Regards,<br><strong>Upskillize Career Team</strong></p>
+        <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f5f5f5;">
+          <div style="background-color: white; padding: 30px; border-radius: 10px; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #4f46e5;">Application Received!</h2>
+            <p>Hi ${name},</p>
+            <p>Thank you for applying for <strong>${opportunity}</strong> at Upskillize!</p>
+            <p>We've successfully received your application and our team will review it carefully. You can expect to hear back from us within 1-3 business days.</p>
+            <p>If you have any questions in the meantime, feel free to reach out:</p>
+            <p style="margin-left: 20px;">
+              <strong>Amit Agrawal – Co-Founder & Chief Sales Officer</strong><br>
+              📱 <a href="tel:+919820397297">+91 98203 97297</a><br>
+              ✉️ <a href="mailto:amit@upskillize.com">amit@upskillize.com</a>
+            </p>
+            <p>Best regards,<br><strong>Upskillize Career Team</strong></p>
+            <p style="text-align: center; margin-top: 20px;">
+              🌐 <a href="https://www.upskillize.com">www.upskillize.com</a>
+            </p>
+          </div>
         </div>
       `,
     });
 
     console.log('✅ User confirmation sent:', userEmail.id, '\n');
-    res.json({ success: true, message: 'Application submitted' });
+    res.json({ 
+      success: true, 
+      message: 'Application submitted successfully!' 
+    });
 
   } catch (error) {
     console.error('❌ Email failed:', error.message);
-    res.status(500).json({ success: false, message: 'Failed to submit', error: error.message });
+    console.error('Error details:', error);
+    res.status(500).json({ 
+      success: false, 
+      message: 'Failed to submit application', 
+      error: error.message 
+    });
   }
 });
 
@@ -349,9 +425,23 @@ app.post('/send-notification', async (req, res) => {
   console.log('\n📨 Course Notification Request');
   console.log('Email:', email);
   console.log('Course:', courseName);
+  console.log('Origin:', req.get('origin'));
+
+  // Validation
+  if (!email || !courseName) {
+    console.log('❌ Missing required fields');
+    return res.status(400).json({
+      success: false,
+      message: 'Missing required fields: email and courseName are required'
+    });
+  }
 
   if (!resend) {
-    return res.status(503).json({ success: false, message: 'Email not configured' });
+    console.error('❌ Resend not configured');
+    return res.status(503).json({ 
+      success: false, 
+      message: 'Email service not configured' 
+    });
   }
 
   try {
@@ -362,11 +452,27 @@ app.post('/send-notification', async (req, res) => {
       reply_to: email,
       subject: `Course Notification: ${courseName}`,
       html: `
-        <div style="font-family: Arial, sans-serif; padding: 20px;">
-          <h2>🔔 Course Notification Request</h2>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Course:</strong> ${courseName}</p>
-          <p><strong>Date:</strong> ${date}</p>
+        <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f5f5f5;">
+          <div style="background-color: white; padding: 30px; border-radius: 10px; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #4f46e5;">🔔 Course Notification Request</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+              <tr>
+                <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #eee;">Email:</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"><a href="mailto:${email}">${email}</a></td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #eee;">Course:</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>${courseName}</strong></td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #eee;">Date Requested:</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">${date || new Date().toLocaleDateString()}</td>
+              </tr>
+            </table>
+            <p style="margin-top: 20px; padding: 15px; background-color: #fff3cd; border-left: 4px solid #ffc107; color: #856404;">
+              <strong>Action Required:</strong> Add this user to the notification list for when <strong>${courseName}</strong> becomes available.
+            </p>
+          </div>
         </div>
       `,
     });
@@ -383,7 +489,7 @@ app.post('/send-notification', async (req, res) => {
           <div style="background-color: white; padding: 30px; border-radius: 10px; max-width: 600px; margin: 0 auto;">
             <h2 style="color: #4f46e5;">Thanks for Your Interest – Exciting Things Coming Soon!</h2>
             <p>Hi there,</p>
-            <p>Thank you for your interest in this program! We're thrilled to see your enthusiasm.</p>
+            <p>Thank you for your interest in <strong>${courseName}</strong>! We're thrilled to see your enthusiasm.</p>
             <p>This course is currently under development and will be launching soon. We'll make sure to keep you updated and notify you as soon as it's available.</p>
             <p>In the meantime, if you'd like to explore our other programs or have any questions, feel free to reach out:</p>
             <p style="margin-left: 20px;">
@@ -402,11 +508,19 @@ app.post('/send-notification', async (req, res) => {
     });
 
     console.log('✅ Notification sent:', userEmail.id, '\n');
-    res.json({ success: true, message: 'Notification request sent' });
+    res.json({ 
+      success: true, 
+      message: 'You will be notified when the course is available!' 
+    });
 
   } catch (error) {
     console.error('❌ Email failed:', error.message);
-    res.status(500).json({ success: false, message: 'Failed', error: error.message });
+    console.error('Error details:', error);
+    res.status(500).json({ 
+      success: false, 
+      message: 'Failed to send notification request', 
+      error: error.message 
+    });
   }
 });
 
@@ -420,24 +534,46 @@ app.get('/health', (req, res) => {
     emailProvider: 'Resend',
     fromEmail: FROM_EMAIL,
     adminEmails: ALL_ADMIN_EMAILS,
-    timestamp: new Date().toISOString()
+    corsEnabled: true,
+    allowedOrigins: allowedOrigins,
+    timestamp: new Date().toISOString(),
+    nodeVersion: process.version
   });
 });
 
 // ============================================
-// Root
+// Root Endpoint
 // ============================================
 app.get('/', (req, res) => {
   res.json({
     message: 'Upskillize Email API',
-    version: '4.1.0 - Resend (Enhanced CORS)',
+    version: '4.2.0 - Resend (CORS Fixed)',
     emailStatus: resend ? '✅ Configured' : '❌ Not configured',
+    corsStatus: '✅ Enabled',
     endpoints: [
-      'POST /send-mail',
-      'POST /send-career-application',
-      'POST /send-notification',
-      'GET /health'
-    ]
+      'POST /send-mail - Contact form submissions',
+      'POST /send-career-application - Career applications with resume upload',
+      'POST /send-notification - Course availability notifications',
+      'GET /health - Health check and configuration status',
+      'GET / - This information page'
+    ],
+    documentation: {
+      '/send-mail': {
+        method: 'POST',
+        requiredFields: ['name', 'email', 'inquiry', 'message'],
+        optionalFields: ['phone', 'company']
+      },
+      '/send-career-application': {
+        method: 'POST',
+        requiredFields: ['name', 'email', 'opportunity'],
+        optionalFields: ['phone', 'portfolio', 'resume (file)']
+      },
+      '/send-notification': {
+        method: 'POST',
+        requiredFields: ['email', 'courseName'],
+        optionalFields: ['date']
+      }
+    }
   });
 });
 
@@ -449,7 +585,14 @@ app.use((req, res, next) => {
     success: false,
     message: 'Endpoint not found',
     path: req.path,
-    method: req.method
+    method: req.method,
+    availableEndpoints: [
+      'GET /',
+      'GET /health',
+      'POST /send-mail',
+      'POST /send-career-application',
+      'POST /send-notification'
+    ]
   });
 });
 
@@ -457,12 +600,30 @@ app.use((req, res, next) => {
 // Error Handler
 // ============================================
 app.use((err, req, res, next) => {
-  console.error('❌ Error:', err.message);
+  console.error('❌ Server Error:', err.message);
   console.error('Stack:', err.stack);
+  
+  // Handle Multer errors
+  if (err instanceof multer.MulterError) {
+    if (err.code === 'LIMIT_FILE_SIZE') {
+      return res.status(400).json({ 
+        success: false, 
+        message: 'File too large. Maximum size is 3MB.',
+        error: err.message 
+      });
+    }
+    return res.status(400).json({ 
+      success: false, 
+      message: 'File upload error',
+      error: err.message 
+    });
+  }
+  
+  // Handle other errors
   res.status(500).json({ 
     success: false, 
     message: 'Internal server error',
-    error: err.message 
+    error: process.env.NODE_ENV === 'development' ? err.message : 'An error occurred'
   });
 });
 
@@ -473,12 +634,15 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log('\n╔═══════════════════════════════════════════╗');
   console.log('║   🚀 UPSKILLIZE EMAIL API SERVER         ║');
   console.log('║   📧 Powered by Resend                   ║');
+  console.log('║   🌐 CORS: ENABLED                       ║');
   console.log('╚═══════════════════════════════════════════╝\n');
   console.log(`🌐 Port: ${PORT}`);
-  console.log(`📧 From: ${FROM_EMAIL}`);
+  console.log(`📧 From Email: ${FROM_EMAIL}`);
   console.log(`📬 Admin Emails: ${ALL_ADMIN_EMAILS.join(', ')}`);
-  console.log(`📮 Status: ${resend ? '✅ Ready' : '❌ Not Configured'}`);
+  console.log(`📮 Email Status: ${resend ? '✅ Ready' : '❌ Not Configured'}`);
+  console.log(`🔒 CORS Origins: ${allowedOrigins.join(', ')}`);
+  console.log(`💻 Node Version: ${process.version}`);
   console.log('\n╔═══════════════════════════════════════════╗');
-  console.log('║   Server Ready                            ║');
+  console.log('║   ✅ Server Ready - CORS Configured       ║');
   console.log('╚═══════════════════════════════════════════╝\n');
 });
