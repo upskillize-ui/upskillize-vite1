@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { X, Mail } from "lucide-react";
 
+// ✅ ADD THIS - Same pattern as Contact.jsx
+const API_URL = import.meta.env.VITE_API_URL || 
+  (import.meta.env.DEV 
+    ? "http://localhost:5000" 
+    : "https://upskillize-backend-hdxn.onrender.com");
+
 export default function NotificationModal({ isOpen, onClose, courseTitle }) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("");
@@ -12,7 +18,8 @@ export default function NotificationModal({ isOpen, onClose, courseTitle }) {
     setStatus("sending");
 
     try {
-      const response = await fetch('http://localhost:5000/send-notification', {
+      // ✅ CHANGED: Use API_URL variable instead of hardcoded localhost
+      const response = await fetch(`${API_URL}/send-notification`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
