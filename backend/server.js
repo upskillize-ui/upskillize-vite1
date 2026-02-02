@@ -174,22 +174,90 @@ app.post('/send-mail', async (req, res) => {
 
     console.log('✅ Admin notification sent:', adminEmail.id);
 
-    // Send confirmation to user
-    const userEmail = await resend.emails.send({
-      from: FROM_EMAIL,
-      to: email,
-      subject: 'Thank you for contacting Upskillize',
-      html: `
+    // Determine email template based on inquiry type
+    let userSubject = '';
+    let userHtml = '';
+
+    if (inquiry === 'Course Information') {
+      // Template 1: Course Information Inquiry
+      userSubject = 'Thank You for Your Interest in Upskillize Courses!';
+      userHtml = `
+        <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f5f5f5;">
+          <div style="background-color: white; padding: 30px; border-radius: 10px; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #4f46e5;">Thank You for Your Interest in Upskillize Courses!</h2>
+            <p>Hi ${name},</p>
+            <p>Thank you for reaching out to learn more about our courses! We're excited that you're considering Upskillize for your learning journey.</p>
+            <p>We've received your inquiry and our team will respond within 24 hours with detailed course information tailored to your interests.</p>
+            <p>If you'd like to connect sooner, feel free to reach out:</p>
+            <p style="margin-left: 20px;">
+              <strong>Amit Agrawal – Co-Founder & Chief Sales Officer</strong><br>
+              📱 <a href="tel:+919820397297">+91 98203 97297</a><br>
+              ✉️ <a href="mailto:amit@upskillize.com">amit@upskillize.com</a>
+            </p>
+            <p>Looking forward to helping you achieve your goals!</p>
+            <p>Warm regards,<br><strong>Upskillize Team</strong></p>
+            <p style="text-align: center; margin-top: 20px;">
+              🌐 <a href="https://www.upskillize.com">www.upskillize.com</a>
+            </p>
+          </div>
+        </div>
+      `;
+    } else if (inquiry === 'Corporate Training' || inquiry === 'Partnership' || inquiry === 'General Support') {
+      // Template 2: Corporate Training / Partnership / General Support
+      userSubject = 'Thank You for Reaching Out to Upskillize!';
+      userHtml = `
+        <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f5f5f5;">
+          <div style="background-color: white; padding: 30px; border-radius: 10px; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #4f46e5;">Thank You for Reaching Out to Upskillize!</h2>
+            <p>Hi ${name},</p>
+            <p>Thank you for getting in touch with us! We truly appreciate you considering Upskillize and are excited about the opportunity to work with you.</p>
+            <p>We've received your inquiry and our team will respond within 24 hours to address your needs and explore how we can help.</p>
+            <p>If you'd like to connect sooner, please feel free to reach out directly:</p>
+            <p style="margin-left: 20px;">
+              <strong>Amit Agrawal – Co-Founder & Chief Sales Officer</strong><br>
+              📱 <a href="tel:+919820397297">+91 98203 97297</a><br>
+              ✉️ <a href="mailto:amit@upskillize.com">amit@upskillize.com</a>
+            </p>
+            <p>We look forward to connecting with you soon!</p>
+            <p>Warm regards,<br><strong>Upskillize Team</strong></p>
+            <p style="text-align: center; margin-top: 20px;">
+              🌐 <a href="https://www.upskillize.com">www.upskillize.com</a>
+            </p>
+          </div>
+        </div>
+      `;
+    } else {
+      // Default template
+      userSubject = 'Thank you for contacting Upskillize';
+      userHtml = `
         <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f5f5f5;">
           <div style="background-color: white; padding: 30px; border-radius: 10px; max-width: 600px; margin: 0 auto;">
             <h2 style="color: #4f46e5;">Thank You!</h2>
             <p>Hi ${name},</p>
-            <p>We've received your message regarding <strong>${inquiry}</strong>.</p>
-            <p>Our team will respond within 24 hours.</p>
-            <p>Best regards,<br><strong>Upskillize Team</strong></p>
+            <p>Thank you for getting in touch with us! We truly appreciate you considering Upskillize and are excited about the opportunity to work with you.</p>
+            <p>We've received your inquiry and our team will respond within 24 hours to address your needs and explore how we can help.</p>
+            <p>If you'd like to connect sooner, please feel free to reach out directly:</p>
+            <p style="margin-left: 20px;">
+              <strong>Amit Agrawal – Co-Founder & Chief Sales Officer</strong><br>
+              📱 <a href="tel:+919820397297">+91 98203 97297</a><br>
+              ✉️ <a href="mailto:amit@upskillize.com">amit@upskillize.com</a>
+            </p>
+            <p>We look forward to connecting with you soon!</p>
+            <p>Warm regards,<br><strong>Upskillize Team</strong></p>
+            <p style="text-align: center; margin-top: 20px;">
+              🌐 <a href="https://www.upskillize.com">www.upskillize.com</a>
+            </p>
           </div>
         </div>
-      `,
+      `;
+    }
+
+    // Send confirmation to user
+    const userEmail = await resend.emails.send({
+      from: FROM_EMAIL,
+      to: email,
+      subject: userSubject,
+      html: userHtml,
     });
 
     console.log('✅ User confirmation sent:', userEmail.id, '\n');
@@ -257,8 +325,8 @@ app.post('/send-career-application', upload.single('resume'), async (req, res) =
           <h2>Application Received!</h2>
           <p>Hi ${name},</p>
           <p>Thank you for applying for <strong>${opportunity}</strong>!</p>
-          <p>We'll review within 3-5 business days.</p>
-          <p>Best regards,<br><strong>Upskillize Career Team</strong></p>
+          <p>We'll review within 1-3 business days.</p>
+          <p>Best Regards,<br><strong>Upskillize Career Team</strong></p>
         </div>
       `,
     });
@@ -305,17 +373,30 @@ app.post('/send-notification', async (req, res) => {
 
     console.log('✅ Admin notification sent:', adminEmail.id);
 
-    // Send confirmation to user
+    // Send confirmation to user - Template 3: Coming Soon
     const userEmail = await resend.emails.send({
       from: FROM_EMAIL,
       to: email,
-      subject: `You're on the list! - ${courseName}`,
+      subject: 'Thanks for Your Interest – Exciting Things Coming Soon!',
       html: `
-        <div style="font-family: Arial, sans-serif; padding: 20px;">
-          <h2>🎉 You're on the List!</h2>
-          <p>Thank you for your interest in <strong>${courseName}</strong>!</p>
-          <p>We'll notify you when the course launches with exclusive discounts.</p>
-          <p>Best regards,<br><strong>Upskillize Team</strong></p>
+        <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f5f5f5;">
+          <div style="background-color: white; padding: 30px; border-radius: 10px; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #4f46e5;">Thanks for Your Interest – Exciting Things Coming Soon!</h2>
+            <p>Hi there,</p>
+            <p>Thank you for your interest in this program! We're thrilled to see your enthusiasm.</p>
+            <p>This course is currently under development and will be launching soon. We'll make sure to keep you updated and notify you as soon as it's available.</p>
+            <p>In the meantime, if you'd like to explore our other programs or have any questions, feel free to reach out:</p>
+            <p style="margin-left: 20px;">
+              <strong>Amit Agrawal – Co-Founder & Chief Sales Officer</strong><br>
+              📱 <a href="tel:+919820397297">+91 98203 97297</a><br>
+              ✉️ <a href="mailto:amit@upskillize.com">amit@upskillize.com</a>
+            </p>
+            <p>Stay tuned for something amazing!</p>
+            <p>Warm regards,<br><strong>Upskillize Team</strong></p>
+            <p style="text-align: center; margin-top: 20px;">
+              🌐 <a href="https://www.upskillize.com">www.upskillize.com</a>
+            </p>
+          </div>
         </div>
       `,
     });
