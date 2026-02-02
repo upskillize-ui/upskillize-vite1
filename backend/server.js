@@ -17,14 +17,50 @@ const ALL_ADMIN_EMAILS = [ADMIN_EMAIL_1, ADMIN_EMAIL_2];
 
 // Resend Configuration
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const FROM_EMAIL = process.env.FROM_EMAIL || 'onboarding@resend.dev'; // Change this after verifying your domain
+const FROM_EMAIL = process.env.FROM_EMAIL || 'ramesh@upskillize.com';
 
 // ============================================
 // Middleware
 // ============================================
-app.use(cors({ origin: '*', methods: ['GET', 'POST'], credentials: true }));
+// Enhanced CORS configuration for production
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    // Allowed origins
+    const allowedOrigins = [
+      'https://upskillize.com',
+      'https://www.upskillize.com',
+      'http://localhost:5173',
+      'http://localhost:3000',
+      'http://localhost:5000'
+    ];
+    
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(null, true); // Allow all origins for now (you can restrict later)
+    }
+  },
+  methods: ['GET', 'POST', 'OPTIONS'],
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
+
+// Handle preflight requests
+app.options('*', cors(corsOptions));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Request logging
+app.use((req, res, next) => {
+  console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`);
+  next();
+});
 
 // ============================================
 // Multer Configuration
@@ -77,6 +113,16 @@ app.post('/send-mail', async (req, res) => {
   console.log('Name:', name);
   console.log('Email:', email);
   console.log('Inquiry:', inquiry);
+  console.log('Origin:', req.get('origin'));
+
+  // Validation
+  if (!name || !email || !inquiry || !message) {
+    console.log('❌ Missing required fields');
+    return res.status(400).json({
+      success: false,
+      message: 'Missing required fields: name, email, inquiry, and message are required'
+    });
+  }
 
   if (!resend) {
     console.error('❌ Resend not configured');
@@ -154,7 +200,8 @@ app.post('/send-mail', async (req, res) => {
 
   } catch (error) {
     console.error('❌ Email failed:', error.message);
-    res.status(500).json({ success: false, message: 'Failed to send', error: error.message });
+    console.error('Error details:', error);
+    res.status(500).json({ success: false, message: 'Failed to send email', error: error.message });
   }
 });
 
@@ -294,7 +341,8 @@ app.get('/health', (req, res) => {
     emailConfigured: resend !== null,
     emailProvider: 'Resend',
     fromEmail: FROM_EMAIL,
-    adminEmails: ALL_ADMIN_EMAILS
+    adminEmails: ALL_ADMIN_EMAILS,
+    timestamp: new Date().toISOString()
   });
 });
 
@@ -304,7 +352,7 @@ app.get('/health', (req, res) => {
 app.get('/', (req, res) => {
   res.json({
     message: 'Upskillize Email API',
-    version: '4.0.0 - Resend',
+    version: '4.1.0 - Resend (Enhanced CORS)',
     emailStatus: resend ? '✅ Configured' : '❌ Not configured',
     endpoints: [
       'POST /send-mail',
@@ -316,17 +364,34 @@ app.get('/', (req, res) => {
 });
 
 // ============================================
+// 404 Handler
+// ============================================
+app.use((req, res, next) => {
+  res.status(404).json({
+    success: false,
+    message: 'Endpoint not found',
+    path: req.path,
+    method: req.method
+  });
+});
+
+// ============================================
 // Error Handler
 // ============================================
 app.use((err, req, res, next) => {
   console.error('❌ Error:', err.message);
-  res.status(500).json({ success: false, error: err.message });
+  console.error('Stack:', err.stack);
+  res.status(500).json({ 
+    success: false, 
+    message: 'Internal server error',
+    error: err.message 
+  });
 });
 
 // ============================================
 // Start Server
 // ============================================
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log('\n╔═══════════════════════════════════════════╗');
   console.log('║   🚀 UPSKILLIZE EMAIL API SERVER         ║');
   console.log('║   📧 Powered by Resend                   ║');
