@@ -140,7 +140,7 @@ const About = () => {
             {/* Advisor 3: Dr. Suresh A Shan */}
             <AdvisorCard
               initials="SS"
-              photo="/images/advisorsIMG/SS.jpg"
+              photo="/images/advisorsIMG/SS.png"
               name="Dr. Suresh A Shan"
               title="AICTE/BFSI/NAAC/NEP/NBFC-CEO/CIO (IOD-AI/BEB/ESG/GI/IB/TS/SG BOD-BC-IC, Investor TVM) (Autho-Influence-Innovato-mento-Researche-Speake)R"
               bio="Dr. sAs, 3 Doctorate of Philosophy in Computer Science (Mobility, Technology Behaviors at rural India, Indian Occupations cyber security in 
