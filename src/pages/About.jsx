@@ -143,7 +143,7 @@ const About = () => {
               photo="/images/advisorsIMG/SS.jpg"
               name="Dr. Suresh A Shan"
               title="AICTE/BFSI/NAAC/NEP/NBFC-CEO/CIO (IOD-AI/BEB/ESG/GI/IB/TS/SG BOD-BC-IC, Investor TVM) (Autho-Influence-Innovato-mento-Researche-Speake)R"
-              bio="Dr. sAs, 3 Doctorate of Philosophy in Computer Science (Mobility, Technology Behaviors 
+              bio="Dr. Suresh A Shan, 3 Doctorate of Philosophy in Computer Science (Mobility, Technology Behaviors 
               at rural India, Indian Occupations cyber security in rural India) 2 DBA Doctorate of Business 
               Administration in IT Governance, Academic Vs Industry Researcher, Entrepreneurial., Passionate."
               linkedin="https://www.linkedin.com/in/assuresh/"
