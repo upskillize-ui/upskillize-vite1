@@ -140,11 +140,13 @@ const About = () => {
             {/* Advisor 3: Dr. Suresh A Shan */}
             <AdvisorCard
               initials="SS"
-              photo="/images/advisorsIMG/SS.png"
+              photo="/images/advisorsIMG/SS.jpg"
               name="Dr. Suresh A Shan"
               title="AICTE/BFSI/NAAC/NEP/NBFC-CEO/CIO (IOD-AI/BEB/ESG/GI/IB/TS/SG BOD-BC-IC, Investor TVM) (Autho-Influence-Innovato-mento-Researche-Speake)R"
               bio="Dr. sAs, 3 Doctorate of Philosophy in Computer Science (Mobility, Technology Behaviors at rural India, Indian Occupations cyber security in 
-              rural India) 2 DBA Doctorate of Business Administration in IT Governance, Academic Vs Industry Researcher, Entrepreneurial., Passionate., Self-Driven, BFSI Technology Lead Architect, Mentor Rural Simplicity & Urban Complexity Advisor, Corporate Customer Evangelist, Multi-lingual Data Scientist, Affectionate & Create to build a product from scratch & scale them up from Zero. CXO Leaderships, Build startups, International digital Business transformation, voice, E-Marketing, IT-Hiring, Finding quality Rural Talent, Product Service Digital Business, Logician quantum, IT Simple Theorist, BITS MMFSS. "
+              rural India) 2 DBA Doctorate of Business Administration in IT Governance, Academic Vs Industry Researcher, Entrepreneurial., Passionate.Passionate., 
+              Self-Driven, BFSI Technology Lead Architect, Mentor Rural Simplicity & Urban Complexity Advisor, Corporate Customer Evangelist, Multi-lingual Data 
+              Scientist, Affectionate & Create to build a product from scratch & scale them up from Zero."
               linkedin="https://www.linkedin.com/in/assuresh/"
             />
 
