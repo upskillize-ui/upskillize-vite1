@@ -40,7 +40,6 @@ export default function Home() {
     "text-yellow-400",
   ];
 
-  // Hero background images that auto-rotate
   const heroBackgrounds = [
     {
       id: 1,
@@ -64,7 +63,6 @@ export default function Home() {
     }
   ];
 
-  // Auto-rotate hero backgrounds
   useEffect(() => {
     const slideInterval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroBackgrounds.length);
@@ -79,131 +77,174 @@ export default function Home() {
     return () => clearInterval(colorInterval);
   }, []);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % heroBackgrounds.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + heroBackgrounds.length) % heroBackgrounds.length);
-  };
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroBackgrounds.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + heroBackgrounds.length) % heroBackgrounds.length);
 
   return (
     <div className="w-full overflow-x-hidden">
+
+      {/* ============================================================
+          GLOBAL STYLES
+      ============================================================ */}
       <style>{`
-        @keyframes scroll-left {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-       }
-
-      .scroll-container {
-      animation: scroll-left 30s linear infinite;
-      }
-
-      .scroll-container:hover {
-      animation-play-state: paused;
-      }
-
-        .program-card {
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        @keyframes autoSlide {
+          0%   { transform: translateY(0); }
+          45%  { transform: translateY(0); }
+          50%  { transform: translateY(-100vh); }
+          95%  { transform: translateY(-100vh); }
+          100% { transform: translateY(0); }
         }
-        
+        .auto-slide-wrap {
+          animation: autoSlide 12s ease-in-out infinite;
+          will-change: transform;
+        }
+
+        @keyframes bounceArrow {
+          0%, 100% { transform: translateX(-50%) translateY(0);   opacity: 1; }
+          50%       { transform: translateX(-50%) translateY(10px); opacity: 0.5; }
+        }
+        .bounce-arrow {
+          position: absolute;
+          bottom: 28px;
+          left: 50%;
+          transform: translateX(-50%);
+          animation: bounceArrow 1.2s ease-in-out infinite;
+          z-index: 20;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 4px;
+        }
+
+        @keyframes letterFlyUp {
+          from { opacity: 0; transform: translateY(40px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        .animate-letter {
+          display: inline-block;
+          opacity: 0;
+          animation: letterFlyUp 0.45s cubic-bezier(.22,1,.36,1) both;
+        }
+
+        @keyframes indiaFadeIn {
+          from { opacity: 0; transform: translateY(24px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        .india-card {
+          opacity: 0;
+          animation: indiaFadeIn 0.6s ease both;
+          animation-play-state: paused;
+        }
+        .india-visible .india-card {
+          animation-play-state: running;
+        }
+
+        @keyframes scroll-left {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .scroll-container { animation: scroll-left 30s linear infinite; }
+        .scroll-container:hover { animation-play-state: paused; }
+
+        .program-card { transition: all 0.4s cubic-bezier(0.4,0,0.2,1); }
         .program-card:hover {
           transform: translateY(-10px);
-          box-shadow: 0 20px 60px rgba(96, 165, 250, 0.2);
+          box-shadow: 0 20px 60px rgba(96,165,250,0.2);
           border-color: #60a5fa;
         }
-
-        .hero-background-image {
-          transition: opacity 1500ms ease-in-out;
-        }
+        .hero-background-image { transition: opacity 1500ms ease-in-out; }
 
         @keyframes float {
           0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-15px); }
+          50%       { transform: translateY(-15px); }
         }
-
-        .logo-float {
-          animation: float 6s ease-in-out infinite;
-        }
-
-        .logo-item:nth-child(1) { animation-delay: 0s; }
-        .logo-item:nth-child(2) { animation-delay: 0.5s; }
-        .logo-item:nth-child(3) { animation-delay: 1s; }
-        .logo-item:nth-child(4) { animation-delay: 1.5s; }
-        .logo-item:nth-child(5) { animation-delay: 2s; }
-        .logo-item:nth-child(6) { animation-delay: 2.5s; }
-        .logo-item:nth-child(7) { animation-delay: 3s; }
-        .logo-item:nth-child(8) { animation-delay: 3.5s; }
-        .logo-item:nth-child(9) { animation-delay: 4s; }
-        .logo-item:nth-child(10) { animation-delay: 4.5s; }
+        .logo-float { animation: float 6s ease-in-out infinite; }
       `}</style>
 
-      {/* HERO SECTION */}
-      <section className="relative bg-gradient-to-br from-[#0a1628] via-[#1a2d4a] to-[#1e3a5f] text-white overflow-hidden min-h-screen">
-        {heroBackgrounds.map((bg, index) => (
-          <div
-            key={bg.id}
-            className={`hero-background-image absolute inset-0 ${
-              index === currentSlide ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-              style={{ backgroundImage: `url(${bg.image})` }}
-            />
-            <div className={`absolute inset-0 bg-gradient-to-r ${bg.overlay}`}></div>
-          </div>
-        ))}
+      {/* ============================================================
+          HERO + INDIA AUTO-SCROLL CONTAINER
+      ============================================================ */}
+      <div style={{ height: '100vh', overflow: 'hidden', position: 'relative' }}>
+        <div className="auto-slide-wrap" style={{ height: '200vh' }}>
 
-        <button 
-          onClick={prevSlide} 
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 backdrop-blur-md p-4 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110 active:scale-95 shadow-xl border border-white/30 cursor-pointer"
-          aria-label="Previous slide"
-        >
-          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
+          {/* ══════════════════════════════════════
+              SCREEN 1 — Hero Slideshow
+          ══════════════════════════════════════ */}
+          <div style={{ height: '100vh', position: 'relative', overflow: 'hidden' }}
+            className="bg-gradient-to-br from-[#0a1628] via-[#1a2d4a] to-[#1e3a5f] text-white">
 
-        <button 
-          onClick={nextSlide} 
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 backdrop-blur-md p-4 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110 active:scale-95 shadow-xl border border-white/30 cursor-pointer"
-          aria-label="Next slide"
-        >
-          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
+            {/* Rotating background images */}
+            {heroBackgrounds.map((bg, index) => (
+              <div key={bg.id}
+                className={`hero-background-image absolute inset-0 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}>
+                <div className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                  style={{ backgroundImage: `url(${bg.image})` }} />
+                <div className={`absolute inset-0 bg-gradient-to-r ${bg.overlay}`} />
+              </div>
+            ))}
 
-        <div className="absolute top-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-          {heroBackgrounds.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`transition-all duration-300 rounded-full ${
-                index === currentSlide ? "w-8 h-2 bg-white" : "w-2 h-2 bg-white/40 hover:bg-white/60"
-              }`}
-            />
-          ))}
-        </div>
+            {/* Prev button */}
+            <button onClick={prevSlide}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 backdrop-blur-md p-4 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110 active:scale-95 shadow-xl border border-white/30 cursor-pointer"
+              aria-label="Previous slide">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 z-10 flex items-center min-h-screen">
-          <div className="text-center w-full">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight text-white drop-shadow-2xl px-4 mb-6">
-              Transform Your Career with Elite Industry Programs
-            </h1>
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-white mb-6 drop-shadow-lg">
-              Designed by Seasoned Business Professionals
-            </h2>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto mb-8">
-              Gain real-world skills through{" "}
-              <span className={`font-bold ${highlightColors[colorIndex]} transition-colors duration-500`}>
-                70% hands-on learning
-              </span>{" "}
-              programs crafted by 22+ <span className="font-semibold text-cyan-300">industry veterans</span>
-            </p>
+            {/* Next button */}
+            <button onClick={nextSlide}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 backdrop-blur-md p-4 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110 active:scale-95 shadow-xl border border-white/30 cursor-pointer"
+              aria-label="Next slide">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
+            {/* Slide dots */}
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+              {heroBackgrounds.map((_, index) => (
+                <button key={index} onClick={() => setCurrentSlide(index)}
+                  className={`transition-all duration-300 rounded-full ${
+                    index === currentSlide ? 'w-8 h-2 bg-white' : 'w-2 h-2 bg-white/40 hover:bg-white/60'
+                  }`} />
+              ))}
+            </div>
+
+            {/* Hero text content */}
+            <div className="relative z-10 flex items-center justify-center h-full text-center px-4">
+              <div>
+                <h1 className="font-extrabold leading-tight text-white drop-shadow-2xl mb-6"
+                  style={{ fontSize: 'clamp(26px, 4vw, 58px)' }}>
+                  {'Transform Your Career with Elite Industry Programs'.split('').map((char, i) => (
+                    <span key={i} className="animate-letter"
+                      style={{ animationDelay: `${i * 0.028}s` }}>
+                      {char === ' ' ? '\u00A0' : char}
+                    </span>
+                  ))}
+                </h1>
+
+                <h2 className="font-bold leading-tight text-white mb-6 drop-shadow-lg"
+                  style={{ fontSize: 'clamp(16px, 2.5vw, 34px)' }}>
+                  {'Designed by Seasoned Business Professionals'.split('').map((char, i) => (
+                    <span key={i} className="animate-letter"
+                      style={{ animationDelay: `${1.4 + i * 0.022}s` }}>
+                      {char === ' ' ? '\u00A0' : char}
+                    </span>
+                  ))}
+                </h2>
+
+                <p className="text-gray-100 max-w-3xl mx-auto mb-8 animate-letter"
+                  style={{ fontSize: 'clamp(14px, 1.5vw, 21px)', animationDelay: '2.6s' }}>
+                  Gain real-world skills through{' '}
+                  <span className={`font-bold ${highlightColors[colorIndex]} transition-colors duration-500`}>
+                    70% hands-on learning
+                  </span>{' '}
+                  programs crafted by 22+{' '}
+                  <span className="font-semibold text-cyan-300">industry veterans</span>
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
               <Link to="/academic" className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all shadow-xl hover:shadow-2xl hover:scale-105 transform">
                 Explore Programs
                 <ArrowRight className="w-5 h-5" />
@@ -212,9 +253,213 @@ export default function Home() {
                 Contact Us
               </Link>
             </div>
+              </div>
+            </div>
+
+            {/* Bouncing down arrow */}
+            <div className="bounce-arrow">
+              <span className="text-white/50 text-xs tracking-widest uppercase">scroll</span>
+              <svg className="w-7 h-7 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
           </div>
+          {/* END SCREEN 1 */}
+
+          {/* ══════════════════════════════════════
+              SCREEN 2 — India Future Leaders
+          ══════════════════════════════════════ */}
+          <div style={{ height: '100vh', overflow: 'hidden' }}
+            className="flex flex-col lg:flex-row india-visible">
+
+            {/* LEFT SIDE */}
+            <div className="flex-1 relative flex flex-col justify-center px-10 lg:px-16 py-12 overflow-hidden"
+              style={{ background: '#0D1B3E' }}>
+
+              {/* Tricolor left edge */}
+              <div className="absolute top-0 left-0 w-1 h-full flex flex-col">
+                <div className="flex-1" style={{ background: '#FF6B00' }} />
+                <div className="flex-1" style={{ background: 'rgba(255,255,255,0.15)' }} />
+                <div className="flex-1" style={{ background: '#138808' }} />
+              </div>
+
+              {/* Dot texture */}
+              <div className="absolute inset-0 pointer-events-none" style={{
+                backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px)',
+                backgroundSize: '28px 28px'
+              }} />
+
+              {/* Glow */}
+              <div className="absolute inset-0 pointer-events-none" style={{
+                background: 'radial-gradient(ellipse at 30% 50%, rgba(255,107,0,0.07) 0%, transparent 65%)'
+              }} />
+
+              <div className="relative z-10">
+                {/* Brand mark */}
+                <div className="flex items-center gap-3 mb-5 india-card"
+                  style={{ animationDelay: '0.1s', color: 'rgba(255,107,0,0.75)', fontSize: '12px', letterSpacing: '4px' }}>
+                  <div className="w-5 h-0.5 rounded"
+                    style={{ background: 'linear-gradient(90deg,#FF6B00,#F5A623)' }} />
+                  🇮🇳 UPSKILLIZE
+                </div>
+
+                {/* Headline */}
+                <h2 className="font-extrabold leading-tight mb-4 text-white india-card"
+                  style={{ fontSize: 'clamp(28px, 3.2vw, 52px)', fontFamily: 'Georgia,serif', animationDelay: '0.2s' }}>
+                  Where India's<br />Future Leaders<br />
+                  <em style={{ color: '#FF6B00' }}>Are Made.</em>
+                </h2>
+
+                {/* Divider */}
+                <div className="w-10 h-0.5 rounded mb-4 india-card"
+                  style={{ background: 'linear-gradient(90deg,#FF6B00,#00A99D)', animationDelay: '0.3s' }} />
+
+                {/* Body */}
+                <p className="mb-6 leading-relaxed font-light max-w-sm india-card"
+                  style={{ color: 'rgba(255,255,255,0.58)', fontSize: '14px', animationDelay: '0.35s' }}>
+                  India isn't just adopting the world's best practices —{' '}
+                  <strong style={{ color: 'rgba(255,255,255,0.85)' }}>it's rewriting the rules.</strong>{' '}
+                  Real regulatory knowledge, expert mentors, and a community for life.
+                </p>
+
+                {/* Steps */}
+                <div className="flex flex-col gap-3 mb-7 india-card" style={{ animationDelay: '0.45s' }}>
+                  {[
+                    { color: '#FF6B00', shadow: 'rgba(255,107,0,0.5)',  label: 'Learn',  desc: 'Live Indian regulatory frameworks' },
+                    { color: '#00A99D', shadow: 'rgba(0,169,157,0.5)',   label: 'Grow',   desc: '1-on-1 BFSI & AI practitioners' },
+                    { color: '#F5A623', shadow: 'rgba(245,166,35,0.5)',  label: 'Lead',   desc: 'Certified & conference-stage ready' },
+                    { color: '#3db843', shadow: 'rgba(61,184,67,0.5)',   label: 'Belong', desc: 'Lifetime alumni network' },
+                  ].map(({ color, shadow, label, desc }) => (
+                    <div key={label} className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full flex-shrink-0"
+                        style={{ background: color, boxShadow: `0 0 8px ${shadow}` }} />
+                      <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '13px' }}>
+                        <strong style={{ color: '#fff' }}>{label}</strong> — {desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA */}
+                <div className="flex items-center gap-4 india-card" style={{ animationDelay: '0.55s' }}>
+                  <Link to="/academic"
+                    className="inline-block px-6 py-3 rounded-lg font-bold text-white text-sm hover:-translate-y-0.5 transition-all"
+                    style={{ background: 'linear-gradient(135deg,#FF6B00,#F5A623)', boxShadow: '0 4px 20px rgba(255,107,0,0.3)' }}>
+                    Start Your Journey
+                  </Link>
+                  <Link to="/academic"
+                    className="flex items-center gap-1 text-sm transition-colors hover:text-teal-400"
+                    style={{ color: 'rgba(255,255,255,0.45)' }}>
+                    Explore Programs <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Stat strip */}
+              <div className="absolute bottom-0 left-0 right-0 flex gap-6 px-10 lg:px-16 py-3"
+                style={{ background: 'rgba(0,0,0,0.25)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+                {[
+                  { num: '₹10,372 Cr', lbl: 'IndiaAI Mission Budget' },
+                  { num: '43.76%',     lbl: 'AI Market CAGR India'   },
+                  { num: 'NEP 2020',   lbl: 'Curriculum Aligned'      },
+                ].map(({ num, lbl }) => (
+                  <div key={lbl}>
+                    <div className="font-bold leading-none"
+                      style={{ color: '#F5A623', fontSize: '18px', letterSpacing: '1px' }}>{num}</div>
+                    <div className="mt-0.5 uppercase"
+                      style={{ fontSize: '9px', letterSpacing: '1px', color: 'rgba(255,255,255,0.35)' }}>{lbl}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* END LEFT SIDE */}
+
+            {/* RIGHT SIDE */}
+            <div className="flex-1 relative flex flex-col justify-center px-10 lg:px-14 py-10 overflow-hidden"
+              style={{ background: '#111f42' }}>
+
+              {/* Glow */}
+              <div className="absolute inset-0 pointer-events-none" style={{
+                background: 'radial-gradient(ellipse at 70% 30%, rgba(0,169,157,0.06) 0%, transparent 65%)'
+              }} />
+
+              {/* Centre divider line */}
+              <div className="absolute top-[6%] bottom-[6%] left-0 w-px hidden lg:block" style={{
+                background: 'linear-gradient(180deg,transparent,rgba(255,107,0,0.2) 50%,transparent)'
+              }} />
+
+              <p className="mb-2 font-bold uppercase tracking-widest india-card"
+                style={{ fontSize: '10px', color: 'rgba(0,169,157,0.8)', animationDelay: '0.2s' }}>
+                India's Regulatory & Policy Landscape
+              </p>
+
+              <h3 className="font-bold mb-5 leading-snug text-white india-card"
+                style={{ fontSize: 'clamp(18px, 1.8vw, 26px)', fontFamily: 'Georgia,serif', animationDelay: '0.3s' }}>
+                Every Program Built Around<br />
+                <span style={{ color: '#F5A623', fontStyle: 'italic' }}>India's Real-World Rules</span>
+              </h3>
+
+              {/* Regulatory cards grid */}
+              <div className="grid grid-cols-2 gap-2 india-card" style={{ animationDelay: '0.4s' }}>
+                {[
+                  {
+                    color: '#FF6B00', bg: 'rgba(255,107,0,0.07)',  border: 'rgba(255,107,0,0.22)',
+                    icon: '🏦', name: 'RBI',       tag: 'Banking Regulation',
+                    desc: 'RBI Innovation Hub, Account Aggregator, DPDPA compliance & cybersecurity frameworks.',
+                  },
+                  {
+                    color: '#00A99D', bg: 'rgba(0,169,157,0.07)',  border: 'rgba(0,169,157,0.22)',
+                    icon: '🛡️', name: 'IRDAI',     tag: 'Insurance Sandbox',
+                    desc: 'ML-based risk pricing & InsurTech disruption. IRDAI sandbox is live — be ready to lead it.',
+                  },
+                  {
+                    color: '#a78bfa', bg: 'rgba(139,92,246,0.07)', border: 'rgba(139,92,246,0.22)',
+                    icon: '📊', name: 'SEBI',      tag: 'Risk Governance',
+                    desc: 'Algo trading rules & risk governance frameworks — compliance as a career accelerator.',
+                  },
+                  {
+                    color: '#F5A623', bg: 'rgba(245,166,35,0.07)', border: 'rgba(245,166,35,0.22)',
+                    icon: '🚀', name: 'India 3.0', tag: 'Services → Products',
+                    desc: 'India shifting from IT services to software products. AI-native thinkers are the most sought-after talent.',
+                  },
+                  {
+                    color: '#60a5fa', bg: 'rgba(59,130,246,0.07)', border: 'rgba(59,130,246,0.22)',
+                    icon: '🎓', name: 'NEP · NSDC', tag: 'Education Framework',
+                    desc: 'NEP 2020 outcome-linked credits + NSDC/NCVET skill standards. Multidisciplinary & placement-ready.',
+                    span: true,
+                  },
+                ].map(({ color, bg, border, icon, name, tag, desc, span }) => (
+                  <div key={name}
+                    className={`rounded-xl p-3 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] ${span ? 'col-span-2' : ''}`}
+                    style={{ background: bg, border: `1px solid ${border}` }}>
+                    <div className="text-xl mb-1">{icon}</div>
+                    <div className="font-bold mb-0.5" style={{ color, fontSize: '15px', letterSpacing: '0.5px' }}>{name}</div>
+                    <div className="uppercase mb-1" style={{ fontSize: '8px', letterSpacing: '1.5px', color: `${color}88` }}>{tag}</div>
+                    <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.45)', lineHeight: '1.55' }}>{desc}</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Footer note */}
+              <div className="flex items-center gap-3 mt-4 india-card" style={{ animationDelay: '0.55s' }}>
+                <div className="w-1.5 h-1.5 rounded-full flex-shrink-0 animate-pulse" style={{ background: '#FF6B00' }} />
+                <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.3)' }}>
+                  <strong style={{ color: 'rgba(255,255,255,0.55)' }}>
+                    India is one of the fastest growing AI markets in the world
+                  </strong>{' '}
+                  — and Upskillize is your gateway to leading it.
+                </p>
+              </div>
+            </div>
+            {/* END RIGHT SIDE */}
+
+          </div>
+          {/* END SCREEN 2 */}
+
         </div>
-      </section>
+        {/* END auto-slide-wrap */}
+      </div>
+      {/* END overflow container */}
 
       {/* STATS SECTION */}
       <section className="py-16 bg-gradient-to-br from-[#0f1729] via-[#1a2847] to-[#243452]">
