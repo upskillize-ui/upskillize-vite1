@@ -212,37 +212,21 @@ export default function Home() {
             </div>
 
             {/* Hero text content */}
-            <div className="relative z-10 flex items-center justify-center h-full text-center px-4">
-              <div>
-                <h1 className="font-extrabold leading-tight text-white drop-shadow-2xl mb-6"
-                  style={{ fontSize: 'clamp(26px, 4vw, 58px)' }}>
-                  {'Transform Your Career with Elite Industry Programs'.split('').map((char, i) => (
-                    <span key={i} className="animate-letter"
-                      style={{ animationDelay: `${i * 0.028}s` }}>
-                      {char === ' ' ? '\u00A0' : char}
-                    </span>
-                  ))}
-                </h1>
-
-                <h2 className="font-bold leading-tight text-white mb-6 drop-shadow-lg"
-                  style={{ fontSize: 'clamp(16px, 2.5vw, 34px)' }}>
-                  {'Designed by Seasoned Business Professionals'.split('').map((char, i) => (
-                    <span key={i} className="animate-letter"
-                      style={{ animationDelay: `${1.4 + i * 0.022}s` }}>
-                      {char === ' ' ? '\u00A0' : char}
-                    </span>
-                  ))}
-                </h2>
-
-                <p className="text-gray-100 max-w-3xl mx-auto mb-8 animate-letter"
-                  style={{ fontSize: 'clamp(14px, 1.5vw, 21px)', animationDelay: '2.6s' }}>
-                  Gain real-world skills through{' '}
-                  <span className={`font-bold ${highlightColors[colorIndex]} transition-colors duration-500`}>
-                    70% hands-on learning
-                  </span>{' '}
-                  programs crafted by 22+{' '}
-                  <span className="font-semibold text-cyan-300">industry veterans</span>
-                </p>
+                    <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 z-10 flex items-center min-h-screen">
+          <div className="text-center w-full">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight text-white drop-shadow-2xl px-4 mb-6">
+              Transform Your Career with Elite Industry Programs
+            </h1>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-white mb-6 drop-shadow-lg">
+              Designed by Seasoned Business Professionals
+            </h2>
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto mb-8">
+              Gain real-world skills through{" "}
+              <span className={`font-bold ${highlightColors[colorIndex]} transition-colors duration-500`}>
+                70% hands-on learning
+              </span>{" "}
+              programs crafted by 22+ <span className="font-semibold text-cyan-300">industry veterans</span>
+            </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
               <Link to="/academic" className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all shadow-xl hover:shadow-2xl hover:scale-105 transform">
