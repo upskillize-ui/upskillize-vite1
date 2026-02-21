@@ -253,11 +253,12 @@ export default function Home() {
           {/* ══════════════════════════════════════
               SCREEN 2 — India Future Leaders
           ══════════════════════════════════════ */}
-          <div style={{ height: '100vh', overflow: 'hidden' }}
-            className="flex flex-col lg:flex-row india-visible">
+          <div className="india-visible"
+             style={{ height: '100vh', overflowY: 'auto', overflowX: 'hidden' }}>
+              <div className="flex flex-col lg:flex-row lg:h-full">
 
             {/* LEFT SIDE */}
-            <div className="flex-1 relative flex flex-col justify-center px-10 lg:px-16 py-12 overflow-hidden"
+            <div className="flex-1 relative flex flex-col justify-center px-6 sm:px-10 lg:px-16 pt-10 pb-24 lg:pb-12 overflow-hidden"
               style={{ background: '#0D1B3E' }}>
 
               {/* Tricolor left edge */}
@@ -289,7 +290,7 @@ export default function Home() {
 
                 {/* Headline */}
                 <h2 className="font-extrabold leading-tight mb-4 text-white india-card"
-                  style={{ fontSize: 'clamp(28px, 3.2vw, 52px)', fontFamily: 'Georgia,serif', animationDelay: '0.2s' }}>
+                  style={{ fontSize: 'clamp(24px, 3.2vw, 52px)', fontFamily: 'Georgia,serif', animationDelay: '0.2s' }}>
                   Where India's<br />Future Leaders<br />
                   <em style={{ color: '#FF6B00' }}>Are Made.</em>
                 </h2>
@@ -340,7 +341,7 @@ export default function Home() {
               </div>
 
               {/* Stat strip */}
-              <div className="absolute bottom-0 left-0 right-0 flex gap-6 px-10 lg:px-16 py-3"
+              <div className="relative lg:absolute lg:bottom-0 lg:left-0 lg:right-0 flex gap-4 sm:gap-6 px-0 lg:px-16 py-3 mt-4 lg:mt-0"
                 style={{ background: 'rgba(0,0,0,0.25)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
                 {[
                   { num: '₹10,372 Cr', lbl: 'IndiaAI Mission Budget' },
@@ -437,7 +438,8 @@ export default function Home() {
             </div>
             {/* END RIGHT SIDE */}
 
-          </div>
+           </div>
+        </div>
           {/* END SCREEN 2 */}
 
         </div>
