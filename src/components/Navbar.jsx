@@ -23,9 +23,9 @@ export default function Navbar() {
 
   useEffect(() => {
     if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
   }, [isMobileMenuOpen]);
 
@@ -366,10 +366,10 @@ export default function Navbar() {
           }
         }
       `}</style>
-      <div className="navbar-fixed-container">        
+      <div className="navbar-fixed-container">
         {/* Main Navbar */}
-        <header className={`main-navbar ${isScrolled ? 'scrolled' : ''}`}>
-          <div className="navbar-content"> 
+        <header className={`main-navbar ${isScrolled ? "scrolled" : ""}`}>
+          <div className="navbar-content">
             {/* Logo */}
             <a href="/" className="logo-link" onClick={closeMobileMenu}>
               <img
@@ -377,8 +377,8 @@ export default function Navbar() {
                 alt="Upskillize"
                 className="logo-image"
                 onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.nextElementSibling.style.display = 'inline-block';
+                  e.target.style.display = "none";
+                  e.target.nextElementSibling.style.display = "inline-block";
                 }}
               />
               <span className="logo-text">Upskillize</span>
@@ -394,16 +394,45 @@ export default function Navbar() {
                     <ChevronDown size={16} className="dropdown-icon" />
                   </button>
                   <div className="dropdown-menu">
-                    <a href="/courses/ai-fintech" className="dropdown-link">AI in FinTech</a>
-                    <a href="/courses/product-leadership" className="dropdown-link">Product Leadership</a>
-                    <a href="/courses/data-analytics-genai" className="dropdown-link">Data Analytics, GenAI & Business Intelligence</a>
-                    <a href="/courses/technology-digital-transformation" className="dropdown-link">Technology & Digital Transformation</a>
-                    <a href="/courses/integrated-courses" className="dropdown-link">Integrated Courses</a>
-                    <a href="/courses/cybersecurity" className="dropdown-link">Cybersecurity</a>
-                    <a href="/courses/corporate-readiness-program" className="dropdown-link">Mental Health & Social Wellness</a>
+                    <a href="/courses/ai-fintech" className="dropdown-link">
+                      AI in FinTech
+                    </a>
+                    <a
+                      href="/courses/product-leadership"
+                      className="dropdown-link"
+                    >
+                      Product Leadership
+                    </a>
+                    <a
+                      href="/courses/data-analytics-genai"
+                      className="dropdown-link"
+                    >
+                      Data Analytics, GenAI & Business Intelligence
+                    </a>
+                    <a
+                      href="/courses/technology-digital-transformation"
+                      className="dropdown-link"
+                    >
+                      Technology & Digital Transformation
+                    </a>
+                    <a
+                      href="/courses/integrated-courses"
+                      className="dropdown-link"
+                    >
+                      Integrated Courses
+                    </a>
+                    <a href="/courses/cybersecurity" className="dropdown-link">
+                      Cybersecurity
+                    </a>
+                    <a
+                      href="/courses/corporate-readiness-program"
+                      className="dropdown-link"
+                    >
+                      Mental Health & Social Wellness
+                    </a>
                   </div>
                 </div>
-                
+
                 {/* Corporates Dropdown */}
                 <div className="nav-dropdown">
                   <button className="dropdown-trigger">
@@ -411,8 +440,12 @@ export default function Navbar() {
                     <ChevronDown size={16} className="dropdown-icon" />
                   </button>
                   <div className="dropdown-menu">
-                    <a href="/corporate/consulting" className="dropdown-link">Business Consulting</a>
-                    <a href="/corporate/training" className="dropdown-link">Corporate Training</a>
+                    <a href="/corporate/consulting" className="dropdown-link">
+                      Business Consulting
+                    </a>
+                    <a href="/corporate/training" className="dropdown-link">
+                      Corporate Training
+                    </a>
                   </div>
                 </div>
 
@@ -423,16 +456,40 @@ export default function Navbar() {
                     <ChevronDown size={16} className="dropdown-icon" />
                   </button>
                   <div className="dropdown-menu">
-                    <a href="/products/compliize" className="dropdown-link">Data Complize</a>
-                    <a href="/products/optimize" className="dropdown-link">Cost Optimize</a>
-                    <a href="/products/Vendorize" className="dropdown-link">De-risk Vendorize</a>
+                    <a href="/products/compliize" className="dropdown-link">
+                      Data Complize
+                    </a>
+                    <a href="/products/optimize" className="dropdown-link">
+                      Cost Optimize
+                    </a>
+                    <a href="/products/Vendorize" className="dropdown-link">
+                      De-risk Vendorize
+                    </a>
+                  </div>
+                </div>
+                <div className="nav-dropdown">
+                  <button className="dropdown-trigger">
+                    Career Accelerator
+                    <ChevronDown size={16} className="dropdown-icon" />
+                  </button>
+                  <div className="dropdown-menu">
+                    <a href="/corporate/consulting" className="dropdown-link">
+                      Internship Program
+                    </a>
+                    <a href="/corporate/training" className="dropdown-link">
+                      Placement Assistance
+                    </a>
                   </div>
                 </div>
               </nav>
               {/* Right Side Navigation */}
               <nav className="desktop-nav-right">
-                <a href="/about" className="nav-link">About</a>
-                <a href="/contact" className="nav-link">Contact Us</a>
+                <a href="/about" className="nav-link">
+                  About
+                </a>
+                <a href="/contact" className="nav-link">
+                  🙍
+                </a>
               </nav>
             </div>
             {/* Mobile Menu Button */}
@@ -446,52 +503,156 @@ export default function Navbar() {
           </div>
         </header>
         {/* Mobile Menu */}
-        <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+        <div className={`mobile-menu ${isMobileMenuOpen ? "open" : ""}`}>
           <nav className="mobile-nav">
             {/* Mobile Academic Dropdown */}
             <div>
-              <button onClick={toggleAcademic} className="mobile-dropdown-trigger">
+              <button
+                onClick={toggleAcademic}
+                className="mobile-dropdown-trigger"
+              >
                 Academic
-                <ChevronDown size={20} className={`dropdown-icon ${isAcademicOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown
+                  size={20}
+                  className={`dropdown-icon ${isAcademicOpen ? "rotate-180" : ""}`}
+                />
               </button>
-              <div className={`mobile-dropdown-content ${isAcademicOpen ? 'open' : ''}`}>
-                <a href="/courses/ai-fintech" onClick={closeMobileMenu} className="mobile-dropdown-link">AI in FinTech</a>
-                <a href="/courses/product-leadership" onClick={closeMobileMenu} className="mobile-dropdown-link">Product Leadership</a>
-                <a href="/courses/data-analytics-genai" onClick={closeMobileMenu} className="mobile-dropdown-link">Data Analytics, GenAI & Business Intelligence</a>
-                <a href="/courses/technology-digital-transformation" onClick={closeMobileMenu} className="mobile-dropdown-link">Technology & Digital Transformation</a>
-                <a href="/courses/integrated-courses" onClick={closeMobileMenu} className="mobile-dropdown-link">Integrated Courses</a>
-                <a href="/courses/cybersecurity" onClick={closeMobileMenu} className="mobile-dropdown-link">Cybersecurity</a>
-                <a href="/courses/mental-health-wellness" onClick={closeMobileMenu} className="mobile-dropdown-link">Mental Health & Social Wellness</a>
+              <div
+                className={`mobile-dropdown-content ${isAcademicOpen ? "open" : ""}`}
+              >
+                <a
+                  href="/courses/ai-fintech"
+                  onClick={closeMobileMenu}
+                  className="mobile-dropdown-link"
+                >
+                  AI in FinTech
+                </a>
+                <a
+                  href="/courses/product-leadership"
+                  onClick={closeMobileMenu}
+                  className="mobile-dropdown-link"
+                >
+                  Product Leadership
+                </a>
+                <a
+                  href="/courses/data-analytics-genai"
+                  onClick={closeMobileMenu}
+                  className="mobile-dropdown-link"
+                >
+                  Data Analytics, GenAI & Business Intelligence
+                </a>
+                <a
+                  href="/courses/technology-digital-transformation"
+                  onClick={closeMobileMenu}
+                  className="mobile-dropdown-link"
+                >
+                  Technology & Digital Transformation
+                </a>
+                <a
+                  href="/courses/integrated-courses"
+                  onClick={closeMobileMenu}
+                  className="mobile-dropdown-link"
+                >
+                  Integrated Courses
+                </a>
+                <a
+                  href="/courses/cybersecurity"
+                  onClick={closeMobileMenu}
+                  className="mobile-dropdown-link"
+                >
+                  Cybersecurity
+                </a>
+                <a
+                  href="/courses/mental-health-wellness"
+                  onClick={closeMobileMenu}
+                  className="mobile-dropdown-link"
+                >
+                  Mental Health & Social Wellness
+                </a>
               </div>
             </div>
-            
+
             {/* Mobile Corporates Dropdown */}
             <div>
-              <button onClick={toggleCorporates} className="mobile-dropdown-trigger">
+              <button
+                onClick={toggleCorporates}
+                className="mobile-dropdown-trigger"
+              >
                 Corporates
-                <ChevronDown size={20} className={`dropdown-icon ${isCorporatesOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown
+                  size={20}
+                  className={`dropdown-icon ${isCorporatesOpen ? "rotate-180" : ""}`}
+                />
               </button>
-              <div className={`mobile-dropdown-content ${isCorporatesOpen ? 'open' : ''}`}>
-                <a href="/corporate/consulting" onClick={closeMobileMenu} className="mobile-dropdown-link">Business Consulting</a>
-                <a href="/corporate/training" onClick={closeMobileMenu} className="mobile-dropdown-link">Corporate Training</a>
+              <div
+                className={`mobile-dropdown-content ${isCorporatesOpen ? "open" : ""}`}
+              >
+                <a
+                  href="/corporate/consulting"
+                  onClick={closeMobileMenu}
+                  className="mobile-dropdown-link"
+                >
+                  Business Consulting
+                </a>
+                <a
+                  href="/corporate/training"
+                  onClick={closeMobileMenu}
+                  className="mobile-dropdown-link"
+                >
+                  Corporate Training
+                </a>
               </div>
             </div>
 
             {/* Mobile Products Dropdown */}
             <div>
-              <button onClick={toggleProducts} className="mobile-dropdown-trigger">
+              <button
+                onClick={toggleProducts}
+                className="mobile-dropdown-trigger"
+              >
                 Products
-                <ChevronDown size={20} className={`dropdown-icon ${isProductsOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown
+                  size={20}
+                  className={`dropdown-icon ${isProductsOpen ? "rotate-180" : ""}`}
+                />
               </button>
-              <div className={`mobile-dropdown-content ${isProductsOpen ? 'open' : ''}`}>
-                <a href="/products/compliize" onClick={closeMobileMenu} className="mobile-dropdown-link">Data Complize</a>
-                <a href="/products/optimize" onClick={closeMobileMenu} className="mobile-dropdown-link">Cost Optimize</a>
-                <a href="/products/vendorize" onClick={closeMobileMenu} className="mobile-dropdown-link">De-risk Vendorize</a>
+              <div
+                className={`mobile-dropdown-content ${isProductsOpen ? "open" : ""}`}
+              >
+                <a
+                  href="/products/compliize"
+                  onClick={closeMobileMenu}
+                  className="mobile-dropdown-link"
+                >
+                  Data Complize
+                </a>
+                <a
+                  href="/products/optimize"
+                  onClick={closeMobileMenu}
+                  className="mobile-dropdown-link"
+                >
+                  Cost Optimize
+                </a>
+                <a
+                  href="/products/vendorize"
+                  onClick={closeMobileMenu}
+                  className="mobile-dropdown-link"
+                >
+                  De-risk Vendorize
+                </a>
               </div>
             </div>
 
-            <a href="/about" onClick={closeMobileMenu} className="mobile-link">About</a>
-            <a href="/contact" onClick={closeMobileMenu} className="mobile-link">Contact Us</a>
+            <a href="/about" onClick={closeMobileMenu} className="mobile-link">
+              About
+            </a>
+            <a
+              href="/contact"
+              onClick={closeMobileMenu}
+              className="mobile-link"
+            >
+              Contact Us
+            </a>
           </nav>
         </div>
       </div>
