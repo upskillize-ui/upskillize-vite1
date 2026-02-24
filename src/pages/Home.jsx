@@ -217,7 +217,6 @@ export default function Home() {
 
                 {/* Eye-brow badge */}
                 <div className="flex items-center justify-center gap-2 mb-5 fade-up-1">
-                  <span className="badge-label">🇮🇳 Upskillize</span>
                   <span
                     className="px-3 py-0.5 rounded-full text-xs font-semibold"
                     style={{
@@ -227,7 +226,7 @@ export default function Home() {
                       letterSpacing: "1px",
                     }}
                   >
-                    India-First · NEP 2020 Aligned
+                    Inline with Latest Regulatery Guidelines · NEP 2020 Aligned
                   </span>
                 </div>
 
@@ -237,7 +236,7 @@ export default function Home() {
                   style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
                 >
                   Where India's Future Leaders{" "}
-                  <em style={{ color: "#FF6B00", fontStyle: "italic" }}>Are Made.</em>
+                  <em style={{ color: "#FF6B00", fontStyle: "italic" }}>Are Made</em>
                 </h1>
 
                 {/* Sub-headline */}
@@ -368,7 +367,6 @@ export default function Home() {
 
                 {/* Badge */}
                 <div className="flex items-center justify-center gap-2 mb-5 fade-up-1">
-                  <span className="badge-label" style={{ color: "rgba(139,92,246,0.9)" }}>💼 Upskillize</span>
                   <span className="px-3 py-0.5 rounded-full text-xs font-semibold" style={{ background: "rgba(99,102,241,0.18)", border: "1px solid rgba(99,102,241,0.40)", color: "#818cf8", letterSpacing: "1px" }}>
                     Enterprise · Strategy · Growth
                   </span>
@@ -378,13 +376,13 @@ export default function Home() {
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white drop-shadow-2xl mb-4 fade-up-2" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
                   Expert Business{" "}
                   <em style={{ color: "#818cf8", fontStyle: "italic" }}>Consulting</em>{" "}
-                  That Drives Results.
+                  That Drives Results
                 </h1>
 
                 {/* Sub-headline */}
                 <p className="text-lg sm:text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-10 fade-up-3">
                   From <span className="font-semibold text-purple-300">AI strategy</span> to{" "}
-                  <span className="font-semibold text-indigo-300">FinTech compliance</span> — we transform your business with proven frameworks and industry veterans.
+                  <span className="font-semibold text-indigo-300">FinTech compliance</span> — we transform your business with proven frameworks and industry veterans
                 </p>
 
                 {/* Service cards */}
@@ -392,7 +390,7 @@ export default function Home() {
                   {[
                     { accent: "#818cf8", icon: "🤖", name: "AI Strategy", desc: "Roadmaps for AI adoption & intelligent automation" },
                     { accent: "#a78bfa", icon: "💳", name: "FinTech", desc: "Digital payments, blockchain & neo-banking" },
-                    { accent: "#c084fc", icon: "📊", name: "Product Strategy", desc: "Market-leading products from ideation to launch" },
+                    { accent: "#c084fc", icon: "📊", name: "Product Leadership", desc: "Market-leading products from ideation to launch" },
                     { accent: "#60a5fa", icon: "🛡️", name: "Cybersecurity", desc: "Security frameworks & threat intelligence" },
                     { accent: "#34d399", icon: "📈", name: "Data & BI", desc: "Actionable insights with GenAI integration" },
                     { accent: "#f472b6", icon: "⚙️", name: "Process Ops", desc: "Lean methodologies & intelligent automation" },
@@ -443,7 +441,6 @@ export default function Home() {
 
                 {/* Badge */}
                 <div className="flex items-center justify-center gap-2 mb-5 fade-up-1">
-                  <span className="badge-label" style={{ color: "rgba(16,185,129,0.9)" }}>🎯 Upskillize</span>
                   <span className="px-3 py-0.5 rounded-full text-xs font-semibold" style={{ background: "rgba(16,185,129,0.18)", border: "1px solid rgba(16,185,129,0.40)", color: "#34d399", letterSpacing: "1px" }}>
                     Workforce · Upskilling · ROI
                   </span>
@@ -453,23 +450,23 @@ export default function Home() {
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white drop-shadow-2xl mb-4 fade-up-2" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
                   Strategic Corporate{" "}
                   <em style={{ color: "#34d399", fontStyle: "italic" }}>Training</em>{" "}
-                  Programs.
+                  Programs
                 </h1>
 
                 {/* Sub-headline */}
                 <p className="text-lg sm:text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-10 fade-up-3">
                   Bridge skill gaps with the proven{" "}
                   <span className="font-semibold text-emerald-300">ADDIE methodology</span> — transforming knowledge into{" "}
-                  <span className="font-semibold text-cyan-300">measurable business impact.</span>
+                  <span className="font-semibold text-cyan-300">measurable business impact</span>
                 </p>
 
                 {/* Training cards */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10 fade-up-4">
                   {[
-                    { accent: "#34d399", icon: "🏦", name: "BFSI", desc: "Banking, FinTech & insurance domain training" },
-                    { accent: "#22d3ee", icon: "🤖", name: "AI & GenAI", desc: "AI product management & GenAI for business" },
-                    { accent: "#a3e635", icon: "📊", name: "Analytics", desc: "Data analytics & business intelligence" },
-                    { accent: "#fb923c", icon: "🚀", name: "Leadership", desc: "Product leadership & management excellence" },
+                    { accent: "#34d399", icon: "🏦", name: "BFSI", desc: "FinTech, WealthTech, RegTech & InsureTech" },
+                    { accent: "#22d3ee", icon: "🤖", name: "AI & GenAI", desc: "AI Product Management & GenAI for Business" },
+                    { accent: "#a3e635", icon: "📊", name: "Analytics", desc: "Data Analytics, Compliance & Business Intelligence" },
+                    { accent: "#fb923c", icon: "🚀", name: "Leadership", desc: "Innovation, AI Transformation & Strategy Excellence" },
                   ].map(({ accent, icon, name, desc }) => (
                     <div key={name} className="pillar-card p-5 text-left" style={{ borderTopColor: accent, borderTopWidth: "2px" }}>
                       <div className="text-3xl mb-3">{icon}</div>
