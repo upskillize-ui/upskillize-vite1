@@ -21,7 +21,7 @@ export default function Footer() {
               <h4 className="text-base font-semibold mb-3">Social Media</h4>
               <div className="flex items-center gap-4">
                 <a 
-                  href="https://www.linkedin.com/in/upskillize-excel-beyond-a88b883a7" 
+                  href="https://www.linkedin.com/company/upskillize-excel-beyond"    
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-white/80 hover:text-white transition-colors"
