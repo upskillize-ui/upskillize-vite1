@@ -488,7 +488,7 @@ export default function Navbar() {
                   About
                 </a>
                 <a href="/contact" className="nav-link">
-                  🙍
+                  Contact Us
                 </a>
               </nav>
             </div>
