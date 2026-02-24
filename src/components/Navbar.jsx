@@ -473,10 +473,10 @@ export default function Navbar() {
                     <ChevronDown size={16} className="dropdown-icon" />
                   </button>
                   <div className="dropdown-menu">
-                    <a href="/corporate/consulting" className="dropdown-link">
+                    <a href="/careers/internship" className="dropdown-link">
                       Internship Program
                     </a>
-                    <a href="/corporate/training" className="dropdown-link">
+                    <a href="/careers/placement" className="dropdown-link">
                       Placement Assistance
                     </a>
                   </div>
