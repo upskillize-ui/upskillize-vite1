@@ -33,10 +33,13 @@ export default function Home() {
     return () => clearInterval(id);
   }, []);
 
+  const [paused, setPaused] = useState(false);
+
   useEffect(() => {
+    if (paused) return;
     const id = setInterval(() => setActiveSlide(p => (p + 1) % 4), 5000);
     return () => clearInterval(id);
-  }, []);
+  }, [paused]);
 
   return (
     <div className="w-full overflow-x-hidden">
@@ -504,22 +507,25 @@ export default function Home() {
         </div>
         {/* END TRACK */}
 
-        {/* Dots — now 4 */}
+        {/* Dots — pause on hover */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 z-20">
           {[0, 1, 2, 3].map(i => (
             <button
               key={i}
               className={`slide-dot ${activeSlide === i ? "active" : ""}`}
               onClick={() => setActiveSlide(i)}
+              onMouseEnter={() => setPaused(true)}
+              onMouseLeave={() => setPaused(false)}
               aria-label={`Slide ${i + 1}`}
             />
           ))}
         </div>
 
-        {/* Arrows — now cycle through 4 */}
+        {/* Arrows — hidden, only appear on hero hover */}
         <button
           onClick={() => setActiveSlide(p => (p === 0 ? 3 : p - 1))}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/15 backdrop-blur-md p-3 rounded-full hover:bg-white/25 transition-all border border-white/20"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/15 backdrop-blur-md p-3 rounded-full border border-white/20 transition-all duration-300 opacity-0 hover:bg-white/25"
+          style={{ pointerEvents: "none" }}
           aria-label="Previous"
         >
           <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -528,7 +534,8 @@ export default function Home() {
         </button>
         <button
           onClick={() => setActiveSlide(p => (p === 3 ? 0 : p + 1))}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/15 backdrop-blur-md p-3 rounded-full hover:bg-white/25 transition-all border border-white/20"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/15 backdrop-blur-md p-3 rounded-full border border-white/20 transition-all duration-300 opacity-0 hover:bg-white/25"
+          style={{ pointerEvents: "none" }}
           aria-label="Next"
         >
           <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
