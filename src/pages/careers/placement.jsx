@@ -249,7 +249,7 @@ export default function Placement() {
           <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6">
             Be in Our{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
-              First Batch
+              New Batch
             </span>
           </h2>
           <p className="text-xl mb-10 text-gray-300 max-w-2xl mx-auto leading-relaxed">
