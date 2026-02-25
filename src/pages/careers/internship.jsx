@@ -143,7 +143,7 @@ const handleSubmit = async () => {
   setLoading(true);
   setError("");
   try {
-    const res = await fetch("https://YOUR-BACKEND-URL.com/send-internship-application", {
+    const res = await fetch("https://upskillize-backend-hdxn.onrender.com/send-internship-application", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -564,6 +564,8 @@ const isFormValid = form.name && form.email && form.phone && form.college && for
                 <button
                   onClick={handleSubmit}
                   disabled={!isFormValid || loading}
+                  className="w-full text-white font-bold py-4 rounded-xl text-base transition-all duration-200 hover:opacity-90 hover:shadow-2xl disabled:opacity-40 disabled:cursor-not-allowed mt-2"
+                  style={{ background: "linear-gradient(135deg,#6366f1,#22d3ee)", boxShadow: "0 6px 24px rgba(99,102,241,0.35)" }}
                 >
                   {loading ? "Submitting..." : "Submit Expression of Interest →"}
                 </button>
