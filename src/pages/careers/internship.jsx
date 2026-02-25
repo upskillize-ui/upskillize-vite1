@@ -133,12 +133,43 @@ const faqs = [
 export default function Internship() {
   const [openFaq, setOpenFaq] = useState(null);
   const [form, setForm] = useState({ name: "", email: "", phone: "", college: "", track: "", year: "", linkedin: "" });
-  const [submitted, setSubmitted] = useState(false);
+const [submitted, setSubmitted] = useState(false);
+const [loading, setLoading] = useState(false);
+const [error, setError] = useState("");
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-  const handleSubmit = () => setSubmitted(true);
+const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const isFormValid = form.name && form.email && form.phone && form.college && form.track && form.year;
+const handleSubmit = async () => {
+  setLoading(true);
+  setError("");
+  try {
+    const res = await fetch("https://YOUR-BACKEND-URL.com/send-internship-application", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        college: form.college,
+        internshipType: form.track,
+        course: form.year,
+        linkedin: form.linkedin,
+      }),
+    });
+    const result = await res.json();
+    if (result.success) {
+      setSubmitted(true);
+    } else {
+      setError("Something went wrong. Please try again.");
+    }
+  } catch (err) {
+    setError("Network error. Please check your connection.");
+  } finally {
+    setLoading(false);
+  }
+};
+
+const isFormValid = form.name && form.email && form.phone && form.college && form.track && form.year;
 
   return (
     <div className="w-full text-white font-sans overflow-x-hidden" style={{ background: "#0a1628" }}>
@@ -532,11 +563,15 @@ export default function Internship() {
                 </div>
                 <button
                   onClick={handleSubmit}
-                  disabled={!isFormValid}
-                  className="w-full text-white font-bold py-4 rounded-xl text-base transition-all duration-200 hover:opacity-90 hover:shadow-2xl disabled:opacity-40 disabled:cursor-not-allowed mt-2"
-                  style={{ background: "linear-gradient(135deg,#6366f1,#22d3ee)", boxShadow: "0 6px 24px rgba(99,102,241,0.35)" }}>
-                  Submit Expression of Interest →
+                  disabled={!isFormValid || loading}
+                >
+                  {loading ? "Submitting..." : "Submit Expression of Interest →"}
                 </button>
+                  {error && (
+                    <p className="text-center text-sm mt-2" style={{ color: "#f87171" }}>
+                      ❌ {error}
+                    </p>
+                  )}
                 <p className="text-center text-xs text-gray-500 mt-2">
                   By submitting, you agree to our{" "}
                   <Link to="/privacy" className="text-indigo-400 underline">Privacy Policy</Link>.

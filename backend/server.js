@@ -459,6 +459,135 @@ app.post('/send-notification', async (req, res) => {
 });
 
 // ============================================
+// ROUTE 4: Internship Application
+// ============================================
+app.post('/send-internship-application', upload.single('resume'), async (req, res) => {
+  const { name, email, phone, college, course, internshipType, startDate, message } = req.body;
+  const resume = req.file;
+
+  console.log('\n📨 New Internship Application');
+  console.log('Name:', name);
+  console.log('Internship Type:', internshipType);
+  console.log('Origin:', req.get('origin'));
+
+  if (!name || !email || !internshipType) {
+    return res.status(400).json({
+      success: false,
+      message: 'Missing required fields: name, email, internshipType'
+    });
+  }
+
+  if (!resend) {
+    return res.status(503).json({
+      success: false,
+      message: 'Email not configured'
+    });
+  }
+
+  try {
+    // Email to Admins
+    const emailData = {
+      from: FROM_EMAIL,
+      to: ALL_ADMIN_EMAILS,
+      reply_to: email,
+      subject: `🎓 Internship Application: ${internshipType} - ${name}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f5f5f5;">
+          <div style="background-color: white; padding: 30px; border-radius: 10px; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #4f46e5;">🎓 New Internship Application</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+              <tr>
+                <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #eee;">Name:</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">${name}</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #eee;">Email:</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"><a href="mailto:${email}">${email}</a></td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #eee;">Phone:</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">${phone || 'Not provided'}</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #eee;">College:</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">${college || 'Not provided'}</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #eee;">Course/Year:</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">${course || 'Not provided'}</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #eee;">Internship Type:</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>${internshipType}</strong></td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #eee;">Start Date:</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">${startDate || 'Flexible'}</td>
+              </tr>
+            </table>
+            ${message ? `
+            <div style="background-color: #f8f9fa; padding: 20px; margin-top: 20px; border-radius: 5px;">
+              <h3 style="color: #333; margin-top: 0;">Message:</h3>
+              <p style="color: #555; white-space: pre-wrap;">${message}</p>
+            </div>` : ''}
+            ${resume ? '<p style="margin-top: 15px;">📎 Resume attached</p>' : ''}
+          </div>
+        </div>
+      `,
+    };
+
+    if (resume) {
+      emailData.attachments = [{
+        filename: resume.originalname,
+        content: resume.buffer,
+      }];
+    }
+
+    const adminEmail = await resend.emails.send(emailData);
+    console.log('✅ Admin notification sent:', adminEmail.id);
+
+    // Confirmation Email to Applicant
+    const userEmail = await resend.emails.send({
+      from: FROM_EMAIL,
+      to: email,
+      subject: `Application Received – ${internshipType} Internship at Upskillize!`,
+      html: `
+        <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f5f5f5;">
+          <div style="background-color: white; padding: 30px; border-radius: 10px; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #4f46e5;">🎓 Application Received!</h2>
+            <p>Hi ${name},</p>
+            <p>Thank you for applying for the <strong>${internshipType}</strong> internship at Upskillize! We're excited about your interest.</p>
+            <p>Our team will review your application and get back to you within <strong>3-5 business days</strong>.</p>
+            <p>In the meantime, if you have any questions feel free to reach out:</p>
+            <p style="margin-left: 20px;">
+              <strong>Amit Agrawal – Co-Founder & Chief Sales Officer</strong><br>
+              📱 <a href="tel:+919820397297">+91 98203 97297</a><br>
+              ✉️ <a href="mailto:amit@upskillize.com">amit@upskillize.com</a>
+            </p>
+            <p>Best of luck and we look forward to speaking with you!</p>
+            <p>Warm regards,<br><strong>Upskillize Team</strong></p>
+            <p style="text-align: center; margin-top: 20px;">
+              🌐 <a href="https://www.upskillize.com">www.upskillize.com</a>
+            </p>
+          </div>
+        </div>
+      `,
+    });
+
+    console.log('✅ Applicant confirmation sent:', userEmail.id, '\n');
+    res.json({ success: true, message: 'Internship application submitted successfully!' });
+
+  } catch (error) {
+    console.error('❌ Email failed:', error.message);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to submit application',
+      error: error.message
+    });
+  }
+});
+
+// ============================================
 // Health Check
 // ============================================
 app.get('/health', (req, res) => {
@@ -487,6 +616,7 @@ app.get('/', (req, res) => {
       'POST /send-mail',
       'POST /send-career-application',
       'POST /send-notification',
+      'POST /send-internship-application',
       'GET /health'
     ]
   });
