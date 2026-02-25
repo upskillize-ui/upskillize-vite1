@@ -5,6 +5,8 @@ const INQUIRY_TYPES = [
   { value: "Course Information", label: "Course Information" },
   { value: "Corporate Training", label: "Corporate Training" },
   { value: "Partnership", label: "Partnership" },
+  { value: "Internship program", label: "Internship Program" },
+  { value: "Placement Assistance", label: "Placement Assistance" },
   { value: "General Support", label: "General Support" },
 ];
 

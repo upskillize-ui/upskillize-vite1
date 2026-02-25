@@ -8,166 +8,213 @@ import {
   TrendingUp,
   ShieldCheck,
   GraduationCap,
+  ArrowRight,
 } from "lucide-react";
 
 const COURSES = [
   {
     title: "AI in FinTech",
     desc: "Python • TensorFlow • Fraud Detection • Risk Modeling",
-    icon: <Brain size={36} />,
-    color: "from-blue-500 to-cyan-500",
+    icon: <Brain size={32} />,
+    accent: "#22d3ee",
     company: "Paytm",
   },
   {
     title: "Product Leadership Program",
     desc: "Product Strategy • Roadmapping • Execution • Go-to-Market",
-    icon: <Briefcase size={36} />,
-    color: "from-emerald-500 to-teal-500",
+    icon: <Briefcase size={32} />,
+    accent: "#34d399",
     company: "Razorpay",
   },
   {
     title: "Data Analytics, GenAI & BI",
     desc: "Python • Pandas • PowerBI • GenAI • SQL",
-    icon: <BarChart3 size={36} />,
-    color: "from-purple-500 to-pink-500",
+    icon: <BarChart3 size={32} />,
+    accent: "#818cf8",
     company: "Groww",
   },
   {
     title: "Technology & Digital Transformation",
     desc: "AWS • Kubernetes • Microservices • DevOps",
-    icon: <Layers size={36} />,
-    color: "from-orange-500 to-amber-500",
+    icon: <Layers size={32} />,
+    accent: "#f472b6",
     company: "Cred",
   },
   {
     title: "Integrated Programs",
     desc: "Full Stack • AI/ML • Cloud • Business • Leadership",
-    icon: <TrendingUp size={36} />,
-    color: "from-sky-500 to-indigo-500",
+    icon: <TrendingUp size={32} />,
+    accent: "#60a5fa",
     company: "PhonePe",
   },
   {
     title: "Cybersecurity Mastery",
     desc: "Ethical Hacking • Threat Detection • Compliance",
-    icon: <ShieldCheck size={36} />,
-    color: "from-indigo-500 to-blue-500",
+    icon: <ShieldCheck size={32} />,
+    accent: "#6366f1",
     company: "PayU",
   },
   {
     title: "Corporate Readiness Program",
     desc: "Communication • Leadership • Interview Prep",
-    icon: <GraduationCap size={36} />,
-    color: "from-green-500 to-emerald-500",
+    icon: <GraduationCap size={32} />,
+    accent: "#a78bfa",
     company: "Zepto",
   },
 ];
 
 export default function Placement() {
   return (
-    <div className="min-h-screen">
-      {/* Hero - NEW LAUNCH */}
-      <section className="bg-gradient-to-r from-gray-600  to-blue-800 text-white py-24 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center bg-green-400/20 border-2 border-green-400/50 px-6 py-3 rounded-full mb-6">
-            <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-ping"></span>
-            <span className="font-bold text-green-300">COMING SOON</span>
-          </div>
+    <div className="w-full text-white font-sans overflow-x-hidden" style={{ background: "#0a1628" }}>
 
-          <h1 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-white to-slate-200 bg-clip-text text-transparent mb-6">
-            Placement Assistance
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 leading-relaxed max-w-3xl mx-auto">
-            <strong>NEW BATCH STARTS SOON</strong>
+      {/* ===== HERO ===== */}
+      <section className="relative overflow-hidden" style={{ background: "linear-gradient(135deg, #060d1f 0%, #0a1628 40%, #0d1f3c 70%, #060d1f 100%)" }}>
+        <div
+          className="absolute inset-0 pointer-events-none opacity-20"
+          style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)", backgroundSize: "28px 28px" }}
+        />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse at 20% 50%, rgba(99,102,241,0.15) 0%, transparent 55%), radial-gradient(ellipse at 80% 20%, rgba(34,211,238,0.12) 0%, transparent 50%)" }}
+        />
+
+        <div className="max-w-4xl mx-auto px-6 py-28 md:py-36 text-center relative z-10">
+          <span
+            className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full text-xs font-semibold"
+            style={{ background: "rgba(52,211,153,0.15)", border: "1px solid rgba(52,211,153,0.40)", color: "#34d399", letterSpacing: "1px" }}
+          >
+            <span className="w-2 h-2 bg-green-400 rounded-full animate-ping"></span>
+            COMING SOON — NEW BATCH
+          </span>
+
+          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6 text-white drop-shadow-2xl">
+            Placement
             <br />
-            Register now → Complete courses → Get exclusive interview
-            opportunities with top companies in the industry
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
+              Assistance Program
+            </span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+            Register now → Complete courses → Get{" "}
+            <span className="text-cyan-400 font-semibold">exclusive interview opportunities</span>{" "}
+            with top companies in the industry
           </p>
 
-          <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl max-w-2xl mx-auto mb-12 border border-white/20">
-            <h3 className="text-2xl font-bold mb-6 text-center">
-              Our Launch Process:
-            </h3>
+          {/* Process Steps */}
+          <div
+            className="rounded-2xl p-8 max-w-2xl mx-auto mb-12 border"
+            style={{ background: "rgba(255,255,255,0.05)", borderColor: "rgba(255,255,255,0.10)", backdropFilter: "blur(12px)" }}
+          >
+            <h3 className="text-xl font-bold mb-6 text-center text-white">Our Launch Process</h3>
             <div className="grid md:grid-cols-2 gap-6 text-left">
-              <div className="space-y-3">
-                <div className="flex items-center">
-                  <div className="w-8 h-8 bg-emerald-400 rounded-full flex items-center justify-center mr-3">
-                    <span className="font-bold text-white text-sm">1</span>
+              {[
+                { num: "01", label: "REGISTER", desc: "Enroll in courses (Now)", color: "#22d3ee" },
+                { num: "02", label: "COMPLETE", desc: "Finish all modules (3 months)", color: "#818cf8" },
+                { num: "03", label: "APPLY", desc: "Placement assistance opens soon", color: "#34d399" },
+                { num: "04", label: "INTERVIEWS", desc: "Partner company calls", color: "#f59e0b" },
+              ].map((step) => (
+                <div key={step.num} className="flex items-center gap-3">
+                  <div
+                    className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-extrabold flex-shrink-0"
+                    style={{ background: step.color, color: "#0a1628" }}
+                  >
+                    {step.num}
                   </div>
-                  <span>
-                    <strong>REGISTER</strong> - Enroll in courses (Now)
+                  <span className="text-sm text-gray-200">
+                    <strong className="text-white">{step.label}</strong> — {step.desc}
                   </span>
                 </div>
-                <div className="flex items-center">
-                  <div className="w-8 h-8 bg-emerald-400 rounded-full flex items-center justify-center mr-3">
-                    <span className="font-bold text-white text-sm">2</span>
-                  </div>
-                  <span>
-                    <strong>COMPLETE</strong> - Finish all modules (3 months)
-                  </span>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <div className="flex items-center">
-                  <div className="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center mr-3">
-                    <span className="font-bold text-white text-sm">3</span>
-                  </div>
-                  <span>
-                    <strong>APPLY</strong> - Placement assistance opens soon
-                  </span>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center mr-3">
-                    <span className="font-bold text-white text-sm">4</span>
-                  </div>
-                  <span>
-                    <strong>INTERVIEWS</strong> - Partner company calls
-                  </span>
-                </div>
-              </div>
+              ))}
             </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-xl hover:shadow-2xl hover:scale-105 transform"
+              style={{ background: "linear-gradient(135deg,#6366f1,#22d3ee)", boxShadow: "0 6px 24px rgba(99,102,241,0.40)" }}
+            >
+              Register FREE Now <ArrowRight className="w-5 h-5" />
+            </Link>
+            <a
+              href="#partners"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-bold px-8 py-4 rounded-xl text-lg border-2 border-white/30 hover:bg-white/20 transition-all shadow-xl"
+            >
+              View Partners
+            </a>
+          </div>
+
+          {/* Stats */}
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            {[
+              { val: "7+", label: "Partner Companies", color: "#22d3ee" },
+              { val: "7", label: "Course Tracks", color: "#818cf8" },
+              { val: "3mo", label: "Program Duration", color: "#34d399" },
+              { val: "FREE", label: "Registration", color: "#f59e0b" },
+            ].map(({ val, label, color }) => (
+              <div
+                key={label}
+                className="rounded-2xl p-5 border text-center"
+                style={{ background: "rgba(255,255,255,0.05)", borderColor: "rgba(255,255,255,0.10)", backdropFilter: "blur(12px)" }}
+              >
+                <div className="text-3xl font-extrabold mb-1" style={{ color }}>{val}</div>
+                <div className="text-sm text-gray-400">{label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Partner Companies */}
-      <section className="w-full bg-gradient-to-r from-indigo-200 via-purple-200 to-blue-200 py-20">
+      {/* ===== PARTNER COMPANIES ===== */}
+      <section id="partners" className="py-20 bg-gradient-to-br from-[#0f1729] via-[#1a2847] to-[#243452]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-6">
-              Partner Companies
+          <div className="text-center mb-14">
+            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full mb-4"
+              style={{ background: "rgba(99,102,241,0.10)", border: "1px solid rgba(99,102,241,0.20)" }}>
+              <div className="w-2 h-2 bg-indigo-400 rounded-full animate-pulse"></div>
+              <p className="text-sm text-indigo-400 font-semibold tracking-wider uppercase">Partner Companies</p>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
+              Exclusive Interview Opportunities
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              First batch students get{" "}
-              <strong>exclusive interview opportunities</strong> with our
-              partners
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+              First batch students get <strong className="text-white">exclusive access</strong> to interviews with our partner companies.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {COURSES.map((item, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                className="rounded-2xl border transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl overflow-hidden"
+                style={{
+                  background: "linear-gradient(135deg, rgba(30,45,74,0.9), rgba(42,63,95,0.9))",
+                  borderColor: "rgba(255,255,255,0.08)",
+                  borderTopColor: item.accent,
+                  borderTopWidth: "2px",
+                }}
               >
-                <div
-                  className={`p-6 bg-gradient-to-r ${item.color} text-white`}
-                >
-                  {item.icon}
-                </div>
-                <div className="p-6 hover:bg-gray-50 transition-colors">
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 mb-5 leading-relaxed">
-                    {item.desc}
-                  </p>
+                <div className="p-6">
+                  <div
+                    className="w-14 h-14 rounded-xl flex items-center justify-center mb-4"
+                    style={{ background: `${item.accent}18`, border: `1px solid ${item.accent}40`, color: item.accent }}
+                  >
+                    {item.icon}
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed mb-5">{item.desc}</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-gray-900 bg-gradient-to-r from-gray-100 to-gray-200 px-4 py-2 rounded-lg">
+                    <span
+                      className="text-base font-bold px-4 py-2 rounded-lg"
+                      style={{ background: "rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.85)", border: "1px solid rgba(255,255,255,0.10)" }}
+                    >
                       {item.company}
                     </span>
                     <Link
                       to="/register"
-                      className="bg-gradient-to-r from-indigo-500 to-blue-600 text-white px-6 py-2 rounded-lg text-sm font-bold hover:from-indigo-600 hover:to-blue-700 transition-all"
+                      className="text-white text-sm font-bold px-5 py-2 rounded-lg transition-all hover:opacity-90 hover:scale-105 transform"
+                      style={{ background: "linear-gradient(135deg,#6366f1,#22d3ee)" }}
                     >
                       Start Course
                     </Link>
@@ -179,32 +226,44 @@ export default function Placement() {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="bg-gradient-to-r from-slate-900 to-gray-900 text-white py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center bg-green-400/20 border-2 border-green-400/50 px-8 py-4 rounded-2xl mb-8">
-            <span className="w-3 h-3 bg-green-400 rounded-full mr-3 animate-ping"></span>
-            <span className="text-2xl font-bold text-green-300">
-              LAUNCHING SOON
-            </span>
+      {/* ===== FINAL CTA ===== */}
+      <section className="py-20 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #060d1f 0%, #0a1628 50%, #0d1f3c 100%)" }}>
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(99,102,241,0.18) 0%, transparent 55%), radial-gradient(ellipse at 75% 30%, rgba(34,211,238,0.12) 0%, transparent 50%)" }}
+        />
+        <div
+          className="absolute inset-0 pointer-events-none opacity-20"
+          style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px)", backgroundSize: "28px 28px" }}
+        />
+
+        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+          <div
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl mb-8"
+            style={{ background: "rgba(52,211,153,0.12)", border: "2px solid rgba(52,211,153,0.35)" }}
+          >
+            <span className="w-3 h-3 bg-green-400 rounded-full animate-ping"></span>
+            <span className="text-xl font-bold text-green-300">LAUNCHING SOON</span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Be in Our New Batch
+          <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6">
+            Be in Our{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
+              First Batch
+            </span>
           </h2>
-          <p className="text-xl mb-12 opacity-90 max-w-2xl mx-auto">
-            Register FREE → Complete courses → Get exclusive interview
-            opportunities with top companies
+          <p className="text-xl mb-10 text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            Register FREE → Complete courses → Get exclusive interview opportunities with top companies
           </p>
           <Link
-            to="/register"
-            className="bg-gradient-to-r from-emerald-500 to-green-600 text-white px-16 py-5 rounded-2xl text-2xl font-bold hover:from-emerald-600 hover:to-green-700 transition-all duration-300 shadow-2xl hover:shadow-3xl inline-block mb-6"
+            to="/contact"
+            className="inline-flex items-center gap-3 text-white px-14 py-5 rounded-2xl text-xl font-bold transition-all duration-300 hover:scale-105 shadow-2xl mb-6"
+            style={{ background: "linear-gradient(135deg,#6366f1,#22d3ee)", boxShadow: "0 8px 32px rgba(99,102,241,0.45)" }}
           >
-            Register FREE Now
+            Register FREE Now <ArrowRight className="w-6 h-6" />
           </Link>
-          <p className="text-lg opacity-75">
-            <strong>Only Few seats for first batch</strong> - Register before
-            they fill!
+          <p className="text-base text-gray-400">
+            <strong className="text-gray-200">Only a few seats for the first batch</strong> — Register before they fill!
           </p>
         </div>
       </section>
