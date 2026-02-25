@@ -568,6 +568,7 @@ const isFormValid = form.name && form.email && form.phone && form.college && for
                   style={{ background: "linear-gradient(135deg,#6366f1,#22d3ee)", boxShadow: "0 6px 24px rgba(99,102,241,0.35)" }}
                 >
                   {loading ? "Submitting..." : "Submit Expression of Interest →"}
+                
                 </button>
                   {error && (
                     <p className="text-center text-sm mt-2" style={{ color: "#f87171" }}>
