@@ -58,8 +58,8 @@ const howItWorks = [
   {
     step: "02",
     icon: "🔍",
-    title: "We Assess & Shortlist",
-    desc: "Our team reviews your application and conducts a brief screening to understand your strengths and career goals.",
+    title: "We Assess & Course Completed",
+    desc: "Our team reviews and conducts a brief screening to understand your strengths and career goals.",
     grad: "from-indigo-500 to-purple-500",
   },
   {
@@ -183,7 +183,7 @@ export default function Internship() {
 
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-6 leading-relaxed">
             Upskillize <span className="text-cyan-400 font-semibold">facilitates and arranges</span> internships at our partner companies —
-            we prepare your profile, match you with the right companies, and support you through the entire process.
+            we provide courses and certificate after complete course, match you with the right companies, and support you through the entire process.
           </p>
 
           {/* Honest disclaimer */}
@@ -210,7 +210,7 @@ export default function Internship() {
               { val: "50+", label: "Partner Companies", color: "#22d3ee" },
               { val: "6", label: "Internship Domains", color: "#818cf8" },
               { val: "22+", label: "Industry Mentors", color: "#34d399" },
-              { val: "500+", label: "Students Facilitated", color: "#f59e0b" },
+              { val: "50+", label: "Students Facilitated", color: "#f59e0b" },
             ].map(({ val, label, color }) => (
               <div key={label} className="rounded-2xl p-5 border text-center"
                 style={{ background: "rgba(255,255,255,0.05)", borderColor: "rgba(255,255,255,0.10)", backdropFilter: "blur(12px)" }}>
