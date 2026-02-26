@@ -193,7 +193,7 @@ export default function Placement() {
             <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full mb-4"
               style={{ background: "rgba(99,102,241,0.10)", border: "1px solid rgba(99,102,241,0.20)" }}>
               <div className="w-2 h-2 bg-indigo-400 rounded-full animate-pulse"></div>
-              <p className="text-sm text-indigo-400 font-semibold tracking-wider uppercase">Partner Companies</p>
+              <p className="text-sm text-indigo-400 font-semibold tracking-wider uppercase">Placement Domains</p>
             </div>
             <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
               Exclusive Interview Opportunities
