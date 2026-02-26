@@ -14,12 +14,24 @@ import {
   ChevronDown,
 } from "lucide-react";
 
+const heroBgs = [
+  "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2065&auto=format&fit=crop",
+];
+
 export default function EcoProLMS() {
   const [activeTab, setActiveTab] = useState(0);
   const [openFaq, setOpenFaq] = useState(null);
   const [counters, setCounters] = useState({ learners: 0, courses: 0, rating: 0, cert: 0 });
+  const [heroBgIndex, setHeroBgIndex] = useState(0);
   const statsRef = useRef(null);
   const animatedRef = useRef(false);
+
+  // Auto-rotate hero background every 5 seconds
+  useEffect(() => {
+    const id = setInterval(() => setHeroBgIndex((p) => (p + 1) % heroBgs.length), 5000);
+    return () => clearInterval(id);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -35,7 +47,7 @@ export default function EcoProLMS() {
             const progress = step / steps;
             const ease = 1 - Math.pow(1 - progress, 3);
             setCounters({
-              learners: Math.round(ease * 50),
+              learners: Math.round(ease * 10000),
               courses: Math.round(ease * 48),
               rating: parseFloat((ease * 4.9).toFixed(1)),
               cert: Math.round(ease * 95),
@@ -357,6 +369,13 @@ export default function EcoProLMS() {
         }
         .eco-rubric-pill:hover { border-color:rgba(99,102,241,0.5); transform:translateY(-4px); box-shadow:0 8px 24px rgba(99,102,241,0.15); }
 
+        .eco-hero-bg {
+          position: absolute; inset: 0;
+          background-size: cover;
+          background-position: center;
+          transition: opacity 1.2s ease-in-out;
+        }
+
         .eco-grid-bg {
           background-image: linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
             linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
@@ -378,7 +397,7 @@ export default function EcoProLMS() {
       <section
         style={{
           minHeight: "100vh",
-          background: "linear-gradient(160deg, #060d1f 0%, #0a1628 40%, #0f1e38 100%)",
+          background: "#060d1f",
           position: "relative",
           overflow: "hidden",
           display: "flex",
@@ -387,6 +406,19 @@ export default function EcoProLMS() {
           paddingBottom: 80,
         }}
       >
+        {/* Background images — crossfade between both */}
+        {heroBgs.map((bg, i) => (
+          <div
+            key={i}
+            className="eco-hero-bg"
+            style={{
+              backgroundImage: `url(${bg})`,
+              opacity: heroBgIndex === i ? 1 : 0,
+            }}
+          />
+        ))}
+        {/* Dark overlay over image */}
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(6,13,31,0.82) 0%, rgba(10,22,40,0.78) 50%, rgba(6,13,31,0.85) 100%)" }} />
         <div className="eco-grid-bg" style={{ position: "absolute", inset: 0, maskImage: "radial-gradient(ellipse 85% 85% at 50% 50%, black 25%, transparent 100%)" }} />
         <div style={{ position: "absolute", top: "12%", left: "5%", width: 520, height: 520, borderRadius: "50%", background: "radial-gradient(circle, rgba(99,102,241,0.13) 0%, transparent 70%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", bottom: "8%", right: "5%", width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(0,194,168,0.09) 0%, transparent 70%)", pointerEvents: "none" }} />
@@ -396,7 +428,7 @@ export default function EcoProLMS() {
           <div className="eco-a1" style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "rgba(99,102,241,0.10)", border: "1px solid rgba(99,102,241,0.30)", borderRadius: 100, padding: "7px 22px", marginBottom: 30 }}>
             <span className="eco-glow-dot" />
             <span style={{ fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#a5b4fc" }}>
-              Now Live on Upskillize . Powered by Agentic AI
+              Now Live on Upskillize · Powered by Agentic AI
             </span>
           </div>
 
@@ -411,7 +443,7 @@ export default function EcoProLMS() {
 
           {/* Sub */}
           <p className="eco-a3" style={{ fontSize: "1.1rem", color: "rgba(226,232,240,0.72)", lineHeight: 1.82, maxWidth: 640, margin: "0 auto 48px", fontWeight: 400 }}>
-            <span style={{ color: "yellow" , fontWeight: "bold"  }}>EcoPro LMS </span> combines adaptive AI, automated assessments, RUBRIC-based evaluation,
+            <span style={{ color: "yellow", fontWeight: "bold" }}>EcoPro LMS</span> combines adaptive AI, automated assessments, RUBRIC-based evaluation,
             and seamless Razorpay payments into one ecosystem for students, faculty, colleges and corporates.
           </p>
 
