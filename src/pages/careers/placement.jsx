@@ -107,84 +107,42 @@ export default function Placement() {
   style={{ background: "rgba(255,255,255,0.05)", borderColor: "rgba(255,255,255,0.10)", backdropFilter: "blur(12px)" }}
 >
   <h3 className="text-xl font-bold mb-8 text-center text-white">Our Launch Process</h3>
-  <div className="flex flex-col gap-4">
+  <div className="flex items-start justify-between gap-2">
     {[
-      {
-        num: "01",
-        label: "REGISTER",
-        desc: "Enroll in courses (Now)",
-        color: "#22d3ee",
-        emoji: "📋",
-        bg: "rgba(34,211,238,0.08)",
-        border: "rgba(34,211,238,0.25)",
-      },
-      {
-        num: "02",
-        label: "COMPLETE",
-        desc: "Finish all modules (3 months)",
-        color: "#818cf8",
-        emoji: "📚",
-        bg: "rgba(129,140,248,0.08)",
-        border: "rgba(129,140,248,0.25)",
-      },
-      {
-        num: "03",
-        label: "APPLY",
-        desc: "Placement assistance opens soon",
-        color: "#34d399",
-        emoji: "🚀",
-        bg: "rgba(52,211,153,0.08)",
-        border: "rgba(52,211,153,0.25)",
-      },
-      {
-        num: "04",
-        label: "INTERVIEWS",
-        desc: "Partner company calls",
-        color: "#f59e0b",
-        emoji: "🎯",
-        bg: "rgba(245,158,11,0.08)",
-        border: "rgba(245,158,11,0.25)",
-      },
+      { num: "01", label: "REGISTER", desc: "Enroll in courses (Now)", color: "#22d3ee", emoji: "📋", bg: "rgba(34,211,238,0.08)", border: "rgba(34,211,238,0.25)" },
+      { num: "02", label: "COMPLETE", desc: "Finish all modules (3 months)", color: "#818cf8", emoji: "📚", bg: "rgba(129,140,248,0.08)", border: "rgba(129,140,248,0.25)" },
+      { num: "03", label: "APPLY", desc: "Placement assistance opens soon", color: "#34d399", emoji: "🚀", bg: "rgba(52,211,153,0.08)", border: "rgba(52,211,153,0.25)" },
+      { num: "04", label: "INTERVIEWS", desc: "Partner company calls", color: "#f59e0b", emoji: "🎯", bg: "rgba(245,158,11,0.08)", border: "rgba(245,158,11,0.25)" },
     ].map((step, idx, arr) => (
-      <div key={step.num} className="relative flex items-center gap-4">
-        {/* Vertical connector line */}
-        {idx < arr.length - 1 && (
+      <div key={step.num} className="flex items-center flex-1">
+        {/* Step Card */}
+        <div className="flex flex-col items-center text-center flex-1">
+          {/* Icon Box */}
           <div
-            className="absolute left-[28px] top-[56px] w-0.5 h-[calc(100%+16px)] z-0"
-            style={{ background: `linear-gradient(to bottom, ${step.color}60, ${arr[idx + 1].color}30)` }}
-          />
-        )}
-
-        {/* Icon Box */}
-        <div
-          className="relative z-10 w-14 h-14 rounded-2xl flex flex-col items-center justify-center flex-shrink-0 shadow-lg"
-          style={{
-            background: step.bg,
-            border: `1.5px solid ${step.border}`,
-            boxShadow: `0 4px 20px ${step.color}20`,
-          }}
-        >
-          <span className="text-xl leading-none">{step.emoji}</span>
-          <span className="text-[10px] font-extrabold mt-0.5" style={{ color: step.color }}>
-            {step.num}
-          </span>
-        </div>
-
-        {/* Content Box */}
-        <div
-          className="flex-1 rounded-xl px-5 py-3 flex items-center gap-4"
-          style={{
-            background: step.bg,
-            border: `1px solid ${step.border}`,
-          }}
-        >
-          <div>
-            <p className="text-sm font-extrabold tracking-widest" style={{ color: step.color }}>
-              {step.label}
-            </p>
-            <p className="text-gray-300 text-sm mt-0.5">{step.desc}</p>
+            className="w-14 h-14 rounded-2xl flex flex-col items-center justify-center mb-3 shadow-lg"
+            style={{
+              background: step.bg,
+              border: `1.5px solid ${step.border}`,
+              boxShadow: `0 4px 20px ${step.color}25`,
+            }}
+          >
+            <span className="text-2xl leading-none">{step.emoji}</span>
+            <span className="text-[10px] font-extrabold mt-0.5" style={{ color: step.color }}>{step.num}</span>
           </div>
+
+          {/* Text */}
+          <p className="text-xs font-extrabold tracking-widest mb-1" style={{ color: step.color }}>{step.label}</p>
+          <p className="text-gray-400 text-xs leading-snug">{step.desc}</p>
         </div>
+
+        {/* Arrow connector between steps */}
+        {idx < arr.length - 1 && (
+          <div className="flex items-center justify-center px-1 mb-8">
+            <svg width="24" height="12" viewBox="0 0 24 12" fill="none">
+              <path d="M0 6 H18 M14 1 L20 6 L14 11" stroke={`${step.color}80`} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+        )}
       </div>
     ))}
   </div>
