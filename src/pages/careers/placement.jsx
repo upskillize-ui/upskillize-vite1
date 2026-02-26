@@ -102,66 +102,67 @@ export default function Placement() {
           </p>
 
           {/* Process Steps */}
-<div
-  className="rounded-2xl p-8 max-w-2xl mx-auto mb-12 border"
-  style={{ background: "rgba(255,255,255,0.05)", borderColor: "rgba(255,255,255,0.10)", backdropFilter: "blur(12px)" }}
->
-  <h3 className="text-xl font-bold mb-8 text-center text-white">Our Launch Process</h3>
-  <div className="flex items-start justify-between gap-2">
-    {[
-      { num: "01", label: "REGISTER", desc: "Enroll in courses (Now)", color: "#22d3ee", emoji: "📋", bg: "rgba(34,211,238,0.08)", border: "rgba(34,211,238,0.25)" },
-      { num: "02", label: "COMPLETE", desc: "Finish all modules (3 months)", color: "#818cf8", emoji: "📚", bg: "rgba(129,140,248,0.08)", border: "rgba(129,140,248,0.25)" },
-      { num: "03", label: "APPLY", desc: "Placement assistance opens soon", color: "#34d399", emoji: "🚀", bg: "rgba(52,211,153,0.08)", border: "rgba(52,211,153,0.25)" },
-      { num: "04", label: "INTERVIEWS", desc: "Partner company calls", color: "#f59e0b", emoji: "🎯", bg: "rgba(245,158,11,0.08)", border: "rgba(245,158,11,0.25)" },
-    ].map((step, idx, arr) => (
-      <div key={step.num} className="flex items-center flex-1">
-        {/* Step Card */}
-        <div className="flex flex-col items-center text-center flex-1">
-          {/* Icon Box */}
           <div
-            className="w-14 h-14 rounded-2xl flex flex-col items-center justify-center mb-3 shadow-lg"
-            style={{
-              background: step.bg,
-              border: `1.5px solid ${step.border}`,
-              boxShadow: `0 4px 20px ${step.color}25`,
-            }}
+            className="rounded-2xl p-8 max-w-2xl mx-auto mb-12 border"
+            style={{ background: "rgba(255,255,255,0.05)", borderColor: "rgba(255,255,255,0.10)", backdropFilter: "blur(12px)" }}
           >
-            <span className="text-2xl leading-none">{step.emoji}</span>
-            <span className="text-[10px] font-extrabold mt-0.5" style={{ color: step.color }}>{step.num}</span>
+            <h3 className="text-xl font-bold mb-8 text-center text-white">Our Launch Process</h3>
+            <div className="flex items-start justify-between gap-2">
+              {[
+                { num: "01", label: "REGISTER", desc: "Enroll in courses (Now)", color: "#22d3ee", emoji: "📋", bg: "rgba(34,211,238,0.08)", border: "rgba(34,211,238,0.25)" },
+                { num: "02", label: "COMPLETE", desc: "Finish all modules (3 months)", color: "#818cf8", emoji: "📚", bg: "rgba(129,140,248,0.08)", border: "rgba(129,140,248,0.25)" },
+                { num: "03", label: "APPLY", desc: "Placement assistance opens soon", color: "#34d399", emoji: "🚀", bg: "rgba(52,211,153,0.08)", border: "rgba(52,211,153,0.25)" },
+                { num: "04", label: "INTERVIEWS", desc: "Partner company calls", color: "#f59e0b", emoji: "🎯", bg: "rgba(245,158,11,0.08)", border: "rgba(245,158,11,0.25)" },
+              ].map((step, idx, arr) => (
+                <div key={step.num} className="flex items-center flex-1">
+                  {/* Step Card */}
+                  <div className="flex flex-col items-center text-center flex-1">
+                    {/* Icon Box */}
+                    <div
+                      className="w-14 h-14 rounded-2xl flex flex-col items-center justify-center mb-3 shadow-lg"
+                      style={{
+                        background: step.bg,
+                        border: `1.5px solid ${step.border}`,
+                        boxShadow: `0 4px 20px ${step.color}25`,
+                      }}
+                    >
+                      <span className="text-2xl leading-none">{step.emoji}</span>
+                      <span className="text-[10px] font-extrabold mt-0.5" style={{ color: step.color }}>{step.num}</span>
+                    </div>
+
+                    {/* Text */}
+                    <p className="text-xs font-extrabold tracking-widest mb-1" style={{ color: step.color }}>{step.label}</p>
+                    <p className="text-gray-400 text-xs leading-snug">{step.desc}</p>
+                  </div>
+
+                  {/* Arrow connector between steps */}
+                  {idx < arr.length - 1 && (
+                    <div className="flex items-center justify-center px-1 mb-8">
+                      <svg width="24" height="12" viewBox="0 0 24 12" fill="none">
+                        <path d="M0 6 H18 M14 1 L20 6 L14 11" stroke={`${step.color}80`} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Text */}
-          <p className="text-xs font-extrabold tracking-widest mb-1" style={{ color: step.color }}>{step.label}</p>
-          <p className="text-gray-400 text-xs leading-snug">{step.desc}</p>
-        </div>
-
-        {/* Arrow connector between steps */}
-        {idx < arr.length - 1 && (
-          <div className="flex items-center justify-center px-1 mb-8">
-            <svg width="24" height="12" viewBox="0 0 24 12" fill="none">
-              <path d="M0 6 H18 M14 1 L20 6 L14 11" stroke={`${step.color}80`} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-        )}
-      </div>
-    ))}
-  </div>
-</div>
-
+          {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              to="/contact"
+              to="/courses"
               className="inline-flex items-center gap-2 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-xl hover:shadow-2xl hover:scale-105 transform"
               style={{ background: "linear-gradient(135deg,#6366f1,#22d3ee)", boxShadow: "0 6px 24px rgba(99,102,241,0.40)" }}
             >
-              Register FREE Now <ArrowRight className="w-5 h-5" />
+              Explore Our Courses <ArrowRight className="w-5 h-5" />
             </Link>
-            <a
-              href="#partners"
+            <Link
+              to="/contact"
               className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-bold px-8 py-4 rounded-xl text-lg border-2 border-white/30 hover:bg-white/20 transition-all shadow-xl"
             >
-              View Partners
-            </a>
+              Contact Us
+            </Link>
           </div>
 
           {/* Stats */}
@@ -231,7 +232,7 @@ export default function Placement() {
                       {item.company}
                     </span>
                     <Link
-                      to="/register"
+                      to="/courses"
                       className="text-white text-sm font-bold px-5 py-2 rounded-lg transition-all hover:opacity-90 hover:scale-105 transform"
                       style={{ background: "linear-gradient(135deg,#6366f1,#22d3ee)" }}
                     >
@@ -282,7 +283,7 @@ export default function Placement() {
             Register FREE Now <ArrowRight className="w-6 h-6" />
           </Link>
           <p className="text-base text-gray-400">
-            <strong className="text-gray-200">Only a few seats for the first batch</strong> — Register before they fill!
+            <strong className="text-gray-200">Only a few seats left for the batch</strong> — Register before they fill!
           </p>
         </div>
       </section>
