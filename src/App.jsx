@@ -23,7 +23,8 @@ import SubCourses from "./pages/SubCourses";
 import CoursesPage from "./pages/CoursesPage";
 
 // About pages
-import About from "./pages/About";
+import AboutUs from './pages/about/AboutUs';
+import EchoProLMS from './pages/about/EchoProLMS';
 
 // New pages
 import Solutions from "./pages/Products";
@@ -87,7 +88,8 @@ function App() {
             <Route path="/academic" element={<Academic />} />
 
             {/* ABOUT & CONTACT */}
-            <Route path="/about" element={<About />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/about/echo-pro-lms" element={<EchoProLMS />} />
             <Route path="/contact" element={<Contact />} />
 
             {/* COURSES (redirect to Academic for backward compatibility) */}
