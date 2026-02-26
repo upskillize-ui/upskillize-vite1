@@ -102,32 +102,93 @@ export default function Placement() {
           </p>
 
           {/* Process Steps */}
+<div
+  className="rounded-2xl p-8 max-w-2xl mx-auto mb-12 border"
+  style={{ background: "rgba(255,255,255,0.05)", borderColor: "rgba(255,255,255,0.10)", backdropFilter: "blur(12px)" }}
+>
+  <h3 className="text-xl font-bold mb-8 text-center text-white">Our Launch Process</h3>
+  <div className="flex flex-col gap-4">
+    {[
+      {
+        num: "01",
+        label: "REGISTER",
+        desc: "Enroll in courses (Now)",
+        color: "#22d3ee",
+        emoji: "📋",
+        bg: "rgba(34,211,238,0.08)",
+        border: "rgba(34,211,238,0.25)",
+      },
+      {
+        num: "02",
+        label: "COMPLETE",
+        desc: "Finish all modules (3 months)",
+        color: "#818cf8",
+        emoji: "📚",
+        bg: "rgba(129,140,248,0.08)",
+        border: "rgba(129,140,248,0.25)",
+      },
+      {
+        num: "03",
+        label: "APPLY",
+        desc: "Placement assistance opens soon",
+        color: "#34d399",
+        emoji: "🚀",
+        bg: "rgba(52,211,153,0.08)",
+        border: "rgba(52,211,153,0.25)",
+      },
+      {
+        num: "04",
+        label: "INTERVIEWS",
+        desc: "Partner company calls",
+        color: "#f59e0b",
+        emoji: "🎯",
+        bg: "rgba(245,158,11,0.08)",
+        border: "rgba(245,158,11,0.25)",
+      },
+    ].map((step, idx, arr) => (
+      <div key={step.num} className="relative flex items-center gap-4">
+        {/* Vertical connector line */}
+        {idx < arr.length - 1 && (
           <div
-            className="rounded-2xl p-8 max-w-2xl mx-auto mb-12 border"
-            style={{ background: "rgba(255,255,255,0.05)", borderColor: "rgba(255,255,255,0.10)", backdropFilter: "blur(12px)" }}
-          >
-            <h3 className="text-xl font-bold mb-6 text-center text-white">Our Launch Process</h3>
-            <div className="grid md:grid-cols-2 gap-6 text-left">
-              {[
-                { num: "01", label: "REGISTER", desc: "Enroll in courses (Now)", color: "#22d3ee" },
-                { num: "02", label: "COMPLETE", desc: "Finish all modules (3 months)", color: "#818cf8" },
-                { num: "03", label: "APPLY", desc: "Placement assistance opens soon", color: "#34d399" },
-                { num: "04", label: "INTERVIEWS", desc: "Partner company calls", color: "#f59e0b" },
-              ].map((step) => (
-                <div key={step.num} className="flex items-center gap-3">
-                  <div
-                    className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-extrabold flex-shrink-0"
-                    style={{ background: step.color, color: "#0a1628" }}
-                  >
-                    {step.num}
-                  </div>
-                  <span className="text-sm text-gray-200">
-                    <strong className="text-white">{step.label}</strong> — {step.desc}
-                  </span>
-                </div>
-              ))}
-            </div>
+            className="absolute left-[28px] top-[56px] w-0.5 h-[calc(100%+16px)] z-0"
+            style={{ background: `linear-gradient(to bottom, ${step.color}60, ${arr[idx + 1].color}30)` }}
+          />
+        )}
+
+        {/* Icon Box */}
+        <div
+          className="relative z-10 w-14 h-14 rounded-2xl flex flex-col items-center justify-center flex-shrink-0 shadow-lg"
+          style={{
+            background: step.bg,
+            border: `1.5px solid ${step.border}`,
+            boxShadow: `0 4px 20px ${step.color}20`,
+          }}
+        >
+          <span className="text-xl leading-none">{step.emoji}</span>
+          <span className="text-[10px] font-extrabold mt-0.5" style={{ color: step.color }}>
+            {step.num}
+          </span>
+        </div>
+
+        {/* Content Box */}
+        <div
+          className="flex-1 rounded-xl px-5 py-3 flex items-center gap-4"
+          style={{
+            background: step.bg,
+            border: `1px solid ${step.border}`,
+          }}
+        >
+          <div>
+            <p className="text-sm font-extrabold tracking-widest" style={{ color: step.color }}>
+              {step.label}
+            </p>
+            <p className="text-gray-300 text-sm mt-0.5">{step.desc}</p>
           </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
