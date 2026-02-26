@@ -35,7 +35,7 @@ export default function EcoProLMS() {
             const progress = step / steps;
             const ease = 1 - Math.pow(1 - progress, 3);
             setCounters({
-              learners: Math.round(ease * 10000),
+              learners: Math.round(ease * 50),
               courses: Math.round(ease * 48),
               rating: parseFloat((ease * 4.9).toFixed(1)),
               cert: Math.round(ease * 95),
