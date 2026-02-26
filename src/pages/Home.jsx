@@ -1305,11 +1305,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* VETERANS / LOGOS SCROLL */}
+      
+            {/* VETERANS FROM LEADING ORGANIZATIONS */}
       <section className="py-20 bg-gradient-to-br from-[#0a1628] via-[#0f1f3d] to-[#152847] relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl"></div>
+            <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl"></div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-12">
           <div className="text-center">
@@ -1325,128 +1326,244 @@ export default function Home() {
               Veterans from Leading Organizations
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Learn from professionals who have shaped innovation at the world's
-              most respected companies
+              Learn from professionals who have shaped innovation at the world's most respected companies
             </p>
           </div>
+
           <div className="flex items-center justify-center mt-8">
             <div className="h-1 w-32 bg-gradient-to-r from-transparent via-cyan-500 to-transparent rounded-full"></div>
           </div>
         </div>
-
-        {(() => {
-          const logos = [
-            {
-              src: "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
-              alt: "Google",
-              hoverBorder: "hover:border-cyan-400/70",
-              hoverShadow: "hover:shadow-[0_0_40px_rgba(34,211,238,0.25)]",
-              invert: false,
-            },
-            {
-              src: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
-              alt: "Microsoft",
-              hoverBorder: "hover:border-blue-400/70",
-              hoverShadow: "hover:shadow-[0_0_40px_rgba(96,165,250,0.25)]",
-              invert: false,
-            },
-            {
-              src: "https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg",
-              alt: "Oracle",
-              hoverBorder: "hover:border-red-400/70",
-              hoverShadow: "hover:shadow-[0_0_40px_rgba(248,113,113,0.25)]",
-              invert: true,
-            },
-            {
-              src: "https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg",
-              alt: "SAP",
-              hoverBorder: "hover:border-blue-500/70",
-              hoverShadow: "hover:shadow-[0_0_40px_rgba(59,130,246,0.25)]",
-              invert: true,
-            },
-            {
-              src: "https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg",
-              alt: "Wipro",
-              hoverBorder: "hover:border-purple-400/70",
-              hoverShadow: "hover:shadow-[0_0_40px_rgba(192,132,252,0.25)]",
-              invert: false,
-            },
-            {
-              src: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
-              alt: "IBM",
-              hoverBorder: "hover:border-blue-500/70",
-              hoverShadow: "hover:shadow-[0_0_40px_rgba(59,130,246,0.25)]",
-              invert: true,
-            },
-            {
-              src: "https://upload.wikimedia.org/wikipedia/commons/6/6a/EY_Logo_2019.svg",
-              alt: "EY",
-              hoverBorder: "hover:border-yellow-400/70",
-              hoverShadow: "hover:shadow-[0_0_40px_rgba(250,204,21,0.25)]",
-              invert: true,
-            },
-            {
-              src: "https://upload.wikimedia.org/wikipedia/commons/3/30/Genpact_logo.svg",
-              alt: "Genpact",
-              hoverBorder: "hover:border-pink-400/70",
-              hoverShadow: "hover:shadow-[0_0_40px_rgba(244,114,182,0.25)]",
-              invert: true,
-            },
-            {
-              src: "https://upload.wikimedia.org/wikipedia/commons/b/b1/Tata_Consultancy_Services_Logo.svg",
-              alt: "TCS",
-              hoverBorder: "hover:border-indigo-400/70",
-              hoverShadow: "hover:shadow-[0_0_40px_rgba(129,140,248,0.25)]",
-              invert: true,
-            },
-            {
-              src: "https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg",
-              alt: "Infosys",
-              hoverBorder: "hover:border-teal-400/70",
-              hoverShadow: "hover:shadow-[0_0_40px_rgba(45,212,191,0.25)]",
-              invert: true,
-            },
-            {
-              src: "https://upload.wikimedia.org/wikipedia/commons/7/72/Accenture_logo.svg",
-              alt: "Accenture",
-              hoverBorder: "hover:border-violet-400/70",
-              hoverShadow: "hover:shadow-[0_0_40px_rgba(167,139,250,0.25)]",
-              invert: true,
-            },
-            {
-              src: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Deloitte.svg/2560px-Deloitte.svg.png",
-              alt: "Deloitte",
-              hoverBorder: "hover:border-green-400/70",
-              hoverShadow: "hover:shadow-[0_0_40px_rgba(74,222,128,0.25)]",
-              invert: true,
-            },
-          ];
-
-          return (
-            <div className="relative w-full overflow-hidden">
-              <div className="flex scroll-container">
-                {[...logos, ...logos].map((logo, i) => (
-                  <div key={i} className="flex-shrink-0 w-56 px-3">
-                    <div
-                      className={`group relative flex flex-col items-center justify-center h-32 w-full px-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 ${logo.hoverBorder} transition-all duration-500 ${logo.hoverShadow} hover:scale-105`}
-                    >
-                      <img
-                        src={logo.src}
-                        alt={logo.alt}
-                        className={`h-10 w-auto object-contain mb-2 opacity-80 group-hover:opacity-100 transition-opacity duration-500 ${logo.invert ? "filter brightness-0 invert" : ""}`}
-                      />
-                      <span className="text-gray-300 text-xs font-medium group-hover:text-white transition-colors text-center">
-                        {logo.alt}
-                      </span>
-                    </div>
-                  </div>
-                ))}
+        {/* Scrolling Container */}
+        <div className="relative w-full overflow-hidden">
+          <div className="flex scroll-container">
+            {/* First set of logos */}
+            <div className="flex gap-8 px-4">
+              {/* Google */}
+              <div className="flex-shrink-0 w-64">
+                <div className="group relative flex flex-col items-center justify-center h-32 w-full px-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-cyan-400/70 transition-all duration-500 hover:shadow-[0_0_40px_rgba(34,211,238,0.25)] hover:scale-105">
+                  <img 
+                    src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" 
+                    alt="Google" 
+                    className="h-10 w-auto object-contain mb-2 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                  />
+                  <span className="text-gray-300 text-xs font-medium group-hover:text-white transition-colors">Google</span>
+                </div>
               </div>
-            </div>
-          );
-        })()}
-      </section>
 
+              {/* Microsoft */}
+              <div className="flex-shrink-0 w-64">
+                <div className="group relative flex flex-col items-center justify-center h-32 w-full px-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-blue-400/70 transition-all duration-500 hover:shadow-[0_0_40px_rgba(96,165,250,0.25)] hover:scale-105">
+                  <img 
+                    src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" 
+                    alt="Microsoft" 
+                    className="h-9 w-auto object-contain mb-2 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                  />
+                  <span className="text-gray-300 text-xs font-medium group-hover:text-white transition-colors">Microsoft</span>
+                </div>
+              </div>
+
+              {/* Oracle */}
+              <div className="flex-shrink-0 w-64">
+                <div className="group relative flex flex-col items-center justify-center h-32 w-full px-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-green-400/70 transition-all duration-500 hover:shadow-[0_0_40px_rgba(74,222,128,0.25)] hover:scale-105">
+                  <img 
+                    src="https://sp-ao.shortpixel.ai/client/to_webp,q_lossless,ret_img,w_313,h_157/https://graphicdesignergeeks.com/wp-content/uploads/2024/04/Oracle-2.png" 
+                    alt="Oracle" 
+                    className="h-10 w-auto object-contain mb-2 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                  />
+                  <span className="text-gray-300 text-xs font-medium group-hover:text-white transition-colors">Oracle</span>
+                </div>
+              </div>
+
+                {/* SAP */}
+              <div className="flex-shrink-0 w-64">
+                <div className="group relative flex flex-col items-center justify-center h-32 w-full px-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-green-400/70 transition-all duration-500 hover:shadow-[0_0_40px_rgba(74,222,128,0.25)] hover:scale-105">
+                  <img 
+                    src="https://live.staticflickr.com/4136/4859025955_1f018d165f.jpg" 
+                    alt="SAP" 
+                    className="h-10 w-auto object-contain mb-2 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                  />
+                  <span className="text-gray-300 text-xs font-medium group-hover:text-white transition-colors">SAP</span>
+                </div>
+              </div>
+
+        {/* Wipro */}
+        <div className="flex-shrink-0 w-64">
+          <div className="group relative flex flex-col items-center justify-center h-32 w-full px-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-purple-400/70 transition-all duration-500 hover:shadow-[0_0_40px_rgba(192,132,252,0.25)] hover:scale-105">
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg" 
+              alt="Wipro" 
+              className="h-8 w-auto object-contain mb-2 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+            />
+            <span className="text-gray-300 text-xs font-medium group-hover:text-white transition-colors">Wipro</span>
+          </div>
+        </div>
+
+        {/* IBM */}
+        <div className="flex-shrink-0 w-64">
+          <div className="group relative flex flex-col items-center justify-center h-32 w-full px-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-blue-500/70 transition-all duration-500 hover:shadow-[0_0_40px_rgba(59,130,246,0.25)] hover:scale-105">
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" 
+              alt="IBM" 
+              className="h-10 w-auto object-contain filter brightness-0 invert mb-2 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+            />
+            <span className="text-gray-300 text-xs font-medium group-hover:text-white transition-colors">IBM</span>
+          </div>
+        </div>
+
+        {/* Emirates NBD */}
+        <div className="flex-shrink-0 w-64">
+          <div className="group relative flex flex-col items-center justify-center h-32 w-full px-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-green-400/70 transition-all duration-500 hover:shadow-[0_0_40px_rgba(74,222,128,0.25)] hover:scale-105">
+            <img 
+              src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5531df8c0000ff00057ed682/0x0.png" 
+              alt="Emirates NBD" 
+              className="h-10 w-auto object-contain mb-2 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+            />
+            <span className="text-gray-300 text-xs font-medium group-hover:text-white transition-colors">Emirates NBD</span>
+          </div>
+        </div>
+
+        {/* EY */}
+        <div className="flex-shrink-0 w-64">
+          <div className="group relative flex flex-col items-center justify-center h-32 w-full px-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-yellow-400/70 transition-all duration-500 hover:shadow-[0_0_40px_rgba(250,204,21,0.25)] hover:scale-105">
+            <img 
+              src="https://logowik.com/content/uploads/images/ey-ernst-young8946.logowik.com.webp" 
+              alt="EY" 
+              className="h-8 w-auto object-contain mb-2 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+            />
+            <span className="text-gray-300 text-xs font-medium group-hover:text-white transition-colors">EY</span>
+          </div>
+        </div>
+
+        {/* IBM Bangalore */}
+        <div className="flex-shrink-0 w-64">
+          <div className="group relative flex flex-col items-center justify-center h-32 w-full px-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-indigo-400/70 transition-all duration-500 hover:shadow-[0_0_40px_rgba(129,140,248,0.25)] hover:scale-105">
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" 
+              alt="IBM Bangalore" 
+              className="h-9 w-auto object-contain filter brightness-0 invert mb-2 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+            />
+            <span className="text-gray-300 text-xs font-medium group-hover:text-white transition-colors text-center">IBM Bangalore</span>
+          </div>
+        </div>
+
+        {/* Genpact */}
+        <div className="flex-shrink-0 w-64">
+          <div className="group relative flex flex-col items-center justify-center h-32 w-full px-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-pink-400/70 transition-all duration-500 hover:shadow-[0_0_40px_rgba(244,114,182,0.25)] hover:scale-105">
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Genpact_logo.svg" 
+              alt="Genpact" 
+              className="h-8 w-auto object-contain filter brightness-0 invert mb-2 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+            />
+            <span className="text-gray-300 text-xs font-medium group-hover:text-white transition-colors">Genpact</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Duplicate set for seamless loop */}
+      <div className="flex gap-8 px-4">
+        {/* (Repeat all 10 logos again - exact same code) */}
+        <div className="flex-shrink-0 w-64">
+          <div className="group relative flex flex-col items-center justify-center h-32 w-full px-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-cyan-400/70 transition-all duration-500 hover:shadow-[0_0_40px_rgba(34,211,238,0.25)] hover:scale-105">
+            <img 
+              src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" 
+              alt="Google" 
+              className="h-10 w-auto object-contain mb-2 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+            />
+            <span className="text-gray-300 text-xs font-medium group-hover:text-white transition-colors">Google</span>
+          </div>
+        </div>
+        <div className="flex-shrink-0 w-64">
+          <div className="group relative flex flex-col items-center justify-center h-32 w-full px-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-blue-400/70 transition-all duration-500 hover:shadow-[0_0_40px_rgba(96,165,250,0.25)] hover:scale-105">
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" 
+              alt="Microsoft" 
+              className="h-9 w-auto object-contain mb-2 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+            />
+            <span className="text-gray-300 text-xs font-medium group-hover:text-white transition-colors">Microsoft</span>
+          </div>
+        </div>
+        <div className="flex-shrink-0 w-64">
+          <div className="group relative flex flex-col items-center justify-center h-32 w-full px-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-red-400/70 transition-all duration-500 hover:shadow-[0_0_40px_rgba(248,113,113,0.25)] hover:scale-105">
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg" 
+              alt="Oracle" 
+              className="h-8 w-auto object-contain filter brightness-0 invert mb-2 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+            />
+            <span className="text-gray-300 text-xs font-medium group-hover:text-white transition-colors">Oracle</span>
+          </div>
+        </div>
+        <div className="flex-shrink-0 w-64">
+          <div className="group relative flex flex-col items-center justify-center h-32 w-full px-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-blue-500/70 transition-all duration-500 hover:shadow-[0_0_40px_rgba(59,130,246,0.25)] hover:scale-105">
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" 
+              alt="SAP" 
+              className="h-10 w-auto object-contain filter brightness-0 invert mb-2 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+            />
+            <span className="text-gray-300 text-xs font-medium group-hover:text-white transition-colors">SAP</span>
+          </div>
+        </div>
+        <div className="flex-shrink-0 w-64">
+          <div className="group relative flex flex-col items-center justify-center h-32 w-full px-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-purple-400/70 transition-all duration-500 hover:shadow-[0_0_40px_rgba(192,132,252,0.25)] hover:scale-105">
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg" 
+              alt="Wipro" 
+              className="h-8 w-auto object-contain mb-2 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+            />
+            <span className="text-gray-300 text-xs font-medium group-hover:text-white transition-colors">Wipro</span>
+          </div>
+        </div>
+        <div className="flex-shrink-0 w-64">
+          <div className="group relative flex flex-col items-center justify-center h-32 w-full px-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-blue-500/70 transition-all duration-500 hover:shadow-[0_0_40px_rgba(59,130,246,0.25)] hover:scale-105">
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" 
+              alt="IBM" 
+              className="h-10 w-auto object-contain filter brightness-0 invert mb-2 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+            />
+            <span className="text-gray-300 text-xs font-medium group-hover:text-white transition-colors">IBM</span>
+          </div>
+        </div>
+        <div className="flex-shrink-0 w-64">
+          <div className="group relative flex flex-col items-center justify-center h-32 w-full px-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-green-400/70 transition-all duration-500 hover:shadow-[0_0_40px_rgba(74,222,128,0.25)] hover:scale-105">
+            <span className="text-gray-300 text-base font-bold group-hover:text-white transition-colors text-center">
+              Enterprise<br/>NBD
+            </span>
+          </div>
+        </div>
+        <div className="flex-shrink-0 w-64">
+          <div className="group relative flex flex-col items-center justify-center h-32 w-full px-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-yellow-400/70 transition-all duration-500 hover:shadow-[0_0_40px_rgba(250,204,21,0.25)] hover:scale-105">
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/6/6a/EY_Logo_2019.svg" 
+              alt="EY" 
+              className="h-8 w-auto object-contain filter brightness-0 invert mb-2 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+            />
+            <span className="text-gray-300 text-xs font-medium group-hover:text-white transition-colors">EY</span>
+          </div>
+        </div>
+        <div className="flex-shrink-0 w-64">
+          <div className="group relative flex flex-col items-center justify-center h-32 w-full px-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-indigo-400/70 transition-all duration-500 hover:shadow-[0_0_40px_rgba(129,140,248,0.25)] hover:scale-105">
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" 
+              alt="IBM Bangalore" 
+              className="h-9 w-auto object-contain filter brightness-0 invert mb-2 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+            />
+            <span className="text-gray-300 text-xs font-medium group-hover:text-white transition-colors text-center">IBM Bangalore</span>
+          </div>
+        </div>
+        <div className="flex-shrink-0 w-64">
+          <div className="group relative flex flex-col items-center justify-center h-32 w-full px-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-pink-400/70 transition-all duration-500 hover:shadow-[0_0_40px_rgba(244,114,182,0.25)] hover:scale-105">
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/3/30/Genpact_logo.svg" 
+              alt="Genpact" 
+              className="h-8 w-auto object-contain filter brightness-0 invert mb-2 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+            />
+            <span className="text-gray-300 text-xs font-medium group-hover:text-white transition-colors">Genpact</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
       {/* TESTIMONIALS */}
       <section className="py-16 bg-gradient-to-br from-[#0f1729] via-[#1a2847] to-[#243452]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
