@@ -23,8 +23,8 @@ import SubCourses from "./pages/SubCourses";
 import CoursesPage from "./pages/CoursesPage";
 
 // About pages
-import AboutUs from './pages/about/AboutUs';
-import EchoProLMS from './pages/about/EchoProLMS';
+import AboutUs from "./pages/about/AboutUs";
+import EcoProLMS from "./pages/about/EcoProLMS"; // ← FIXED: was 'EcoProLMS'
 
 // New pages
 import Solutions from "./pages/Products";
@@ -53,7 +53,12 @@ import "./App.css";
 
 function App() {
   return (
-    <Router>
+    <Router
+      future={{
+        v7_startTransition: true,       // ← FIX: silences warning 1
+        v7_relativeSplatPath: true,     // ← FIX: silences warning 2
+      }}
+    >
       <ScrollToTop />
 
       <div className="min-h-screen w-full flex flex-col">
@@ -69,45 +74,33 @@ function App() {
 
             {/* CORPORATES */}
             <Route path="/corporate" element={<Corporate />} />
-            <Route
-              path="/corporate/consulting"
-              element={<CorporateConsulting />}
-            />
+            <Route path="/corporate/consulting" element={<CorporateConsulting />} />
             <Route path="/corporate/training" element={<CorporateTraining />} />
 
-            {/* Carrers */}
+            {/* CAREERS */}
             <Route path="/careers/internship" element={<Internship />} />
             <Route path="/careers/placement" element={<Placement />} />
 
             {/* ACADEMIC */}
             <Route path="/academic" element={<Academic />} />
 
-            <Route path="/corporate/training" element={<CorporateTraining />} />
-
-            {/* ACADEMIC */}
-            <Route path="/academic" element={<Academic />} />
-
             {/* ABOUT & CONTACT */}
             <Route path="/about" element={<AboutUs />} />
-            <Route path="/about/echo-pro-lms" element={<EchoProLMS />} />
+            <Route path="/about/eco-pro-lms" element={<EcoProLMS />} /> {/* ← FIXED: was /eco-pro-lms */}
             <Route path="/contact" element={<Contact />} />
 
-            {/* COURSES (redirect to Academic for backward compatibility) */}
-            <Route
-              path="/courses"
-              element={<Navigate to="/academic" replace />}
-            />
+            {/* COURSES */}
+            <Route path="/courses" element={<Navigate to="/academic" replace />} />
             <Route path="/course/:slug" element={<CourseDetails />} />
             <Route path="/courses/:category" element={<CoursesPage />} />
 
             {/* Redirect Corporate Readiness Program from /courses/ to /course/ */}
             <Route
               path="/courses/corporate-readiness-program"
-              element={
-                <Navigate to="/course/corporate-readiness-program" replace />
-              }
+              element={<Navigate to="/course/corporate-readiness-program" replace />}
             />
 
+            {/* PRODUCTS */}
             <Route path="/products/optimize" element={<Optimize />} />
             <Route path="/products/compliize" element={<Compliize />} />
             <Route path="/products/vendorize" element={<Vendorize />} />
@@ -116,44 +109,17 @@ function App() {
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
 
-            {/* Course Detail Pages */}
-            <Route
-              path="/courses/bfsi-domain-excellence-program"
-              element={<BFSIDomainExcellence />}
-            />
-            <Route
-              path="/courses/investment-banking-wealth-tech"
-              element={<InvestmentBankingWealthTech />}
-            />
-            <Route
-              path="/courses/risk-management-regtech-program"
-              element={<RiskManagementRegTech />}
-            />
-            <Route
-              path="/courses/the-mini-ceo-program"
-              element={<ProductLeadershipProgram />}
-            />
-            <Route
-              path="/courses/ai-product-management-mastery"
-              element={<AIProductManagementMastery />}
-            />
-            <Route
-              path="/courses/data-decisions"
-              element={<DataToDecisionsPowerBI />}
-            />
+            {/* COURSE DETAIL PAGES */}
+            <Route path="/courses/bfsi-domain-excellence-program" element={<BFSIDomainExcellence />} />
+            <Route path="/courses/investment-banking-wealth-tech" element={<InvestmentBankingWealthTech />} />
+            <Route path="/courses/risk-management-regtech-program" element={<RiskManagementRegTech />} />
+            <Route path="/courses/the-mini-ceo-program" element={<ProductLeadershipProgram />} />
+            <Route path="/courses/ai-product-management-mastery" element={<AIProductManagementMastery />} />
+            <Route path="/courses/data-decisions" element={<DataToDecisionsPowerBI />} />
             <Route path="/courses/mba-plus-plus" element={<MBAPlusPlus />} />
-            <Route
-              path="/courses/ai-ml-business-leaders"
-              element={<CAIPLandingPage />}
-            />
-            <Route
-              path="/courses/digital-business-strategy-innovation"
-              element={<DigitalStrategyProgram />}
-            />
-            <Route
-              path="/course/corporate-readiness-program"
-              element={<CorporateReadinessProgram />}
-            />
+            <Route path="/courses/ai-ml-business-leaders" element={<CAIPLandingPage />} />
+            <Route path="/courses/digital-business-strategy-innovation" element={<DigitalStrategyProgram />} />
+            <Route path="/course/corporate-readiness-program" element={<CorporateReadinessProgram />} />
 
             {/* FALLBACK */}
             <Route path="*" element={<NotFound />} />

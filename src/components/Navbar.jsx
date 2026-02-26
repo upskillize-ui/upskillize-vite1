@@ -468,7 +468,7 @@ export default function Navbar() {
                   </button>
                   <div className="dropdown-menu align-right">
                     <a href="/about" className="dropdown-link">About Us</a>
-                    <a href="/about/echo-pro-lms" className="dropdown-link">Echo Pro LMS</a>
+                    <a href="/about/eco-pro-lms" className="dropdown-link">EcoPro LMS</a>
                   </div>
                 </div>
 
@@ -540,7 +540,7 @@ export default function Navbar() {
               </button>
               <div className={`mobile-dropdown-content ${isAboutOpen ? "open" : ""}`}>
                 <a href="/about" onClick={closeMobileMenu} className="mobile-dropdown-link">About Us</a>
-                <a href="/about/echo-pro-lms" onClick={closeMobileMenu} className="mobile-dropdown-link">Echo Pro LMS</a>
+                <a href="/about/eco-pro-lms" onClick={closeMobileMenu} className="mobile-dropdown-link">EcoPro LMS</a>
               </div>
             </div>
 
