@@ -253,61 +253,6 @@ const isFormValid = form.name && form.email && form.phone && form.college && for
         </div>
       </section>
 
-      {/* ===== TRANSPARENCY SECTION ===== */}
-      <section className="py-20 bg-gradient-to-br from-[#0f1729] via-[#1a2847] to-[#243452]">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <div className="inline-block mb-4">
-              <span className="px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase"
-                style={{ background: "rgba(34,211,238,0.10)", border: "1px solid rgba(34,211,238,0.25)", color: "#22d3ee" }}>
-                Full Transparency
-              </span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">What Upskillize Does & Doesn't Do</h2>
-            <p className="text-gray-300 text-lg max-w-2xl mx-auto">We believe in being completely upfront about our role in your internship journey.</p>
-          </div>
-          <div className="rounded-2xl border overflow-hidden"
-            style={{ background: "rgba(30,45,74,0.70)", borderColor: "rgba(255,255,255,0.10)" }}>
-            <div className="grid md:grid-cols-2" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
-              <div className="p-8" style={{ borderRight: "1px solid rgba(255,255,255,0.08)" }}>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center"
-                    style={{ background: "rgba(52,211,153,0.15)", border: "1px solid rgba(52,211,153,0.30)" }}>
-                    <CheckCircle2 className="w-5 h-5" style={{ color: "#34d399" }} />
-                  </div>
-                  <h3 className="text-xl font-bold text-white">What We Do</h3>
-                </div>
-                <div className="space-y-4">
-                  {clarityPoints.filter(p => p.type === "do").map((p, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <span className="text-lg mt-0.5 flex-shrink-0" style={{ color: p.color }}>{p.icon}</span>
-                      <p className="text-gray-300 text-sm leading-relaxed">{p.text}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="p-8">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center"
-                    style={{ background: "rgba(245,158,11,0.15)", border: "1px solid rgba(245,158,11,0.30)" }}>
-                    <Briefcase className="w-5 h-5" style={{ color: "#f59e0b" }} />
-                  </div>
-                  <h3 className="text-xl font-bold text-white">Important to Know</h3>
-                </div>
-                <div className="space-y-4">
-                  {clarityPoints.filter(p => p.type === "note").map((p, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <span className="text-lg mt-0.5 flex-shrink-0">{p.icon}</span>
-                      <p className="text-gray-300 text-sm leading-relaxed">{p.text}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ===== HOW IT WORKS ===== */}
       <section id="how-it-works" className="py-20 bg-gradient-to-br from-[#0a1628] via-[#0f1f3d] to-[#152847]">
         <div className="max-w-7xl mx-auto px-6">
@@ -440,6 +385,61 @@ const isFormValid = form.name && form.email && form.phone && form.college && for
                 <p className="text-gray-400 text-sm leading-relaxed">{e.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== TRANSPARENCY SECTION ===== */}
+      <section className="py-20 bg-gradient-to-br from-[#0f1729] via-[#1a2847] to-[#243452]">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <div className="inline-block mb-4">
+              <span className="px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase"
+                style={{ background: "rgba(34,211,238,0.10)", border: "1px solid rgba(34,211,238,0.25)", color: "#22d3ee" }}>
+                Full Transparency
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">What Upskillize Does & Doesn't Do</h2>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">We believe in being completely upfront about our role in your internship journey.</p>
+          </div>
+          <div className="rounded-2xl border overflow-hidden"
+            style={{ background: "rgba(30,45,74,0.70)", borderColor: "rgba(255,255,255,0.10)" }}>
+            <div className="grid md:grid-cols-2" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
+              <div className="p-8" style={{ borderRight: "1px solid rgba(255,255,255,0.08)" }}>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center"
+                    style={{ background: "rgba(52,211,153,0.15)", border: "1px solid rgba(52,211,153,0.30)" }}>
+                    <CheckCircle2 className="w-5 h-5" style={{ color: "#34d399" }} />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">What We Do</h3>
+                </div>
+                <div className="space-y-4">
+                  {clarityPoints.filter(p => p.type === "do").map((p, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <span className="text-lg mt-0.5 flex-shrink-0" style={{ color: p.color }}>{p.icon}</span>
+                      <p className="text-gray-300 text-sm leading-relaxed">{p.text}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center"
+                    style={{ background: "rgba(245,158,11,0.15)", border: "1px solid rgba(245,158,11,0.30)" }}>
+                    <Briefcase className="w-5 h-5" style={{ color: "#f59e0b" }} />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">Important to Know</h3>
+                </div>
+                <div className="space-y-4">
+                  {clarityPoints.filter(p => p.type === "note").map((p, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <span className="text-lg mt-0.5 flex-shrink-0">{p.icon}</span>
+                      <p className="text-gray-300 text-sm leading-relaxed">{p.text}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
