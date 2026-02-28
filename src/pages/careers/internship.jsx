@@ -202,7 +202,7 @@ const isFormValid = form.name && form.email && form.phone && form.college && for
         <div className="max-w-7xl mx-auto px-6 py-28 md:py-36 text-center relative z-10">
           <span className="inline-block mb-6 px-4 py-1.5 rounded-full text-xs font-semibold"
             style={{ background: "rgba(99,102,241,0.18)", border: "1px solid rgba(99,102,241,0.40)", color: "#818cf8", letterSpacing: "1px" }}>
-            🎓 Internship Facilitation Program — Cohort 2025
+            🎓 Internship Facilitation Program
           </span>
 
           <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6 text-white drop-shadow-2xl">
@@ -490,7 +490,7 @@ const isFormValid = form.name && form.email && form.phone && form.college && for
                 Start Your Application
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-3">Apply for Internship Facilitation</h2>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-3">Apply for Courses Facilitation</h2>
             <p className="text-gray-300 mb-4">Submit your interest and our team will reach out within 48 hours to discuss next steps.</p>
             <div className="inline-flex items-start gap-2 px-4 py-3 rounded-xl text-sm text-left"
               style={{ background: "rgba(245,158,11,0.10)", border: "1px solid rgba(245,158,11,0.25)", color: "#fbbf24" }}>

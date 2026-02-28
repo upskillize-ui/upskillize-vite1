@@ -181,40 +181,6 @@ export default function EcoProLMS() {
     { letter: "C", word: "Clarity", desc: "Communication quality, structure & conciseness" },
   ];
 
-  const pricing = [
-    {
-      name: "Explorer",
-      for: "For Students",
-      price: "₹0",
-      period: "forever free",
-      color: "#00c2a8",
-      featured: false,
-      features: ["All free courses", "AI-graded quizzes", "Progress tracker", "Completion certificate", "Google OAuth sign-in", "Mobile-responsive interface"],
-      cta: "Get Started Free",
-    },
-    {
-      name: "Pro Learner",
-      for: "For Serious Learners",
-      price: "₹999",
-      period: "per month",
-      color: "#6366f1",
-      featured: true,
-      badge: "Most Popular",
-      features: ["Everything in Explorer", "All premium domain courses", "AI case study review (unlimited)", "RUBRIC-scored assignments", "Adaptive learning path", "Weekly AI progress report", "LinkedIn certificate sharing", "Priority email support"],
-      cta: "Subscribe Now",
-    },
-    {
-      name: "Enterprise",
-      for: "For Colleges & Corporates",
-      price: "Custom",
-      period: "Starting ₹49,999/year",
-      color: "#a78bfa",
-      featured: false,
-      features: ["Unlimited users & courses", "12-module admin suite", "Bulk enrollment & cohorts", "SSO & custom domain", "Audit logs & compliance export", "Dedicated account manager", "API access for integration", "DB backup & SLA guarantee"],
-      cta: "Contact Sales",
-    },
-  ];
-
   const faqs = [
     {
       q: "What is EcoPro LMS?",
@@ -699,55 +665,6 @@ export default function EcoProLMS() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════ PRICING ══════════ */}
-      <section id="pricing" style={S.section("linear-gradient(180deg,#111e3a 0%,#0a1628 100%)")}>
-        <div style={S.inner}>
-          <div style={{ textAlign: "center", marginBottom: 56 }}>
-            <div style={S.label}>Simple Pricing</div>
-            <h2 style={S.h2}>Choose Your Plan</h2>
-            <p style={{ ...S.muted, maxWidth: 460, margin: "0 auto" }}>
-              Transparent pricing. No hidden fees. 30-day money-back guarantee on all paid plans.
-            </p>
-          </div>
-          <div className="eco-pricing-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(290px, 1fr))", gap: 22, alignItems: "start" }}>
-            {pricing.map((p) => (
-              <div key={p.name} className={`eco-price-card ${p.featured ? "feat" : ""}`}>
-                {p.badge && (
-                  <div style={{ position: "absolute", top: 18, right: 18, background: "#6366f1", color: "white", fontSize: "0.65rem", fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase", padding: "3px 12px", borderRadius: 100 }}>
-                    {p.badge}
-                  </div>
-                )}
-                <div style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: p.color, marginBottom: 8 }}>{p.for}</div>
-                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.5rem", fontWeight: 800, color: "white", marginBottom: 8 }}>{p.name}</div>
-                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.8rem", fontWeight: 800, color: "white", lineHeight: 1, marginBottom: 4 }}>{p.price}</div>
-                <div style={{ fontSize: "0.8rem", color: "#64748b", marginBottom: 22 }}>{p.period}</div>
-                <hr style={{ border: "none", borderTop: "1px solid rgba(255,255,255,0.08)", margin: "0 0 20px" }} />
-                <ul style={{ listStyle: "none", padding: 0, margin: "0 0 26px" }}>
-                  {p.features.map((feat) => (
-                    <li key={feat} style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: "0.85rem", color: "#cbd5e1", padding: "6px 0", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-                      <CheckCircle size={14} style={{ color: "#00c2a8", flexShrink: 0, marginTop: 2 }} /> {feat}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  to="/contact"
-                  style={{
-                    display: "block", textAlign: "center", padding: "13px", borderRadius: 10,
-                    fontWeight: 700, fontSize: "0.9rem", textDecoration: "none", transition: "all 0.3s",
-                    background: p.featured ? "linear-gradient(135deg,#6366f1,#4f46e5)" : "rgba(255,255,255,0.06)",
-                    color: p.featured ? "white" : "#e2e8f0",
-                    border: p.featured ? "none" : "1.5px solid rgba(255,255,255,0.12)",
-                    boxShadow: p.featured ? "0 6px 22px rgba(99,102,241,0.4)" : "none",
-                  }}
-                >
-                  {p.cta}
-                </Link>
-              </div>
-            ))}
           </div>
         </div>
       </section>
