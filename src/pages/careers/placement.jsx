@@ -285,13 +285,21 @@ export default function Placement() {
           <p className="text-xl mb-10 text-gray-300 max-w-2xl mx-auto leading-relaxed">
             Register FREE → Complete courses → Get exclusive interview opportunities with top companies
           </p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-3 text-white px-14 py-5 rounded-2xl text-xl font-bold transition-all duration-300 hover:scale-105 shadow-2xl mb-6"
-            style={{ background: "linear-gradient(135deg,#6366f1,#22d3ee)", boxShadow: "0 8px 32px rgba(99,102,241,0.45)" }}
-          >
-            Register FREE Now <ArrowRight className="w-6 h-6" />
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <Link
+        to="/courses"
+        className="inline-flex items-center gap-2 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-xl hover:shadow-2xl hover:scale-105 transform"
+        style={{ background: "linear-gradient(135deg,#6366f1,#22d3ee)", boxShadow: "0 6px 24px rgba(99,102,241,0.40)" }}
+      >
+        Explore Our Courses <ArrowRight className="w-5 h-5" />
+      </Link>
+      <Link
+        to="/contact"
+        className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-bold px-8 py-4 rounded-xl text-lg border-2 border-white/30 hover:bg-white/20 transition-all shadow-xl"
+      >
+        Contact Us
+      </Link>
+    </div>
           <p className="text-base text-gray-400">
             <strong className="text-gray-200">Only a few seats left for the batch</strong> — Register before they fill!
           </p>
