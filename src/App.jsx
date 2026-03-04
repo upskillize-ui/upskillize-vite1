@@ -21,6 +21,7 @@ import NotFound from "./pages/NotFound";
 import CourseDetails from "./pages/courses/CoursesDetails";
 import SubCourses from "./pages/SubCourses";
 import CoursesPage from "./pages/CoursesPage";
+import WhatsAppChat from "./components/WhatsAppChat";
 
 // About pages
 import AboutUs from "./pages/about/AboutUs";
@@ -127,6 +128,7 @@ function App() {
         </main>
       </div>
       <Footer />
+      <WhatsAppChat phoneNumber="919820397297" />
     </Router>
   );
 }
