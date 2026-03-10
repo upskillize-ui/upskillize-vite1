@@ -149,14 +149,14 @@ const About = () => {
           </div>
 
           <div className="advisors-grid">
-            <AdvisorCard
+            {/*<AdvisorCard
               initials="NP"
               photo="/images/advisorsIMG/NP.jpg"
               name="Dr. Nirakar Pradhan"
               title="PhD, PRM, CFA, FRM"
               bio="30+ years of extensive leadership in the financial sector with expertise in investment management and risk. Former CIO at Future Generali India Life Insurance and CEO of PRMIA. Independent Director at Finance Industry Development Council (FIDC). Recognized thought leader in risk management and capital markets."
               linkedin="https://www.linkedin.com/in/drnirakar/"
-            />
+              /> */}
             <AdvisorCard
               initials="RG"
               photo="/images/advisorsIMG/RG.jpg"
