@@ -1347,7 +1347,7 @@ function CTASection() {
         <h2 className="h1" style={{color:'var(--white)',marginBottom:16}}>Ready to Start Your BFSI Career?</h2>
         <p className="lead" style={{color:'rgba(255,255,255,.7)',marginBottom:36}}>Join India's most rigorous, placement-first BFSI programme. One year. Six certificates. Sixteen career pathways. A wonderful career.</p>
         <div style={{display:'flex',gap:12,justifyContent:'center',flexWrap:'wrap'}}>
-          <a href="mailto:admissions@upskillize.com" className="btn btn-primary">Apply Now — 2026 Cohort</a>
+          <a href="mailto:admissions@upskillize.com" className="btn btn-primary">Apply Now — 2025 Cohort</a>
           <a href="mailto:info@upskillize.com" className="btn btn-outline">Talk to an Advisor</a>
           <a href="https://www.upskillize.com" className="btn btn-outline">Visit Upskillize.com ↗</a>
         </div>
@@ -1359,6 +1359,7 @@ function CTASection() {
   );
 }
 
+// ─── FOOTER ───────────────────────────────────────────────────────────────────
 // ─── APP ROOT ─────────────────────────────────────────────────────────────────
 export default function PGDFBACoursePage() {
   useFadeUp();
@@ -1379,7 +1380,6 @@ export default function PGDFBACoursePage() {
       <OutcomesSection />
       <CertificatesSection />
       <CTASection />
-      <Footer />
     </>
   );
 }
