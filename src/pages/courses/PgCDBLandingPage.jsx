@@ -297,7 +297,7 @@ h2.section-title em{font-style:normal;color:var(--purple);}
   background:radial-gradient(ellipse 60% 80% at 80% 50%, rgba(91,75,138,.25) 0%, transparent 65%);
 }
 .market .section-label{color:var(--gold);}
-.market h2{color:var(--white);}
+.market h2.section-title { color: var(--white); }
 .market .section-lead{color:rgba(255,255,255,.6);}
 .market-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.08);border-radius:16px;overflow:hidden;margin:60px 0;}
 .mstat{
@@ -1850,7 +1850,7 @@ export default function PGCDBWebsite() {
 <section className="market" id="market">
   <div className="container">
     <p className="section-label fade-up">The Opportunity is Massive</p>
-    <h2 className="section-title fade-up fade-up-d1">The <em style={{color: "var(--gold)"}}>FinTech Revolution</em><br/>is rewriting every career in BFSI.</h2>
+    <h2 className="section-title fade-up fade-up-d1 text-white">The <em style={{ color: "var(--gold)" }}>FinTech Revolution</em><br />is rewriting every career in BFSI.</h2>
     <p className="section-lead fade-up fade-up-d2">India is at the epicentre of the world's most dramatic financial services transformation. The numbers are staggering — and so is the demand for people who understand both finance and technology.</p>
     <div className="market-grid">
       <div className="mstat fade-up">
