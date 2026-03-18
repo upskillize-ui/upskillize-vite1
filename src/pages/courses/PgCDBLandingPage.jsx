@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef, useLayoutEffect } from "react";
 
 /* ═══════════════════════════════════════════════════════════════════════════════
    PGCDB (BFSI) — Post Graduate Certificate in Digital Business | Upskillize
@@ -1563,28 +1563,26 @@ export default function PGCDBWebsite() {
   const [navScrolled,   setNavScrolled]   = useState(false);
 
   /* ── Inject Google Fonts + Global CSS ───────────────────────────────────── */
-  useEffect(() => {
-    if (!document.getElementById("pgcdb-fonts")) {
-      /* Preconnect for faster Google Fonts loading */
-      const pc1 = document.createElement("link");
-      pc1.rel = "preconnect"; pc1.href = "https://fonts.googleapis.com";
-      document.head.appendChild(pc1);
-      const pc2 = document.createElement("link");
-      pc2.rel = "preconnect"; pc2.href = "https://fonts.gstatic.com"; pc2.crossOrigin = "anonymous";
-      document.head.appendChild(pc2);
-      /* Full font stack — Syne (headings) + Manrope (body) + Fraunces (serif accents) */
-      const link  = document.createElement("link");
-      link.id     = "pgcdb-fonts";
-      link.rel    = "stylesheet";
-      link.href   = "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,400&display=swap";
-      document.head.appendChild(link);
-    }
-    const styleEl       = document.createElement("style");
-    styleEl.id          = "pgcdb-styles";
-    styleEl.textContent = GLOBAL_CSS;
-    document.head.appendChild(styleEl);
-    return () => { styleEl.remove(); };
-  }, []);
+  useLayoutEffect(() => {
+  if (!document.getElementById("pgcdb-fonts")) {
+    const pc1 = document.createElement("link");
+    pc1.rel = "preconnect"; pc1.href = "https://fonts.googleapis.com";
+    document.head.appendChild(pc1);
+    const pc2 = document.createElement("link");
+    pc2.rel = "preconnect"; pc2.href = "https://fonts.gstatic.com"; pc2.crossOrigin = "anonymous";
+    document.head.appendChild(pc2);
+    const link  = document.createElement("link");
+    link.id     = "pgcdb-fonts";
+    link.rel    = "stylesheet";
+    link.href   = "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,400&display=swap";
+    document.head.appendChild(link);
+  }
+  const styleEl       = document.createElement("style");
+  styleEl.id          = "pgcdb-styles";
+  styleEl.textContent = GLOBAL_CSS;
+  document.head.appendChild(styleEl);
+  return () => { styleEl.remove(); };
+}, []);
 
   /* ── Fade-up IntersectionObserver ───────────────────────────────────────── */
   useEffect(() => {
@@ -1686,7 +1684,14 @@ export default function PGCDBWebsite() {
 
 
 {/* ── MOBILE DRAWER ── */}
-<div className={`nav-drawer${menuOpen ? " open" : ""}`} aria-hidden={!menuOpen}>
+<div
+  className={`nav-drawer${menuOpen ? " open" : ""}`}
+  aria-hidden={!menuOpen}
+  style={{
+    transform: menuOpen ? "translateX(0)" : "translateX(100%)",
+    pointerEvents: menuOpen ? "all" : "none",
+  }}
+>
   {[
     ["#overview",   "Program"],
     ["#syllabus",   "Syllabus"],
