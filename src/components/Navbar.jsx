@@ -246,20 +246,20 @@ export default function Navbar() {
                     <div className="nb-col">
                       <span className="nb-clabel">Long Term</span>
                       <a href="/courses/pgcdb" className="nb-crow">
-                        <span className="nbp nbp-b">PGCDB</span>
-                        Digital Business
+                        <span className="nbp nbp-b">PGDBF</span>
+                        Digital Business & Fintech
                       </a>
-                      <p className="nb-desc">Post Graduate Certificate<br />in Digital Business</p>
+                      <p className="nb-desc">Post Graduate Diploma<br />in Digital Business & Fintech</p>
                     </div>
 
                     {/* COL 2 – Mid Term */}
                     <div className="nb-col">
                       <span className="nb-clabel">Mid Term</span>
                       <a href="/courses/pgcdf" className="nb-crow">
-                        <span className="nbp nbp-g">PGCDF</span>
-                        Digital Finance
+                        <span className="nbp nbp-g">PGDFBA</span>
+                        Fintech, Banking & AI
                       </a>
-                      <p className="nb-desc">Post Graduate Certificate<br />in Digital Finance</p>
+                      <p className="nb-desc">Post Graduate Diploma<br />in Fintech, Banking & AI</p>
                     </div>
 
                     {/* COL 3 – Short Term */}
@@ -349,15 +349,15 @@ export default function Navbar() {
 
               <span className="ms">Long Term</span>
               <a href="/courses/pgcdb" onClick={closeAll} className="msl">
-                <span style={{background:"#dbeafe",color:"#1d4ed8",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>PGCDB</span>
-                Post Graduate Certificate in Digital Business
+                <span style={{background:"#dbeafe",color:"#1d4ed8",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>PGDBF</span>
+                Post Graduate Diploma in  Digital Business & Fintech
               </a>
 
               <div className="mdiv" />
               <span className="ms">Mid Term</span>
               <a href="/courses/pgcdf" onClick={closeAll} className="msl">
-                <span style={{background:"#dcfce7",color:"#15803d",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>PGCDF</span>
-                Post Graduate Certificate in Digital Finance
+                <span style={{background:"#dcfce7",color:"#15803d",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>PGDFBA</span>
+                Post Graduate Diploma in Fintech, Banking & AI
               </a>
 
               <div className="mdiv" />
