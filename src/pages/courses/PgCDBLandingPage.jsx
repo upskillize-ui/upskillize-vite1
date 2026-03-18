@@ -1775,7 +1775,7 @@ export default function PGCDBWebsite() {
       <div className="orb orb2"></div>
       <div className="hero-card-main">
         <div className="hc-label">PGCDB (BFSI)</div>
-        <div className="hc-title">1,494 Hours of Mastery</div>
+        <div className="hc-title">1500 Hours of Mastery</div>
         <div className="hc-sub">Across 16 modules, 4 capstones, and a dedicated Innovation Lab</div>
         <div className="stat-row">
           <div className="stat-box">

@@ -4,11 +4,11 @@ export const courses = [
   // ─────────────────────────────────────────────────────────────────────────────
   {
     id: 0,
-    mainCategory: "Long Term – PgCDB",
+    mainCategory: "PG Diploma in Digital Business & FinTech",
     slug: "pgcdb",
     image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=500",
     shortDesc:
-      "Post Graduate Certificate in Digital Business – a comprehensive long-term program combining BFSI, WealthTech, and RegTech specialisations.",
+      "A comprehensive post-graduate diploma bridging digital business strategy with BFSI, WealthTech, and RegTech specialisations.",
     color: "from-blue-700 to-indigo-600",
     programType: "Long Term",
     badge: "PgCDB",
@@ -16,10 +16,10 @@ export const courses = [
     subCourses: [
       {
         id: 0.1,
-        title: "PgCDB – Post Graduate Certificate in Digital Business",
+        title: "PG Diploma in Digital Business & FinTech",
         slug: "pgcdb",
         duration: "120 Hours (24 Weeks)",
-        certification: "Post Graduate Certificate in Digital Business",
+        certification: "Post Graduate Diploma in Digital Business & FinTech",
         shortCode: "PgCDB",
         certType: "Post Graduate",
         description:
@@ -47,11 +47,11 @@ export const courses = [
   // ─────────────────────────────────────────────────────────────────────────────
   {
     id: 0.5,
-    mainCategory: "Mid Term – PgCDF",
+    mainCategory: "PG Diploma in FinTech, Banking & AI",
     slug: "pgcdf",
     image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500",
     shortDesc:
-      "Post Graduate Certificate in Digital Finance – a focused mid-term program blending AI, data analytics, and digital strategy for finance professionals.",
+      "A focused mid-term diploma blending AI, data analytics, and digital strategy for finance professionals.",
     color: "from-emerald-600 to-teal-500",
     programType: "Mid Term",
     badge: "PgCDF",
@@ -59,10 +59,10 @@ export const courses = [
     subCourses: [
       {
         id: 0.51,
-        title: "PgCDF – Post Graduate Certificate in Digital Finance",
+        title: "PG Diploma in FinTech, Banking & AI",
         slug: "pgcdf",
         duration: "80 Hours (16 Weeks)",
-        certification: "Post Graduate Certificate in Digital Finance",
+        certification: "Post Graduate Diploma in FinTech, Banking & AI",
         shortCode: "PgCDF",
         certType: "Post Graduate",
         description:
@@ -345,7 +345,7 @@ export const courses = [
   // ─────────────────────────────────────────────────────────────────────────────
   {
     id: 3,
-    mainCategory: "Data Analytics, GenAI & Business Intelligence",
+    mainCategory: "Data Analytics, GenAI & BI",
     slug: "data-analytics-genai",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500",
     shortDesc:
