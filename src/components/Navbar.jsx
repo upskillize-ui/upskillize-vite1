@@ -1,556 +1,429 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 
+/* ─────────────────────────────────────────────────────────────────────────────
+   DATA
+───────────────────────────────────────────────────────────────────────────── */
+const SHORT_TERM = [
+  { label: "AI in FinTech",                          slug: "ai-fintech",                       icon: "🏦" },
+  { label: "Product Leadership",                     slug: "product-leadership",               icon: "🚀" },
+  { label: "Data Analytics, GenAI & BI",             slug: "data-analytics-genai",             icon: "📊" },
+  { label: "Technology & Digital Transformation",    slug: "technology-digital-transformation", icon: "⚙️" },
+  { label: "Integrated Courses",                     slug: "integrated-courses",               icon: "🎓" },
+];
+
+const PARTNER = [
+  { label: "Cybersecurity",                   slug: "cybersecurity",                  icon: "🔒" },
+  { label: "Mental Health & Social Wellness", slug: "mental-health-social-wellness",  icon: "🧠" },
+  { label: "Innovation Leadership",           slug: "innovation-leadership",           icon: "💡" },
+];
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   COMPONENT
+───────────────────────────────────────────────────────────────────────────── */
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isAcademicOpen, setIsAcademicOpen] = useState(false);
-  const [isCorporatesOpen, setIsCorporatesOpen] = useState(false);
-  const [isProductsOpen, setIsProductsOpen] = useState(false);
-  const [isAboutOpen, setIsAboutOpen] = useState(false); // ← NEW
+  const [isScrolled,     setIsScrolled]     = useState(false);
+  const [mobileOpen,     setMobileOpen]     = useState(false);
+  const [industryOpen,   setIndustryOpen]   = useState(false);
+  const [mobileIndustry, setMobileIndustry] = useState(false);
+  const [mobileCorp,     setMobileCorp]     = useState(false);
+  const [mobileProd,     setMobileProd]     = useState(false);
+  const [mobileCareer,   setMobileCareer]   = useState(false);
+  const [mobileAbout,    setMobileAbout]    = useState(false);
+
+  const industryTimer = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-  }, [isMobileMenuOpen]);
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+  }, [mobileOpen]);
 
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-    setIsAcademicOpen(false);
-    setIsCorporatesOpen(false);
-    setIsProductsOpen(false);
-    setIsAboutOpen(false); // ← NEW
+  const closeAll = () => {
+    setMobileOpen(false);
+    setMobileIndustry(false);
+    setMobileCorp(false);
+    setMobileProd(false);
+    setMobileCareer(false);
+    setMobileAbout(false);
   };
 
-  const toggleAcademic = (e) => {
-    e.preventDefault();
-    setIsAcademicOpen(!isAcademicOpen);
-  };
-
-  const toggleCorporates = (e) => {
-    e.preventDefault();
-    setIsCorporatesOpen(!isCorporatesOpen);
-  };
-
-  const toggleProducts = (e) => {
-    e.preventDefault();
-    setIsProductsOpen(!isProductsOpen);
-  };
-
-  // ← NEW
-  const toggleAbout = (e) => {
-    e.preventDefault();
-    setIsAboutOpen(!isAboutOpen);
-  };
+  const onEnter = () => { clearTimeout(industryTimer.current); setIndustryOpen(true); };
+  const onLeave = () => { industryTimer.current = setTimeout(() => setIndustryOpen(false), 160); };
 
   return (
     <>
       <style>{`
-        /* ===== FIXED CONTAINER ===== */
-        .navbar-fixed-container {
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          width: 100%;
-          z-index: 9999;
+        *,*::before,*::after{box-sizing:border-box}
+        :root{
+          --c-bg:#fff; --c-border:#e5e7eb; --c-text:#1f2937;
+          --c-muted:#6b7280; --c-indigo:#4f46e5; --c-cyan:#0891b2;
+          --c-hover-bg:#f5f3ff; --c-hover:#4f46e5;
+          --shadow:0 8px 32px rgba(0,0,0,0.11);
         }
 
-        /* ===== MAIN NAVBAR ===== */
-        .main-navbar {
-          background-color: white;
-          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-          transition: all 0.3s;
+        /* fixed wrapper */
+        .nb{position:fixed;top:0;left:0;right:0;z-index:9999}
+
+        /* bar */
+        .nb-bar{background:var(--c-bg);border-bottom:1px solid transparent;transition:border-color .25s,box-shadow .25s}
+        .nb-bar.scrolled{border-color:var(--c-border);box-shadow:0 2px 14px rgba(0,0,0,0.07)}
+        .nb-inner{max-width:1280px;margin:0 auto;padding:0 1.25rem;height:64px;display:flex;align-items:center}
+
+        /* logo */
+        .nb-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;margin-right:2rem}
+        .nb-logo img{height:42px;width:auto;display:block}
+        .nb-logo-text{font-size:1.35rem;font-weight:800;color:var(--c-indigo);display:none}
+
+        /* desktop */
+        .nb-desk{display:none;flex:1;align-items:center;justify-content:space-between}
+        @media(min-width:1024px){.nb-desk{display:flex}}
+        .nb-left{display:flex;align-items:center;gap:.125rem}
+        .nb-right{display:flex;align-items:center;gap:.5rem;margin-left:auto}
+
+        /* button */
+        .nbb{display:inline-flex;align-items:center;gap:.3rem;padding:.5rem .875rem;border-radius:.5rem;
+          font-size:.9rem;font-weight:500;color:var(--c-text);background:none;border:none;
+          cursor:pointer;text-decoration:none;white-space:nowrap;transition:background .15s,color .15s}
+        .nbb:hover{background:var(--c-hover-bg);color:var(--c-hover)}
+        .nbc{transition:transform .2s;flex-shrink:0}
+        .nbb:hover .nbc{transform:rotate(180deg)}
+
+        /* simple dropdown */
+        .nbd{position:relative}
+        .nbd-menu{position:absolute;top:calc(100% + 8px);left:0;background:var(--c-bg);
+          border:1px solid var(--c-border);border-radius:.75rem;box-shadow:var(--shadow);
+          min-width:190px;padding:.375rem 0;opacity:0;visibility:hidden;
+          transform:translateY(-6px);transition:all .18s ease;z-index:10000}
+        .nbd-menu.r{left:auto;right:0}
+        .nbd:hover .nbd-menu{opacity:1;visibility:visible;transform:translateY(0)}
+        .nbd-item{display:block;padding:.6rem 1rem;font-size:.875rem;font-weight:500;
+          color:var(--c-text);text-decoration:none;transition:background .12s,color .12s}
+        .nbd-item:hover{background:var(--c-hover-bg);color:var(--c-hover)}
+
+        /* ── industry panel ── */
+        .nb-ind{position:relative}
+        .nb-panel{
+          position:absolute;top:calc(100% + 8px);left:-12px;
+          background:var(--c-bg);border:1px solid var(--c-border);
+          border-radius:.875rem;box-shadow:var(--shadow);
+          width:700px;
+          display:grid;grid-template-columns:1fr 1fr 1.7fr 1.2fr;
+          opacity:0;visibility:hidden;transform:translateY(-8px);
+          transition:all .2s cubic-bezier(.4,0,.2,1);z-index:10001;overflow:hidden
+        }
+        .nb-panel.open{opacity:1;visibility:visible;transform:translateY(0)}
+
+        /* column */
+        .nb-col{padding:1.125rem 0 1.375rem;border-right:1px solid var(--c-border)}
+        .nb-col:last-child{border-right:none}
+
+        /* label */
+        .nb-clabel{
+          display:block;padding:.0rem 1rem .625rem;
+          font-size:.67rem;font-weight:700;letter-spacing:.09em;
+          text-transform:uppercase;color:var(--c-cyan);
+          border-bottom:1px solid var(--c-border);margin-bottom:.625rem
         }
 
-        .main-navbar.scrolled {
-          background-color: white;
-          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        /* course row */
+        .nb-crow{
+          display:flex;align-items:center;gap:.625rem;padding:.6rem 1rem;
+          font-size:.875rem;font-weight:600;color:var(--c-text);
+          text-decoration:none;transition:background .12s,color .12s
         }
+        .nb-crow:hover{background:var(--c-hover-bg);color:var(--c-hover)}
 
-        .navbar-content {
-          max-width: 1280px;
-          margin: 0 auto;
-          padding: 0.75rem 1rem;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 2rem;
+        /* pill */
+        .nbp{display:inline-block;font-size:.68rem;font-weight:700;
+          padding:.15rem .5rem;border-radius:999px;flex-shrink:0}
+        .nbp-b{background:#dbeafe;color:#1d4ed8}
+        .nbp-g{background:#dcfce7;color:#15803d}
+
+        /* description */
+        .nb-desc{padding:0 1rem .5rem 1rem;font-size:.75rem;color:var(--c-muted);line-height:1.45}
+
+        /* short-term row */
+        .nb-srow{
+          display:flex;align-items:center;gap:.5rem;padding:.5rem 1rem;
+          font-size:.825rem;font-weight:500;color:var(--c-text);
+          text-decoration:none;transition:background .12s,color .12s
         }
+        .nb-srow:hover{background:var(--c-hover-bg);color:var(--c-hover)}
+        .nb-si{font-size:.88rem;flex-shrink:0}
 
-        /* ===== LOGO ===== */
-        .logo-link {
-          display: flex;
-          align-items: center;
-          text-decoration: none;
-          flex-shrink: 0;
+        /* partner row */
+        .nb-prow{
+          display:flex;align-items:center;gap:.5rem;padding:.5rem 1rem;
+          font-size:.825rem;font-weight:500;color:var(--c-text);
+          text-decoration:none;transition:background .12s,color .12s
         }
+        .nb-prow:hover{background:var(--c-hover-bg);color:var(--c-hover)}
 
-        .logo-image {
-          height: 45px;
-          width: auto;
-          display: block;
-        }
+        /* hamburger */
+        .nb-ham{display:flex;padding:.5rem;border:none;background:transparent;
+          cursor:pointer;color:var(--c-text);border-radius:.375rem;transition:background .15s}
+        .nb-ham:hover{background:#f3f4f6}
+        @media(min-width:1024px){.nb-ham{display:none}}
 
-        .logo-text {
-          font-size: 1.5rem;
-          font-weight: bold;
-          color: #4f46e5;
-          display: none;
-          margin-left: 0.5rem;
-        }
+        /* mobile menu */
+        .nb-mob{position:fixed;top:64px;left:0;right:0;bottom:0;background:#fff;
+          overflow-y:auto;transform:translateX(100%);
+          transition:transform .3s cubic-bezier(.4,0,.2,1);z-index:10000}
+        .nb-mob.open{transform:translateX(0)}
+        @media(min-width:1024px){.nb-mob{display:none!important}}
 
-        /* ===== DESKTOP NAV WRAPPER ===== */
-        .desktop-nav-wrapper {
-          display: none;
-          flex: 1;
-          align-items: center;
-          justify-content: space-between;
-        }
+        .nb-mnav{padding:.75rem 1rem 4rem;display:flex;flex-direction:column;gap:.125rem}
 
-        @media (min-width: 768px) {
-          .desktop-nav-wrapper {
-            display: flex;
-          }
-        }
+        /* mob accordion */
+        .ma{display:flex;align-items:center;justify-content:space-between;
+          padding:.875rem;border-radius:.5rem;font-size:.975rem;font-weight:600;
+          color:var(--c-text);background:none;border:none;cursor:pointer;
+          width:100%;text-align:left;transition:background .13s}
+        .ma:hover{background:#f9fafb}
+        .mc{transition:transform .2s}
+        .mc.o{transform:rotate(180deg)}
 
-        /* ===== DESKTOP NAV ===== */
-        .desktop-nav-left {
-          display: flex;
-          gap: 1.5rem;
-          align-items: center;
-        }
+        /* mob link */
+        .ml{display:block;padding:.875rem;border-radius:.5rem;font-size:.975rem;
+          font-weight:600;color:var(--c-text);text-decoration:none;transition:background .13s}
+        .ml:hover{background:#f9fafb}
 
-        .desktop-nav-right {
-          display: flex;
-          gap: 1.5rem;
-          align-items: center;
-          margin-left: auto;
-        }
+        /* mob panel */
+        .mp{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1);
+          padding-left:.5rem;border-left:3px solid #e0e7ff;margin-left:.875rem;margin-bottom:.25rem}
+        .mp.o{max-height:1200px}
 
-        .nav-link {
-          color: #1f2937;
-          text-decoration: none;
-          font-weight: 500;
-          font-size: 0.95rem;
-          padding: 0.5rem 0.75rem;
-          border-radius: 0.5rem;
-          transition: all 0.2s;
-          position: relative;
-          white-space: nowrap;
-        }
+        /* mob section label */
+        .ms{display:block;padding:.625rem .75rem .35rem;font-size:.67rem;
+          font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c-cyan)}
 
-        .nav-link:hover {
-          color: #374151;
-          background: #f3f4f6;
-        }
+        /* mob sub link */
+        .msl{display:flex;align-items:center;gap:.5rem;padding:.55rem .75rem;
+          border-radius:.375rem;font-size:.875rem;font-weight:500;color:#374151;
+          text-decoration:none;transition:background .12s,color .12s}
+        .msl:hover{background:var(--c-hover-bg);color:var(--c-hover)}
 
-        /* ===== DROPDOWN STYLES ===== */
-        .nav-dropdown {
-          position: relative;
-        }
+        .mdiv{height:1px;background:#f3f4f6;margin:.375rem 0}
 
-        .dropdown-trigger {
-          display: flex;
-          align-items: center;
-          gap: 0.25rem;
-          color: #1f2937;
-          text-decoration: none;
-          font-weight: 500;
-          font-size: 0.95rem;
-          padding: 0.5rem 0.75rem;
-          border-radius: 0.5rem;
-          cursor: pointer;
-          transition: all 0.2s;
-          background: transparent;
-          border: none;
-          white-space: nowrap;
-        }
+        /* spacer */
+        .nb-sp{height:64px}
 
-        .dropdown-trigger:hover {
-          color: #374151;
-          background: #f3f4f6;
-        }
-
-        .dropdown-icon {
-          transition: transform 0.2s;
-        }
-
-        .dropdown-trigger:hover .dropdown-icon {
-          transform: rotate(180deg);
-        }
-
-        .dropdown-menu {
-          position: absolute;
-          top: 100%;
-          left: 0;
-          margin-top: 0.5rem;
-          background: white;
-          border-radius: 0.5rem;
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-          min-width: 280px;
-          opacity: 0;
-          visibility: hidden;
-          transform: translateY(-10px);
-          transition: all 0.2s;
-        }
-
-        /* ← Right-aligned dropdown for About (so it doesn't overflow right edge) */
-        .dropdown-menu.align-right {
-          left: auto;
-          right: 0;
-          min-width: 200px;
-        }
-
-        .nav-dropdown:hover .dropdown-menu {
-          opacity: 1;
-          visibility: visible;
-          transform: translateY(0);
-        }
-
-        .dropdown-link {
-          display: block;
-          padding: 0.75rem 1rem;
-          color: #374151;
-          text-decoration: none;
-          font-weight: 500;
-          font-size: 0.9rem;
-          transition: all 0.2s;
-        }
-
-        .dropdown-link:hover {
-          background: #f3f4f6;
-          color: #1f2937;
-        }
-
-        .dropdown-link:first-child {
-          border-radius: 0.5rem 0.5rem 0 0;
-        }
-
-        .dropdown-link:last-child {
-          border-radius: 0 0 0.5rem 0.5rem;
-        }
-
-        /* ===== MOBILE MENU BUTTON ===== */
-        .mobile-menu-btn {
-          display: flex;
-          padding: 0.5rem;
-          border: none;
-          background: transparent;
-          cursor: pointer;
-          color: #374151;
-        }
-
-        @media (min-width: 768px) {
-          .mobile-menu-btn {
-            display: none;
-          }
-        }
-
-        /* ===== MOBILE MENU ===== */
-        .mobile-menu {
-          position: fixed;
-          top: 65px;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: white;
-          transform: translateX(100%);
-          transition: transform 0.3s ease-in-out;
-          overflow-y: auto;
-          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .mobile-menu.open {
-          transform: translateX(0);
-        }
-
-        @media (min-width: 768px) {
-          .mobile-menu {
-            display: none;
-          }
-        }
-
-        .mobile-nav {
-          display: flex;
-          flex-direction: column;
-          padding: 1rem;
-        }
-
-        .mobile-link {
-          display: block;
-          padding: 1rem;
-          color: #374151;
-          text-decoration: none;
-          font-weight: 600;
-          font-size: 1.05rem;
-          border-radius: 0.5rem;
-          margin-bottom: 0.5rem;
-          transition: background 0.2s;
-        }
-
-        .mobile-link:hover {
-          background: #f3f4f6;
-        }
-
-        .mobile-dropdown-trigger {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 1rem;
-          color: #374151;
-          text-decoration: none;
-          font-weight: 600;
-          font-size: 1.05rem;
-          border-radius: 0.5rem;
-          margin-bottom: 0.5rem;
-          background: transparent;
-          border: none;
-          width: 100%;
-          cursor: pointer;
-          transition: background 0.2s;
-        }
-
-        .mobile-dropdown-trigger:hover {
-          background: #f3f4f6;
-        }
-
-        .mobile-dropdown-content {
-          max-height: 0;
-          overflow: hidden;
-          transition: max-height 0.3s ease-out;
-          padding-left: 1rem;
-        }
-
-        .mobile-dropdown-content.open {
-          max-height: 800px;
-        }
-
-        .mobile-dropdown-link {
-          display: block;
-          padding: 0.75rem 1rem;
-          color: #6b7280;
-          text-decoration: none;
-          font-weight: 500;
-          font-size: 0.95rem;
-          border-radius: 0.5rem;
-          margin-bottom: 0.25rem;
-          transition: all 0.2s;
-        }
-
-        .mobile-dropdown-link:hover {
-          background: #f3f4f6;
-          color: #374151;
-        }
-
-        /* ===== SPACER ===== */
-        .navbar-spacer {
-          height: 65px;
-          width: 100%;
-        }
-
-        @media (max-width: 767px) {
-          .navbar-content {
-            padding: 0.5rem 0.75rem;
-          }
-
-          .logo-image {
-            height: 40px;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .logo-image {
-            height: 35px;
-          }
-        }
+        @media(max-width:1023px){.nb-inner{padding:0 .875rem}.nb-logo img{height:38px}}
+        @media(max-width:480px){.nb-logo img{height:34px}.nb-inner{padding:0 .625rem}}
       `}</style>
-      <div className="navbar-fixed-container">
-        {/* Main Navbar */}
-        <header className={`main-navbar ${isScrolled ? "scrolled" : ""}`}>
-          <div className="navbar-content">
+
+      <div className="nb">
+        {/* ── BAR ── */}
+        <header className={`nb-bar${isScrolled ? " scrolled" : ""}`}>
+          <div className="nb-inner">
+
             {/* Logo */}
-            <a href="/" className="logo-link" onClick={closeMobileMenu}>
-              <img
-                src="/images/logo.png"
-                alt="Upskillize"
-                className="logo-image"
-                onError={(e) => {
-                  e.target.style.display = "none";
-                  e.target.nextElementSibling.style.display = "inline-block";
-                }}
-              />
-              <span className="logo-text">Upskillize</span>
+            <a href="/" className="nb-logo" onClick={closeAll}>
+              <img src="/images/logo.png" alt="Upskillize"
+                onError={e => { e.target.style.display = "none"; e.target.nextElementSibling.style.display = "block"; }} />
+              <span className="nb-logo-text">Upskillize</span>
             </a>
 
-            {/* Desktop Navigation */}
-            <div className="desktop-nav-wrapper">
-              {/* Left Navigation */}
-              <nav className="desktop-nav-left">
-                {/* Academic Dropdown */}
-                <div className="nav-dropdown">
-                  <button className="dropdown-trigger">
-                    Academic
-                    <ChevronDown size={16} className="dropdown-icon" />
+            {/* ── DESKTOP ── */}
+            <div className="nb-desk">
+              <div className="nb-left">
+
+                {/* Industry Oriented */}
+                <div className="nb-ind" onMouseEnter={onEnter} onMouseLeave={onLeave}>
+                  <button className="nbb" aria-haspopup="true" aria-expanded={industryOpen}>
+                    Industry Oriented
+                    <ChevronDown size={15} className="nbc" style={{ transform: industryOpen ? "rotate(180deg)" : "rotate(0)" }} />
                   </button>
-                  <div className="dropdown-menu">
-                    <a href="/courses/ai-fintech" className="dropdown-link">AI in FinTech</a>
-                    <a href="/courses/product-leadership" className="dropdown-link">Product Leadership</a>
-                    <a href="/courses/data-analytics-genai" className="dropdown-link">Data Analytics, GenAI & Business Intelligence</a>
-                    <a href="/courses/technology-digital-transformation" className="dropdown-link">Technology & Digital Transformation</a>
-                    <a href="/courses/integrated-courses" className="dropdown-link">Integrated Courses</a>
-                    <a href="/courses/cybersecurity" className="dropdown-link">Cybersecurity</a>
-                    <a href="/courses/corporate-readiness-program" className="dropdown-link">Mental Health & Social Wellness</a>
+
+                  <div className={`nb-panel${industryOpen ? " open" : ""}`}>
+
+                    {/* COL 1 – Long Term */}
+                    <div className="nb-col">
+                      <span className="nb-clabel">Long Term</span>
+                      <a href="/courses/pgcdb" className="nb-crow">
+                        <span className="nbp nbp-b">PGCDB</span>
+                        Digital Business
+                      </a>
+                      <p className="nb-desc">Post Graduate Certificate<br />in Digital Business</p>
+                    </div>
+
+                    {/* COL 2 – Mid Term */}
+                    <div className="nb-col">
+                      <span className="nb-clabel">Mid Term</span>
+                      <a href="/courses/pgcdf" className="nb-crow">
+                        <span className="nbp nbp-g">PGCDF</span>
+                        Digital Finance
+                      </a>
+                      <p className="nb-desc">Post Graduate Certificate<br />in Digital Finance</p>
+                    </div>
+
+                    {/* COL 3 – Short Term */}
+                    <div className="nb-col">
+                      <span className="nb-clabel">Short Term</span>
+                      {SHORT_TERM.map(c => (
+                        <a key={c.slug} href={`/courses/${c.slug}`} className="nb-srow">
+                          <span className="nb-si">{c.icon}</span>
+                          {c.label}
+                        </a>
+                      ))}
+                    </div>
+
+                    {/* COL 4 – Partner Courses */}
+                    <div className="nb-col">
+                      <span className="nb-clabel">Partner Courses</span>
+                      {PARTNER.map(c => (
+                        <a key={c.slug} href={`/courses/${c.slug}`} className="nb-prow">
+                          <span>{c.icon}</span>
+                          {c.label}
+                        </a>
+                      ))}
+                    </div>
+
                   </div>
                 </div>
 
-                {/* Corporates Dropdown */}
-                <div className="nav-dropdown">
-                  <button className="dropdown-trigger">
-                    Corporates
-                    <ChevronDown size={16} className="dropdown-icon" />
-                  </button>
-                  <div className="dropdown-menu">
-                    <a href="/corporate/consulting" className="dropdown-link">Business Consulting</a>
-                    <a href="/corporate/training" className="dropdown-link">Corporate Training</a>
+                {/* Corporates */}
+                <div className="nbd">
+                  <button className="nbb">Corporates <ChevronDown size={15} className="nbc" /></button>
+                  <div className="nbd-menu">
+                    <a href="/corporate/consulting" className="nbd-item">Business Consulting</a>
+                    <a href="/corporate/training"   className="nbd-item">Corporate Training</a>
                   </div>
                 </div>
 
-                {/* Products Dropdown */}
-                <div className="nav-dropdown">
-                  <button className="dropdown-trigger">
-                    Products
-                    <ChevronDown size={16} className="dropdown-icon" />
-                  </button>
-                  <div className="dropdown-menu">
-                    <a href="/products/compliize" className="dropdown-link">Data Complize</a>
-                    <a href="/products/optimize" className="dropdown-link">Cost Optimize</a>
-                    <a href="/products/Vendorize" className="dropdown-link">De-risk Vendorize</a>
+                {/* Products */}
+                <div className="nbd">
+                  <button className="nbb">Products <ChevronDown size={15} className="nbc" /></button>
+                  <div className="nbd-menu">
+                    <a href="/products/compliize" className="nbd-item">Data Complize</a>
+                    <a href="/products/optimize"  className="nbd-item">Cost Optimize</a>
+                    <a href="/products/vendorize" className="nbd-item">De-risk Vendorize</a>
                   </div>
                 </div>
 
-                {/* Career Accelerator Dropdown */}
-                <div className="nav-dropdown">
-                  <button className="dropdown-trigger">
-                    Career Accelerator
-                    <ChevronDown size={16} className="dropdown-icon" />
-                  </button>
-                  <div className="dropdown-menu">
-                    <a href="/careers/internship" className="dropdown-link">Internship Program</a>
-                    <a href="/careers/placement" className="dropdown-link">Placement Assistance</a>
+                {/* Career Accelerator */}
+                <div className="nbd">
+                  <button className="nbb">Career Accelerator <ChevronDown size={15} className="nbc" /></button>
+                  <div className="nbd-menu">
+                    <a href="/careers/internship" className="nbd-item">Internship Program</a>
+                    <a href="/careers/placement"  className="nbd-item">Placement Assistance</a>
                   </div>
                 </div>
-              </nav>
+              </div>
 
-              {/* Right Side Navigation */}
-              <nav className="desktop-nav-right">
-                {/* ← UPDATED: About dropdown instead of plain link */}
-                <div className="nav-dropdown">
-                  <button className="dropdown-trigger">
-                    About
-                    <ChevronDown size={16} className="dropdown-icon" />
-                  </button>
-                  <div className="dropdown-menu align-right">
-                    <a href="/about" className="dropdown-link">About Us</a>
-                    <a href="/about/eco-pro-lms" className="dropdown-link">EcoPro LMS</a>
+              <div className="nb-right">
+                <div className="nbd">
+                  <button className="nbb">About <ChevronDown size={15} className="nbc" /></button>
+                  <div className="nbd-menu r">
+                    <a href="/about"             className="nbd-item">About Us</a>
+                    <a href="/about/eco-pro-lms" className="nbd-item">EcoPro LMS</a>
                   </div>
                 </div>
-
-                <a href="/contact" className="nav-link">Contact Us</a>
-              </nav>
+                <a href="/contact" className="nbb">Contact Us</a>
+              </div>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="mobile-menu-btn"
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {/* Hamburger */}
+            <button className="nb-ham" onClick={() => setMobileOpen(v => !v)}
+              aria-label="Toggle menu" aria-expanded={mobileOpen}>
+              {mobileOpen ? <X size={26} /> : <Menu size={26} />}
             </button>
           </div>
         </header>
 
-        {/* Mobile Menu */}
-        <div className={`mobile-menu ${isMobileMenuOpen ? "open" : ""}`}>
-          <nav className="mobile-nav">
-            {/* Mobile Academic Dropdown */}
-            <div>
-              <button onClick={toggleAcademic} className="mobile-dropdown-trigger">
-                Academic
-                <ChevronDown size={20} className={`dropdown-icon ${isAcademicOpen ? "rotate-180" : ""}`} />
-              </button>
-              <div className={`mobile-dropdown-content ${isAcademicOpen ? "open" : ""}`}>
-                <a href="/courses/ai-fintech" onClick={closeMobileMenu} className="mobile-dropdown-link">AI in FinTech</a>
-                <a href="/courses/product-leadership" onClick={closeMobileMenu} className="mobile-dropdown-link">Product Leadership</a>
-                <a href="/courses/data-analytics-genai" onClick={closeMobileMenu} className="mobile-dropdown-link">Data Analytics, GenAI & Business Intelligence</a>
-                <a href="/courses/technology-digital-transformation" onClick={closeMobileMenu} className="mobile-dropdown-link">Technology & Digital Transformation</a>
-                <a href="/courses/integrated-courses" onClick={closeMobileMenu} className="mobile-dropdown-link">Integrated Courses</a>
-                <a href="/courses/cybersecurity" onClick={closeMobileMenu} className="mobile-dropdown-link">Cybersecurity</a>
-                <a href="/courses/mental-health-wellness" onClick={closeMobileMenu} className="mobile-dropdown-link">Mental Health & Social Wellness</a>
-              </div>
+        {/* ── MOBILE MENU ── */}
+        <nav className={`nb-mob${mobileOpen ? " open" : ""}`}>
+          <div className="nb-mnav">
+
+            {/* Industry Oriented */}
+            <button className="ma" onClick={() => setMobileIndustry(v => !v)}>
+              Industry Oriented
+              <ChevronDown size={18} className={`mc${mobileIndustry ? " o" : ""}`} />
+            </button>
+            <div className={`mp${mobileIndustry ? " o" : ""}`}>
+
+              <span className="ms">Long Term</span>
+              <a href="/courses/pgcdb" onClick={closeAll} className="msl">
+                <span style={{background:"#dbeafe",color:"#1d4ed8",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>PGCDB</span>
+                Post Graduate Certificate in Digital Business
+              </a>
+
+              <div className="mdiv" />
+              <span className="ms">Mid Term</span>
+              <a href="/courses/pgcdf" onClick={closeAll} className="msl">
+                <span style={{background:"#dcfce7",color:"#15803d",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>PGCDF</span>
+                Post Graduate Certificate in Digital Finance
+              </a>
+
+              <div className="mdiv" />
+              <span className="ms">Short Term</span>
+              {SHORT_TERM.map(c => (
+                <a key={c.slug} href={`/courses/${c.slug}`} onClick={closeAll} className="msl">
+                  <span>{c.icon}</span>{c.label}
+                </a>
+              ))}
+
+              <div className="mdiv" />
+              <span className="ms">Partner Courses</span>
+              {PARTNER.map(c => (
+                <a key={c.slug} href={`/courses/${c.slug}`} onClick={closeAll} className="msl">
+                  <span>{c.icon}</span>{c.label}
+                </a>
+              ))}
             </div>
 
-            {/* Mobile Corporates Dropdown */}
-            <div>
-              <button onClick={toggleCorporates} className="mobile-dropdown-trigger">
-                Corporates
-                <ChevronDown size={20} className={`dropdown-icon ${isCorporatesOpen ? "rotate-180" : ""}`} />
-              </button>
-              <div className={`mobile-dropdown-content ${isCorporatesOpen ? "open" : ""}`}>
-                <a href="/corporate/consulting" onClick={closeMobileMenu} className="mobile-dropdown-link">Business Consulting</a>
-                <a href="/corporate/training" onClick={closeMobileMenu} className="mobile-dropdown-link">Corporate Training</a>
-              </div>
+            <div className="mdiv" />
+
+            {/* Corporates */}
+            <button className="ma" onClick={() => setMobileCorp(v => !v)}>
+              Corporates <ChevronDown size={18} className={`mc${mobileCorp ? " o" : ""}`} />
+            </button>
+            <div className={`mp${mobileCorp ? " o" : ""}`}>
+              <a href="/corporate/consulting" onClick={closeAll} className="msl">Business Consulting</a>
+              <a href="/corporate/training"   onClick={closeAll} className="msl">Corporate Training</a>
             </div>
 
-            {/* Mobile Products Dropdown */}
-            <div>
-              <button onClick={toggleProducts} className="mobile-dropdown-trigger">
-                Products
-                <ChevronDown size={20} className={`dropdown-icon ${isProductsOpen ? "rotate-180" : ""}`} />
-              </button>
-              <div className={`mobile-dropdown-content ${isProductsOpen ? "open" : ""}`}>
-                <a href="/products/compliize" onClick={closeMobileMenu} className="mobile-dropdown-link">Data Complize</a>
-                <a href="/products/optimize" onClick={closeMobileMenu} className="mobile-dropdown-link">Cost Optimize</a>
-                <a href="/products/vendorize" onClick={closeMobileMenu} className="mobile-dropdown-link">De-risk Vendorize</a>
-              </div>
+            {/* Products */}
+            <button className="ma" onClick={() => setMobileProd(v => !v)}>
+              Products <ChevronDown size={18} className={`mc${mobileProd ? " o" : ""}`} />
+            </button>
+            <div className={`mp${mobileProd ? " o" : ""}`}>
+              <a href="/products/compliize" onClick={closeAll} className="msl">Data Complize</a>
+              <a href="/products/optimize"  onClick={closeAll} className="msl">Cost Optimize</a>
+              <a href="/products/vendorize" onClick={closeAll} className="msl">De-risk Vendorize</a>
             </div>
 
-            {/* ← UPDATED: Mobile About Dropdown */}
-            <div>
-              <button onClick={toggleAbout} className="mobile-dropdown-trigger">
-                About
-                <ChevronDown size={20} className={`dropdown-icon ${isAboutOpen ? "rotate-180" : ""}`} />
-              </button>
-              <div className={`mobile-dropdown-content ${isAboutOpen ? "open" : ""}`}>
-                <a href="/about" onClick={closeMobileMenu} className="mobile-dropdown-link">About Us</a>
-                <a href="/about/eco-pro-lms" onClick={closeMobileMenu} className="mobile-dropdown-link">EcoPro LMS</a>
-              </div>
+            {/* Career Accelerator */}
+            <button className="ma" onClick={() => setMobileCareer(v => !v)}>
+              Career Accelerator <ChevronDown size={18} className={`mc${mobileCareer ? " o" : ""}`} />
+            </button>
+            <div className={`mp${mobileCareer ? " o" : ""}`}>
+              <a href="/careers/internship" onClick={closeAll} className="msl">Internship Program</a>
+              <a href="/careers/placement"  onClick={closeAll} className="msl">Placement Assistance</a>
             </div>
 
-            <a href="/contact" onClick={closeMobileMenu} className="mobile-link">Contact Us</a>
-          </nav>
-        </div>
+            <div className="mdiv" />
+
+            {/* About */}
+            <button className="ma" onClick={() => setMobileAbout(v => !v)}>
+              About <ChevronDown size={18} className={`mc${mobileAbout ? " o" : ""}`} />
+            </button>
+            <div className={`mp${mobileAbout ? " o" : ""}`}>
+              <a href="/about"             onClick={closeAll} className="msl">About Us</a>
+              <a href="/about/eco-pro-lms" onClick={closeAll} className="msl">EcoPro LMS</a>
+            </div>
+
+            <a href="/contact" onClick={closeAll} className="ml">Contact Us</a>
+          </div>
+        </nav>
       </div>
 
-      {/* Spacer */}
-      <div className="navbar-spacer"></div>
+      <div className="nb-sp" />
     </>
   );
 }

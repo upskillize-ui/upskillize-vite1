@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { ArrowLeft, Clock, Users, Award, TrendingUp } from 'lucide-react';
 import { courses } from '../data/coursesData';
+import { AVAILABLE_COURSE_SLUGS } from '../data/availableCourses';
 
 export default function SubCourses() {
   const { slug } = useParams();
@@ -24,20 +25,8 @@ export default function SubCourses() {
   }
 
   // List of courses that have detailed pages (ready/available courses)
-  const availableCourses = [
-    'bfsi-domain-excellence-program', 
-    'investment-banking-wealth-tech', 
-    'risk-management-regtech-program', 
-    'ai-product-management-mastery', 
-    'the-mini-ceo-program', 
-    'data-decisions', 
-    'mba-plus-plus', 
-    'ai-ml-business-leaders', 
-    'digital-business-strategy-innovation'
-  ];
-
   // Check if course is coming soon
-  const isComingSoon = !foundCourse.hasDetailPage && !availableCourses.includes(foundCourse.slug);
+  const isComingSoon = !foundCourse.hasDetailPage && !AVAILABLE_COURSE_SLUGS.includes(foundCourse.slug);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#1a2847] via-[#2d3e5f] to-[#3d5278]">

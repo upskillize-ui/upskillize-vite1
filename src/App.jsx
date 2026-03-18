@@ -25,7 +25,7 @@ import WhatsAppChat from "./components/WhatsAppChat";
 
 // About pages
 import AboutUs from "./pages/about/AboutUs";
-import EcoProLMS from "./pages/about/EcoProLMS"; // ← FIXED: was 'EcoProLMS'
+import EcoProLMS from "./pages/about/EcoProLMS";
 
 // New pages
 import Solutions from "./pages/Products";
@@ -50,14 +50,17 @@ import MBAPlusPlus from "./pages/courses/MBAPlusPlus";
 import CAIPLandingPage from "./pages/courses/CIPLandingPage";
 import DigitalStrategyProgram from "./pages/courses/DigitalStrategyProgram";
 import CorporateReadinessProgram from "./pages/courses/CorporateReadinessProgram";
+import PgCDFLandingPage from "./pages/courses/PgCDFLandingPage";
+import PgCDBLandingPage from "./pages/courses/PgCDBLandingPage"; // ← NEW PgCDB
+
 import "./App.css";
 
 function App() {
   return (
     <Router
       future={{
-        v7_startTransition: true,       // ← FIX: silences warning 1
-        v7_relativeSplatPath: true,     // ← FIX: silences warning 2
+        v7_startTransition: true,
+        v7_relativeSplatPath: true,
       }}
     >
       <ScrollToTop />
@@ -87,7 +90,7 @@ function App() {
 
             {/* ABOUT & CONTACT */}
             <Route path="/about" element={<AboutUs />} />
-            <Route path="/about/eco-pro-lms" element={<EcoProLMS />} /> {/* ← FIXED: was /eco-pro-lms */}
+            <Route path="/about/eco-pro-lms" element={<EcoProLMS />} />
             <Route path="/contact" element={<Contact />} />
 
             {/* COURSES */}
@@ -95,7 +98,7 @@ function App() {
             <Route path="/course/:slug" element={<CourseDetails />} />
             <Route path="/courses/:category" element={<CoursesPage />} />
 
-            {/* Redirect Corporate Readiness Program from /courses/ to /course/ */}
+            {/* Redirect Corporate Readiness Program */}
             <Route
               path="/courses/corporate-readiness-program"
               element={<Navigate to="/course/corporate-readiness-program" replace />}
@@ -121,6 +124,11 @@ function App() {
             <Route path="/courses/ai-ml-business-leaders" element={<CAIPLandingPage />} />
             <Route path="/courses/digital-business-strategy-innovation" element={<DigitalStrategyProgram />} />
             <Route path="/course/corporate-readiness-program" element={<CorporateReadinessProgram />} />
+            <Route path="/courses/pgcdf" element={<PgCDFLandingPage />} />
+            <Route path="/courses/pgcdb" element={<PgCDBLandingPage />} /> {/* ← NEW PgCDB */}
+            <Route path="/courses/details/pgcdb" element={<Navigate to="/courses/pgcdb" replace />} />
+            {/* Redirect old wrong URL → correct URL */}
+            <Route path="/courses/details/pgcdf" element={<Navigate to="/courses/pgcdf" replace />} />
 
             {/* FALLBACK */}
             <Route path="*" element={<NotFound />} />

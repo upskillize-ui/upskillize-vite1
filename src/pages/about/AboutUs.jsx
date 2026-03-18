@@ -73,7 +73,7 @@ const About = () => {
               <div className="leader-content">
                 <h3 className="leader-name">Amit Agrawal</h3>
                 <p className="leader-role">Co-Founder & Chief Growth Officer (CGO)</p>
-                <p className="leader-bio">
+                <p className="leader-bio" style={{ textAlign: "justify" }}>
                   A visionary leader with extensive experience in driving business growth and 
                   building strategic partnerships across the EdTech and professional services landscape. 
                   Amit brings unparalleled expertise in sales strategy, client relationship management, 
@@ -110,7 +110,7 @@ const About = () => {
               <div className="leader-content">
                 <h3 className="leader-name">Hiren Shukla</h3>
                 <p className="leader-role">Sales Director, India & Middle East</p>
-                <p className="leader-bio">
+                <p className="leader-bio" style={{ textAlign: "justify" }}>
                   An accomplished global executive with deep expertise in product innovation, 
                   digital ecosystems, and enterprise-scale transformation. Hiren brings decades of leadership 
                   experience across financial services and technology-driven organizations, where he has 
@@ -241,7 +241,7 @@ const AdvisorCard = ({ initials, name, title, bio, linkedin, photo }) => (
     <div className="advisor-content">
       <h3 className="advisor-name">{name}</h3>
       <p className="advisor-title">{title}</p>
-      <p className="advisor-bio">{bio}</p>
+      <p className="advisor-bio justify-text">{bio}</p>
       <a href={linkedin} target="_blank" rel="noopener noreferrer" className="advisor-linkedin">
         <LinkedInIcon />
         View Profile
@@ -511,6 +511,10 @@ const styles = `
   box-shadow: 0 10px 40px rgba(0,0,0,0.3);
   transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
   animation: fadeInUp 0.6s ease-out backwards;
+}
+.justify-text {
+  text-align: justify;
+  line-height: 1.7;
 }
 .advisor-card:hover {
   transform: translateY(-10px);
