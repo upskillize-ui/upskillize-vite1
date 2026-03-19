@@ -1084,11 +1084,6 @@ export default function BFSIInnovationLab() {
               <div className="signup-trust-item">✓ <span>NAAC documentation included</span></div>
               <div className="signup-trust-item">✓ <span>Co-certified graduates</span></div>
             </div>
-            <div className="cta-links">
-              <div className="cta-link">🌐 <a href="https://www.upskillize.com" target="_blank" rel="noreferrer">www.upskillize.com</a></div>
-              <div className="cta-link">🖥️ <a href="https://lms.upskillize.com" target="_blank" rel="noreferrer">lms.upskillize.com</a></div>
-              <div className="cta-link">📍 <span style={{color:"rgba(255,255,255,.55)"}}>Ramamurthy Nagar, Bangalore – 560016</span></div>
-            </div>
           </div>
         </div>
 
