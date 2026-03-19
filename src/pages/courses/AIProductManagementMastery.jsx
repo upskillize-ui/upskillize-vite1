@@ -769,70 +769,70 @@ export default function AIProductManagementMastery() {
           </div>
 
           <div className="topic-grid">
-            {/* Topic 1 */}
+            {/* Module 1 */}
             <div className="topic-card">
               <div className="topic-header">
-                <h3 className="topic-title">Topic 1: AI Product Management Fundamentals</h3>
+                <h3 className="topic-title">Module 1: AI Product Management Fundamentals</h3>
                 <div className="topic-duration">8 Hours</div>
               </div>
               <ul className="module-list">
                 <li className="module-item">
-                  <div className="module-title">Module 1.1: AI Product Management Paradigm Shift</div>
+                  <div className="module-title">Topic 1.1: AI Product Management Paradigm Shift</div>
                   <div className="module-description">• Traditional vs AI-first product thinking • Strategic AI mindset development • Industry transformation patterns</div>
                   <div className="practical-activity">🎯 Case Study: Netflix's AI-First Transformation Strategy</div>
                 </li>
                 <li className="module-item">
-                  <div className="module-title">Module 1.2: AI Product Development Lifecycle (PDLC)</div>
+                  <div className="module-title">Topic 1.2: AI Product Development Lifecycle (PDLC)</div>
                   <div className="module-description">• AI-specific development frameworks • Iterative improvement cycles • Continuous learning systems</div>
                   <div className="practical-activity">🔧 Workshop: Design Your AI Product Roadmap Framework</div>
                 </li>
                 <li className="module-item">
-                  <div className="module-title">Module 1.3: Essential AI/ML Concepts for PMs</div>
+                  <div className="module-title">Topic 1.3: Essential AI/ML Concepts for PMs</div>
                   <div className="module-description">• Machine learning fundamentals • Deep learning basics • Neural network architectures • Algorithm selection strategies</div>
                   <div className="practical-activity">🧠 Hands-on Lab: Build Your First ML Model (No-Code)</div>
                 </li>
                 <li className="module-item">
-                  <div className="module-title">Module 1.4: Data Strategy & AI Product Requirements</div>
+                  <div className="module-title">Topic 1.4: Data Strategy & AI Product Requirements</div>
                   <div className="module-description">• Data-driven product decisions • Quality frameworks • Privacy considerations • Data pipeline design</div>
                   <div className="practical-activity">📊 Project: Conduct AI Readiness Data Audit</div>
                 </li>
                 <li className="module-item">
-                  <div className="module-title">Module 1.5: AI Ethics & Responsible Product Development</div>
+                  <div className="module-title">Topic 1.5: AI Ethics & Responsible Product Development</div>
                   <div className="module-description">• Bias detection frameworks • Fairness implementation • Regulatory compliance • Ethical decision trees</div>
                   <div className="practical-activity">⚖️ Simulation: Resolve Real AI Ethics Dilemmas</div>
                 </li>
               </ul>
             </div>
 
-            {/* Topic 2 */}
+            {/* Module 2 */}
             <div className="topic-card">  
               <div className="topic-header">
-                <h3 className="topic-title">Topic 2: User-Centric AI Product Strategy</h3>
+                <h3 className="topic-title">Module 2: User-Centric AI Product Strategy</h3>
                 <div className="topic-duration">8 Hours</div>
               </div>
               <ul className="module-list">
                 <li className="module-item">
-                  <div className="module-title">Module 2.1: AI Opportunity Identification & Strategic Alignment</div>
+                  <div className="module-title">Topic 2.1: AI Opportunity Identification & Strategic Alignment</div>
                   <div className="module-description">• Business problem framing for AI • Market opportunity analysis • ROI modeling for AI investments • Stakeholder alignment strategies</div>
                   <div className="practical-activity">💡 Workshop: AI Strategy Canvas Creation & Validation</div>
                 </li>
                 <li className="module-item">
-                  <div className="module-title">Module 2.2: User Journey Mapping for AI Products</div>
+                  <div className="module-title">Topic 2.2: User Journey Mapping for AI Products</div>
                   <div className="module-description">• AI-specific user journey design • Emotional touchpoint mapping • AI interaction patterns • Trust-building user flows</div>
                   <div className="practical-activity">🗺️ Lab: Create Comprehensive AI User Journey Maps</div>
                 </li>
                 <li className="module-item">
-                  <div className="module-title">Module 2.3: Epics, User Stories & Acceptance Criteria for AI</div>
+                  <div className="module-title">Topic 2.3: Epics, User Stories & Acceptance Criteria for AI</div>
                   <div className="module-description">• AI-focused epic structuring • User story writing for AI features • Acceptance criteria frameworks • Stakeholder story alignment</div>
                   <div className="practical-activity">📝 Activity: Write Complete AI Product Epic with User Stories</div>
                 </li>
                 <li className="module-item">
-                  <div className="module-title">Module 2.4: Behavior-Driven Development (BDD) for AI Products</div>
+                  <div className="module-title">Topic 2.4: Behavior-Driven Development (BDD) for AI Products</div>
                   <div className="module-description">• Given-When-Then scenarios for AI • BDD collaboration frameworks • AI-specific behavior testing • Cross-functional BDD implementation</div>
                   <div className="practical-activity">🎭 Workshop: Design BDD Scenarios for AI Chatbot Features</div>
                 </li>
                 <li className="module-item">
-                  <div className="module-title">Module 2.5: AI Product Roadmapping & Prioritization</div>
+                  <div className="module-title">Topic 2.5: AI Product Roadmapping & Prioritization</div>
                   <div className="module-description">• AI feature prioritization frameworks • Technical debt management • Release planning for AI products • Stakeholder communication strategies</div>
                   <div className="practical-activity">🎯 Project: Build Complete AI Product Roadmap (6-Month)</div>
                 </li>
@@ -842,102 +842,102 @@ export default function AIProductManagementMastery() {
             {/* Topic 3 */}
             <div className="topic-card">
               <div className="topic-header">
-                <h3 className="topic-title">Topic 3: Generative AI & Modern Development Practices</h3>
+                <h3 className="topic-title">Module 3: Generative AI & Modern Development Practices</h3>
                 <div className="topic-duration">8 Hours</div>
               </div>
               <ul className="module-list">
                 <li className="module-item">
-                  <div className="module-title">Module 3.1: Generative AI Fundamentals & Product Applications</div>
+                  <div className="module-title">Topic 3.1: Generative AI Fundamentals & Product Applications</div>
                   <div className="module-description">• GenAI capabilities overview • LLM vs traditional AI • Platform comparison (GPT, Gemini, Claude) • Use case identification</div>
                   <div className="practical-activity">✨ Comparison Lab: Evaluate GenAI Platforms for Product Use Cases</div>
                 </li>
                 <li className="module-item">
-                  <div className="module-title">Module 3.2: Advanced Prompt Engineering & LLM Integration</div>
+                  <div className="module-title">Topic 3.2: Advanced Prompt Engineering & LLM Integration</div>
                   <div className="module-description">• Prompt optimization techniques • Chain-of-thought reasoning • Context management • API integration strategies</div>
                   <div className="practical-activity">🔧 Hands-on: Master Advanced Prompting for Product Management</div>
                 </li>
                 <li className="module-item">
-                  <div className="module-title">Module 3.3: Modern SDLC with AI/ML Integration</div>
+                  <div className="module-title">Topic 3.3: Modern SDLC with AI/ML Integration</div>
                   <div className="module-description">• AI-enhanced development lifecycle • MLOps fundamentals • Version control for ML models • Automated testing pipelines</div>
                   <div className="practical-activity">⚙️ Workshop: Design AI-Integrated Development Pipeline</div>
                 </li>
                 <li className="module-item">
-                  <div className="module-title">Module 3.4: Agile/Scrum Methodologies for AI Development</div>
+                  <div className="module-title">Topic 3.4: Agile/Scrum Methodologies for AI Development</div>
                   <div className="module-description">• AI-specific sprint planning • Cross-functional team coordination • Risk management in AI sprints • Stakeholder communication</div>
                   <div className="practical-activity">🏃‍♂️ Sprint Simulation: Manage AI Feature Development Team</div>
                 </li>
                 <li className="module-item">
-                  <div className="module-title">Module 3.5: DevOps, MLOps & Continuous Integration</div>
+                  <div className="module-title">Topic 3.5: DevOps, MLOps & Continuous Integration</div>
                   <div className="module-description">• CI/CD for AI products • Model deployment strategies • Monitoring and maintenance • Automated quality assurance</div>
                   <div className="practical-activity">🚀 Project: Setup Complete MLOps Pipeline for AI Product</div>
                 </li>
               </ul>
             </div>
 
-            {/* Topic 4 */}
+            {/* Module 4 */}
             <div className="topic-card">
               <div className="topic-header">
-                <h3 className="topic-title">Topic 4: AI Product Development & Testing</h3>
+                <h3 className="topic-title">Module 4: AI Product Development & Testing</h3>
                 <div className="topic-duration">8 Hours</div>
               </div>
               <ul className="module-list">
                 <li className="module-item">
-                  <div className="module-title">Module 4.1: No-Code/Low-Code AI Product Development</div>
+                  <div className="module-title">Topic 4.1: No-Code/Low-Code AI Product Development</div>
                   <div className="module-description">• Platform evaluation & selection • Rapid prototyping techniques • Integration capabilities • Scalability considerations</div>
                   <div className="practical-activity">🛠️ Build Challenge: Create AI-Powered Customer Service Bot</div>
                 </li>
                 <li className="module-item">
-                  <div className="module-title">Module 4.2: AI Product Testing Methodologies & QA</div>
+                  <div className="module-title">Topic 4.2: AI Product Testing Methodologies & QA</div>
                   <div className="module-description">• AI-specific testing frameworks • Model validation techniques • Performance benchmarking • Error handling strategies</div>
                   <div className="practical-activity">🧪 Testing Lab: Comprehensive AI Model Validation Project</div>
                 </li>
                 <li className="module-item">
-                  <div className="module-title">Module 4.3: A/B Testing & Experimentation for AI Products</div>
+                  <div className="module-title">Topic 4.3: A/B Testing & Experimentation for AI Products</div>
                   <div className="module-description">• Experiment design for AI features • Statistical significance in AI • Multivariate testing approaches • Continuous optimization frameworks</div>
                   <div className="practical-activity">📊 Experiment: Design & Execute AI Feature A/B Test</div>
                 </li>
                 <li className="module-item">
-                  <div className="module-title">Module 4.4: Performance Monitoring & AI Model Evaluation</div>
+                  <div className="module-title">Topic 4.4: Performance Monitoring & AI Model Evaluation</div>
                   <div className="module-description">• KPI frameworks for AI products • Real-time monitoring systems • Model drift detection • Performance optimization strategies</div>
                   <div className="practical-activity">📈 Dashboard Project: Build AI Product Analytics System</div>
                 </li>
                 <li className="module-item">
-                  <div className="module-title">Module 4.5: AI Product Security & Compliance</div>
+                  <div className="module-title">Topic 4.5: AI Product Security & Compliance</div>
                   <div className="module-description">• Security frameworks for AI • Data privacy protection • Regulatory compliance (GDPR, etc.) • Risk assessment methodologies</div>
                   <div className="practical-activity">🔒 Audit Exercise: Comprehensive AI Product Security Assessment</div>
                 </li>
               </ul>
             </div>
 
-            {/* Topic 5 */}
+            {/* Module 5 */}
             <div className="topic-card">
               <div className="topic-header">
-                <h3 className="topic-title">Topic 5: AI Product Launch, Growth & Capstone</h3>
+                <h3 className="topic-title">Module 5: AI Product Launch, Growth & Capstone</h3>
                 <div className="topic-duration">8 Hours</div>
               </div>
               <ul className="module-list">
                 <li className="module-item">
-                  <div className="module-title">Module 5.1: Go-to-Market Strategy for AI Products</div>
+                  <div className="module-title">Topic 5.1: Go-to-Market Strategy for AI Products</div>
                   <div className="module-description">• AI product positioning strategies • Market entry planning • Channel optimization • Customer acquisition frameworks</div>
                   <div className="practical-activity">🚀 GTM Workshop: Complete AI Product Launch Strategy</div>
                 </li>
                 <li className="module-item">
-                  <div className="module-title">Module 5.2: User Adoption & Change Management for AI</div>
+                  <div className="module-title">Topic 5.2: User Adoption & Change Management for AI</div>
                   <div className="module-description">• AI adoption psychology • Change management frameworks • User training strategies • Resistance handling techniques</div>
                   <div className="practical-activity">👥 Simulation: Lead AI Product Adoption Initiative</div>
                 </li>
                 <li className="module-item">
-                  <div className="module-title">Module 5.3: AI Product Analytics & Success Metrics</div>
+                  <div className="module-title">Topic 5.3: AI Product Analytics & Success Metrics</div>
                   <div className="module-description">• Success metric identification • Analytics implementation • ROI measurement • Continuous improvement loops</div>
                   <div className="practical-activity">📊 Analytics Project: Design Complete AI Product KPI Dashboard</div>
                 </li>
                 <li className="module-item">
-                  <div className="module-title">Module 5.4: Scaling AI Products & Infrastructure</div>
+                  <div className="module-title">Topic 5.4: Scaling AI Products & Infrastructure</div>
                   <div className="module-description">• Scaling strategies for AI systems • Infrastructure planning • Cost optimization • Global expansion considerations</div>
                   <div className="practical-activity">📈 Scaling Exercise: Plan AI Product Scale from 1K to 1M Users</div>
                 </li>
                 <li className="module-item">
-                  <div className="module-title">Module 5.5: Industry Capstone Project & Best Practices</div>
+                  <div className="module-title">Topic 5.5: Industry Capstone Project & Best Practices</div>
                   <div className="module-description">• Complete AI product development • Real-world implementation • Industry mentor guidance • Portfolio presentation</div>
                   <div className="practical-activity">🏆 Capstone: End-to-End AI Product Development & Presentation</div>
                 </li>

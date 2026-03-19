@@ -81,8 +81,8 @@ export default function PowerBILandingPage() {
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6 mt-12 max-w-5xl mx-auto">
             {[
               { num: '40', label: 'Hours Intensive Training' },
-              { num: '8', label: 'Comprehensive Modules' },
-              { num: '32', label: 'Practical Topics' },
+              { num: '8', label: 'Comprehensive Topics' },
+              { num: '32', label: 'Practical Modules' },
               { num: '20+', label: 'Real Case Studies' },
               { num: '₹8-35L', label: 'Salary Range' }
             ].map((stat, i) => (

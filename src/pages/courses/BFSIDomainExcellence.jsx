@@ -20,7 +20,7 @@ export default function BFSIExcellenceProgram() {
 
   const stats = [
     { number: '40', label: 'Hours Professional Training' },
-    { number: '18', label: 'Comprehensive Modules' },
+    { number: '18', label: 'Comprehensive Topics' },
     { number: '25+', label: 'Live Case Studies' },
     { number: '₹8-45L', label: 'Starting Salary Range' },
     { number: '100%', label: 'Practical Learning' }
@@ -37,45 +37,45 @@ export default function BFSIExcellenceProgram() {
     {
       day: 1, title: 'Banking Foundations (8 Hours)',
       sessions: [
-        { icon: '🌍', title: 'Module 1: Overview of Financial Markets', desc: 'Live NSE/BSE trading analysis, commodity markets, forex operations', tag: 'Real-time Market Analysis' },
-        { icon: '🏛️', title: 'Module 2: Introduction to Banking', desc: 'Banking evolution, central banking role, modern banking value creation', tag: 'Banking Business Model Workshop' },
-        { icon: '🌏', title: 'Module 3: Types of Banks - Global Scenario', desc: 'Compare PSU vs Private vs Foreign banks with global giants', tag: 'Global Banking Comparison Dashboard' }
+        { icon: '🌍', title: 'Topic 1: Overview of Financial Markets', desc: 'Live NSE/BSE trading analysis, commodity markets, forex operations', tag: 'Real-time Market Analysis' },
+        { icon: '🏛️', title: 'Topic 2: Introduction to Banking', desc: 'Banking evolution, central banking role, modern banking value creation', tag: 'Banking Business Model Workshop' },
+        { icon: '🌏', title: 'Topic 3: Types of Banks - Global Scenario', desc: 'Compare PSU vs Private vs Foreign banks with global giants', tag: 'Global Banking Comparison Dashboard' }
       ]
     },
     {
       day: 2, title: 'Banking Products & Services (8 Hours)',
       sessions: [
-        { icon: '🏪', title: 'Module 4: Retail Banking', desc: 'Savings, FDs, personal loans, wealth management', tag: 'Retail Product Design Challenge' },
-        { icon: '🏢', title: 'Module 5: Corporate Banking', desc: 'Working capital, trade finance, cash management', tag: 'Corporate Deal Structuring' },
-        { icon: '💼', title: 'Module 6: Investment Banking', desc: 'IPOs, M&A advisory, underwriting', tag: 'IPO Launch Simulation' },
-        { icon: '🕌', title: 'Module 7: Islamic Banking', desc: 'Sharia-compliant banking, Murabaha, Ijara', tag: 'Islamic vs Conventional Banking' }
+        { icon: '🏪', title: 'Topic 4: Retail Banking', desc: 'Savings, FDs, personal loans, wealth management', tag: 'Retail Product Design Challenge' },
+        { icon: '🏢', title: 'Topic 5: Corporate Banking', desc: 'Working capital, trade finance, cash management', tag: 'Corporate Deal Structuring' },
+        { icon: '💼', title: 'Topic 6: Investment Banking', desc: 'IPOs, M&A advisory, underwriting', tag: 'IPO Launch Simulation' },
+        { icon: '🕌', title: 'Topic 7: Islamic Banking', desc: 'Sharia-compliant banking, Murabaha, Ijara', tag: 'Islamic vs Conventional Banking' }
       ]
     },
     {
       day: 3, title: 'Lending & Payments (8 Hours)',
       sessions: [
-        { icon: '💰', title: 'Module 8: Lending Products', desc: 'Home, personal, auto, education, business loans', tag: 'Loan Portfolio Optimization' },
-        { icon: '📄', title: 'Module 9: Retail Lending Process', desc: 'End-to-end loan journey from application to collection', tag: 'Complete Loan Processing Simulation' },
-        { icon: '💳', title: 'Module 10: Payment Systems', desc: 'UPI, NEFT, RTGS, SWIFT, blockchain payments', tag: 'Payment Gateway Development' },
-        { icon: '💳', title: 'Module 11: Cards Ecosystem', desc: 'Credit, debit, prepaid cards - Visa, MasterCard, RuPay', tag: 'Card Product Launch Strategy' }
+        { icon: '💰', title: 'Topic 8: Lending Products', desc: 'Home, personal, auto, education, business loans', tag: 'Loan Portfolio Optimization' },
+        { icon: '📄', title: 'Topic 9: Retail Lending Process', desc: 'End-to-end loan journey from application to collection', tag: 'Complete Loan Processing Simulation' },
+        { icon: '💳', title: 'Topic 10: Payment Systems', desc: 'UPI, NEFT, RTGS, SWIFT, blockchain payments', tag: 'Payment Gateway Development' },
+        { icon: '💳', title: 'Topic 11: Cards Ecosystem', desc: 'Credit, debit, prepaid cards - Visa, MasterCard, RuPay', tag: 'Card Product Launch Strategy' }
       ]
     },
     {
       day: 4, title: 'Risk & Compliance (8 Hours)',
       sessions: [
-        { icon: '👥', title: 'Module 12: Customer Personas', desc: 'Segment customers by demographics, behavior, profitability', tag: 'Customer Segmentation Workshop' },
-        { icon: '🚨', title: 'Module 13: Crime and Compliance', desc: 'Anti-money laundering (AML), KYC procedures, fraud detection', tag: 'Fraud Detection Algorithm' },
-        { icon: '⚖️', title: 'Module 14: Risk Management', desc: 'Credit, market, operational, liquidity risk - VaR models', tag: 'Risk Management Simulation' },
-        { icon: '📋', title: 'Module 15: Banking Regulation', desc: 'RBI guidelines, Basel III norms, capital adequacy', tag: 'Regulatory Compliance Audit' }
+        { icon: '👥', title: 'Topic 12: Customer Personas', desc: 'Segment customers by demographics, behavior, profitability', tag: 'Customer Segmentation Workshop' },
+        { icon: '🚨', title: 'Topic 13: Crime and Compliance', desc: 'Anti-money laundering (AML), KYC procedures, fraud detection', tag: 'Fraud Detection Algorithm' },
+        { icon: '⚖️', title: 'Topic 14: Risk Management', desc: 'Credit, market, operational, liquidity risk - VaR models', tag: 'Risk Management Simulation' },
+        { icon: '📋', title: 'Topic 15: Banking Regulation', desc: 'RBI guidelines, Basel III norms, capital adequacy', tag: 'Regulatory Compliance Audit' }
       ]
     },
     {
       day: 5, title: 'Future Banking & AI (8 Hours)',
       sessions: [
-        { icon: '💻', title: 'Module 16: Banking Software', desc: 'Hands-on with Finacle, Temenos, T24, cloud banking platforms', tag: 'Banking Software Configuration' },
+        { icon: '💻', title: 'Topic 16: Banking Software', desc: 'Hands-on with Finacle, Temenos, T24, cloud banking platforms', tag: 'Banking Software Configuration' },
         { icon: '🤖', title: 'GenAI & Agentic AI in Finance', desc: 'ChatGPT banking applications, AI trading algorithms, robo-advisors', tag: 'Build AI Banking Assistant' },
-        { icon: '🚀', title: 'Module 17: New Age Banking & Fintech', desc: 'Neo-banks, DeFi, cryptocurrency, blockchain, fintech disruption', tag: 'Fintech Startup Pitch' },
-        { icon: '🛡️', title: 'Module 18: Insurance Domain', desc: 'Life, health, general insurance, bancassurance partnerships', tag: 'Insurance Product Development' }
+        { icon: '🚀', title: 'Topic 17: New Age Banking & Fintech', desc: 'Neo-banks, DeFi, cryptocurrency, blockchain, fintech disruption', tag: 'Fintech Startup Pitch' },
+        { icon: '🛡️', title: 'Topic 18: Insurance Domain', desc: 'Life, health, general insurance, bancassurance partnerships', tag: 'Insurance Product Development' }
       ]
     }
   ];

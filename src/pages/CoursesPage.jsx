@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { courses } from "../data/coursesData";
@@ -283,26 +283,15 @@ export default function CoursesPage() {
                 : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
             }`}
           >
-            {sortedCourses.map((course, index) => {
+            {sortedCourses.map((course) => {
               const isComingSoon = !isCourseAvailable(course);
-              const prevCourse = sortedCourses[index - 1];
-              const showDivider = isComingSoon && prevCourse && isCourseAvailable(prevCourse);
 
               return (
-                <React.Fragment key={course.id}>
-                  {showDivider && (
-                    <div className="col-span-full flex items-center gap-4 my-4">
-                      <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-500/50 to-transparent" />
-                      <span className="text-xs font-bold tracking-widest uppercase text-gray-400 px-4 py-1.5 rounded-full border border-gray-600/50 bg-[#1a2540]/80 whitespace-nowrap">
-                        🚀 Coming Soon
-                      </span>
-                      <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-500/50 to-transparent" />
-                    </div>
-                  )}
                 <div
+                  key={course.id}
                   className={`group relative p-5 sm:p-6 rounded-2xl shadow-xl transition-all duration-500 flex flex-col border ${
                     isComingSoon
-                      ? "bg-gradient-to-br from-[#161f30] via-[#1a2540] to-[#161f30] border-gray-600/20 opacity-70 hover:opacity-90"
+                      ? "bg-gradient-to-br from-[#161f30] via-[#1a2540] to-[#161f30] border-gray-600/20 opacity-75 hover:opacity-95"
                       : "bg-gradient-to-br from-[#1e2d4a] via-[#2a3f5f] to-[#1e2d4a] border-cyan-400/20 hover:border-cyan-400/60 hover:shadow-2xl transform hover:-translate-y-2 hover:scale-[1.02]"
                   } ${sortedCourses.length === 1 ? "max-w-md w-full" : ""}`}
                   style={{
@@ -314,15 +303,17 @@ export default function CoursesPage() {
                 >
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/5 via-transparent to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-
                   {/* Glow Effect */}
                   <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400/0 via-cyan-400/20 to-purple-500/0 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
 
                   <div className="relative z-10 flex flex-col h-full">
-                    {/* Title + Badge */}
+
+                    {/* Title + Coming Soon Badge */}
                     <div className="flex items-start justify-between mb-4">
                       <h4
-                        className={`text-lg sm:text-xl font-bold flex-1 pr-2 line-clamp-2 transition-colors duration-300 ${isComingSoon ? "text-gray-400" : "text-white group-hover:text-cyan-400"}`}
+                        className={`text-lg sm:text-xl font-bold flex-1 pr-2 line-clamp-2 transition-colors duration-300 ${
+                          isComingSoon ? "text-gray-400" : "text-white group-hover:text-cyan-400"
+                        }`}
                         style={{ minHeight: "3.5rem" }}
                       >
                         {course.title}
@@ -337,26 +328,26 @@ export default function CoursesPage() {
                     {/* Meta */}
                     <div className="space-y-2.5 mb-4">
                       <div className="flex items-center gap-2 text-sm text-gray-300">
-                        <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full"></div>
-                        <strong className="font-semibold text-white">Duration:</strong> {course.duration}
+                        <div className={`w-1.5 h-1.5 rounded-full ${isComingSoon ? "bg-gray-500" : "bg-cyan-400"}`}></div>
+                        <strong className={`font-semibold ${isComingSoon ? "text-gray-400" : "text-white"}`}>Duration:</strong> {course.duration}
                       </div>
                       {course.certification && (
                         <>
                           <div className="flex items-start gap-2 text-sm text-gray-300">
-                            <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-1.5"></div>
+                            <div className={`w-1.5 h-1.5 rounded-full mt-1.5 ${isComingSoon ? "bg-gray-500" : "bg-cyan-400"}`}></div>
                             <div className="line-clamp-2">
-                              <strong className="font-semibold text-white">Certification:</strong>{" "}
+                              <strong className={`font-semibold ${isComingSoon ? "text-gray-400" : "text-white"}`}>Certification:</strong>{" "}
                               {course.certification}
                             </div>
                           </div>
                           <div className="flex gap-2 flex-wrap mt-2">
                             {course.shortCode && (
-                              <span className="text-xs bg-cyan-500/20 text-cyan-300 px-3 py-1.5 rounded-full font-semibold border border-cyan-400/40">
+                              <span className={`text-xs px-3 py-1.5 rounded-full font-semibold border ${isComingSoon ? "bg-gray-500/20 text-gray-400 border-gray-500/40" : "bg-cyan-500/20 text-cyan-300 border-cyan-400/40"}`}>
                                 {course.shortCode}
                               </span>
                             )}
                             {course.certType && (
-                              <span className="text-xs bg-green-500/20 text-green-300 px-3 py-1.5 rounded-full font-semibold border border-green-400/40">
+                              <span className={`text-xs px-3 py-1.5 rounded-full font-semibold border ${isComingSoon ? "bg-gray-500/20 text-gray-400 border-gray-500/40" : "bg-green-500/20 text-green-300 border-green-400/40"}`}>
                                 {course.certType}
                               </span>
                             )}
@@ -366,15 +357,15 @@ export default function CoursesPage() {
                     </div>
 
                     {/* Key Skills */}
-                    <div className="bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-indigo-500/10 rounded-xl p-4 mb-4 border border-cyan-400/20 flex-grow">
-                      <h5 className="text-xs font-bold text-cyan-400 mb-2 uppercase tracking-wide flex items-center gap-2">
-                        <span className="w-1 h-4 bg-gradient-to-b from-cyan-400 to-purple-500 rounded-full"></span>
+                    <div className={`rounded-xl p-4 mb-4 border flex-grow ${isComingSoon ? "bg-gray-500/5 border-gray-600/20" : "bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-indigo-500/10 border-cyan-400/20"}`}>
+                      <h5 className={`text-xs font-bold mb-2 uppercase tracking-wide flex items-center gap-2 ${isComingSoon ? "text-gray-500" : "text-cyan-400"}`}>
+                        <span className={`w-1 h-4 rounded-full ${isComingSoon ? "bg-gray-500" : "bg-gradient-to-b from-cyan-400 to-purple-500"}`}></span>
                         Key Skills
                       </h5>
                       <ul className="space-y-2">
                         {course.highlights.slice(0, 3).map((highlight, i) => (
-                          <li key={i} className="flex items-start text-sm text-gray-200">
-                            <span className="text-cyan-400 mr-2 flex-shrink-0 mt-0.5">◆</span>
+                          <li key={i} className="flex items-start text-sm text-gray-400">
+                            <span className={`mr-2 flex-shrink-0 mt-0.5 ${isComingSoon ? "text-gray-600" : "text-cyan-400"}`}>◆</span>
                             <span className="line-clamp-1">{highlight}</span>
                           </li>
                         ))}
@@ -382,14 +373,11 @@ export default function CoursesPage() {
                     </div>
 
                     {/* CTA Buttons */}
-                    <div className="flex gap-3 pt-4 border-t border-cyan-400/20 mt-auto">
+                    <div className={`flex gap-3 pt-4 border-t mt-auto ${isComingSoon ? "border-gray-600/20" : "border-cyan-400/20"}`}>
                       {isComingSoon ? (
                         <>
                           <button
-                            onClick={() => {
-                              setSelectedCourse(course.title);
-                              setIsModalOpen(true);
-                            }}
+                            onClick={() => { setSelectedCourse(course.title); setIsModalOpen(true); }}
                             className="flex-1 text-center px-4 py-3 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-400 hover:to-amber-400 transition-all duration-300 text-white text-sm font-bold shadow-lg"
                           >
                             📧 Notify Me
@@ -418,9 +406,9 @@ export default function CoursesPage() {
                         </>
                       )}
                     </div>
+
                   </div>
                 </div>
-                </React.Fragment>
               );
             })}
           </div>

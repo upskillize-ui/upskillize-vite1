@@ -284,7 +284,7 @@ h2.section-title{
   font-weight:800;color:var(--text);line-height:1.1;margin-bottom:20px;
 }
 h2.section-title em{font-style:normal;color:var(--purple);}
-.section-lead{font-size:17px;color:var(--muted);line-height:1.78;max-width:680px;margin-bottom:56px;}
+.section-lead{font-size:17px;color:var(--muted);line-height:1.78;max-width:680px;margin-bottom:56px;}}
 .text-center{text-align:center;}.mx-auto{margin:0 auto;}
 
 /* ── MARKET OPPORTUNITY (dark) ─────────────────────────────────────────── */
@@ -444,7 +444,7 @@ h2.section-title em{font-style:normal;color:var(--purple);}
   content:'RUBRIC';
   position:absolute;right:-60px;bottom:-80px;
   font-family:var(--font-display),sans-serif;font-size:200px;font-weight:900;
-  color:rgba(255,255,255,.02);letter-spacing:-.02em;pointer-events:none;
+  color:rgba(245, 236, 236, 0.06);letter-spacing:-.02em;pointer-events:none;
 }
 .rubric-section .section-label{color:var(--gold);}
 .rubric-section h2{color:var(--white);}
@@ -698,78 +698,6 @@ h2.section-title em{font-style:normal;color:var(--purple);}
 }
 .btn-white:hover{background:rgba(255,255,255,.25);transform:translateY(-2px);}
 /* Brand column */
-.footer-brand .brand-logo{
-  font-family:var(--font-display);font-size:26px;font-weight:800;
-  color:var(--white);letter-spacing:-.02em;margin-bottom:14px;display:block;
-}
-.footer-brand .brand-logo span{color:var(--gold);}
-.footer-brand .brand-tagline{
-  font-size:13.5px;color:rgba(255,255,255,.5);
-  line-height:1.75;max-width:280px;margin-bottom:28px;
-}
-/* Contact rows */
-.footer-contact{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
-.footer-contact a{
-  display:inline-flex;align-items:center;gap:10px;
-  color:rgba(255,255,255,.6);font-size:13px;font-family:var(--font-body);
-  text-decoration:none;font-weight:400;transition:color .2s;line-height:1.5;
-}
-.footer-contact a:hover{color:var(--gold);}
-.footer-contact .contact-icon{
-  width:28px;height:28px;border-radius:6px;
-  display:flex;align-items:center;justify-content:center;font-size:13px;
-  background:rgba(255,255,255,.07);flex-shrink:0;
-}
-.footer-contact .website-link{
-  font-family:var(--font-display);font-size:14px;font-weight:800;
-  background:linear-gradient(135deg,var(--gold),var(--gold-l));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;
-}
-/* Social icons */
-.footer-socials{display:flex;gap:10px;margin-top:4px;}
-.footer-socials a{
-  width:34px;height:34px;border-radius:8px;
-  display:flex;align-items:center;justify-content:center;
-  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
-  color:rgba(255,255,255,.6);font-size:14px;text-decoration:none;
-  transition:all .2s;
-}
-.footer-socials a:hover{background:var(--purple);color:var(--white);border-color:var(--purple);}
-/* Nav columns */
-.footer-col h4{
-  font-family:var(--font-body);font-size:11px;font-weight:700;
-  letter-spacing:.12em;text-transform:uppercase;
-  color:rgba(255,255,255,.35);margin-bottom:18px;
-}
-.footer-col a{
-  display:block;font-family:var(--font-body);font-size:13.5px;font-weight:400;
-  color:rgba(255,255,255,.62);text-decoration:none;
-  padding:4px 0;transition:color .2s;line-height:1.5;
-}
-.footer-col a:hover{color:var(--gold);}
-/* Divider */
-.footer-divider{
-  border:none;border-top:1px solid rgba(255,255,255,.07);
-  margin-bottom:24px;
-}
-/* Bottom bar */
-.footer-bottom{
-  display:flex;justify-content:space-between;align-items:center;
-  flex-wrap:wrap;gap:12px;
-  font-family:var(--font-body);font-size:12.5px;font-weight:500;
-  color:rgba(255,255,255,.3);
-}
-.footer-bottom a{color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;}
-.footer-bottom a:hover{color:var(--gold);}
-@media(max-width:1024px){
-  .footer-grid{grid-template-columns:1fr 1fr;gap:40px;}
-  footer{padding:56px 24px 28px;}
-}
-@media(max-width:640px){
-  .footer-grid{grid-template-columns:1fr;}
-}
-
 /* ── ANIMATIONS ────────────────────────────────────────────────────────── */
 .fade-up{opacity:0;transform:translateY(24px);transition:all .65s cubic-bezier(.22,.61,.36,1);}
 .fade-up.visible{opacity:1;transform:translateY(0);}
@@ -2892,7 +2820,7 @@ export default function PGCDBWebsite() {
 <section className="rubric-section" id="rubric">
   <div className="container">
     <p className="section-label fade-up">UGC Outcome-Based Education Framework</p>
-    <h2 className="section-title fade-up fade-up-d1">The <em style={{color: "var(--gold)"}}>RUBRIC</em> Framework:<br/>UGC OBE — Aligned & Accredited.</h2>
+    <h2 className="section-title fade-up fade-up-d1" style={{color:"#ffffff"}}>The <em style={{color:"var(--gold)"}}>RUBRIC</em> Framework:<br/>UGC OBE — Aligned &amp; Accredited.</h2>
     <p className="section-lead fade-up fade-up-d2">PGCDB (BFSI) is designed fully in accordance with the UGC Curriculum and Credit Framework for Postgraduate Programmes (2023) and AICTE's Outcome-Based Education (OBE) mandate. The RUBRIC framework below defines how every learning element of this programme is structured, delivered, assessed, and improved — ensuring NSQF Level 7 standards are met and CO-PO attainment is measurable at every stage.</p>
 
     <table className="rubric-intro-table fade-up">

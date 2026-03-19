@@ -706,7 +706,7 @@ export default function ProductLeadershipProgram() {
             </div>
             <div style={styles.statCard}>
               <span style={styles.statNumber}>8</span>
-              <span style={styles.statLabel}>Comprehensive Modules</span>
+              <span style={styles.statLabel}>Comprehensive Topics</span>
             </div>
             <div style={styles.statCard}>
               <span style={styles.statNumber}>16</span>

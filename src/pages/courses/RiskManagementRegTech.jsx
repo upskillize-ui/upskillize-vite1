@@ -89,7 +89,7 @@ const RiskManagementRegTech = () => {
             <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-5xl mx-auto mt-12">
               {[
                 { num: "40", label: "Hours Intensive Training" },
-                { num: "20+", label: "Risk Modules & Tools" },
+                { num: "20+", label: "Risk Topics & Tools" },
                 { num: "15+", label: "Real Risk Failures Analyzed" },
                 { num: "₹10-45L", label: "Starting Salary Range" },
                 { num: "100%", label: "Hands-on Learning" }
@@ -163,18 +163,18 @@ const RiskManagementRegTech = () => {
               {
                 day: "1", title: "Foundations & Framework (8 Hours)",
                 modules: [
-                  { icon: "🌐", title: "Module 1: Foundation of Risk Management", desc: "Evolution from traditional to enterprise risk management, risk culture, governance structures, and the three lines of defense mode", highlight: "Build Your First Risk Dashboard" },
-                  { icon: "⚡", title: "Module 2: Why Risk Management Matters", desc: "Case studies of risk failures: Lehman Brothers, Silicon Valley Bank, FTX, Archegos - what went wrong and lessons learned", highlight: "Risk Failure Analysis Workshop" },
-                  { icon: "🔄", title: "Module 3: Risk Management Process", desc: "Risk identification, assessment, measurement, monitoring, and reporting using industry tools and frameworks", highlight: "Live Risk Assessment" },
-                  { icon: "📋", title: "Module 4: Standards & Frameworks", desc: "ISO 31000, COSO ERM, risk appetite frameworks, KRIs, and building effective risk registers", highlight: "Design Risk Framework" }
+                  { icon: "🌐", title: "Topic 1: Foundation of Risk Management", desc: "Evolution from traditional to enterprise risk management, risk culture, governance structures, and the three lines of defense mode", highlight: "Build Your First Risk Dashboard" },
+                  { icon: "⚡", title: "Topic 2: Why Risk Management Matters", desc: "Case studies of risk failures: Lehman Brothers, Silicon Valley Bank, FTX, Archegos - what went wrong and lessons learned", highlight: "Risk Failure Analysis Workshop" },
+                  { icon: "🔄", title: "Topic 3: Risk Management Process", desc: "Risk identification, assessment, measurement, monitoring, and reporting using industry tools and frameworks", highlight: "Live Risk Assessment" },
+                  { icon: "📋", title: "Topic 4: Standards & Frameworks", desc: "ISO 31000, COSO ERM, risk appetite frameworks, KRIs, and building effective risk registers", highlight: "Design Risk Framework" }
                 ]
               },
               {
                 day: "2", title: "Credit & Market Risk (8 Hours)",
                 modules: [
-                  { icon: "🏛️", title: "Module 5: Regulatory Guidelines Basel Framework", desc: "Deep dive into Basel III/IV capital requirements, RWA calculations, Pillar 1/2/3, and regulatory reporting", highlight: "Basel IV Implementation Lab" },
-                  { icon: "💳", title: "Module 6: Credit Risk & Analytics", desc: "PD/LGD/EAD modeling, credit scoring, portfolio management, stress testing, and machine learning applications", highlight: "Build AI Credit Scoring Model" },
-                  { icon: "📈", title: "Module 7: Market Risk Management", desc: "VaR/CVaR calculations, FRTB implementation, trading book risk, derivatives risk, and hedging strategies", highlight: "Real-time Trading Risk Simulation" },
+                  { icon: "🏛️", title: "Topic 5: Regulatory Guidelines Basel Framework", desc: "Deep dive into Basel III/IV capital requirements, RWA calculations, Pillar 1/2/3, and regulatory reporting", highlight: "Basel IV Implementation Lab" },
+                  { icon: "💳", title: "Topic 6: Credit Risk & Analytics", desc: "PD/LGD/EAD modeling, credit scoring, portfolio management, stress testing, and machine learning applications", highlight: "Build AI Credit Scoring Model" },
+                  { icon: "📈", title: "Topic 7: Market Risk Management", desc: "VaR/CVaR calculations, FRTB implementation, trading book risk, derivatives risk, and hedging strategies", highlight: "Real-time Trading Risk Simulation" },
                   { icon: "🔍", title: " Case Study: Credit Suisse & Archegos", desc: "Analyze the $5.5 billion loss - concentration risk, margin calls, and prime brokerage failures", highlight: "Risk Limit Breach Simulation" }
                 ]
               },
@@ -190,19 +190,19 @@ const RiskManagementRegTech = () => {
               {
                 day: "4", title: "Advanced Risk & Analytics (8 Hours)",
                 modules: [
-                  { icon: "🎯", title: "Module 12: Strategic & Reputation Risk", desc: "ESG risk integration, climate risk scenarios, reputation monitoring, and crisis management protocols", highlight: "ESG Risk Scoring Framework" },
-                  { icon: "📊", title: "Module 13: Risk Analytics & Dashboards", desc: "Power BI/Tableau for risk reporting, Python for risk analytics, real-time monitoring systems", highlight: "Build Executive Risk Dashboard" },
-                  { icon: "🤖", title: "Module 14: GenAI in Risk Management", desc: "AI for fraud detection, predictive risk models, NLP for regulatory compliance, autonomous risk agents", highlight: "Deploy AI Risk Prediction Model" },
+                  { icon: "🎯", title: "Topic 12: Strategic & Reputation Risk", desc: "ESG risk integration, climate risk scenarios, reputation monitoring, and crisis management protocols", highlight: "ESG Risk Scoring Framework" },
+                  { icon: "📊", title: "Topic 13: Risk Analytics & Dashboards", desc: "Power BI/Tableau for risk reporting, Python for risk analytics, real-time monitoring systems", highlight: "Build Executive Risk Dashboard" },
+                  { icon: "🤖", title: "Topic 14: GenAI in Risk Management", desc: "AI for fraud detection, predictive risk models, NLP for regulatory compliance, autonomous risk agents", highlight: "Deploy AI Risk Prediction Model" },
                   { icon: "💥", title: "Risk Failure Workshop", desc: "Interactive analysis of major failures: Enron, Barings Bank, LTCM, WeWork - identify early warning signals", highlight: "Create Early Warning System" }
                 ]
               },
               {
                 day: "5", title: "RegTech & Future of Risk(8 Hours)",
                 modules: [
-                  { icon: "🚀", title: "Module 15: RegTech Revolution", desc: "RegTech 2.0 - AI-powered compliance, automated reporting, real-time monitoring, blockchain in regulatory compliance", highlight: "Build RegTech Solution" },
-                  { icon: "🤖", title: "Module 16: Advanced GenAI in Risk Management", desc: "Transformer models for risk prediction, autonomous risk agents, NLP for regulatory documents, AI-driven stress testing", highlight: "Deploy Autonomous Risk Agent" },
-                  { icon: "📊", title: "Module 17: Risk Aggregation & Reporting", desc: "Enterprise-wide risk aggregation, BCBS 239 compliance, real-time risk dashboards, automated regulatory reporting", highlight: "Build Risk Data Warehouse" },
-                  { icon: "🔢", title: "Module 18: Quant Finance & Analytics", desc: "Monte Carlo simulations, stochastic modeling, derivative pricing, machine learning for quantitative risk", highlight: "Quant Risk Model Development" }
+                  { icon: "🚀", title: "Topic 15: RegTech Revolution", desc: "RegTech 2.0 - AI-powered compliance, automated reporting, real-time monitoring, blockchain in regulatory compliance", highlight: "Build RegTech Solution" },
+                  { icon: "🤖", title: "Topic 16: Advanced GenAI in Risk Management", desc: "Transformer models for risk prediction, autonomous risk agents, NLP for regulatory documents, AI-driven stress testing", highlight: "Deploy Autonomous Risk Agent" },
+                  { icon: "📊", title: "Topic 17: Risk Aggregation & Reporting", desc: "Enterprise-wide risk aggregation, BCBS 239 compliance, real-time risk dashboards, automated regulatory reporting", highlight: "Build Risk Data Warehouse" },
+                  { icon: "🔢", title: "Topic 18: Quant Finance & Analytics", desc: "Monte Carlo simulations, stochastic modeling, derivative pricing, machine learning for quantitative risk", highlight: "Quant Risk Model Development" }
                 ]
               },
               {
