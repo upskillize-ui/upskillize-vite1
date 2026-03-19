@@ -322,7 +322,7 @@ export default function Navbar() {
                           style={{width:"100%",height:"90px",objectFit:"cover",borderRadius:".5rem",display:"block"}}
                         />
                         <div>
-                          <span className="nbp nbp-b" style={{marginBottom:".3rem",display:"inline-block"}}>PGD-FDB</span>
+                          <span className="nbp nbp-b" style={{marginBottom:".3rem",display:"inline-block"}}>PGDFDB</span>
                           <div style={{fontSize:".825rem",fontWeight:600,color:"var(--c-text)",lineHeight:1.35}}>
                             PG Diploma in Fintech and Digital Business
                           </div>
@@ -463,7 +463,7 @@ export default function Navbar() {
 
               <span className="ms">Two Year</span>
               <a href="/courses/pgcdb" onClick={closeAll} className="msl">
-                <span style={{background:"#dbeafe",color:"#1d4ed8",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>PGD-FDB</span>
+                <span style={{background:"#dbeafe",color:"#1d4ed8",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>PGDFDB</span>
                 PG Diploma in Fintech and Digital Business
               </a>
 

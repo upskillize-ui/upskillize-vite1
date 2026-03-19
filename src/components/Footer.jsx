@@ -58,7 +58,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm mt-4">
               <li>
                 <Link to="/courses/pgcdb" className="text-white/80 transition-colors">
-                  PGD-FDB (Two Year)
+                  PGDFDB (Two Year)
                 </Link>
               </li>
               <li>
