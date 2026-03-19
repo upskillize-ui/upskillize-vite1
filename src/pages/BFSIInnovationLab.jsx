@@ -933,13 +933,13 @@ export default function BFSIInnovationLab() {
           <div className="sc">
             <div className="sec-label">Why Upskillize</div>
             {/* ── "22+ Years" heading → "500+ Group Experience" ── */}
-            <h2 className="sec-title">500+ Group Experience.<br/><span className="ht">Delivered to Your Campus.</span></h2>
+            <h2 className="sec-title">500+ years of Collective Experience.<br/><span className="ht">Delivered to Your Campus.</span></h2>
             <p className="sec-sub">No other EdTech in India can combine this depth of BFSI practitioner experience with a fully deployed innovation lab infrastructure.</p>
           </div>
           <div className="why-grid">
             {[
               {icon:"🏆",title:"First-of-Its-Kind in India",desc:"Pioneering the concept of a dedicated, physical BFSI Innovation Lab deployed inside college campuses — no other EdTech has done this"},
-              {icon:"🎓",title:"FRM + PRM + SAFe Certified Faculty",desc:"Content built by FRM, PRM, SAFe-certified practitioners with live BFSI deployment across Credit Suisse, Emirates NBD, Oracle, FIS"},
+              {icon:"🎓",title:"Delivered by Industry Experts",desc:"Content built by FRM, PRM, SAFe-certified practitioners with live BFSI deployment across Credit Suisse, Emirates NBD, Oracle, FIS"},
               {icon:"🛡️",title:"Full BFSI Spectrum",desc:"Banking, InsurTech, Capital Markets, RegTech, ESG, AI, Core Banking — the only EdTech covering every BFSI vertical under one lab"},
               {icon:"🤖",title:"Claude-Powered LMS Agents",desc:"lms.upskillize.com runs AI agents for knowledge testing, mock exams, case study review, and AICTE RUBRIC scoring 24/7"},
               {icon:"📦",title:"Lab-in-a-Box Delivery",desc:"Layout blueprint, software stack, curriculum calendar, faculty training, LMS setup — everything delivered. Zero burden on college"},
@@ -1080,7 +1080,6 @@ export default function BFSIInnovationLab() {
               <button type="button">Set Up Our Lab →</button>
             </div>
             <div className="signup-trust">
-              <div className="signup-trust-item">✓ <span>No setup cost to begin</span></div>
               <div className="signup-trust-item">✓ <span>Live in 60 days</span></div>
               <div className="signup-trust-item">✓ <span>NAAC documentation included</span></div>
               <div className="signup-trust-item">✓ <span>Co-certified graduates</span></div>
