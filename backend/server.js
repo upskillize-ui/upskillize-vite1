@@ -208,7 +208,7 @@ app.post('/send-mail', async (req, res) => {
             <p>We've received your inquiry and our team will respond within 24 hours with detailed course information tailored to your interests.</p>
             <p>If you'd like to connect sooner, feel free to reach out:</p>
             <p style="margin-left: 20px;">
-              <strong>Amit Agrawal – Co-Founder & Chief Sales Officer</strong><br>
+              <strong>Amit Agrawal – Co-Founder & CGO</strong><br>
               📱 <a href="tel:+919820397297">+91 98203 97297</a><br>
               ✉️ <a href="mailto:amit@upskillize.com">amit@upskillize.com</a>
             </p>
@@ -232,7 +232,7 @@ app.post('/send-mail', async (req, res) => {
             <p>We've received your inquiry and our team will respond within 24 hours to address your needs and explore how we can help.</p>
             <p>If you'd like to connect sooner, please feel free to reach out directly:</p>
             <p style="margin-left: 20px;">
-              <strong>Amit Agrawal – Co-Founder & Chief Sales Officer</strong><br>
+              <strong>Amit Agrawal – Co-Founder & CGO</strong><br>
               📱 <a href="tel:+919820397297">+91 98203 97297</a><br>
               ✉️ <a href="mailto:amit@upskillize.com">amit@upskillize.com</a>
             </p>
@@ -256,7 +256,7 @@ app.post('/send-mail', async (req, res) => {
             <p>We've received your inquiry and our team will respond within 24 hours to address your needs and explore how we can help.</p>
             <p>If you'd like to connect sooner, please feel free to reach out directly:</p>
             <p style="margin-left: 20px;">
-              <strong>Amit Agrawal – Co-Founder & Chief Sales Officer</strong><br>
+              <strong>Amit Agrawal – Co-Founder & CGO</strong><br>
               📱 <a href="tel:+919820397297">+91 98203 97297</a><br>
               ✉️ <a href="mailto:amit@upskillize.com">amit@upskillize.com</a>
             </p>
@@ -431,7 +431,7 @@ app.post('/send-notification', async (req, res) => {
             <p>This course is currently under development and will be launching soon. We'll make sure to keep you updated and notify you as soon as it's available.</p>
             <p>In the meantime, if you'd like to explore our other programs or have any questions, feel free to reach out:</p>
             <p style="margin-left: 20px;">
-              <strong>Amit Agrawal – Co-Founder & Chief Sales Officer</strong><br>
+              <strong>Amit Agrawal – Co-Founder & CGO</strong><br>
               📱 <a href="tel:+919820397297">+91 98203 97297</a><br>
               ✉️ <a href="mailto:amit@upskillize.com">amit@upskillize.com</a>
             </p>
@@ -560,7 +560,7 @@ app.post('/send-internship-application', upload.single('resume'), async (req, re
             <p>Our team will review your application and get back to you within <strong>3-5 business days</strong>.</p>
             <p>In the meantime, if you have any questions feel free to reach out:</p>
             <p style="margin-left: 20px;">
-              <strong>Amit Agrawal – Co-Founder & Chief Sales Officer</strong><br>
+              <strong>Amit Agrawal – Co-Founder & CGO</strong><br>
               📱 <a href="tel:+919820397297">+91 98203 97297</a><br>
               ✉️ <a href="mailto:amit@upskillize.com">amit@upskillize.com</a>
             </p>
@@ -585,6 +585,16 @@ app.post('/send-internship-application', upload.single('resume'), async (req, re
       error: error.message
     });
   }
+});
+
+// ============================================
+// ROUTE ALIAS: /send-contact → /send-mail
+// (in case frontend calls /send-contact)
+// ============================================
+app.post('/send-contact', async (req, res, next) => {
+  console.log('ℹ️  /send-contact called — forwarding to /send-mail handler');
+  req.url = '/send-mail';
+  app._router.handle(req, res, next);
 });
 
 // ============================================
@@ -626,11 +636,13 @@ app.get('/', (req, res) => {
 // 404 Handler
 // ============================================
 app.use((req, res, next) => {
+  console.error(`\n❌ 404 — Route not found: ${req.method} ${req.path}`);
+  console.error(`   Origin: ${req.get("origin") || "No origin"}`);
+  console.error(`   Available: POST /send-mail, POST /send-contact, POST /send-career-application, POST /send-notification, POST /send-internship-application, GET /health\n`);
   res.status(404).json({
     success: false,
-    message: 'Endpoint not found',
-    path: req.path,
-    method: req.method
+    message: `Endpoint not found: ${req.method} ${req.path}`,
+    availableRoutes: ["POST /send-mail","POST /send-contact","POST /send-career-application","POST /send-notification","POST /send-internship-application","GET /health"]
   });
 });
 

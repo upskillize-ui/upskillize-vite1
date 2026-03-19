@@ -4,18 +4,66 @@ import { Menu, X, ChevronDown } from "lucide-react";
 /* ─────────────────────────────────────────────────────────────────────────────
    DATA
 ───────────────────────────────────────────────────────────────────────────── */
-const SHORT_TERM = [
-  { label: "AI in FinTech",                          slug: "ai-fintech",                       icon: "🏦" },
-  { label: "Product Leadership",                     slug: "product-leadership",               icon: "🚀" },
-  { label: "Data Analytics, GenAI & BI",             slug: "data-analytics-genai",             icon: "📊" },
-  { label: "Technology & Digital Transformation",    slug: "technology-digital-transformation", icon: "⚙️" },
-  { label: "Integrated Courses",                     slug: "integrated-courses",               icon: "🎓" },
-];
-
-const PARTNER = [
-  { label: "Cybersecurity",                   slug: "cybersecurity",                  icon: "🔒" },
-  { label: "Mental Health & Social Wellness", slug: "mental-health-social-wellness",  icon: "🧠" },
-  { label: "Innovation Leadership",           slug: "innovation-leadership",           icon: "💡" },
+// available: true = has detail page (shown first, no badge)
+// available: false = coming soon (shown last, dimmed badge)
+const QUARTER_COURSES = [
+  {
+    label: "AI in FinTech",
+    slug: "ai-fintech",
+    icon: "🏦",
+    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=80",
+    subCourses: [
+      // available first
+      { label: "BFSI Domain Excellence",           href: "/courses/bfsi-domain-excellence-program",      img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=48", available: true },
+      { label: "Investment Banking & Wealth Tech", href: "/courses/investment-banking-wealth-tech",      img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=48", available: true },
+      { label: "Risk Management & RegTech",        href: "/courses/risk-management-regtech-program",     img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=48", available: true },
+      // coming soon last
+      { label: "FinTech & AI Mastery",             href: "/courses/ai-fintech",                          img: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=48", available: false },
+      { label: "Insurance, InsurTech & DPDPA",     href: "/courses/ai-fintech",                          img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=48", available: false },
+      { label: "AI in Financial Services",         href: "/courses/ai-fintech",                          img: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=48", available: false },
+    ],
+  },
+  {
+    label: "Product Leadership",
+    slug: "product-leadership",
+    icon: "🚀",
+    img: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=80",
+    subCourses: [
+      // available first
+      { label: "The Mini CEO Program",             href: "/courses/the-mini-ceo-program",                img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=48", available: true },
+      { label: "AI Product Management Mastery",    href: "/courses/ai-product-management-mastery",       img: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=48", available: true },
+      // coming soon last
+      { label: "Product Management for Techies",   href: "/courses/product-leadership",                  img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=48", available: false },
+      { label: "Design Thinking & User Solutions", href: "/courses/product-leadership",                  img: "https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?w=48", available: false },
+      { label: "Business Analysis Foundation",     href: "/courses/product-leadership",                  img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=48", available: false },
+    ],
+  },
+  {
+    label: "Data Analytics, GenAI & BI",
+    slug: "data-analytics-genai",
+    icon: "📊",
+    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=80",
+    subCourses: [
+      // available first
+      { label: "Data to Decisions: Power BI & AI", href: "/courses/data-decisions",                      img: "https://images.unsplash.com/photo-1543286386-2e659306cd6c?w=48", available: true },
+      { label: "AI & ML for Business Leaders",     href: "/courses/ai-ml-business-leaders",              img: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=48", available: true },
+      // coming soon last
+      { label: "Strategic Data Analytics",         href: "/courses/data-analytics-genai",                img: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=48", available: false },
+    ],
+  },
+  {
+    label: "Technology & Digital Transformation",
+    slug: "technology-digital-transformation",
+    icon: "⚙️",
+    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=80",
+    subCourses: [
+      // available first
+      { label: "Digital Business Strategy & Innovation", href: "/courses/digital-business-strategy-innovation", img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=48", available: true },
+      // coming soon last
+      { label: "AI & Digital Project Management",        href: "/courses/technology-digital-transformation",   img: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=48", available: false },
+      { label: "Emerging Technologies & Industry 4.0",   href: "/courses/technology-digital-transformation",   img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=48", available: false },
+    ],
+  },
 ];
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -30,6 +78,7 @@ export default function Navbar() {
   const [mobileProd,     setMobileProd]     = useState(false);
   const [mobileCareer,   setMobileCareer]   = useState(false);
   const [mobileAbout,    setMobileAbout]    = useState(false);
+  const [expandedQuarter, setExpandedQuarter] = useState(null);
 
   const industryTimer = useRef(null);
 
@@ -50,6 +99,7 @@ export default function Navbar() {
     setMobileProd(false);
     setMobileCareer(false);
     setMobileAbout(false);
+    setExpandedQuarter(null);
   };
 
   const onEnter = () => { clearTimeout(industryTimer.current); setIndustryOpen(true); };
@@ -111,8 +161,8 @@ export default function Navbar() {
           position:absolute;top:calc(100% + 8px);left:-12px;
           background:var(--c-bg);border:1px solid var(--c-border);
           border-radius:.875rem;box-shadow:var(--shadow);
-          width:700px;
-          display:grid;grid-template-columns:1fr 1fr 1.7fr 1.2fr;
+          width:920px;
+          display:grid;grid-template-columns:1fr 1fr 1.8fr 1fr;
           opacity:0;visibility:hidden;transform:translateY(-8px);
           transition:all .2s cubic-bezier(.4,0,.2,1);z-index:10001;overflow:hidden
         }
@@ -147,22 +197,36 @@ export default function Navbar() {
         /* description */
         .nb-desc{padding:0 1rem .5rem 1rem;font-size:.75rem;color:var(--c-muted);line-height:1.45}
 
-        /* short-term row */
-        .nb-srow{
-          display:flex;align-items:center;gap:.5rem;padding:.5rem 1rem;
-          font-size:.825rem;font-weight:500;color:var(--c-text);
-          text-decoration:none;transition:background .12s,color .12s
+        /* quarter category row */
+        .nb-qcat{
+          display:flex;align-items:center;justify-content:space-between;
+          gap:.5rem;padding:.45rem 1rem;
+          font-size:.825rem;font-weight:600;color:var(--c-text);
+          text-decoration:none;transition:background .12s,color .12s;
+          cursor:pointer;border:none;background:none;width:100%;text-align:left
         }
-        .nb-srow:hover{background:var(--c-hover-bg);color:var(--c-hover)}
-        .nb-si{font-size:.88rem;flex-shrink:0}
+        .nb-qcat:hover{background:var(--c-hover-bg);color:var(--c-hover)}
+        .nb-qcat a{text-decoration:none;color:inherit;flex:1}
+        .nb-qcat-icon{font-size:.85rem;flex-shrink:0}
+        .nb-qcat-chev{flex-shrink:0;transition:transform .2s}
+        .nb-qcat-chev.open{transform:rotate(180deg)}
 
-        /* partner row */
-        .nb-prow{
-          display:flex;align-items:center;gap:.5rem;padding:.5rem 1rem;
-          font-size:.825rem;font-weight:500;color:var(--c-text);
-          text-decoration:none;transition:background .12s,color .12s
+        /* sub-course list under each quarter category */
+        .nb-subcol{max-height:0;overflow:hidden;transition:max-height .3s ease;background:#f9fafb;border-left:2px solid #e0e7ff;margin-left:1rem}
+        .nb-subcol.open{max-height:400px}
+        .nb-subrow{
+          display:block;padding:.35rem .875rem;font-size:.78rem;font-weight:500;
+          color:#4b5563;text-decoration:none;transition:background .12s,color .12s
         }
-        .nb-prow:hover{background:var(--c-hover-bg);color:var(--c-hover)}
+        .nb-subrow:hover{background:var(--c-hover-bg);color:var(--c-hover)}
+
+        /* bfsi lab row */
+        .nb-lab{
+          display:flex;align-items:center;gap:.5rem;padding:.5rem 1rem;
+          font-size:.825rem;font-weight:600;color:#1d4ed8;
+          text-decoration:none;transition:background .12s
+        }
+        .nb-lab:hover{background:#eff6ff}
 
         /* hamburger */
         .nb-ham{display:flex;padding:.5rem;border:none;background:transparent;
@@ -196,7 +260,7 @@ export default function Navbar() {
         /* mob panel */
         .mp{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1);
           padding-left:.5rem;border-left:3px solid #e0e7ff;margin-left:.875rem;margin-bottom:.25rem}
-        .mp.o{max-height:1200px}
+        .mp.o{max-height:2400px}
 
         /* mob section label */
         .ms{display:block;padding:.625rem .75rem .35rem;font-size:.67rem;
@@ -207,6 +271,12 @@ export default function Navbar() {
           border-radius:.375rem;font-size:.875rem;font-weight:500;color:#374151;
           text-decoration:none;transition:background .12s,color .12s}
         .msl:hover{background:var(--c-hover-bg);color:var(--c-hover)}
+
+        /* mob sub-sub link */
+        .mssl{display:flex;align-items:center;gap:.5rem;padding:.4rem .75rem .4rem 1.5rem;
+          border-radius:.375rem;font-size:.8rem;font-weight:400;color:#6b7280;
+          text-decoration:none;transition:background .12s,color .12s}
+        .mssl:hover{background:var(--c-hover-bg);color:var(--c-hover)}
 
         .mdiv{height:1px;background:#f3f4f6;margin:.375rem 0}
 
@@ -233,55 +303,99 @@ export default function Navbar() {
             <div className="nb-desk">
               <div className="nb-left">
 
-                {/* Industry Oriented */}
+                {/* Higher Education */}
                 <div className="nb-ind" onMouseEnter={onEnter} onMouseLeave={onLeave}>
                   <button className="nbb" aria-haspopup="true" aria-expanded={industryOpen}>
-                    Industry Oriented
+                    Higher Education
                     <ChevronDown size={15} className="nbc" style={{ transform: industryOpen ? "rotate(180deg)" : "rotate(0)" }} />
                   </button>
 
                   <div className={`nb-panel${industryOpen ? " open" : ""}`}>
 
-                    {/* COL 1 – Long Term */}
+                    {/* COL 1 – Two Year */}
                     <div className="nb-col">
-                      <span className="nb-clabel">Long Term</span>
-                      <a href="/courses/pgcdb" className="nb-crow">
-                        <span className="nbp nbp-b">PGDBF</span>
-                        Digital Business & Fintech
+                      <span className="nb-clabel">Two Year</span>
+                      <a href="/courses/pgcdb" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".5rem",padding:".75rem 1rem"}}>
+                        <img
+                          src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400"
+                          alt="PGD-FDB"
+                          style={{width:"100%",height:"90px",objectFit:"cover",borderRadius:".5rem",display:"block"}}
+                        />
+                        <div>
+                          <span className="nbp nbp-b" style={{marginBottom:".3rem",display:"inline-block"}}>PGD-FDB</span>
+                          <div style={{fontSize:".825rem",fontWeight:600,color:"var(--c-text)",lineHeight:1.35}}>
+                            PG Diploma in Fintech and Digital Business
+                          </div>
+                        </div>
                       </a>
-                      <p className="nb-desc">Post Graduate Diploma<br />in Digital Business & Fintech</p>
                     </div>
 
-                    {/* COL 2 – Mid Term */}
+                    {/* COL 2 – One Year */}
                     <div className="nb-col">
-                      <span className="nb-clabel">Mid Term</span>
-                      <a href="/courses/pgcdf" className="nb-crow">
-                        <span className="nbp nbp-g">PGDFBA</span>
-                        Fintech, Banking & AI
+                      <span className="nb-clabel">One Year</span>
+                      <a href="/courses/pgcdf" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".5rem",padding:".75rem 1rem"}}>
+                        <img
+                          src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400"
+                          alt="PGDFBA"
+                          style={{width:"100%",height:"90px",objectFit:"cover",borderRadius:".5rem",display:"block"}}
+                        />
+                        <div>
+                          <span className="nbp nbp-g" style={{marginBottom:".3rem",display:"inline-block"}}>PGDFBA</span>
+                          <div style={{fontSize:".825rem",fontWeight:600,color:"var(--c-text)",lineHeight:1.35}}>
+                            PG Diploma in FinTech, Banking & AI
+                          </div>
+                        </div>
                       </a>
-                      <p className="nb-desc">Post Graduate Diploma<br />in Fintech, Banking & AI</p>
                     </div>
 
-                    {/* COL 3 – Short Term */}
+                    {/* COL 3 – Quarter with expandable sub-courses + images */}
                     <div className="nb-col">
-                      <span className="nb-clabel">Short Term</span>
-                      {SHORT_TERM.map(c => (
-                        <a key={c.slug} href={`/courses/${c.slug}`} className="nb-srow">
-                          <span className="nb-si">{c.icon}</span>
-                          {c.label}
-                        </a>
+                      <span className="nb-clabel">Quarterly</span>
+                      {QUARTER_COURSES.map((c) => (
+                        <div key={c.slug}>
+                          <div className="nb-qcat">
+                            <a href={`/courses/${c.slug}`} style={{display:"flex",alignItems:"center",gap:".5rem",flex:1,textDecoration:"none",color:"inherit",fontSize:".825rem",fontWeight:600}}>
+                              <img src={c.img} alt={c.label} style={{width:"28px",height:"28px",borderRadius:".3rem",objectFit:"cover",flexShrink:0}} />
+                              {c.label}
+                            </a>
+                            {c.subCourses.length > 0 && (
+                              <ChevronDown
+                                size={13}
+                                className={`nb-qcat-chev${expandedQuarter === c.slug ? " open" : ""}`}
+                                onClick={(e) => { e.preventDefault(); setExpandedQuarter(expandedQuarter === c.slug ? null : c.slug); }}
+                              />
+                            )}
+                          </div>
+                          {c.subCourses.length > 0 && (
+                            <div className={`nb-subcol${expandedQuarter === c.slug ? " open" : ""}`}>
+                              {c.subCourses.map((s) => (
+                                <a key={s.label} href={s.href} className="nb-subrow"
+                                  style={{opacity: s.available ? 1 : 0.55, display:"flex", alignItems:"center", gap:".5rem"}}>
+                                  <img src={s.img} alt={s.label} style={{width:"22px",height:"22px",borderRadius:".25rem",objectFit:"cover",flexShrink:0}} />
+                                  <span style={{flex:1,fontSize:".78rem"}}>{s.label}</span>
+                                  {!s.available && (
+                                    <span style={{fontSize:".6rem",fontWeight:700,background:"#e5e7eb",color:"#6b7280",padding:".1rem .35rem",borderRadius:999,flexShrink:0}}>Soon</span>
+                                  )}
+                                </a>
+                              ))}
+                            </div>
+                          )}
+                        </div>
                       ))}
                     </div>
 
-                    {/* COL 4 – Partner Courses */}
-                    <div className="nb-col">
-                      <span className="nb-clabel">Partner Courses</span>
-                      {PARTNER.map(c => (
-                        <a key={c.slug} href={`/courses/${c.slug}`} className="nb-prow">
-                          <span>{c.icon}</span>
-                          {c.label}
+                    {/* COL 4 – BFSI Innovation Lab */}
+                    <div className="nb-col" style={{background:"#f0f7ff"}}>
+                      <span className="nb-clabel" style={{color:"#1d4ed8"}}>BFSI Innovation Lab</span>
+                      <div style={{padding:"0 1rem"}}>
+                        <div style={{fontSize:"2rem",marginBottom:".5rem"}}>🏦</div>
+                        <p style={{fontSize:".78rem",color:"#374151",lineHeight:1.5,marginBottom:".75rem"}}>
+                          Innovation-driven, industry-integrated learning for real-world BFSI transformation.
+                        </p>
+                        <a href="/courses/ai-fintech" className="nb-lab" style={{padding:".5rem 0",fontWeight:700,fontSize:".82rem"}}>
+                          Explore BFSI Programs →
                         </a>
-                      ))}
+                      </div>
                     </div>
 
                   </div>
@@ -340,44 +454,52 @@ export default function Navbar() {
         <nav className={`nb-mob${mobileOpen ? " open" : ""}`}>
           <div className="nb-mnav">
 
-            {/* Industry Oriented */}
+            {/* Higher Education */}
             <button className="ma" onClick={() => setMobileIndustry(v => !v)}>
-              Industry Oriented
+              Higher Education
               <ChevronDown size={18} className={`mc${mobileIndustry ? " o" : ""}`} />
             </button>
             <div className={`mp${mobileIndustry ? " o" : ""}`}>
 
-              <span className="ms">Long Term</span>
+              <span className="ms">Two Year</span>
               <a href="/courses/pgcdb" onClick={closeAll} className="msl">
-                <span style={{background:"#dbeafe",color:"#1d4ed8",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>PGDBF</span>
-                Post Graduate Diploma in  Digital Business & Fintech
+                <span style={{background:"#dbeafe",color:"#1d4ed8",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>PGD-FDB</span>
+                PG Diploma in Fintech and Digital Business
               </a>
 
               <div className="mdiv" />
-              <span className="ms">Mid Term</span>
+              <span className="ms">One Year</span>
               <a href="/courses/pgcdf" onClick={closeAll} className="msl">
                 <span style={{background:"#dcfce7",color:"#15803d",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>PGDFBA</span>
-                Post Graduate Diploma in Fintech, Banking & AI
+                PG Diploma in Fintech, Banking & AI
               </a>
 
               <div className="mdiv" />
-              <span className="ms">Short Term</span>
-              {SHORT_TERM.map(c => (
-                <a key={c.slug} href={`/courses/${c.slug}`} onClick={closeAll} className="msl">
-                  <span>{c.icon}</span>{c.label}
-                </a>
+              <span className="ms">Quarterly</span>
+              {QUARTER_COURSES.map(c => (
+                <div key={c.slug}>
+                  <a href={`/courses/${c.slug}`} onClick={closeAll} className="msl" style={{display:"flex",alignItems:"center",gap:".5rem"}}>
+                    <img src={c.img} alt={c.label} style={{width:"24px",height:"24px",borderRadius:".25rem",objectFit:"cover",flexShrink:0}} />
+                    <span>{c.label}</span>
+                  </a>
+                  {c.subCourses.map(s => (
+                    <a key={s.label} href={s.href} onClick={closeAll} className="mssl"
+                      style={{opacity: s.available ? 1 : 0.55, display:"flex", alignItems:"center", gap:".4rem"}}>
+                      <img src={s.img} alt={s.label} style={{width:"18px",height:"18px",borderRadius:".2rem",objectFit:"cover",flexShrink:0}} />
+                      <span style={{flex:1}}>› {s.label}</span>
+                      {!s.available && <span style={{fontSize:".58rem",fontWeight:700,background:"#e5e7eb",color:"#6b7280",padding:".1rem .3rem",borderRadius:999}}>Soon</span>}
+                    </a>
+                  ))}
+                </div>
               ))}
 
               <div className="mdiv" />
-              <span className="ms">Partner Courses</span>
-              {PARTNER.map(c => (
-                <a key={c.slug} href={`/courses/${c.slug}`} onClick={closeAll} className="msl">
-                  <span>{c.icon}</span>{c.label}
-                </a>
-              ))}
-            </div>
+              <span className="ms">BFSI Innovation Lab</span>
+              <a href="/courses/ai-fintech" onClick={closeAll} className="msl">
+                🏦 Explore BFSI Programs
+              </a>
 
-            <div className="mdiv" />
+            </div>
 
             {/* Corporates */}
             <button className="ma" onClick={() => setMobileCorp(v => !v)}>
@@ -422,6 +544,7 @@ export default function Navbar() {
           </div>
         </nav>
       </div>
+    
 
       <div className="nb-sp" />
     </>

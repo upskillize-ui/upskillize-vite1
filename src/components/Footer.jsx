@@ -12,10 +12,16 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <h3 className="text-xl font-bold">Upskillize</h3>
-            <p className="mt-4 text-sm leading-relaxed text-white/80">
-              Where academia meets industry: Expert-designed, AI-powered learning programs that transform students into 
-              career-ready professionals.
-            </p>
+            <div className="mt-4 text-sm leading-relaxed text-white/80 space-y-3">
+              <div>
+                <p className="font-semibold text-white">Regd. Off :</p>
+                <p>Ushodaya, Raghavendra Circle, Ramamurthy Nagar, Bangalore – 560016</p>
+              </div>
+              <div>
+                <p className="font-semibold text-white">Training Center :</p>
+                <p>3444, Chord Rd, opp. Attiguppe, Govindaraja Nagar Ward, 2nd Stage, Vijayanagar, Bengaluru, Karnataka 560040</p>
+              </div>
+            </div>
             {/* Social Media Links */}
             <div className="mt-6">
               <h4 className="text-base font-semibold mb-3">Social Media</h4>
@@ -48,47 +54,43 @@ export default function Footer() {
 
           {/* Programs */}
           <div>
-           <h3 className="text-xl font-bold">Programs</h3>
-             <ul className="space-y-2 text-sm mt-4">
-               <li>
-                 <Link to="/courses/ai-fintech" className="text-white/80 transition-colors">
-                   AI in Fintech
-                 </Link>
-               </li>
-               <li>
-                 <Link to="/courses/product-leadership" className="text-white/80 transition-colors">
-                   Product Leadership
-                 </Link>
-               </li>
-               <li>
-                 <Link to="/courses/data-analytics-genai" className="text-white/80 transition-colors">
-                   Data Analytics, GenAI & BI
-                 </Link>
-               </li>
-               <li>
-                 <Link to="/courses/technology-digital-transformation" className="text-white/80 transition-colors">
-                   Technology & DT
-                 </Link>
-               </li>
-               <li>
-                 <Link to="/courses/integrated-courses" className="text-white/80 transition-colors">
-                   Integrated Courses
-                 </Link>
-               </li>
-               <li>
-                 <Link to="/courses/cybersecurity" className="text-white/80 transition-colors">
-                   Cybersecurity Professional Track
-                 </Link>
-               </li>
-             <li>
-               <Link to="/course/corporate-readiness-program" className="text-white/80 transition-colors">
-                 Mental Health & Social Wellness
-               </Link>
-             </li>
-           </ul>
-         </div>
+            <h3 className="text-xl font-bold">Programs</h3>
+            <ul className="space-y-2 text-sm mt-4">
+              <li>
+                <Link to="/courses/pgcdb" className="text-white/80 transition-colors">
+                  PGD-FDB (Two Year)
+                </Link>
+              </li>
+              <li>
+                <Link to="/courses/pgcdf" className="text-white/80 transition-colors">
+                  PGDFBA (One Year)
+                </Link>
+              </li>
+              <li>
+                <Link to="/courses/ai-fintech" className="text-white/80 transition-colors">
+                  AI in Fintech
+                </Link>
+              </li>
+              <li>
+                <Link to="/courses/product-leadership" className="text-white/80 transition-colors">
+                  Product Leadership
+                </Link>
+              </li>
+              <li>
+                <Link to="/courses/data-analytics-genai" className="text-white/80 transition-colors">
+                  Data Analytics, GenAI & BI
+                </Link>
+              </li>
+              <li>
+                <Link to="/courses/technology-digital-transformation" className="text-white/80 transition-colors">
+                  Technology & DT
+                </Link>
+              </li>
 
-          {/* Company */}
+            </ul>
+          </div>
+
+          {/* Quick Links */}
           <div>
             <h3 className="text-xl font-bold">Quick Links</h3>
             <ul className="space-y-2 text-sm mt-4">
@@ -129,11 +131,50 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold">Contact Us</h3>
             <p className="mt-4"><strong className="font-bold text-white/80">Amit Agrawal</strong></p>
-            <p>Co-Founder & CSO</p>
-            <p className="text-sm text-white/80 mt-2">
-              📞 +91 98203 97297
+            <p className="text-sm">Co-Founder &amp; CGO</p>
+            <p className="text-sm text-white/80 mt-2 flex items-center gap-2">
+              📱 +91 98203 97297
             </p>
-            <p className="text-sm text-white/80 mt-2">✉️ amit@upskillize.com </p>
+            <p className="text-sm text-white/80 mt-2 flex items-center gap-2">
+              <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+              amit@upskillize.com
+            </p>
+
+            {/* Partners & Co-branded */}
+            <div className="mt-5 pt-4 border-t border-white/20">
+              <p className="text-sm font-semibold text-white">Partners &amp; Co-Branded</p>
+              <p className="text-sm text-white/80 mt-2 flex items-center gap-2">
+                <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                partnerships@upskillize.com
+              </p>
+
+              {/* Website links */}
+              <div className="mt-4 space-y-2">
+                <a href="https://www.upskillize.com" target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-2 group">
+                  <div className="w-7 h-7 rounded-md bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-white/20 transition-colors">
+                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                    </svg>
+                  </div>
+                  <span className="text-sm text-white/80 group-hover:text-white transition-colors">www.upskillize.com</span>
+                </a>
+
+                <a href="https://lms.upskillize.com" target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-2 group">
+                  <div className="w-7 h-7 rounded-md bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-white/20 transition-colors">
+                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                    </svg>
+                  </div>
+                  <span className="text-sm text-white/80 group-hover:text-white transition-colors">lms.upskillize.com</span>
+                </a>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -141,22 +182,32 @@ export default function Footer() {
 
       {/* ===== BOTTOM BAR ===== */}
       <div className="bg-[#0B1D2A] border-t border-white/20">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
-          
-          <div className="text-sm text-white/70">
-            © {new Date().getFullYear()} Upskillize – Bridging industry & academia
+        <div className="max-w-7xl mx-auto px-6 py-3 flex flex-col md:flex-row items-center justify-between gap-3">
+
+          {/* Left — copyright + reg numbers in one line */}
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <span style={{fontSize:"0.72rem"}} className="text-white/70 font-medium whitespace-nowrap">
+              © {new Date().getFullYear()} Upskillize – Bridging industry &amp; academia
+            </span>
+            <span className="text-white/30 hidden md:inline">|</span>
+            <span style={{fontSize:"0.65rem"}} className="text-white/50 whitespace-nowrap">
+              Karnataka S&amp;E Reg. No: 36/26/S/0047/2026
+            </span>
+            <span className="text-white/30 hidden md:inline">|</span>
+            <span style={{fontSize:"0.65rem"}} className="text-white/50 whitespace-nowrap">
+              Udyam Reg. No: UDYAM-KR-03-0674691
+            </span>
+            <span className="text-white/30 hidden md:inline">|</span>
+            <span style={{fontSize:"0.65rem"}} className="text-white/50 whitespace-nowrap">
+              GST Reg. No: 29AAJFU2626F1Z1
+            </span>
           </div>
 
-          <div className="flex items-center gap-4">
-            <Link to="/privacy" className="text-sm text-white/70">
-              Privacy
-            </Link>
-            <Link to="/terms" className="text-sm text-white/70">
-              Terms
-            </Link>
-            <Link to="/contact" className="text-sm text-white/70">
-              Contact
-            </Link>
+          {/* Right — links */}
+          <div className="flex items-center gap-4 flex-shrink-0">
+            <Link to="/privacy" style={{fontSize:"0.72rem"}} className="text-white/70 hover:text-white transition-colors">Privacy</Link>
+            <Link to="/terms" style={{fontSize:"0.72rem"}} className="text-white/70 hover:text-white transition-colors">Terms</Link>
+            <Link to="/contact" style={{fontSize:"0.72rem"}} className="text-white/70 hover:text-white transition-colors">Contact</Link>
           </div>
 
         </div>

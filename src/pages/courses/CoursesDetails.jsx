@@ -9,7 +9,6 @@ import RiskManagementRegTech from "./RiskManagementRegTech";
 import AIProductManagementMastery from "./AIProductManagementMastery";
 import ProductLeadershipProgram from "./ProductLeadershipProgram";
 import DataToDecisionsPowerBI from "./DataToDecisionsPowerBI";
-import MBAPlusPlus from "./MBAPlusPlus";
 import CIPLandingPage from "./CIPLandingPage";
 import CorporateReadinessProgram from "./CorporateReadinessProgram";
 import PgCDFLandingPage from "./PgCDFLandingPage";
@@ -57,7 +56,6 @@ export default function CourseDetails() {
     'ai-product-management-mastery': AIProductManagementMastery,
     'the-mini-ceo-program': ProductLeadershipProgram,
     'data-decisions': DataToDecisionsPowerBI,
-    'mba-plus-plus': MBAPlusPlus,
     'ai-ml-business-leaders': CIPLandingPage,
     'digital-business-strategy-innovation': DigitalStrategyProgram,
     'corporate-readiness-program': CorporateReadinessProgram,

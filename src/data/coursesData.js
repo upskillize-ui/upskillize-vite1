@@ -1,6 +1,6 @@
 export const courses = [
   // ─────────────────────────────────────────────────────────────────────────────
-  // LONG TERM — PgCDB
+  // TWO YEAR — PGD-FDB
   // ─────────────────────────────────────────────────────────────────────────────
   {
     id: 0,
@@ -10,17 +10,17 @@ export const courses = [
     shortDesc:
       "A comprehensive post-graduate diploma bridging digital business strategy with BFSI, WealthTech, and RegTech specialisations.",
     color: "from-blue-700 to-indigo-600",
-    programType: "Long Term",
-    badge: "PgCDB",
+    programType: "Two Year",
+    badge: "PGD-FDB",
     duration: "120 Hours (24 Weeks)",
     subCourses: [
       {
         id: 0.1,
-        title: "PG Diploma in Digital Business & FinTech",
+        title: "Post Graduate Diploma in Fintech and Digital Business",
         slug: "pgcdb",
         duration: "120 Hours (24 Weeks)",
-        certification: "Post Graduate Diploma in Digital Business & FinTech",
-        shortCode: "PgCDB",
+        certification: "Post Graduate Diploma in Fintech and Digital Business",
+        shortCode: "PGD-FDB",
         certType: "Post Graduate",
         description:
           "An industry-aligned long-term program covering BFSI domain expertise, investment banking, wealth-tech, and regulatory technology — designed for professionals aiming for senior roles in the digital finance ecosystem.",
@@ -43,7 +43,7 @@ export const courses = [
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // MID TERM — PgCDF
+  // ONE YEAR — PGDFBA
   // ─────────────────────────────────────────────────────────────────────────────
   {
     id: 0.5,
@@ -51,10 +51,10 @@ export const courses = [
     slug: "pgcdf",
     image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500",
     shortDesc:
-      "A focused mid-term diploma blending AI, data analytics, and digital strategy for finance professionals.",
+      "A focused one-year diploma blending AI, data analytics, and digital strategy for finance professionals.",
     color: "from-emerald-600 to-teal-500",
-    programType: "Mid Term",
-    badge: "PgCDF",
+    programType: "One Year",
+    badge: "PGDFBA",
     duration: "80 Hours (16 Weeks)",
     subCourses: [
       {
@@ -63,10 +63,10 @@ export const courses = [
         slug: "pgcdf",
         duration: "80 Hours (16 Weeks)",
         certification: "Post Graduate Diploma in FinTech, Banking & AI",
-        shortCode: "PgCDF",
+        shortCode: "PGDFBA",
         certType: "Post Graduate",
         description:
-          "A mid-term industry programme blending AI in financial services, Power BI data analytics, and digital business strategy — ideal for finance & banking professionals looking to upskill rapidly and transition into high-growth digital roles.",
+          "A one-year industry programme blending AI in financial services, Power BI data analytics, and digital business strategy — ideal for finance & banking professionals looking to upskill rapidly and transition into high-growth digital roles.",
         highlights: [
           "AI in Financial Services",
           "Data to Decisions: Power BI & AI",
@@ -86,7 +86,7 @@ export const courses = [
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // SHORT TERM — AI in FinTech
+  // QUARTER — AI in FinTech
   // ─────────────────────────────────────────────────────────────────────────────
   {
     id: 1,
@@ -95,7 +95,7 @@ export const courses = [
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500",
     shortDesc: "AI-driven solutions for banking, fraud detection, and financial services.",
     color: "from-blue-500 to-cyan-500",
-    programType: "Short Term",
+    programType: "Quarter",
     subCourses: [
       {
         id: 1.1,
@@ -226,7 +226,7 @@ export const courses = [
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // SHORT TERM — Product Leadership
+  // QUARTER — Product Leadership
   // ─────────────────────────────────────────────────────────────────────────────
   {
     id: 2,
@@ -235,7 +235,7 @@ export const courses = [
     image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500",
     shortDesc: "Product strategy, execution, and leadership for high-impact products.",
     color: "from-orange-500 to-amber-500",
-    programType: "Short Term",
+    programType: "Quarter",
     subCourses: [
       {
         id: 2.1,
@@ -341,7 +341,7 @@ export const courses = [
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // SHORT TERM — Data Analytics, GenAI & Business Intelligence
+  // QUARTER — Data Analytics, GenAI & Business Intelligence
   // ─────────────────────────────────────────────────────────────────────────────
   {
     id: 3,
@@ -351,7 +351,7 @@ export const courses = [
     shortDesc:
       "Analyze, visualize, and interpret data to drive smarter business decisions.",
     color: "from-emerald-500 to-teal-500",
-    programType: "Short Term",
+    programType: "Quarter",
     subCourses: [
       {
         id: 3.1,
@@ -418,7 +418,7 @@ export const courses = [
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // SHORT TERM — Technology & Digital Transformation
+  // QUARTER — Technology & Digital Transformation
   // ─────────────────────────────────────────────────────────────────────────────
   {
     id: 4,
@@ -428,7 +428,7 @@ export const courses = [
     shortDesc:
       "Cloud, AI adoption, automation, and enterprise digital transformation.",
     color: "from-indigo-500 to-blue-500",
-    programType: "Short Term",
+    programType: "Quarter",
     subCourses: [
       {
         id: 4.1,
@@ -493,114 +493,5 @@ export const courses = [
         hasDetailPage: false,
       },
     ],
-  },
-
-  // ─────────────────────────────────────────────────────────────────────────────
-  // SHORT TERM — Integrated Courses
-  // ─────────────────────────────────────────────────────────────────────────────
-  {
-    id: 5,
-    mainCategory: "Integrated Courses",
-    slug: "integrated-courses",
-    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=500",
-    shortDesc:
-      "Comprehensive integrated programs for complete skill transformation.",
-    color: "from-purple-500 to-pink-500",
-    programType: "Short Term",
-    subCourses: [
-      {
-        id: 5.1,
-        title: "MBA++ (Chartered Digital Business Leader)",
-        slug: "mba-plus-plus",
-        duration: "160 Hours (40 Weeks)",
-        certification: "Chartered Digital Business Leader",
-        shortCode: "CDBL",
-        certType: "Professional",
-        description:
-          "Advanced MBA-level program for digital business leadership.",
-        highlights: [
-          "Business strategy",
-          "Digital leadership",
-          "Financial management",
-          "Innovation management",
-        ],
-        level: "Executive",
-        students: "850+",
-        salary: "₹30-80 LPA",
-        hasDetailPage: true,
-      },
-    ],
-  },
-
-  // ─────────────────────────────────────────────────────────────────────────────
-  // PARTNER — Cybersecurity
-  // ─────────────────────────────────────────────────────────────────────────────
-  {
-    id: 6,
-    mainCategory: "Cybersecurity",
-    slug: "cybersecurity",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=500",
-    shortDesc:
-      "Network security, threat detection, compliance, and cyber defense skills.",
-    color: "from-red-500 to-rose-500",
-    programType: "Partner",
-    subCourses: [],
-  },
-
-  // ─────────────────────────────────────────────────────────────────────────────
-  // PARTNER — Mental Health & Social Wellness
-  // ─────────────────────────────────────────────────────────────────────────────
-  {
-    id: 7,
-    slug: "mental-health-social-wellness",
-    mainCategory: "Mental Health & Social Wellness",
-    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=500",
-    shortDesc:
-      "Emotional resilience, workplace wellness, and social well-being programs.",
-    color: "from-green-500 to-lime-500",
-    programType: "Partner",
-    subCourses: [
-      {
-        id: "corporate-readiness-program",
-        slug: "corporate-readiness-program",
-        title: "Corporate Readiness Program",
-        duration: "40-60 Hours",
-        certification: "Certificate of Completion from Upskillize",
-        shortCode: "CRP",
-        certType: "Professional",
-        hasDetailPage: true,
-        highlights: [
-          "Workplace Communication Excellence",
-          "Emotional Intelligence & Self-Awareness",
-          "Professional Ethics & Workplace Behavior",
-          "Team Collaboration & Leadership",
-          "Adaptability & Growth Mindset",
-          "Mental Health & Well-being at Work",
-        ],
-        fullDescription:
-          "Comprehensive soft skills development program for fresh graduates and early-career professionals",
-        targetAudience: [
-          "Fresh graduates preparing for their first job",
-          "College students in final year seeking internships",
-          "Early-career professionals (0-2 years experience)",
-          "Career changers entering corporate roles",
-        ],
-      },
-    ],
-  },
-
-  // ─────────────────────────────────────────────────────────────────────────────
-  // PARTNER — Innovation Leadership
-  // ─────────────────────────────────────────────────────────────────────────────
-  {
-    id: 8,
-    slug: "innovation-leadership",
-    mainCategory: "Innovation Leadership",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500",
-    shortDesc:
-      "Design-led thinking, innovation frameworks, and leadership for a disruptive world.",
-    color: "from-yellow-500 to-orange-400",
-    programType: "Partner",
-    subCourses: [],
   },
 ];

@@ -46,7 +46,6 @@ import RiskManagementRegTech from "./pages/courses/RiskManagementRegTech";
 import AIProductManagementMastery from "./pages/courses/AIProductManagementMastery";
 import ProductLeadershipProgram from "./pages/courses/ProductLeadershipProgram";
 import DataToDecisionsPowerBI from "./pages/courses/DataToDecisionsPowerBI";
-import MBAPlusPlus from "./pages/courses/MBAPlusPlus";
 import CAIPLandingPage from "./pages/courses/CIPLandingPage";
 import DigitalStrategyProgram from "./pages/courses/DigitalStrategyProgram";
 import CorporateReadinessProgram from "./pages/courses/CorporateReadinessProgram";
@@ -120,7 +119,6 @@ function App() {
             <Route path="/courses/the-mini-ceo-program" element={<ProductLeadershipProgram />} />
             <Route path="/courses/ai-product-management-mastery" element={<AIProductManagementMastery />} />
             <Route path="/courses/data-decisions" element={<DataToDecisionsPowerBI />} />
-            <Route path="/courses/mba-plus-plus" element={<MBAPlusPlus />} />
             <Route path="/courses/ai-ml-business-leaders" element={<CAIPLandingPage />} />
             <Route path="/courses/digital-business-strategy-innovation" element={<DigitalStrategyProgram />} />
             <Route path="/course/corporate-readiness-program" element={<CorporateReadinessProgram />} />

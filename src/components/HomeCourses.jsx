@@ -15,33 +15,33 @@ import { Link } from "react-router-dom";
 
 /* ─── Course Data matching Navbar exactly ─── */
 
-const LONG_TERM = [
+const TWO_YEAR = [
   {
-    title: "PG Diploma in Digital Business & FinTech",
-    badge: "PGDBF",
+    title: "Post Graduate Diploma in Fintech and Digital Business",
+    badge: "PGD-FDB",
     badgeColor: "bg-blue-100 text-blue-800",
     desc: "A comprehensive post-graduate program bridging digital business strategy with modern financial technology, BFSI, WealthTech, and RegTech specialisations.",
     icon: <GraduationCap size={32} />,
     color: "from-blue-600 to-indigo-700",
     link: "/courses/pgcdb",
-    duration: "12 Months",
+    duration: "2 Years",
   },
 ];
 
-const MID_TERM = [
+const ONE_YEAR = [
   {
     title: "PG Diploma in FinTech, Banking & AI",
     badge: "PGDFBA",
     badgeColor: "bg-emerald-100 text-emerald-800",
-    desc: "A focused mid-term program blending AI, data analytics, and digital strategy for finance professionals.",
+    desc: "A focused one-year program blending AI, data analytics, and digital strategy for finance professionals.",
     icon: <Award size={32} />,
     color: "from-emerald-500 to-teal-600",
     link: "/courses/pgcdf",
-    duration: "6 Months",
+    duration: "1 Year",
   },
 ];
 
-const SHORT_TERM = [
+const QUARTER = [
   {
     title: "AI in FinTech",
     desc: "AI-driven solutions for banking, fraud detection, risk analysis, and digital payments.",
@@ -70,37 +70,6 @@ const SHORT_TERM = [
     color: "from-indigo-500 to-blue-500",
     link: "/courses/technology-digital-transformation",
   },
-  {
-    title: "Integrated Courses",
-    desc: "Cross-disciplinary programs combining technology, business, and leadership.",
-    icon: <LineChart size={30} />,
-    color: "from-sky-500 to-indigo-500",
-    link: "/courses/integrated-courses",
-  },
-];
-
-const PARTNER = [
-  {
-    title: "Cybersecurity",
-    desc: "Network security, threat detection, compliance, and cyber defense.",
-    icon: <ShieldCheck size={30} />,
-    color: "from-red-500 to-rose-500",
-    link: "/courses/cybersecurity",
-  },
-  {
-    title: "Mental Health & Social Wellness",
-    desc: "Emotional well-being, workplace wellness, and social resilience.",
-    icon: <HeartHandshake size={30} />,
-    color: "from-green-500 to-lime-500",
-    link: "/courses/mental-health-social-wellness",
-  },
-  {
-    title: "Innovation Leadership",
-    desc: "Build innovation-driven leadership skills to navigate disruption and lead change.",
-    icon: <Lightbulb size={30} />,
-    color: "from-yellow-500 to-orange-500",
-    link: "/courses/innovation-leadership",
-  },
 ];
 
 /* ─── Section Label ─── */
@@ -115,7 +84,7 @@ function SectionLabel({ label, pillClass }) {
   );
 }
 
-/* ─── Featured Card (Long / Mid Term) ─── */
+/* ─── Featured Card (Two Year / One Year) ─── */
 function FeaturedCard({ item }) {
   return (
     <Link
@@ -144,7 +113,7 @@ function FeaturedCard({ item }) {
   );
 }
 
-/* ─── Standard Card (Short Term / Partner) ─── */
+/* ─── Standard Card (Quarter) ─── */
 function CourseCard({ item }) {
   return (
     <Link
@@ -176,42 +145,58 @@ export default function HomeCourses() {
         {/* Heading */}
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800">
-            Industry-Focused Programs
+            Higher Education Programs
           </h2>
           <p className="mt-4 text-gray-500 max-w-2xl mx-auto">
             Specialized programs aligned with real-world industry demands — from long-form diplomas to focused short courses.
           </p>
         </div>
 
-        {/* Long Term */}
+        {/* Two Year */}
         <div className="mb-12">
-          <SectionLabel label="Long Term" pillClass="bg-blue-100 text-blue-700" />
+          <SectionLabel label="Two Year" pillClass="bg-blue-100 text-blue-700" />
           <div className="grid gap-5">
-            {LONG_TERM.map((item, i) => <FeaturedCard key={i} item={item} />)}
+            {TWO_YEAR.map((item, i) => <FeaturedCard key={i} item={item} />)}
           </div>
         </div>
 
-        {/* Mid Term */}
+        {/* One Year */}
         <div className="mb-12">
-          <SectionLabel label="Mid Term" pillClass="bg-emerald-100 text-emerald-700" />
+          <SectionLabel label="One Year" pillClass="bg-emerald-100 text-emerald-700" />
           <div className="grid gap-5">
-            {MID_TERM.map((item, i) => <FeaturedCard key={i} item={item} />)}
+            {ONE_YEAR.map((item, i) => <FeaturedCard key={i} item={item} />)}
           </div>
         </div>
 
-        {/* Short Term */}
+        {/* Quarter */}
         <div className="mb-12">
-          <SectionLabel label="Short Term" pillClass="bg-indigo-100 text-indigo-700" />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {SHORT_TERM.map((item, i) => <CourseCard key={i} item={item} />)}
+          <SectionLabel label="Quarter" pillClass="bg-indigo-100 text-indigo-700" />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {QUARTER.map((item, i) => <CourseCard key={i} item={item} />)}
           </div>
         </div>
 
-        {/* Partner Courses */}
+        {/* BFSI Innovation Lab */}
         <div>
-          <SectionLabel label="Partner Courses" pillClass="bg-orange-100 text-orange-700" />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {PARTNER.map((item, i) => <CourseCard key={i} item={item} />)}
+          <SectionLabel label="BFSI Innovation Lab" pillClass="bg-blue-100 text-blue-700" />
+          <div className="bg-white rounded-2xl shadow-md p-8 flex flex-col md:flex-row gap-6 items-start">
+            <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl flex items-center justify-center text-white text-2xl">
+              🏦
+            </div>
+            <div>
+              <h3 className="text-lg font-extrabold text-gray-800">BFSI Innovation Lab</h3>
+              <p className="text-gray-500 mt-2 text-sm leading-relaxed max-w-2xl">
+                Innovation-driven, industry-integrated learning ecosystem designed for real-world BFSI transformation. 
+                Collaborate with industry experts, work on live BFSI projects, and gain hands-on experience in cutting-edge 
+                banking, financial services, and insurance technology.
+              </p>
+              <Link
+                to="/courses/ai-fintech"
+                className="inline-block mt-4 text-indigo-600 font-semibold text-sm hover:underline"
+              >
+                Explore BFSI Programs →
+              </Link>
+            </div>
           </div>
         </div>
 
