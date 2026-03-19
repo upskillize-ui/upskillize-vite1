@@ -51,6 +51,7 @@ import DigitalStrategyProgram from "./pages/courses/DigitalStrategyProgram";
 import CorporateReadinessProgram from "./pages/courses/CorporateReadinessProgram";
 import PgCDFLandingPage from "./pages/courses/PgCDFLandingPage";
 import PgCDBLandingPage from "./pages/courses/PgCDBLandingPage"; // ← NEW PgCDB
+import BFSIInnovationLab from "./pages/BFSIInnovationLab";
 
 import "./App.css";
 
@@ -127,7 +128,7 @@ function App() {
             <Route path="/courses/details/pgcdb" element={<Navigate to="/courses/pgcdb" replace />} />
             {/* Redirect old wrong URL → correct URL */}
             <Route path="/courses/details/pgcdf" element={<Navigate to="/courses/pgcdf" replace />} />
-
+            <Route path="/bfsiinnovationlab" element={<BFSIInnovationLab />} />
             {/* FALLBACK */}
             <Route path="*" element={<NotFound />} />
           </Routes>

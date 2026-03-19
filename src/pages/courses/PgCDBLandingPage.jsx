@@ -399,10 +399,6 @@ h2.section-title em{font-style:normal;color:var(--purple);}
 }
 .module-list li:last-child{border-bottom:none;}
 .module-list li .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
-.part-footer{
-  padding:20px 32px;border-top:1px solid rgba(0,0,0,.06);
-  display:flex;align-items:center;justify-content:space-between;
-}
 .cert-badge{
   font-size:12px;font-weight:700;letter-spacing:.06em;
   padding:6px 14px;border-radius:100px;
@@ -1082,7 +1078,6 @@ h2.section-title em { font-style: normal; color: var(--purple); }
   .journey-steps::before{display:none;}
   section{padding:72px 24px;}
   nav{padding:14px 24px;}
-  .footer-grid{grid-template-columns:1fr 1fr;}
   .lab-hero-banner{grid-template-columns:1fr;}
   .lab-stat-stack{flex-direction:row;}
 }
@@ -1902,10 +1897,6 @@ export default function PGCDBWebsite() {
             <li><span className="dot"></span>Module 3 · FinTech World & InsurTech — Neo-banks, BNPL, IRDAI sandbox</li>
             <li><span className="dot"></span>Module 4 · Loan Origination & Credit Technology — LOS, digital underwriting, RBI guidelines</li>
           </ul>
-        </div>
-        <div className="part-footer">
-          <span className="cert-badge" style={{background: "rgba(74,144,226,.1)", color: "var(--blue)"}}>Certificate in BFSI Domain Excellence</span>
-          <span style={{fontSize: "12px", color: "var(--muted)"}}>🏦 BFSI-DE Flagship</span>
         </div>
       </div>
       <div className="part-card part-2 fade-up fade-up-d1">

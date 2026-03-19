@@ -392,7 +392,7 @@ export default function Navbar() {
                         <p style={{fontSize:".78rem",color:"#374151",lineHeight:1.5,marginBottom:".75rem"}}>
                           Innovation-driven, industry-integrated learning for real-world BFSI transformation.
                         </p>
-                        <a href="/courses/ai-fintech" className="nb-lab" style={{padding:".5rem 0",fontWeight:700,fontSize:".82rem"}}>
+                        <a href="/bfsiinnovationlab" className="nb-lab" style={{padding:".5rem 0",fontWeight:700,fontSize:".82rem"}}>
                           Explore BFSI Programs →
                         </a>
                       </div>
@@ -495,7 +495,7 @@ export default function Navbar() {
 
               <div className="mdiv" />
               <span className="ms">BFSI Innovation Lab</span>
-              <a href="/courses/ai-fintech" onClick={closeAll} className="msl">
+              <a href="/bfsiinnovationlab" onClick={closeAll} className="msl">
                 🏦 Explore BFSI Programs
               </a>
 
