@@ -7,6 +7,7 @@ const INQUIRY_TYPES = [
   { value: "Partnership", label: "Partnership" },
   { value: "Internship program", label: "Internship Program" },
   { value: "Placement Assistance", label: "Placement Assistance" },
+  { value: "FinTech & Innovation Lab", label: "FinTech & Innovation Lab" },
   { value: "General Support", label: "General Support" },
 ];
 
