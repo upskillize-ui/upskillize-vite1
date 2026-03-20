@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 
 /* ─────────────────────────────────────────────────────────────────────────────
    DATA
 ───────────────────────────────────────────────────────────────────────────── */
-// available: true = has detail page (shown first, no badge)
-// available: false = coming soon (shown last, dimmed badge)
 const QUARTER_COURSES = [
   {
     label: "AI in FinTech",
@@ -13,11 +12,9 @@ const QUARTER_COURSES = [
     icon: "🏦",
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=80",
     subCourses: [
-      // available first
       { label: "BFSI Domain Excellence",           href: "/courses/bfsi-domain-excellence-program",      img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=48", available: true },
       { label: "Investment Banking & Wealth Tech", href: "/courses/investment-banking-wealth-tech",      img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=48", available: true },
       { label: "Risk Management & RegTech",        href: "/courses/risk-management-regtech-program",     img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=48", available: true },
-      // coming soon last
       { label: "FinTech & AI Mastery",             href: "/courses/ai-fintech",                          img: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=48", available: false },
       { label: "Insurance, InsurTech & DPDPA",     href: "/courses/ai-fintech",                          img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=48", available: false },
       { label: "AI in Financial Services",         href: "/courses/ai-fintech",                          img: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=48", available: false },
@@ -29,10 +26,8 @@ const QUARTER_COURSES = [
     icon: "🚀",
     img: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=80",
     subCourses: [
-      // available first
       { label: "The Mini CEO Program",             href: "/courses/the-mini-ceo-program",                img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=48", available: true },
       { label: "AI Product Management Mastery",    href: "/courses/ai-product-management-mastery",       img: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=48", available: true },
-      // coming soon last
       { label: "Product Management for Techies",   href: "/courses/product-leadership",                  img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=48", available: false },
       { label: "Design Thinking & User Solutions", href: "/courses/product-leadership",                  img: "https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?w=48", available: false },
       { label: "Business Analysis Foundation",     href: "/courses/product-leadership",                  img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=48", available: false },
@@ -44,10 +39,8 @@ const QUARTER_COURSES = [
     icon: "📊",
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=80",
     subCourses: [
-      // available first
       { label: "Data to Decisions: Power BI & AI", href: "/courses/data-decisions",                      img: "https://images.unsplash.com/photo-1543286386-2e659306cd6c?w=48", available: true },
       { label: "AI & ML for Business Leaders",     href: "/courses/ai-ml-business-leaders",              img: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=48", available: true },
-      // coming soon last
       { label: "Strategic Data Analytics",         href: "/courses/data-analytics-genai",                img: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=48", available: false },
     ],
   },
@@ -57,18 +50,13 @@ const QUARTER_COURSES = [
     icon: "⚙️",
     img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=80",
     subCourses: [
-      // available first
       { label: "Digital Business Strategy & Innovation", href: "/courses/digital-business-strategy-innovation", img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=48", available: true },
-      // coming soon last
       { label: "AI & Digital Project Management",        href: "/courses/technology-digital-transformation",   img: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=48", available: false },
       { label: "Emerging Technologies & Industry 4.0",   href: "/courses/technology-digital-transformation",   img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=48", available: false },
     ],
   },
 ];
 
-/* ─────────────────────────────────────────────────────────────────────────────
-   COMPONENT
-───────────────────────────────────────────────────────────────────────────── */
 export default function Navbar() {
   const [isScrolled,     setIsScrolled]     = useState(false);
   const [mobileOpen,     setMobileOpen]     = useState(false);
@@ -115,35 +103,23 @@ export default function Navbar() {
           --c-hover-bg:#f5f3ff; --c-hover:#4f46e5;
           --shadow:0 8px 32px rgba(0,0,0,0.11);
         }
-
-        /* fixed wrapper */
         .nb{position:fixed;top:0;left:0;right:0;z-index:9999}
-
-        /* bar */
         .nb-bar{background:var(--c-bg);border-bottom:1px solid transparent;transition:border-color .25s,box-shadow .25s}
         .nb-bar.scrolled{border-color:var(--c-border);box-shadow:0 2px 14px rgba(0,0,0,0.07)}
         .nb-inner{max-width:1280px;margin:0 auto;padding:0 1.25rem;height:64px;display:flex;align-items:center}
-
-        /* logo */
         .nb-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;margin-right:2rem}
         .nb-logo img{height:42px;width:auto;display:block}
         .nb-logo-text{font-size:1.35rem;font-weight:800;color:var(--c-indigo);display:none}
-
-        /* desktop */
         .nb-desk{display:none;flex:1;align-items:center;justify-content:space-between}
         @media(min-width:1024px){.nb-desk{display:flex}}
         .nb-left{display:flex;align-items:center;gap:.125rem}
         .nb-right{display:flex;align-items:center;gap:.5rem;margin-left:auto}
-
-        /* button */
         .nbb{display:inline-flex;align-items:center;gap:.3rem;padding:.5rem .875rem;border-radius:.5rem;
           font-size:.9rem;font-weight:500;color:var(--c-text);background:none;border:none;
           cursor:pointer;text-decoration:none;white-space:nowrap;transition:background .15s,color .15s}
         .nbb:hover{background:var(--c-hover-bg);color:var(--c-hover)}
         .nbc{transition:transform .2s;flex-shrink:0}
         .nbb:hover .nbc{transform:rotate(180deg)}
-
-        /* simple dropdown */
         .nbd{position:relative}
         .nbd-menu{position:absolute;top:calc(100% + 8px);left:0;background:var(--c-bg);
           border:1px solid var(--c-border);border-radius:.75rem;box-shadow:var(--shadow);
@@ -154,50 +130,36 @@ export default function Navbar() {
         .nbd-item{display:block;padding:.6rem 1rem;font-size:.875rem;font-weight:500;
           color:var(--c-text);text-decoration:none;transition:background .12s,color .12s}
         .nbd-item:hover{background:var(--c-hover-bg);color:var(--c-hover)}
-
-        /* ── industry panel ── */
         .nb-ind{position:relative}
         .nb-panel{
           position:absolute;top:calc(100% + 8px);left:-12px;
           background:var(--c-bg);border:1px solid var(--c-border);
           border-radius:.875rem;box-shadow:var(--shadow);
-          width:920px;
+          width:960px;
           display:grid;grid-template-columns:1fr 1fr 1.8fr 1fr;
           opacity:0;visibility:hidden;transform:translateY(-8px);
           transition:all .2s cubic-bezier(.4,0,.2,1);z-index:10001;overflow:hidden
         }
         .nb-panel.open{opacity:1;visibility:visible;transform:translateY(0)}
-
-        /* column */
         .nb-col{padding:1.125rem 0 1.375rem;border-right:1px solid var(--c-border)}
         .nb-col:last-child{border-right:none}
-
-        /* label */
         .nb-clabel{
           display:block;padding:.0rem 1rem .625rem;
           font-size:.67rem;font-weight:700;letter-spacing:.09em;
           text-transform:uppercase;color:var(--c-cyan);
           border-bottom:1px solid var(--c-border);margin-bottom:.625rem
         }
-
-        /* course row */
         .nb-crow{
           display:flex;align-items:center;gap:.625rem;padding:.6rem 1rem;
           font-size:.875rem;font-weight:600;color:var(--c-text);
           text-decoration:none;transition:background .12s,color .12s
         }
         .nb-crow:hover{background:var(--c-hover-bg);color:var(--c-hover)}
-
-        /* pill */
         .nbp{display:inline-block;font-size:.68rem;font-weight:700;
           padding:.15rem .5rem;border-radius:999px;flex-shrink:0}
         .nbp-b{background:#dbeafe;color:#1d4ed8}
         .nbp-g{background:#dcfce7;color:#15803d}
-
-        /* description */
         .nb-desc{padding:0 1rem .5rem 1rem;font-size:.75rem;color:var(--c-muted);line-height:1.45}
-
-        /* quarter category row */
         .nb-qcat{
           display:flex;align-items:center;justify-content:space-between;
           gap:.5rem;padding:.45rem 1rem;
@@ -210,8 +172,6 @@ export default function Navbar() {
         .nb-qcat-icon{font-size:.85rem;flex-shrink:0}
         .nb-qcat-chev{flex-shrink:0;transition:transform .2s}
         .nb-qcat-chev.open{transform:rotate(180deg)}
-
-        /* sub-course list under each quarter category */
         .nb-subcol{max-height:0;overflow:hidden;transition:max-height .3s ease;background:#f9fafb;border-left:2px solid #e0e7ff;margin-left:1rem}
         .nb-subcol.open{max-height:400px}
         .nb-subrow{
@@ -219,8 +179,6 @@ export default function Navbar() {
           color:#4b5563;text-decoration:none;transition:background .12s,color .12s
         }
         .nb-subrow:hover{background:var(--c-hover-bg);color:var(--c-hover)}
-
-        /* bfsi lab row */
         .nb-lab{
           display:flex;align-items:center;gap:.5rem;padding:.5rem 1rem;
           font-size:.825rem;font-weight:600;color:#1d4ed8;
@@ -228,22 +186,27 @@ export default function Navbar() {
         }
         .nb-lab:hover{background:#eff6ff}
 
-        /* hamburger */
+        /* ── SET UP LAB CTA button in nav ── */
+        .nb-lab-cta{
+          display:inline-flex;align-items:center;gap:.4rem;
+          background:linear-gradient(135deg,#00C9A7,#009E85);
+          color:#fff !important;font-size:.78rem;font-weight:700;
+          padding:.5rem 1rem;border-radius:.5rem;margin:0 1rem .75rem;
+          text-decoration:none;transition:opacity .15s,transform .15s;
+          box-shadow:0 4px 14px rgba(0,201,167,.3);
+        }
+        .nb-lab-cta:hover{opacity:.9;transform:translateY(-1px)}
+
         .nb-ham{display:flex;padding:.5rem;border:none;background:transparent;
           cursor:pointer;color:var(--c-text);border-radius:.375rem;transition:background .15s}
         .nb-ham:hover{background:#f3f4f6}
         @media(min-width:1024px){.nb-ham{display:none}}
-
-        /* mobile menu */
         .nb-mob{position:fixed;top:64px;left:0;right:0;bottom:0;background:#fff;
           overflow-y:auto;transform:translateX(100%);
           transition:transform .3s cubic-bezier(.4,0,.2,1);z-index:10000}
         .nb-mob.open{transform:translateX(0)}
         @media(min-width:1024px){.nb-mob{display:none!important}}
-
         .nb-mnav{padding:.75rem 1rem 4rem;display:flex;flex-direction:column;gap:.125rem}
-
-        /* mob accordion */
         .ma{display:flex;align-items:center;justify-content:space-between;
           padding:.875rem;border-radius:.5rem;font-size:.975rem;font-weight:600;
           color:var(--c-text);background:none;border:none;cursor:pointer;
@@ -251,38 +214,24 @@ export default function Navbar() {
         .ma:hover{background:#f9fafb}
         .mc{transition:transform .2s}
         .mc.o{transform:rotate(180deg)}
-
-        /* mob link */
         .ml{display:block;padding:.875rem;border-radius:.5rem;font-size:.975rem;
           font-weight:600;color:var(--c-text);text-decoration:none;transition:background .13s}
         .ml:hover{background:#f9fafb}
-
-        /* mob panel */
         .mp{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1);
           padding-left:.5rem;border-left:3px solid #e0e7ff;margin-left:.875rem;margin-bottom:.25rem}
         .mp.o{max-height:2400px}
-
-        /* mob section label */
         .ms{display:block;padding:.625rem .75rem .35rem;font-size:.67rem;
           font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c-cyan)}
-
-        /* mob sub link */
         .msl{display:flex;align-items:center;gap:.5rem;padding:.55rem .75rem;
           border-radius:.375rem;font-size:.875rem;font-weight:500;color:#374151;
           text-decoration:none;transition:background .12s,color .12s}
         .msl:hover{background:var(--c-hover-bg);color:var(--c-hover)}
-
-        /* mob sub-sub link */
         .mssl{display:flex;align-items:center;gap:.5rem;padding:.4rem .75rem .4rem 1.5rem;
           border-radius:.375rem;font-size:.8rem;font-weight:400;color:#6b7280;
           text-decoration:none;transition:background .12s,color .12s}
         .mssl:hover{background:var(--c-hover-bg);color:var(--c-hover)}
-
         .mdiv{height:1px;background:#f3f4f6;margin:.375rem 0}
-
-        /* spacer */
         .nb-sp{height:64px}
-
         @media(max-width:1023px){.nb-inner{padding:0 .875rem}.nb-logo img{height:38px}}
         @media(max-width:480px){.nb-logo img{height:34px}.nb-inner{padding:0 .625rem}}
       `}</style>
@@ -342,13 +291,13 @@ export default function Navbar() {
                         <div>
                           <span className="nbp nbp-g" style={{marginBottom:".3rem",display:"inline-block"}}>PGDFBA</span>
                           <div style={{fontSize:".825rem",fontWeight:600,color:"var(--c-text)",lineHeight:1.35}}>
-                            PG Diploma in FinTech, Banking & AI
+                            PG Diploma in FinTech, Banking &amp; AI
                           </div>
                         </div>
                       </a>
                     </div>
 
-                    {/* COL 3 – Quarter with expandable sub-courses + images */}
+                    {/* COL 3 – Quarterly */}
                     <div className="nb-col">
                       <span className="nb-clabel">Quarterly</span>
                       {QUARTER_COURSES.map((c) => (
@@ -384,16 +333,16 @@ export default function Navbar() {
                       ))}
                     </div>
 
-                    {/* COL 4 – BFSI Innovation Lab */}
-                    <div className="nb-col" style={{background:"#f0f7ff"}}>
-                      <span className="nb-clabel" style={{color:"#1d4ed8"}}>BFSI Innovation Lab</span>
-                      <div style={{padding:"0 1rem"}}>
+                    {/* COL 4 – FinTech & AI Innovation Lab */}
+                    <div className="nb-col" style={{background:"linear-gradient(160deg,#f0fdf9 0%,#f0f7ff 100%)"}}>
+                      <span className="nb-clabel" style={{color:"#009E85"}}>FinTech &amp; AI Innovation Lab</span>
+                      <div style={{padding:"0 1rem .5rem"}}>
                         <div style={{fontSize:"2rem",marginBottom:".5rem"}}>🏦</div>
-                        <p style={{fontSize:".78rem",color:"#374151",lineHeight:1.5,marginBottom:".75rem"}}>
-                          Innovation-driven, industry-integrated learning for real-world BFSI transformation.
+                        <p style={{fontSize:".78rem",color:"#374151",lineHeight:1.55,marginBottom:".75rem"}}>
+                          India's first dedicated FinTech &amp; AI Innovation Lab — deployed inside your campus. 10 zones, 36 live modules, peer-working model, NAAC-ready.
                         </p>
-                        <a href="/bfsiinnovationlab" className="nb-lab" style={{padding:".5rem 0",fontWeight:700,fontSize:".82rem"}}>
-                          Explore BFSI Programs →
+                        <a href="/bfsiinnovationlab" className="nb-lab" style={{padding:".4rem 0",fontWeight:700,fontSize:".82rem",color:"#009E85"}}>
+                          Explore the Lab →
                         </a>
                       </div>
                     </div>
@@ -471,7 +420,7 @@ export default function Navbar() {
               <span className="ms">One Year</span>
               <a href="/courses/pgcdf" onClick={closeAll} className="msl">
                 <span style={{background:"#dcfce7",color:"#15803d",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>PGDFBA</span>
-                PG Diploma in Fintech, Banking & AI
+                PG Diploma in Fintech, Banking &amp; AI
               </a>
 
               <div className="mdiv" />
@@ -494,10 +443,23 @@ export default function Navbar() {
               ))}
 
               <div className="mdiv" />
-              <span className="ms">BFSI Innovation Lab</span>
+              <span className="ms">FinTech &amp; AI Innovation Lab</span>
               <a href="/bfsiinnovationlab" onClick={closeAll} className="msl">
-                🏦 Explore BFSI Programs
+                🏦 Explore the Lab
               </a>
+              <Link
+                to="/connect"
+                onClick={closeAll}
+                className="msl"
+                style={{
+                  display:"flex",alignItems:"center",gap:".5rem",
+                  background:"linear-gradient(135deg,#00C9A7,#009E85)",
+                  color:"#fff",fontWeight:700,borderRadius:".5rem",
+                  margin:".25rem .75rem",padding:".6rem .875rem"
+                }}
+              >
+                🚀 Set Up Our Lab →
+              </Link>
 
             </div>
 
@@ -541,10 +503,25 @@ export default function Navbar() {
             </div>
 
             <a href="/contact" onClick={closeAll} className="ml">Contact Us</a>
+
+            {/* Mobile CTA */}
+            <Link
+              to="/connect"
+              onClick={closeAll}
+              style={{
+                display:"flex",alignItems:"center",justifyContent:"center",gap:"8px",
+                background:"linear-gradient(135deg,#00C9A7,#009E85)",
+                color:"#fff",fontWeight:700,fontSize:"1rem",
+                padding:".875rem",borderRadius:".5rem",textDecoration:"none",
+                margin:".5rem 0",boxShadow:"0 4px 14px rgba(0,201,167,.25)"
+              }}
+            >
+              🚀 Set Up Our Lab →
+            </Link>
+
           </div>
         </nav>
       </div>
-    
 
       <div className="nb-sp" />
     </>
