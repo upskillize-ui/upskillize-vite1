@@ -562,7 +562,7 @@ export default function FintechAIInnovationLab() {
                 <span className="hero-tag">🏛️ Core Banking</span>
               </div>
               <div className="hero-btns">
-                <Link to="/connect" className="btn-primary">Set Up the Lab at Your College →</Link>
+                <Link to="/contact" className="btn-primary">Set Up the Lab at Your College →</Link>
                 <a href="#framework" className="btn-outline">Explore All Zones</a>
               </div>
             </div>
@@ -1975,7 +1975,7 @@ export default function FintechAIInnovationLab() {
             <p>Join the revolution. Be the first college in your city with a real FinTech &amp; AI Innovation Lab — where students sprint, build, pitch, and get hired.</p>
             <div style={{display:"flex",flexDirection:"column",alignItems:"center",gap:14}}>
               <Link
-                to="/connect"
+                to="/contact"
                 style={{
                   background:"linear-gradient(135deg,var(--t),var(--td))",
                   color:"#fff",fontWeight:"700",fontSize:"16px",

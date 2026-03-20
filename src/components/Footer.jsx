@@ -128,7 +128,7 @@ export default function Footer() {
             <div className="mt-6 pt-4 border-t border-white/20">
               <p className="text-sm font-semibold text-white mb-3">FinTech &amp; AI Innovation Lab</p>
               <Link
-                to="/connect"
+                to="/contact"
                 className="inline-flex items-center gap-2 text-sm font-bold text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
                 style={{background:"linear-gradient(135deg,#00C9A7,#009E85)",boxShadow:"0 4px 14px rgba(0,201,167,.3)"}}
               >
