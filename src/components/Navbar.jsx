@@ -45,7 +45,7 @@ const QUARTER_COURSES = [
     ],
   },
   {
-    label: "Technology & Digital Transformation",
+    label: "Technology & Dx",
     slug: "technology-digital-transformation",
     icon: "⚙️",
     img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=80",
@@ -261,9 +261,9 @@ export default function Navbar() {
 
                   <div className={`nb-panel${industryOpen ? " open" : ""}`}>
 
-                    {/* COL 1 – Two Year */}
+                    {/* COL 1 – Two Years */}
                     <div className="nb-col">
-                      <span className="nb-clabel">Two Year</span>
+                      <span className="nb-clabel">Two Years</span>
                       <a href="/courses/pgcdb" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".5rem",padding:".75rem 1rem"}}>
                         <img
                           src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400"
@@ -410,7 +410,7 @@ export default function Navbar() {
             </button>
             <div className={`mp${mobileIndustry ? " o" : ""}`}>
 
-              <span className="ms">Two Year</span>
+              <span className="ms">Two Years</span>
               <a href="/courses/pgcdb" onClick={closeAll} className="msl">
                 <span style={{background:"#dbeafe",color:"#1d4ed8",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>PGDFDB</span>
                 PG Diploma in Fintech and Digital Business
