@@ -56,6 +56,20 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold">Programs</h3>
             <ul className="space-y-2 text-sm mt-4">
+
+              {/* ── THREE YEAR – NEW ── */}
+              <li>
+                <Link to="/courses/threeyearscourses" className="text-white/80 transition-colors flex items-center gap-2">
+                  PGDFDB-3T (Three Year)
+                  <span style={{
+                    fontSize:"9px", fontWeight:700,
+                    background:"#FAEEDA", color:"#633806",
+                    borderRadius:"3px", padding:"1px 6px",
+                    flexShrink:0
+                  }}>NEW</span>
+                </Link>
+              </li>
+
               <li>
                 <Link to="/courses/pgcdb" className="text-white/80 transition-colors">
                   PGDFDB (Two Year)

@@ -51,6 +51,8 @@ import DigitalStrategyProgram from "./pages/courses/DigitalStrategyProgram";
 import CorporateReadinessProgram from "./pages/courses/CorporateReadinessProgram";
 import PgCDFLandingPage from "./pages/courses/PgCDFLandingPage";
 import PgCDBLandingPage from "./pages/courses/PgCDBLandingPage"; // ← NEW PgCDB
+import ThreeYearsCourse from "./pages/courses/ThreeYearsCourse";
+import TwoYearsTrimester from "./pages/courses/TwoYearsTrimester";
 import BFSIInnovationLab from "./pages/BFSIInnovationLab";
 
 import "./App.css";
@@ -125,6 +127,8 @@ function App() {
             <Route path="/course/corporate-readiness-program" element={<CorporateReadinessProgram />} />
             <Route path="/courses/pgcdf" element={<PgCDFLandingPage />} />
             <Route path="/courses/pgcdb" element={<PgCDBLandingPage />} /> {/* ← NEW PgCDB */}
+            <Route path="/courses/threeyearscourses" element={<ThreeYearsCourse />} />
+            <Route path="/courses/twoyearstrimester" element={<TwoYearsTrimester />} />
             <Route path="/courses/details/pgcdb" element={<Navigate to="/courses/pgcdb" replace />} />
             {/* Redirect old wrong URL → correct URL */}
             <Route path="/courses/details/pgcdf" element={<Navigate to="/courses/pgcdf" replace />} />
