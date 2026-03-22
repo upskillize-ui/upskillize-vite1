@@ -45,7 +45,7 @@ const QUARTER_COURSES = [
     ],
   },
   {
-    label: "Technology & Digital Transformation",
+    label: "Technology & Dx",
     slug: "technology-digital-transformation",
     icon: "⚙️",
     img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=80",
@@ -261,12 +261,12 @@ export default function Navbar() {
 
                   <div className={`nb-panel${industryOpen ? " open" : ""}`}>
 
-                    {/* COL 1 – Three Years */}
+                    {/* COL 1 – Three Year */}
                     <div className="nb-col">
-                      <span className="nb-clabel">Three Years</span>
-                      <a href="/courses/threeyearscourse" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".5rem",padding:".75rem 1rem"}}>
+                      <span className="nb-clabel">Three Year</span>
+                      <a href="/courses/threeyearscourses" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".5rem",padding:".75rem 1rem"}}>
                         <img
-                          src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400"
+                          src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400"
                           alt="PGDFDB-3T"
                           style={{width:"100%",height:"90px",objectFit:"cover",borderRadius:".5rem",display:"block"}}
                         />
@@ -284,12 +284,12 @@ export default function Navbar() {
                       </a>
                     </div>
 
-                    {/* COL 2 – Two Years */}
+                    {/* COL 2 – Two Year */}
                     <div className="nb-col">
-                      <span className="nb-clabel">Two Years</span>
+                      <span className="nb-clabel">Two Year</span>
                       <a href="/courses/pgdfdb-2t" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".5rem",padding:".75rem 1rem"}}>
                         <img
-                          src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400"
+                          src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400"
                           alt="PGDFDB-2T"
                           style={{width:"100%",height:"70px",objectFit:"cover",borderRadius:".5rem",display:"block"}}
                         />
@@ -373,87 +373,17 @@ export default function Navbar() {
                       ))}
                     </div>
 
-                    {/* COL 5 – FLAIR Innovation Lab */}
-                    <div className="nb-col" style={{background:"linear-gradient(160deg,#f0fdf9 0%,#e8faf5 100%)",minWidth:"210px",maxWidth:"230px"}}>
-                      <span className="nb-clabel" style={{color:"#009E85",padding:"0 1rem .625rem",display:"block"}}>Innovation Lab</span>
-                      <div style={{padding:"0 1rem .75rem"}}>
-
-                        {/* Logo row */}
-                        <div style={{display:"flex",alignItems:"center",gap:"10px",marginBottom:"10px"}}>
-                          <div style={{
-                            width:"44px",height:"44px",borderRadius:"12px",flexShrink:0,
-                            background:"#0a1628",display:"flex",alignItems:"center",justifyContent:"center",
-                            boxShadow:"0 2px 8px rgba(0,0,0,0.18)"
-                          }}>
-                            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                              <circle cx="14" cy="14" r="5" fill="#00c9a7" opacity=".9"/>
-                              <circle cx="14" cy="5"  r="2.5" fill="#6C11FF"/>
-                              <circle cx="14" cy="23" r="2.5" fill="#00c9a7"/>
-                              <circle cx="5"  cy="14" r="2.5" fill="#00c9a7"/>
-                              <circle cx="23" cy="14" r="2.5" fill="#6C11FF"/>
-                              <circle cx="7"  cy="7"  r="2"   fill="#00c9a7" opacity=".6"/>
-                              <circle cx="21" cy="21" r="2"   fill="#6C11FF" opacity=".6"/>
-                              <line x1="14" y1="14" x2="14" y2="5"  stroke="#00c9a7" strokeWidth="1.2" opacity=".5"/>
-                              <line x1="14" y1="14" x2="14" y2="23" stroke="#00c9a7" strokeWidth="1.2" opacity=".5"/>
-                              <line x1="14" y1="14" x2="5"  y2="14" stroke="#00c9a7" strokeWidth="1.2" opacity=".5"/>
-                              <line x1="14" y1="14" x2="23" y2="14" stroke="#6C11FF" strokeWidth="1.2" opacity=".5"/>
-                              <line x1="14" y1="14" x2="7"  y2="7"  stroke="#00c9a7" strokeWidth="1"   opacity=".4"/>
-                              <line x1="14" y1="14" x2="21" y2="21" stroke="#6C11FF" strokeWidth="1"   opacity=".4"/>
-                            </svg>
-                          </div>
-                          <div>
-                            <div style={{fontWeight:800,fontSize:"1.15rem",color:"#0a1628",letterSpacing:"-0.3px",lineHeight:1}}>FLAIR</div>
-                            <div style={{fontSize:"10px",color:"#5a7a6e",fontWeight:500,marginTop:"1px"}}>by Upskillize</div>
-                          </div>
-                        </div>
-
-                        {/* Full name */}
-                        <div style={{fontSize:"11.5px",fontWeight:600,color:"#1a3a2e",lineHeight:1.4,marginBottom:"10px",paddingBottom:"10px",borderBottom:"1px solid #c8e8de"}}>
-                          <span style={{color:"#0a7a5a",fontWeight:800}}>F</span>inTech &amp; <span style={{color:"#0a7a5a",fontWeight:800}}>A</span>I <span style={{color:"#0a7a5a",fontWeight:800}}>L</span>ab for <span style={{color:"#0a7a5a",fontWeight:800}}>I</span>nnovation &amp; <span style={{color:"#0a7a5a",fontWeight:800}}>R</span>esearch
-                        </div>
-
-                        {/* Badges */}
-                        <div style={{display:"flex",flexWrap:"wrap",gap:"5px",marginBottom:"12px"}}>
-                          {[
-                            {label:"⭐ #1 of its kind", bg:"#fff8e1",color:"#7a5c00",border:"#f0d96a"},
-                            {label:"On-Campus",         bg:"#e6f9f3",color:"#0a6646",border:"#7dd4b2"},
-                            {label:"10 Zones",          bg:"#f0f4ff",color:"#2a4ab5",border:"#b0c0f0"},
-                            {label:"36 Modules",        bg:"#f0f4ff",color:"#2a4ab5",border:"#b0c0f0"},
-                            {label:"Agile",             bg:"#f0f4ff",color:"#2a4ab5",border:"#b0c0f0"},
-                            {label:"Co-dev with Experts",bg:"#f3eeff",color:"#5a20c0",border:"#c9a8f0"},
-                            {label:"🚀 FinPreneur",     bg:"#fff0f4",color:"#a0134a",border:"#f4a0c0"},
-                          ].map(b => (
-                            <span key={b.label} style={{
-                              fontSize:"9.5px",fontWeight:700,
-                              background:b.bg,color:b.color,
-                              border:`1px solid ${b.border}`,
-                              borderRadius:"20px",padding:"2px 8px",
-                              whiteSpace:"nowrap"
-                            }}>{b.label}</span>
-                          ))}
-                        </div>
-
-                        {/* CTA button */}
-                        <a href="/bfsiinnovationlab" style={{
-                          display:"block",textAlign:"center",
-                          background:"#0a6646",color:"#fff",
-                          fontWeight:700,fontSize:"12px",
-                          padding:"9px 0",borderRadius:"8px",
-                          textDecoration:"none",
-                          transition:"background .15s",
-                          marginBottom:"6px"
-                        }}
-                          onMouseEnter={e=>e.currentTarget.style.background="#075535"}
-                          onMouseLeave={e=>e.currentTarget.style.background="#0a6646"}
-                        >
-                          Explore FLAIR →
+                    {/* COL 5 – FinTech & AI Innovation Lab */}
+                    <div className="nb-col" style={{background:"linear-gradient(160deg,#f0fdf9 0%,#f0f7ff 100%)"}}>
+                      <span className="nb-clabel" style={{color:"#009E85"}}>FinTech &amp; AI Innovation Lab</span>
+                      <div style={{padding:"0 1rem .5rem"}}>
+                        <div style={{fontSize:"2rem",marginBottom:".5rem"}}>🏦</div>
+                        <p style={{fontSize:".78rem",color:"#374151",lineHeight:1.55,marginBottom:".75rem"}}>
+                          India's first dedicated FinTech &amp; AI Innovation Lab — deployed inside your campus. 10 zones, 36 live modules, peer-working model, NAAC-ready.
+                        </p>
+                        <a href="/bfsiinnovationlab" className="nb-lab" style={{padding:".4rem 0",fontWeight:700,fontSize:".82rem",color:"#009E85"}}>
+                          Explore the Lab →
                         </a>
-
-                        {/* URL hint */}
-                        <div style={{textAlign:"center",fontSize:"9.5px",color:"#5a9a7e",fontWeight:500}}>
-                          upskillize.com/flair
-                        </div>
-
                       </div>
                     </div>
 
@@ -521,7 +451,7 @@ export default function Navbar() {
             <div className={`mp${mobileIndustry ? " o" : ""}`}>
 
               <span className="ms">Three Years</span>
-              <a href="/courses/threeyearscourse" onClick={closeAll} className="msl">
+              <a href="/courses/threeyearscourses" onClick={closeAll} className="msl">
                 <span style={{background:"#EEEDFE",color:"#3C3489",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>PGDFDB-3T</span>
                 PG Diploma in FinTech, Digital Business
                 <span style={{fontSize:".65rem",fontWeight:700,background:"#FAEEDA",color:"#633806",padding:".1rem .35rem",borderRadius:3,marginLeft:2}}>NEW</span>
@@ -566,22 +496,9 @@ export default function Navbar() {
               ))}
 
               <div className="mdiv" />
-              <span className="ms">FLAIR — Innovation Lab</span>
-              <a href="/bfsiinnovationlab" onClick={closeAll} className="msl" style={{flexDirection:"column",alignItems:"flex-start",gap:"6px"}}>
-                <div style={{display:"flex",alignItems:"center",gap:"8px"}}>
-                  <div style={{width:"32px",height:"32px",borderRadius:"8px",background:"#0a1628",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
-                    <span style={{fontSize:"16px"}}>🔬</span>
-                  </div>
-                  <div>
-                    <div style={{fontWeight:800,fontSize:"14px",color:"#0a1628"}}>FLAIR</div>
-                    <div style={{fontSize:"10px",color:"#5a7a6e"}}>FinTech &amp; AI Lab for Innovation &amp; Research</div>
-                  </div>
-                </div>
-                <div style={{display:"flex",flexWrap:"wrap",gap:"4px",paddingLeft:"2px"}}>
-                  {["⭐ #1 of its kind","On-Campus","10 Zones","36 Modules","🚀 FinPreneur"].map(b=>(
-                    <span key={b} style={{fontSize:"9px",fontWeight:700,background:"#e6f9f3",color:"#0a6646",border:"1px solid #7dd4b2",borderRadius:"20px",padding:"1px 7px"}}>{b}</span>
-                  ))}
-                </div>
+              <span className="ms">FinTech &amp; AI Innovation Lab</span>
+              <a href="/bfsiinnovationlab" onClick={closeAll} className="msl">
+                🏦 Explore the Lab
               </a>
               <Link
                 to="/connect"

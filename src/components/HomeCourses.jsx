@@ -23,7 +23,7 @@ const TWO_YEAR = [
     desc: "A comprehensive post-graduate program bridging digital business strategy with modern financial technology, BFSI, WealthTech, and RegTech specialisations.",
     icon: <GraduationCap size={32} />,
     color: "from-blue-600 to-indigo-700",
-    link: "/courses/pgcdb",
+    link: "/courses/twoyearstrimester",
     duration: "2 Years",
   },
 ];

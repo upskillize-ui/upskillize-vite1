@@ -50,7 +50,7 @@ import CAIPLandingPage from "./pages/courses/CIPLandingPage";
 import DigitalStrategyProgram from "./pages/courses/DigitalStrategyProgram";
 import CorporateReadinessProgram from "./pages/courses/CorporateReadinessProgram";
 import PgCDFLandingPage from "./pages/courses/PgCDFLandingPage";
-import PgCDBLandingPage from "./pages/courses/PgCDBLandingPage"; // ← NEW PgCDB
+import PgCDBLandingPage from "./pages/courses/PgCDBLandingPage";
 import ThreeYearsCourse from "./pages/courses/ThreeYearsCourse";
 import TwoYearsTrimester from "./pages/courses/TwoYearsTrimester";
 import BFSIInnovationLab from "./pages/BFSIInnovationLab";
@@ -95,17 +95,6 @@ function App() {
             <Route path="/about/eco-pro-lms" element={<EcoProLMS />} />
             <Route path="/contact" element={<Contact />} />
 
-            {/* COURSES */}
-            <Route path="/courses" element={<Navigate to="/academic" replace />} />
-            <Route path="/course/:slug" element={<CourseDetails />} />
-            <Route path="/courses/:category" element={<CoursesPage />} />
-
-            {/* Redirect Corporate Readiness Program */}
-            <Route
-              path="/courses/corporate-readiness-program"
-              element={<Navigate to="/course/corporate-readiness-program" replace />}
-            />
-
             {/* PRODUCTS */}
             <Route path="/products/optimize" element={<Optimize />} />
             <Route path="/products/compliize" element={<Compliize />} />
@@ -115,7 +104,16 @@ function App() {
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
 
-            {/* COURSE DETAIL PAGES */}
+            {/* COURSE REDIRECTS */}
+            <Route path="/courses" element={<Navigate to="/academic" replace />} />
+            <Route path="/course/:slug" element={<CourseDetails />} />
+            <Route path="/courses/details/pgcdb" element={<Navigate to="/courses/pgcdb" replace />} />
+            <Route path="/courses/details/pgcdf" element={<Navigate to="/courses/pgcdf" replace />} />
+            <Route path="/courses/corporate-readiness-program" element={<Navigate to="/course/corporate-readiness-program" replace />} />
+            <Route path="/courses/threeyearscourses" element={<Navigate to="/courses/threeyearscourse" replace />} />
+
+            {/* ── SPECIFIC COURSE PAGES ── */}
+            {/* IMPORTANT: All specific /courses/xxx routes MUST come before /courses/:category */}
             <Route path="/courses/bfsi-domain-excellence-program" element={<BFSIDomainExcellence />} />
             <Route path="/courses/investment-banking-wealth-tech" element={<InvestmentBankingWealthTech />} />
             <Route path="/courses/risk-management-regtech-program" element={<RiskManagementRegTech />} />
@@ -126,14 +124,20 @@ function App() {
             <Route path="/courses/digital-business-strategy-innovation" element={<DigitalStrategyProgram />} />
             <Route path="/course/corporate-readiness-program" element={<CorporateReadinessProgram />} />
             <Route path="/courses/pgcdf" element={<PgCDFLandingPage />} />
-            <Route path="/courses/pgcdb" element={<PgCDBLandingPage />} /> {/* ← NEW PgCDB */}
-            <Route path="/courses/threeyearscourses" element={<ThreeYearsCourse />} />
+            <Route path="/courses/pgcdb" element={<PgCDBLandingPage />} />
+
+            {/* THREE YEARS */}
+            <Route path="/courses/threeyearscourse" element={<ThreeYearsCourse />} />
+
+            {/* TWO YEARS TRIMESTER — both slugs point to same page */}
             <Route path="/courses/twoyearstrimester" element={<TwoYearsTrimester />} />
-            <Route path="/courses/details/pgcdb" element={<Navigate to="/courses/pgcdb" replace />} />
-            {/* Redirect old wrong URL → correct URL */}
-            <Route path="/courses/details/pgcdf" element={<Navigate to="/courses/pgcdf" replace />} />
+            <Route path="/courses/pgdfdb-2t" element={<TwoYearsTrimester />} />
+
+            {/* BFSI INNOVATION LAB */}
             <Route path="/bfsiinnovationlab" element={<BFSIInnovationLab />} />
-            {/* FALLBACK */}
+
+            {/* ── CATCH-ALL: /courses/:category must be LAST among course routes ── */}
+            <Route path="/courses/:category" element={<CoursesPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
