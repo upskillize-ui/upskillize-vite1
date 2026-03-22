@@ -57,10 +57,10 @@ export default function Footer() {
             <h3 className="text-xl font-bold">Programs</h3>
             <ul className="space-y-2 text-sm mt-4">
 
-              {/* ── THREE YEAR – NEW ── */}
+              {/* ── THREE YEARS – NEW ── */}
               <li>
                 <Link to="/courses/threeyearscourses" className="text-white/80 transition-colors flex items-center gap-2">
-                  PGDFDB-3T (Three Year)
+                  PGDFDB-3T (Three Years)
                   <span style={{
                     fontSize:"9px", fontWeight:700,
                     background:"#FAEEDA", color:"#633806",
@@ -72,7 +72,7 @@ export default function Footer() {
 
               <li>
                 <Link to="/courses/pgcdb" className="text-white/80 transition-colors">
-                  PGDFDB (Two Year)
+                  PGDFDB (Two Years)
                 </Link>
               </li>
               <li>

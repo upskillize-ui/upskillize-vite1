@@ -261,9 +261,9 @@ export default function Navbar() {
 
                   <div className={`nb-panel${industryOpen ? " open" : ""}`}>
 
-                    {/* COL 1 – Three Year */}
+                    {/* COL 1 – Three Years */}
                     <div className="nb-col">
-                      <span className="nb-clabel">Three Year</span>
+                      <span className="nb-clabel">Three Years</span>
                       <a href="/courses/threeyearscourse" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".5rem",padding:".75rem 1rem"}}>
                         <img
                           src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400"
@@ -284,9 +284,9 @@ export default function Navbar() {
                       </a>
                     </div>
 
-                    {/* COL 2 – Two Year */}
+                    {/* COL 2 – Two Years */}
                     <div className="nb-col">
-                      <span className="nb-clabel">Two Year</span>
+                      <span className="nb-clabel">Two Years</span>
                       <a href="/courses/pgdfdb-2t" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".5rem",padding:".75rem 1rem"}}>
                         <img
                           src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400"
