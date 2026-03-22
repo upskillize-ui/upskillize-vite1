@@ -131,23 +131,26 @@ export default function Navbar() {
           color:var(--c-text);text-decoration:none;transition:background .12s,color .12s}
         .nbd-item:hover{background:var(--c-hover-bg);color:var(--c-hover)}
         .nb-ind{position:relative}
+
+        /* ── PANEL: tighter width, rebalanced columns ── */
         .nb-panel{
-          position:absolute;top:calc(100% + 8px);left:-12px;
+          position:absolute;top:calc(100% + 8px);left:-60px;
           background:var(--c-bg);border:1px solid var(--c-border);
           border-radius:.875rem;box-shadow:var(--shadow);
-          width:1100px;
-          display:grid;grid-template-columns:1fr 1.2fr 1fr 1.8fr 1fr;
+          width:1060px;
+          display:grid;
+          grid-template-columns:170px 210px 160px 1fr 190px;
           opacity:0;visibility:hidden;transform:translateY(-8px);
           transition:all .2s cubic-bezier(.4,0,.2,1);z-index:10001;overflow:hidden
         }
         .nb-panel.open{opacity:1;visibility:visible;transform:translateY(0)}
-        .nb-col{padding:1.125rem 0 1.375rem;border-right:1px solid var(--c-border)}
+        .nb-col{padding:.6rem 0 .875rem;border-right:1px solid var(--c-border)}
         .nb-col:last-child{border-right:none}
         .nb-clabel{
-          display:block;padding:.0rem 1rem .625rem;
-          font-size:.67rem;font-weight:700;letter-spacing:.09em;
+          display:block;padding:0 .875rem .55rem;
+          font-size:.58rem;font-weight:700;letter-spacing:.05em;
           text-transform:uppercase;color:var(--c-cyan);
-          border-bottom:1px solid var(--c-border);margin-bottom:.625rem
+          border-bottom:1px solid var(--c-border);margin-bottom:.55rem
         }
         .nb-crow{
           display:flex;align-items:center;gap:.625rem;padding:.6rem 1rem;
@@ -155,48 +158,28 @@ export default function Navbar() {
           text-decoration:none;transition:background .12s,color .12s
         }
         .nb-crow:hover{background:var(--c-hover-bg);color:var(--c-hover)}
-        .nbp{display:inline-block;font-size:.68rem;font-weight:700;
-          padding:.15rem .5rem;border-radius:999px;flex-shrink:0}
+        .nbp{display:inline-block;font-size:.65rem;font-weight:700;
+          padding:.12rem .4rem;border-radius:999px;flex-shrink:0}
         .nbp-b{background:#dbeafe;color:#1d4ed8}
         .nbp-g{background:#dcfce7;color:#15803d}
-        .nb-desc{padding:0 1rem .5rem 1rem;font-size:.75rem;color:var(--c-muted);line-height:1.45}
         .nb-qcat{
           display:flex;align-items:center;justify-content:space-between;
-          gap:.5rem;padding:.45rem 1rem;
-          font-size:.825rem;font-weight:600;color:var(--c-text);
-          text-decoration:none;transition:background .12s,color .12s;
-          cursor:pointer;border:none;background:none;width:100%;text-align:left
+          gap:.4rem;padding:.35rem .825rem;
+          font-size:.77rem;font-weight:600;color:var(--c-text);
+          cursor:pointer;border:none;background:none;width:100%;text-align:left;
+          transition:background .12s,color .12s
         }
         .nb-qcat:hover{background:var(--c-hover-bg);color:var(--c-hover)}
         .nb-qcat a{text-decoration:none;color:inherit;flex:1}
-        .nb-qcat-icon{font-size:.85rem;flex-shrink:0}
         .nb-qcat-chev{flex-shrink:0;transition:transform .2s}
         .nb-qcat-chev.open{transform:rotate(180deg)}
         .nb-subcol{max-height:0;overflow:hidden;transition:max-height .3s ease;background:#f9fafb;border-left:2px solid #e0e7ff;margin-left:1rem}
         .nb-subcol.open{max-height:400px}
         .nb-subrow{
-          display:block;padding:.35rem .875rem;font-size:.78rem;font-weight:500;
+          display:block;padding:.32rem .825rem;font-size:.76rem;font-weight:500;
           color:#4b5563;text-decoration:none;transition:background .12s,color .12s
         }
         .nb-subrow:hover{background:var(--c-hover-bg);color:var(--c-hover)}
-        .nb-lab{
-          display:flex;align-items:center;gap:.5rem;padding:.5rem 1rem;
-          font-size:.825rem;font-weight:600;color:#1d4ed8;
-          text-decoration:none;transition:background .12s
-        }
-        .nb-lab:hover{background:#eff6ff}
-
-        /* ── SET UP LAB CTA button in nav ── */
-        .nb-lab-cta{
-          display:inline-flex;align-items:center;gap:.4rem;
-          background:linear-gradient(135deg,#00C9A7,#009E85);
-          color:#fff !important;font-size:.78rem;font-weight:700;
-          padding:.5rem 1rem;border-radius:.5rem;margin:0 1rem .75rem;
-          text-decoration:none;transition:opacity .15s,transform .15s;
-          box-shadow:0 4px 14px rgba(0,201,167,.3);
-        }
-        .nb-lab-cta:hover{opacity:.9;transform:translateY(-1px)}
-
         .nb-ham{display:flex;padding:.5rem;border:none;background:transparent;
           cursor:pointer;color:var(--c-text);border-radius:.375rem;transition:background .15s}
         .nb-ham:hover{background:#f3f4f6}
@@ -264,22 +247,20 @@ export default function Navbar() {
                     {/* COL 1 – Three Year */}
                     <div className="nb-col">
                       <span className="nb-clabel">Three Year</span>
-                      <a href="/courses/threeyearscourses" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".5rem",padding:".75rem 1rem"}}>
-                        <img
-                          src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400"
-                          alt="PGDFDB-3T"
-                          style={{width:"100%",height:"90px",objectFit:"cover",borderRadius:".5rem",display:"block"}}
-                        />
-                        <div>
-                          <span className="nbp" style={{background:"#EEEDFE",color:"#3C3489",marginBottom:".3rem",display:"inline-block"}}>PGDFDB-3T</span>
-                          <span style={{fontSize:".65rem",fontWeight:700,background:"#FAEEDA",color:"#633806",padding:".1rem .35rem",borderRadius:3,marginLeft:4}}>NEW</span>
-                          <div style={{fontSize:".825rem",fontWeight:600,color:"var(--c-text)",lineHeight:1.35,marginTop:".25rem"}}>
-                            PG Diploma in FinTech, Digital Business
-                          </div>
-                          <div style={{display:"flex",gap:".35rem",marginTop:".4rem",flexWrap:"wrap"}}>
-                            <span style={{fontSize:".68rem",background:"#f4f6fb",borderRadius:4,padding:"1px 6px",color:"#6b7fa3"}}>Trimester</span>
-                            <span style={{fontSize:".68rem",background:"#f4f6fb",borderRadius:4,padding:"1px 6px",color:"#6b7fa3"}}>6 semesters</span>
-                          </div>
+                      <a href="/courses/threeyearscourses" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".28rem",padding:".45rem .7rem"}}>
+                        {/* Image: smaller height */}
+                        <div style={{width:"100%",height:"46px",borderRadius:".35rem",overflow:"hidden",position:"relative",marginBottom:".05rem"}}>
+                          <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400" alt="MDFDB" style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}} />
+                          <div style={{position:"absolute",bottom:4,right:5,fontSize:".55rem",fontWeight:700,background:"#FAEEDA",color:"#633806",padding:"1px 4px",borderRadius:2}}>NEW</div>
+                        </div>
+                        <span className="nbp" style={{background:"#EEEDFE",color:"#3C3489",fontSize:".57rem",padding:".1rem .38rem"}}>MDFDB</span>
+                        <div style={{fontSize:".72rem",fontWeight:700,color:"var(--c-text)",lineHeight:1.25}}>
+                          Master's Diploma in FinTech &amp; Digital Business
+                        </div>
+                        <div style={{fontSize:".63rem",color:"var(--c-muted)"}}>Parallel to Undergraduation</div>
+                        <div style={{display:"flex",gap:".22rem",flexWrap:"wrap"}}>
+                          <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>Trimester</span>
+                          <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>9 trimesters</span>
                         </div>
                       </a>
                     </div>
@@ -287,34 +268,31 @@ export default function Navbar() {
                     {/* COL 2 – Two Year */}
                     <div className="nb-col">
                       <span className="nb-clabel">Two Year</span>
-                      <a href="/courses/pgdfdb-2t" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".5rem",padding:".75rem 1rem"}}>
-                        <img
-                          src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400"
-                          alt="PGDFDB-2T"
-                          style={{width:"100%",height:"70px",objectFit:"cover",borderRadius:".5rem",display:"block"}}
-                        />
-                        <div>
-                          <span className="nbp" style={{background:"#E1F5EE",color:"#085041",marginBottom:".3rem",display:"inline-block"}}>PGDFDB-2T</span>
-                          <span style={{fontSize:".65rem",fontWeight:700,background:"#FAEEDA",color:"#633806",padding:".1rem .35rem",borderRadius:3,marginLeft:4}}>NEW</span>
-                          <div style={{fontSize:".825rem",fontWeight:600,color:"var(--c-text)",lineHeight:1.35,marginTop:".25rem"}}>
-                            PG Diploma in FinTech, Digital Business
-                          </div>
-                          <div style={{display:"flex",gap:".35rem",marginTop:".4rem",flexWrap:"wrap"}}>
-                            <span style={{fontSize:".68rem",background:"#f4f6fb",borderRadius:4,padding:"1px 6px",color:"#6b7fa3"}}>Trimester</span>
-                            <span style={{fontSize:".68rem",background:"#f4f6fb",borderRadius:4,padding:"1px 6px",color:"#6b7fa3"}}>4 terms</span>
-                          </div>
+                      <a href="/courses/pgdfdb-2t" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".28rem",padding:".45rem .7rem"}}>
+                        <div style={{width:"100%",height:"46px",borderRadius:".35rem",overflow:"hidden",position:"relative",marginBottom:".05rem"}}>
+                          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400" alt="ADFDB" style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}} />
+                          <div style={{position:"absolute",bottom:4,right:5,fontSize:".55rem",fontWeight:700,background:"#FAEEDA",color:"#633806",padding:"1px 4px",borderRadius:2}}>NEW</div>
+                        </div>
+                        <span className="nbp" style={{background:"#CCFBF1",color:"#065F46",fontSize:".57rem",padding:".1rem .38rem"}}>ADFDB</span>
+                        <div style={{fontSize:".72rem",fontWeight:700,color:"var(--c-text)",lineHeight:1.25}}>
+                          Advanced Diploma in FinTech &amp; Digital Business
+                        </div>
+                        <div style={{fontSize:".63rem",color:"var(--c-muted)"}}>Parallel to MBA</div>
+                        <div style={{display:"flex",gap:".22rem",flexWrap:"wrap"}}>
+                          <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>Trimester</span>
+                          <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>6 trimesters</span>
                         </div>
                       </a>
-                      <a href="/courses/pgcdb" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".35rem",padding:".5rem 1rem"}}>
-                        <div>
-                          <span className="nbp nbp-b" style={{background:"#e8f4f0",color:"#0F6E56",marginBottom:".25rem",display:"inline-block"}}>PGDFDB</span>
-                          <div style={{fontSize:".825rem",fontWeight:600,color:"var(--c-text)",lineHeight:1.35}}>
-                            PG Diploma in FinTech &amp; Digital Business
-                          </div>
-                          <div style={{display:"flex",gap:".35rem",marginTop:".35rem",flexWrap:"wrap"}}>
-                            <span style={{fontSize:".68rem",background:"#f4f6fb",borderRadius:4,padding:"1px 6px",color:"#6b7fa3"}}>Semester</span>
-                            <span style={{fontSize:".68rem",background:"#f4f6fb",borderRadius:4,padding:"1px 6px",color:"#6b7fa3"}}>4 semesters</span>
-                          </div>
+                      <div style={{height:"1px",background:"var(--c-border)",margin:"0 .75rem"}}/>
+                      <a href="/courses/pgcdb" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".25rem",padding:".38rem .7rem"}}>
+                        <span className="nbp" style={{background:"#e8f4f0",color:"#0F6E56",fontSize:".57rem",padding:".1rem .38rem"}}>PGDFDB</span>
+                        <div style={{fontSize:".72rem",fontWeight:700,color:"var(--c-text)",lineHeight:1.25}}>
+                          PG Diploma in FinTech &amp; Digital Business
+                        </div>
+                        <div style={{fontSize:".63rem",color:"var(--c-muted)"}}>Parallel to MBA</div>
+                        <div style={{display:"flex",gap:".22rem",flexWrap:"wrap"}}>
+                          <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>Semester</span>
+                          <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>4 semesters</span>
                         </div>
                       </a>
                     </div>
@@ -322,17 +300,18 @@ export default function Navbar() {
                     {/* COL 3 – One Year */}
                     <div className="nb-col">
                       <span className="nb-clabel">One Year</span>
-                      <a href="/courses/pgcdf" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".5rem",padding:".75rem 1rem"}}>
-                        <img
-                          src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400"
-                          alt="PGDFBA"
-                          style={{width:"100%",height:"90px",objectFit:"cover",borderRadius:".5rem",display:"block"}}
-                        />
-                        <div>
-                          <span className="nbp nbp-g" style={{marginBottom:".3rem",display:"inline-block"}}>PGDFBA</span>
-                          <div style={{fontSize:".825rem",fontWeight:600,color:"var(--c-text)",lineHeight:1.35}}>
-                            PG Diploma in FinTech, Banking &amp; AI
-                          </div>
+                      <a href="/courses/pgcdf" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".28rem",padding:".45rem .7rem"}}>
+                        <div style={{width:"100%",height:"46px",borderRadius:".35rem",overflow:"hidden",marginBottom:".05rem"}}>
+                          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400" alt="PGDFBA" style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}} />
+                        </div>
+                        <span className="nbp nbp-g" style={{fontSize:".57rem",padding:".1rem .38rem"}}>PGDFBA</span>
+                        <div style={{fontSize:".72rem",fontWeight:700,color:"var(--c-text)",lineHeight:1.25}}>
+                          PG Diploma in FinTech, Banking &amp; AI
+                        </div>
+                        <div style={{fontSize:".63rem",color:"var(--c-muted)"}}>Online / Hybrid</div>
+                        <div style={{display:"flex",gap:".22rem",flexWrap:"wrap"}}>
+                          <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>6 Bimesters</span>
+                          <span style={{fontSize:".56rem",background:"#dcfce7",borderRadius:3,padding:"1px 4px",color:"#15803d"}}>Online / Hybrid</span>
                         </div>
                       </a>
                     </div>
@@ -343,13 +322,13 @@ export default function Navbar() {
                       {QUARTER_COURSES.map((c) => (
                         <div key={c.slug}>
                           <div className="nb-qcat">
-                            <a href={`/courses/${c.slug}`} style={{display:"flex",alignItems:"center",gap:".5rem",flex:1,textDecoration:"none",color:"inherit",fontSize:".825rem",fontWeight:600}}>
-                              <img src={c.img} alt={c.label} style={{width:"28px",height:"28px",borderRadius:".3rem",objectFit:"cover",flexShrink:0}} />
+                            <a href={`/courses/${c.slug}`} style={{display:"flex",alignItems:"center",gap:".45rem",flex:1,textDecoration:"none",color:"inherit",fontSize:".8rem",fontWeight:600}}>
+                              <img src={c.img} alt={c.label} style={{width:"26px",height:"26px",borderRadius:".3rem",objectFit:"cover",flexShrink:0}} />
                               {c.label}
                             </a>
                             {c.subCourses.length > 0 && (
                               <ChevronDown
-                                size={13}
+                                size={12}
                                 className={`nb-qcat-chev${expandedQuarter === c.slug ? " open" : ""}`}
                                 onClick={(e) => { e.preventDefault(); setExpandedQuarter(expandedQuarter === c.slug ? null : c.slug); }}
                               />
@@ -359,11 +338,11 @@ export default function Navbar() {
                             <div className={`nb-subcol${expandedQuarter === c.slug ? " open" : ""}`}>
                               {c.subCourses.map((s) => (
                                 <a key={s.label} href={s.href} className="nb-subrow"
-                                  style={{opacity: s.available ? 1 : 0.55, display:"flex", alignItems:"center", gap:".5rem"}}>
-                                  <img src={s.img} alt={s.label} style={{width:"22px",height:"22px",borderRadius:".25rem",objectFit:"cover",flexShrink:0}} />
-                                  <span style={{flex:1,fontSize:".78rem"}}>{s.label}</span>
+                                  style={{opacity: s.available ? 1 : 0.55, display:"flex", alignItems:"center", gap:".45rem"}}>
+                                  <img src={s.img} alt={s.label} style={{width:"20px",height:"20px",borderRadius:".2rem",objectFit:"cover",flexShrink:0}} />
+                                  <span style={{flex:1,fontSize:".75rem"}}>{s.label}</span>
                                   {!s.available && (
-                                    <span style={{fontSize:".6rem",fontWeight:700,background:"#e5e7eb",color:"#6b7280",padding:".1rem .35rem",borderRadius:999,flexShrink:0}}>Soon</span>
+                                    <span style={{fontSize:".58rem",fontWeight:700,background:"#e5e7eb",color:"#6b7280",padding:".1rem .32rem",borderRadius:999,flexShrink:0}}>Soon</span>
                                   )}
                                 </a>
                               ))}
@@ -375,13 +354,26 @@ export default function Navbar() {
 
                     {/* COL 5 – FinTech & AI Innovation Lab */}
                     <div className="nb-col" style={{background:"linear-gradient(160deg,#f0fdf9 0%,#f0f7ff 100%)"}}>
-                      <span className="nb-clabel" style={{color:"#009E85"}}>FinTech &amp; AI Innovation Lab</span>
-                      <div style={{padding:"0 1rem .5rem"}}>
-                        <div style={{fontSize:"2rem",marginBottom:".5rem"}}>🏦</div>
-                        <p style={{fontSize:".78rem",color:"#374151",lineHeight:1.55,marginBottom:".75rem"}}>
-                          India's first dedicated FinTech &amp; AI Innovation Lab — deployed inside your campus. 10 zones, 36 live modules, peer-working model, NAAC-ready.
+                      <span className="nb-clabel" style={{color:"#009E85",fontSize:".58rem",letterSpacing:".05em"}}>Innovation Lab</span>
+                      <div style={{padding:"0 .875rem .75rem"}}>
+                        <div style={{width:"40px",height:"40px",borderRadius:".45rem",background:"linear-gradient(135deg,#ccfbf1,#a7f3d0)",display:"flex",alignItems:"center",justifyContent:"center",marginBottom:".5rem"}}>
+                          <span style={{fontSize:"1.25rem"}}>🏦</span>
+                        </div>
+                        <p style={{fontSize:".72rem",fontWeight:700,color:"#111827",marginBottom:".25rem",lineHeight:1.3}}>
+                          India's First FinTech &amp; AI Lab
                         </p>
-                        <a href="/bfsiinnovationlab" className="nb-lab" style={{padding:".4rem 0",fontWeight:700,fontSize:".82rem",color:"#009E85"}}>
+                        <p style={{fontSize:".66rem",color:"#6b7280",lineHeight:1.5,marginBottom:".55rem"}}>
+                          Deployed inside your campus. Purpose-built for BFSI learning.
+                        </p>
+                        <ul style={{listStyle:"none",padding:0,margin:"0 0 .65rem",display:"flex",flexDirection:"column",gap:".25rem"}}>
+                          {["10 innovation zones","36 live modules","Peer-working model","NAAC-ready"].map(item => (
+                            <li key={item} style={{display:"flex",alignItems:"center",gap:".35rem",fontSize:".67rem",color:"#374151"}}>
+                              <span style={{width:"5px",height:"5px",borderRadius:"50%",background:"#009E85",flexShrink:0,display:"inline-block"}}></span>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                        <a href="/bfsiinnovationlab" style={{display:"inline-flex",alignItems:"center",gap:".3rem",background:"#009E85",color:"#fff",fontSize:".69rem",fontWeight:700,padding:".38rem .8rem",borderRadius:".4rem",textDecoration:"none",whiteSpace:"nowrap"}}>
                           Explore the Lab →
                         </a>
                       </div>
@@ -452,16 +444,16 @@ export default function Navbar() {
 
               <span className="ms">Three Years</span>
               <a href="/courses/threeyearscourses" onClick={closeAll} className="msl">
-                <span style={{background:"#EEEDFE",color:"#3C3489",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>PGDFDB-3T</span>
-                PG Diploma in FinTech, Digital Business
+                <span style={{background:"#EEEDFE",color:"#3C3489",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>MDFDB</span>
+                Master's Diploma in FinTech &amp; Digital Business
                 <span style={{fontSize:".65rem",fontWeight:700,background:"#FAEEDA",color:"#633806",padding:".1rem .35rem",borderRadius:3,marginLeft:2}}>NEW</span>
               </a>
 
               <div className="mdiv" />
               <span className="ms">Two Years</span>
               <a href="/courses/pgdfdb-2t" onClick={closeAll} className="msl">
-                <span style={{background:"#E1F5EE",color:"#085041",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>PGDFDB-2T</span>
-                PG Diploma in FinTech, Digital Business
+                <span style={{background:"#CCFBF1",color:"#065F46",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>ADFDB</span>
+                Advanced Diploma in FinTech &amp; Digital Business
                 <span style={{fontSize:".65rem",fontWeight:700,background:"#FAEEDA",color:"#633806",padding:".1rem .35rem",borderRadius:3,marginLeft:2}}>NEW</span>
               </a>
               <a href="/courses/pgcdb" onClick={closeAll} className="msl">

@@ -19,18 +19,9 @@ const styles = `
   html { scroll-behavior:smooth }
   body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--heading); overflow-x:hidden; line-height:1.6 }
 
-  nav { position:fixed; top:0; left:0; right:0; z-index:99; display:flex; justify-content:space-between; align-items:center; padding:16px 5%; background:rgba(5,11,26,.92); backdrop-filter:blur(24px); border-bottom:1px solid var(--border) }
-  .logo { display:flex; align-items:center; gap:10px }
-  .logo-mark { width:36px; height:36px; border-radius:9px; background:var(--lime); display:flex; align-items:center; justify-content:center; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:16px; color:var(--bg) }
-  .logo-name { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:16px; color:var(--heading) }
-  .logo-name span { color:var(--lime) }
-  .nav-links { display:flex; align-items:center; gap:24px }
-  .nav-links a { text-decoration:none; color:var(--subtext); font-size:13px; font-weight:500; transition:.2s }
-  .nav-links a:hover { color:var(--lime) }
-  .nav-cta { background:var(--lime); color:var(--bg); padding:9px 22px; border-radius:6px; font-weight:700; font-size:13px; text-decoration:none; transition:.2s; font-family:'Plus Jakarta Sans',sans-serif }
-  .nav-cta:hover { background:var(--w); transform:translateY(-1px) }
 
-  .hero { min-height:100vh; padding:120px 5% 80px; position:relative; overflow:hidden; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center }
+
+  .hero { min-height:100vh; padding:128px 5% 80px; position:relative; overflow:hidden; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center }
   .hero-bg { position:absolute; inset:0; background:radial-gradient(ellipse 100% 80% at 50% -20%,rgba(196,255,0,.1) 0%,transparent 55%),radial-gradient(ellipse 50% 60% at 90% 90%,rgba(255,45,120,.1) 0%,transparent 50%),var(--bg) }
   .hero::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(196,255,0,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(196,255,0,.04) 1px,transparent 1px); background-size:80px 80px; mask-image:radial-gradient(ellipse at center,black 20%,transparent 75%); pointer-events:none }
   .hero-content { position:relative; z-index:2 }
@@ -205,12 +196,11 @@ const styles = `
   @media(max-width:900px) {
     .hero, .tri-row, .prog-showcase, .pl-inner, .col-inner, .tg2 { grid-template-columns:1fr !important }
     .hero-right { display:none }
-    .nav-links a:not(.nav-cta) { display:none }
     .col-compare { position:static }
   }
 `;
 
-export default function UpskillizePGDFDB() {
+export default function UpskillizeADFDB() {
   useEffect(() => {
     // Inject styles
     const styleEl = document.createElement("style");
@@ -236,28 +226,13 @@ export default function UpskillizePGDFDB() {
 
   return (
     <>
-      {/* NAV */}
-      <nav>
-        <div className="logo">
-          <div className="logo-mark">U</div>
-          <div className="logo-name"><span>Upskillize</span> PGDFDB</div>
-        </div>
-        <div className="nav-links">
-          <a href="#trimesters">Trimesters</a>
-          <a href="#programs">Programs</a>
-          <a href="#placement">Placements</a>
-          <a href="#colleges">For Colleges</a>
-          <a href="#cta" className="nav-cta">Partner →</a>
-        </div>
-      </nav>
-
       {/* HERO */}
       <section className="hero">
         <div className="hero-bg"></div>
         <div className="hero-content rv">
           <div className="hero-tag">
             <div className="ht-dot"></div>
-            <span className="ht-text">PG Parallel Program · 2 Years · 6 Trimesters</span>
+            <span className="ht-text">Advanced Diploma · 2 Years · 6 Trimesters · Parallel to MBA</span>
           </div>
           <h1>
             Lead FinTech &amp;<br />
@@ -265,7 +240,7 @@ export default function UpskillizePGDFDB() {
             from Your PG Years
           </h1>
           <p className="hero-sub">
-            India's most industry-aggressive PG certification track — PGDFDB runs alongside your MBA, MCom or PGDM and transforms you from a student into a FinTech leader. One certificate per trimester. Final PGDFDB diploma.
+            India's most industry-aggressive advanced diploma track — ADFDB runs alongside your MBA, MCom or PGDM and transforms you from a student into a FinTech leader. One certificate per trimester. Final ADFDB diploma.
           </p>
           <div className="hero-btns">
             <a href="#cta" className="btn-lime">Partner With Us →</a>
@@ -276,7 +251,7 @@ export default function UpskillizePGDFDB() {
             <span className="chip chip-c">6+ Certifications</span>
             <span className="chip chip-a">MiniCEO Program</span>
             <span className="chip chip-i">Data to Decisions</span>
-            <span className="chip chip-l">PGDFDB Diploma</span>
+            <span className="chip chip-l">ADFDB Diploma</span>
             <span className="chip">AI in BFSI</span>
           </div>
         </div>
@@ -297,7 +272,7 @@ export default function UpskillizePGDFDB() {
             <rect x="0" y="0" width="440" height="480" rx="20" fill="rgba(7,15,34,0.95)" stroke="rgba(196,255,0,0.2)" strokeWidth="1" />
             <rect x="0" y="0" width="440" height="56" rx="20" fill="rgba(196,255,0,0.15)" />
             <rect x="0" y="36" width="440" height="20" fill="rgba(196,255,0,0.15)" />
-            <text x="220" y="35" fontFamily="Plus Jakarta Sans" fontSize="14" fontWeight="800" fill="#C4FF00" textAnchor="middle" letterSpacing="1">PGDFDB · 2 YEARS · 6 TRIMESTERS</text>
+            <text x="220" y="35" fontFamily="Plus Jakarta Sans" fontSize="14" fontWeight="800" fill="#C4FF00" textAnchor="middle" letterSpacing="1">ADFDB · 2 YEARS · 6 TRIMESTERS</text>
             {/* T1 */}
             <rect x="24" y="76" width="80" height="64" rx="10" fill="rgba(196,255,0,0.12)" stroke="rgba(196,255,0,0.35)" strokeWidth="1.5" />
             <text x="64" y="97" fontFamily="Plus Jakarta Sans" fontSize="11" fontWeight="800" fill="#C4FF00" textAnchor="middle">T1</text>
@@ -351,10 +326,10 @@ export default function UpskillizePGDFDB() {
             <rect x="256" y="328" width="106" height="40" rx="8" fill="rgba(255,158,0,0.06)" stroke="rgba(255,158,0,0.15)" strokeWidth="1" />
             <text x="309" y="345" fontFamily="Inter" fontSize="9" fontWeight="700" fill="#FF9E00" textAnchor="middle">IB Technology</text>
             <text x="309" y="357" fontFamily="Inter" fontSize="9" fill="rgba(255,255,255,0.5)" textAnchor="middle">Capital Markets</text>
-            {/* PGDFDB Final */}
+            {/* ADFDB Final */}
             <rect x="24" y="386" width="392" height="56" rx="12" fill="rgba(196,255,0,0.15)" stroke="rgba(196,255,0,0.5)" strokeWidth="2" />
-            <text x="220" y="413" fontFamily="Plus Jakarta Sans" fontSize="16" fontWeight="800" fill="#C4FF00" textAnchor="middle">🎓 PGDFDB DIPLOMA</text>
-            <text x="220" y="432" fontFamily="Inter" fontSize="10" fill="rgba(255,255,255,0.6)" textAnchor="middle">Post Graduate Diploma in FinTech and Digital Business · NSQF Level 7</text>
+            <text x="220" y="413" fontFamily="Plus Jakarta Sans" fontSize="16" fontWeight="800" fill="#C4FF00" textAnchor="middle">🎓 ADFDB DIPLOMA</text>
+            <text x="220" y="432" fontFamily="Inter" fontSize="10" fill="rgba(255,255,255,0.6)" textAnchor="middle">Advanced Diploma in FinTech and Digital Business · NSQF Level 7</text>
             <circle cx="220" cy="414" r="220" fill="none" stroke="rgba(196,255,0,0.03)" strokeWidth="1">
               <animateTransform attributeName="transform" type="scale" from="1" to="1.02" dur="3s" repeatCount="indefinite" additive="sum" />
             </circle>
@@ -369,13 +344,13 @@ export default function UpskillizePGDFDB() {
         <div className="ss rv d2"><div className="ss-n">104</div><div className="ss-l">Guest Lectures</div></div>
         <div className="ss rv d3"><div className="ss-n">1,200+</div><div className="ss-l">Industry Hours</div></div>
         <div className="ss rv d4"><div className="ss-n">NSQF 7</div><div className="ss-l">Qualification</div></div>
-        <div className="ss rv"><div className="ss-n">PGDFDB</div><div className="ss-l">Final Award</div></div>
+        <div className="ss rv"><div className="ss-n">ADFDB</div><div className="ss-l">Final Award</div></div>
       </div>
 
       {/* 6 TRIMESTERS */}
       <section className="tri-section" id="trimesters">
         <div className="lbl rv c">2 Years · 6 Trimesters · 1 Certificate Per Trimester</div>
-        <h2 className="ttl rv d1 c">The PGDFDB Trimester Journey</h2>
+        <h2 className="ttl rv d1 c">The ADFDB Trimester Journey</h2>
         <p className="sdesc rv d2 c">Each trimester is a focused, industry-intensive block — live sessions, case studies, guest lectures, and a capstone project that earns you a real certificate. No semester dilution. Pure focus.</p>
 
         <div className="tri-year-label tyl-1 rv">Year 1 — Build Your Foundation</div>
@@ -452,13 +427,13 @@ export default function UpskillizePGDFDB() {
             <div className="tc2-bg" style={{ color: "var(--lime)" }}>6</div>
             <div className="tri-num-tag nt-lime">Trimester 6</div>
             <h3>Grand Capstone &amp; Career Launch</h3>
-            <p>Synthesise 2 years into a Grand FinTech Venture Pitch evaluated by an industry panel. Placement sprint, mock interviews, employer connects, and PGDFDB Diploma award.</p>
+            <p>Synthesise 2 years into a Grand FinTech Venture Pitch evaluated by an industry panel. Placement sprint, mock interviews, employer connects, and ADFDB Diploma award.</p>
             <div className="tc2-topics">
               <span className="tc2-t">Grand FinTech Venture Pitch</span><span className="tc2-t">Financial Modelling</span>
               <span className="tc2-t">Investor Pitch Mastery</span><span className="tc2-t">Mock Interview Sprint</span>
-              <span className="tc2-t">Employer Connect Events</span><span className="tc2-t">PGDFDB Diploma</span>
+              <span className="tc2-t">Employer Connect Events</span><span className="tc2-t">ADFDB Diploma</span>
             </div>
-            <div className="tc2-cert" style={{ background: "rgba(196,255,0,0.15)", borderColor: "rgba(196,255,0,0.5)", color: "var(--lime)" }}>🎓 PGDFDB Diploma — Post Graduate Diploma in FinTech &amp; Digital Business</div>
+            <div className="tc2-cert" style={{ background: "rgba(196,255,0,0.15)", borderColor: "rgba(196,255,0,0.5)", color: "var(--lime)" }}>🎓 ADFDB Diploma — Advanced Diploma in FinTech &amp; Digital Business</div>
           </div>
         </div>
       </section>
@@ -551,7 +526,7 @@ export default function UpskillizePGDFDB() {
           <div>
             <div className="lbl rv">Career Outcomes</div>
             <h2 className="ttl rv d1">Jobs Built on<br />What You <span className="lc">Actually Learned</span></h2>
-            <p className="sdesc rv d2">PGDFDB curriculum is reverse-engineered from live BFSI and FinTech job descriptions. Every module maps to a real hiring requirement.</p>
+            <p className="sdesc rv d2">ADFDB curriculum is reverse-engineered from live BFSI and FinTech job descriptions. Every module maps to a real hiring requirement.</p>
             <div className="roles-visual">
               <div className="rv-category rv d1">
                 <div className="rvc-label">FinTech &amp; Product Roles</div>
@@ -603,7 +578,7 @@ export default function UpskillizePGDFDB() {
             <div className="support-blocks">
               <div className="sb2 rv d1"><span className="sb2-icon">🎯</span><div><h5>Placement Sprint — Trimester 6</h5><p>Dedicated placement module: mock interviews (technical + HR), resume deep-dive, employer connects and personal brand audit.</p></div></div>
               <div className="sb2 rv d2"><span className="sb2-icon">🏢</span><div><h5>Employer Connect Events</h5><p>Campus drives, virtual employer panels, and direct company introductions through Upskillize's BFSI partner network.</p></div></div>
-              <div className="sb2 rv d3"><span className="sb2-icon">🔗</span><div><h5>Alumni Mentoring Network</h5><p>1:1 matching with PGDFDB alumni in your target role and sector for guidance and referrals throughout the program.</p></div></div>
+              <div className="sb2 rv d3"><span className="sb2-icon">🔗</span><div><h5>Alumni Mentoring Network</h5><p>1:1 matching with ADFDB alumni in your target role and sector for guidance and referrals throughout the program.</p></div></div>
               <div className="sb2 rv d1"><span className="sb2-icon">📁</span><div><h5>Capstone Portfolio Review</h5><p>6 capstone projects professionally evaluated — give employers actual evidence of your work, not just exam grades.</p></div></div>
               <div className="sb2 rv d2"><span className="sb2-icon">🎙️</span><div><h5>CXO Guest Lecture Network</h5><p>104 live sessions across 2 years build real professional connections with India's BFSI and FinTech leadership.</p></div></div>
             </div>
@@ -617,9 +592,9 @@ export default function UpskillizePGDFDB() {
           <div>
             <div className="lbl rv">For Partner Institutions</div>
             <h2 className="ttl rv d1">Your MBA Students Deserve<br />More Than an <span className="cc">MBA</span></h2>
-            <p className="sdesc rv d2">PGDFDB runs fully alongside your MBA, MCom or PGDM — delivered entirely by Upskillize. Zero curriculum cost. Maximum placement differentiation.</p>
+            <p className="sdesc rv d2">ADFDB runs fully alongside your MBA, MCom or PGDM — delivered entirely by Upskillize. Zero curriculum cost. Maximum placement differentiation.</p>
             <div className="benefits-col">
-              <div className="bcol rv d1"><div className="bcol-icon">🎓</div><div><h4>NSQF Level 7 — Academic Credibility</h4><p>PGDFDB carries post-graduate diploma equivalence — reinforcing your institution's academic standing in industry rankings.</p></div></div>
+              <div className="bcol rv d1"><div className="bcol-icon">🎓</div><div><h4>NSQF Level 7 — Academic Credibility</h4><p>ADFDB carries advanced diploma equivalence — reinforcing your institution's academic standing in industry rankings.</p></div></div>
               <div className="bcol rv d2"><div className="bcol-icon" style={{ background: "var(--coral3)", borderColor: "rgba(255,45,120,.2)" }}>📈</div><div><h4>Placement Outcomes — Measurably Better</h4><p>Graduates with 8 credentials, capstone portfolios, and IB + AI certifications attract employers your regular MBA can't reach.</p></div></div>
               <div className="bcol rv d3"><div className="bcol-icon">🏛️</div><div><h4>104 Industry Experts Visiting</h4><p>BFSI CXOs, FinTech founders, AI researchers — weekly guest lectures put your campus on India's FinTech map.</p></div></div>
               <div className="bcol rv d1"><div className="bcol-icon" style={{ background: "var(--coral3)", borderColor: "rgba(255,45,120,.2)" }}>💼</div><div><h4>Zero Faculty. Zero Content Work.</h4><p>Upskillize delivers all sessions, content, assessment, and certificates. Your team focuses on student support.</p></div></div>
@@ -654,8 +629,8 @@ export default function UpskillizePGDFDB() {
       <section className="diploma-final">
         <div className="rv">
           <div className="df-award">
-            <div className="df-pgdfdb">Post Graduate Diploma in<br />FinTech and Digital Business</div>
-            <div className="df-full">PGDFDB · Awarded end of Trimester 6 · NSQF Level 7</div>
+            <div className="df-pgdfdb">Advanced Diploma in<br />FinTech and Digital Business</div>
+            <div className="df-full">ADFDB · Awarded end of Trimester 6 · NSQF Level 7</div>
             <div className="df-pills">
               <span className="df-pill">6 Trimester Certificates</span>
               <span className="df-pill">BFSI Domain Excellence</span>
@@ -670,18 +645,18 @@ export default function UpskillizePGDFDB() {
             </div>
           </div>
           <h2 className="ttl c" style={{ maxWidth: "580px", margin: "0 auto 14px" }}>More Than a PG Degree.<br /><span className="lc">A FinTech Career Blueprint.</span></h2>
-          <p className="sdesc c" style={{ margin: "0 auto" }}>The PGDFDB diploma plus 8 credentials puts you in a category of one. Not just a degree holder — a certified FinTech and digital business leader, built for 2026 and beyond.</p>
+          <p className="sdesc c" style={{ margin: "0 auto" }}>The ADFDB diploma plus 8 credentials puts you in a category of one. Not just a degree holder — a certified FinTech and digital business leader, built for 2026 and beyond.</p>
         </div>
       </section>
 
       {/* TESTIMONIALS */}
       <section className="testi-section2">
         <div className="lbl rv c">Student Stories</div>
-        <h2 className="ttl rv d1 c">What PGDFDB Students Say</h2>
+        <h2 className="ttl rv d1 c">What ADFDB Students Say</h2>
         <div className="tg2">
           <div className="tcard2 rv d1">
             <div className="tcard2-accent ta2-lime"></div>
-            <p className="tcard2-text">I was doing MBA Finance at a good B-school. PGDFDB ran on weekends and evenings — and by Trimester 3, I knew more about AI credit models than most of my professors. Got placed as AI Finance PM before semester 4 ended.</p>
+            <p className="tcard2-text">I was doing MBA Finance at a good B-school. ADFDB ran on weekends and evenings — and by Trimester 3, I knew more about AI credit models than most of my professors. Got placed as AI Finance PM before semester 4 ended.</p>
             <div className="tcard2-author"><div className="ta2-av ta2-lime-av">A</div><div><div className="ta2-name">Arjun V.</div><div className="ta2-role">MBA → AI Finance PM, FinTech Unicorn</div></div></div>
           </div>
           <div className="tcard2 rv d2">
@@ -700,10 +675,10 @@ export default function UpskillizePGDFDB() {
       {/* CTA */}
       <section className="cta2" id="cta">
         <div className="lbl rv c">Get Started</div>
-        <h2 className="rv d1">Ready to Bring PGDFDB<br />to Your Institution?</h2>
+        <h2 className="rv d1">Ready to Bring ADFDB<br />to Your Institution?</h2>
         <p className="rv d2">Partner with Upskillize and give your PG students the FinTech credential India's top employers are looking for — delivered entirely by us.</p>
         <div className="cta2-actions">
-          <a href="https://www.upskillize.com/contact" className="btn-lime rv d3">Request a Partnership Call →</a>
+          <a href="/contact" className="btn-lime rv d3">Request a Partnership Call →</a>
           <a href="https://www.upskillize.com" className="btn-line rv d4">Visit Upskillize.com</a>
         </div>
       </section>

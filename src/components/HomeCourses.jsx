@@ -15,16 +15,44 @@ import { Link } from "react-router-dom";
 
 /* ─── Course Data matching Navbar exactly ─── */
 
+const THREE_YEAR = [
+  {
+    title: "Master's Diploma in Fintech and Digital Business",
+    badge: "MDFDB",
+    badgeColor: "bg-violet-100 text-violet-800",
+    desc: "A master's-level diploma spanning 9 trimesters, designed to run parallel to your undergraduate degree — building deep expertise in FinTech, digital business, AI, and BFSI from year one.",
+    icon: <GraduationCap size={32} />,
+    color: "from-violet-600 to-purple-700",
+    link: "/courses/threeyearscourses",
+    duration: "3 Years · 9 Trimesters",
+    parallel: "Parallel to Undergraduation",
+    isNew: true,
+  },
+];
+
 const TWO_YEAR = [
   {
-    title: "Post Graduate Diploma in Fintech and Digital Business",
-    badge: "PGD-FDB",
+    title: "Advanced Diploma in Fintech and Digital Business",
+    badge: "ADFDB",
+    badgeColor: "bg-teal-100 text-teal-800",
+    desc: "A rigorous advanced diploma across 6 trimesters, designed to run alongside your MBA — combining BFSI strategy, AI, WealthTech, and digital transformation with live industry projects.",
+    icon: <Award size={32} />,
+    color: "from-teal-500 to-cyan-600",
+    link: "/courses/pgdfdb-2t",
+    duration: "2 Years · 6 Trimesters",
+    parallel: "Parallel to MBA",
+    isNew: true,
+  },
+  {
+    title: "PG Diploma in Fintech and Digital Business",
+    badge: "PGDFDB",
     badgeColor: "bg-blue-100 text-blue-800",
-    desc: "A comprehensive post-graduate program bridging digital business strategy with modern financial technology, BFSI, WealthTech, and RegTech specialisations.",
+    desc: "A comprehensive post-graduate diploma across 4 semesters, designed to run alongside your MBA — bridging digital business strategy with modern financial technology, BFSI, WealthTech, and RegTech.",
     icon: <GraduationCap size={32} />,
     color: "from-blue-600 to-indigo-700",
-    link: "/courses/twoyearstrimester",
-    duration: "2 Years",
+    link: "/courses/pgcdb",
+    duration: "2 Years · 4 Semesters",
+    parallel: "Parallel to MBA",
   },
 ];
 
@@ -33,11 +61,12 @@ const ONE_YEAR = [
     title: "PG Diploma in FinTech, Banking & AI",
     badge: "PGDFBA",
     badgeColor: "bg-emerald-100 text-emerald-800",
-    desc: "A focused one-year program blending AI, data analytics, and digital strategy for finance professionals.",
-    icon: <Award size={32} />,
+    desc: "A focused one-year program blending AI, data analytics, and digital strategy for finance professionals — delivered across 6 bimesters, online/hybrid.",
+    icon: <Lightbulb size={32} />,
     color: "from-emerald-500 to-teal-600",
     link: "/courses/pgcdf",
-    duration: "1 Year",
+    duration: "1 Year · 6 Bimesters",
+    parallel: "Online / Hybrid",
   },
 ];
 
@@ -98,12 +127,22 @@ function FeaturedCard({ item }) {
         </span>
       </div>
       <div className="p-7 flex flex-col justify-center">
-        <h3 className="text-xl font-extrabold text-gray-800 group-hover:text-indigo-600 transition-colors">
-          {item.title}
-        </h3>
+        <div className="flex items-center gap-2 flex-wrap mb-1">
+          <h3 className="text-xl font-extrabold text-gray-800 group-hover:text-indigo-600 transition-colors">
+            {item.title}
+          </h3>
+          {item.isNew && (
+            <span style={{ fontSize: "9px", fontWeight: 700, background: "#FAEEDA", color: "#633806", borderRadius: "3px", padding: "2px 7px" }}>
+              NEW
+            </span>
+          )}
+        </div>
         <p className="mt-2 text-gray-500 text-sm leading-relaxed">{item.desc}</p>
-        <div className="mt-5 flex items-center gap-5">
+        <div className="mt-5 flex items-center gap-5 flex-wrap">
           <span className="text-xs text-gray-400 font-medium">⏱ {item.duration}</span>
+          {item.parallel && (
+            <span className="text-xs text-indigo-400 font-medium bg-indigo-50 px-2 py-0.5 rounded-full">{item.parallel}</span>
+          )}
           <span className="text-indigo-600 font-semibold text-sm group-hover:underline">
             View Programs →
           </span>
@@ -148,8 +187,16 @@ export default function HomeCourses() {
             Higher Education Programs
           </h2>
           <p className="mt-4 text-gray-500 max-w-2xl mx-auto">
-            Specialized programs aligned with real-world industry demands — from long-form diplomas to focused short courses.
+            Two years of immersion. Twenty years of strategic and career advantage. We make you part of it.
           </p>
+        </div>
+
+        {/* Three Year */}
+        <div className="mb-12">
+          <SectionLabel label="Three Year" pillClass="bg-violet-100 text-violet-700" />
+          <div className="grid gap-5">
+            {THREE_YEAR.map((item, i) => <FeaturedCard key={i} item={item} />)}
+          </div>
         </div>
 
         {/* Two Year */}
