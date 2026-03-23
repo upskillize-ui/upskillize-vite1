@@ -538,7 +538,7 @@ export default function UpskillizeFintechTrack() {
         <div className="rv">
           <div className="diploma-badge">
             <div className="db-title">Post Graduate Diploma in FinTech<br />& Digital Business</div>
-            <div className="db-sub">PGDFDB · Awarded at end of Year 3 · NSQF Level 6 Aligned</div>
+            <div className="db-sub">MDFDB · Awarded at end of Year 3 · NSQF Level 6 Aligned</div>
             <div className="db-creds">
               {["9 Trimester Certificates","BFSI Domain Excellence","Data to Decisions","MiniCEO Certificate","AI in Finance","Grand Capstone Project","EcoPro AI Learning Portfolio"].map(c => (
                 <span className="db-cred" key={c}>{c}</span>
@@ -546,7 +546,7 @@ export default function UpskillizeFintechTrack() {
             </div>
           </div>
           <h2 className="ttl tc" style={{ maxWidth: 600, margin: "0 auto 16px" }}>Graduate With More Than a Degree.<br /><span className="vc">Graduate With a Career.</span></h2>
-          <p className="sub tc" style={{ margin: "0 auto" }}>The PGDFDB diploma plus 9 industry certifications puts you in a category of one at every campus placement. Not just a degree holder — a FinTech professional.</p>
+          <p className="sub tc" style={{ margin: "0 auto" }}>The MDFDB diploma plus 9 industry certifications puts you in a category of one at every campus placement. Not just a degree holder — a FinTech professional.</p>
         </div>
       </section>
 
