@@ -242,66 +242,33 @@ export default function Navbar() {
                   <div className={`nb-panel${industryOpen ? " open" : ""}`}>
 
                     {/* COL 1 – Two Year */}
-                    <div className="nb-col">
-                      <span className="nb-clabel">Two Years</span>
-                      <a href="/courses/pgdfdb-2t" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".28rem",padding:".45rem .7rem"}}>
-                        <div style={{width:"100%",height:"46px",borderRadius:".35rem",overflow:"hidden",position:"relative",marginBottom:".05rem"}}>
-                          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400" alt="ADFDB" style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}} />
-                          <div style={{position:"absolute",bottom:4,right:5,fontSize:".55rem",fontWeight:700,background:"#FAEEDA",color:"#633806",padding:"1px 4px",borderRadius:2}}>NEW</div>
-                        </div>
-                        <span className="nbp" style={{background:"#CCFBF1",color:"#065F46",fontSize:".57rem",padding:".1rem .38rem"}}>ADFDB</span>
-                        <div style={{fontSize:".72rem",fontWeight:700,color:"var(--c-text)",lineHeight:1.25}}>
-                          PG Diploma in FinTech &amp; Digital Business
-                        </div>
-                        <div style={{fontSize:".63rem",color:"var(--c-muted)"}}>Parallel to MBA</div>
-                        <div style={{display:"flex",gap:".22rem",flexWrap:"wrap"}}>
-                          <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>Trimester</span>
-                          <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>6 trimesters</span>
-                        </div>
-                      </a>
-                      <div style={{height:"1px",background:"var(--c-border)",margin:"0 .75rem"}}/>
-                      <a href="/courses/pgcdb" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".25rem",padding:".38rem .7rem"}}>
-                        <span className="nbp" style={{background:"#e8f4f0",color:"#0F6E56",fontSize:".57rem",padding:".1rem .38rem"}}>PGDFDB</span>
-                        <div style={{fontSize:".72rem",fontWeight:700,color:"var(--c-text)",lineHeight:1.25}}>
-                          PG Diploma in FinTech &amp; Digital Business
-                        </div>
-                        <div style={{fontSize:".63rem",color:"var(--c-muted)"}}>Parallel to MBA</div>
-                        <div style={{display:"flex",gap:".22rem",flexWrap:"wrap"}}>
-                          <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>Semester</span>
-                          <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>4 semesters</span>
-                        </div>
-                      </a>
-                    </div>
+<div className="nb-col">
+  <span className="nb-clabel">Two Years</span>
+  <a href="/courses/pgdfdb-2t" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".28rem",padding:".45rem .7rem"}}>
+    <div style={{width:"100%",height:"46px",borderRadius:".35rem",overflow:"hidden",position:"relative",marginBottom:".05rem"}}>
+      <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400" alt="ADFDB" style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}} />
+      <div style={{position:"absolute",bottom:4,right:5,fontSize:".55rem",fontWeight:700,background:"#FAEEDA",color:"#633806",padding:"1px 4px",borderRadius:2}}>NEW</div>
+    </div>
 
-                    {/* COL 1 – Three Year */}
-                   {/* <div className="nb-col">
-                      <span className="nb-clabel">Three Years</span>
-                      <a href="/courses/threeyearscourses" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".28rem",padding:".45rem .7rem"}}>
-                        {/* Image: smaller height */}
-                       {/* <div style={{width:"100%",height:"46px",borderRadius:".35rem",overflow:"hidden",position:"relative",marginBottom:".05rem"}}>
-                          <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400" alt="MDFDB" style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}} />
-                          <div style={{position:"absolute",bottom:4,right:5,fontSize:".55rem",fontWeight:700,background:"#FAEEDA",color:"#633806",padding:"1px 4px",borderRadius:2}}>NEW</div>
-                        </div>
-                        <span className="nbp" style={{background:"#EEEDFE",color:"#3C3489",fontSize:".57rem",padding:".1rem .38rem"}}>MDFDB</span>
-                        <div style={{fontSize:".72rem",fontWeight:700,color:"var(--c-text)",lineHeight:1.25}}>
-                          Master's Diploma in FinTech &amp; Digital Business
-                        </div>
-                        <div style={{fontSize:".63rem",color:"var(--c-muted)"}}>Parallel to Undergraduation</div>
-                        <div style={{display:"flex",gap:".22rem",flexWrap:"wrap"}}>
-                          <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>Trimester</span>
-                          <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>9 trimesters</span>
-                        </div>
-                      </a>
-                    </div> */}
-
+    <span className="nbp" style={{background:"#e8f4f0",color:"#0F6E56",fontSize:".57rem",padding:".1rem .38rem"}}>PGDFDB</span>
+    <div style={{fontSize:".72rem",fontWeight:700,color:"var(--c-text)",lineHeight:1.25}}>
+      PG Diploma in FinTech &amp; Digital Business
+    </div>
+    <div style={{fontSize:".63rem",color:"var(--c-muted)"}}>Parallel to MBA</div>
+    <div style={{display:"flex",gap:".22rem",flexWrap:"wrap"}}>
+      <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>Semester</span>
+      <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>4 semesters</span>
+    </div>
+  </a>
+</div>
                     {/* COL 2 – One Year */}
                     <div className="nb-col">
                       <span className="nb-clabel">One Year</span>
                       <a href="/courses/pgcdf" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".28rem",padding:".45rem .7rem"}}>
                         <div style={{width:"100%",height:"46px",borderRadius:".35rem",overflow:"hidden",marginBottom:".05rem"}}>
-                          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400" alt="PGDFBA" style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}} />
+                          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400" alt="ADFBA" style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}} />
                         </div>
-                        <span className="nbp nbp-g" style={{fontSize:".57rem",padding:".1rem .38rem"}}>PGDFBA</span>
+                        <span className="nbp nbp-g" style={{fontSize:".57rem",padding:".1rem .38rem"}}>ADFBA</span>
                         <div style={{fontSize:".72rem",fontWeight:700,color:"var(--c-text)",lineHeight:1.25}}>
                           Advance Diploma in FinTech, Banking &amp; AI
                         </div>
@@ -442,8 +409,8 @@ export default function Navbar() {
               {/* Two Years — Three Years section removed */}
               <span className="ms">Two Years</span>
               <a href="/courses/pgdfdb-2t" onClick={closeAll} className="msl">
-                <span style={{background:"#CCFBF1",color:"#065F46",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>ADFDB</span>
-                Advanced Diploma in FinTech &amp; Digital Business
+                <span style={{background:"#CCFBF1",color:"#065F46",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>PGDFDB</span>
+                 PG Diploma in FinTech &amp; Digital Business
                 <span style={{fontSize:".65rem",fontWeight:700,background:"#FAEEDA",color:"#633806",padding:".1rem .35rem",borderRadius:3,marginLeft:2}}>NEW</span>
               </a>
               <a href="/courses/pgcdb" onClick={closeAll} className="msl">

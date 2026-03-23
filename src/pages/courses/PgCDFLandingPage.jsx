@@ -515,7 +515,7 @@ const LECTURES = [
   {num:"05",title:"GenAI in Core Banking: Real Deployments, Honest Lessons",speaker:"Head of AI/ML, leading private bank",qs:["Which GenAI use cases have delivered proven ROI?","What GenAI use cases have failed — and why?","Managing hallucination risk in regulated environments?"],task:"GenAI use case ranking: rank 10 BFSI applications by feasibility and impact"},
   {num:"06",title:"DPDPA 2023: What BFSI Companies Are Getting Wrong",speaker:"Data Protection Officer, leading private bank",qs:["Top 5 DPDPA obligations most companies miss?","How does DPDPA interact with AML data retention?","What does a DPDPA-compliant digital lending product look like?"],task:"DPDPA audit mini-exercise: assess 5 practices against obligations"},
   {num:"07",title:"WealthTech 2.0: From Democratisation to Sophistication",speaker:"Chief Product Officer, leading WealthTech platform",qs:["What made 100M Indians invest for the first time?","Where is the next wave of WealthTech growth coming from?","How do you build a wealth product for Tier 2–3 cities?"],task:"WealthTech product teardown: 5 UX observations on one app's onboarding flow"},
-  {num:"08",title:"What Hiring Managers Actually Want — Brutally Honest",speaker:"Head of Campus Hiring, leading BFSI company (500+ hires/year)",qs:["What shortlists a BFSI resume in 6 seconds?","What interview answer signals unreadiness instantly?","Most common mistake BFSI applicants make in final rounds?"],task:"Submit PGDFBA-optimised resume; confirm Mock Interview 1 slot"},
+  {num:"08",title:"What Hiring Managers Actually Want — Brutally Honest",speaker:"Head of Campus Hiring, leading BFSI company (500+ hires/year)",qs:["What shortlists a BFSI resume in 6 seconds?","What interview answer signals unreadiness instantly?","Most common mistake BFSI applicants make in final rounds?"],task:"Submit ADFBA-optimised resume; confirm Mock Interview 1 slot"},
   {num:"09",title:"Careers in Wealth Management: From RM to Private Banker",speaker:"Managing Director, leading private wealth management firm",qs:["How is the Wealth Manager role evolving with AI?","What does a HNI client actually expect from an advisor?","Career path from junior RM to Private Banker timeline?"],task:"Build your personal wealth management career roadmap — 5-year plan"},
 ];
 
@@ -597,7 +597,7 @@ const CERTS_DATA = [
   {bi:"B3",name:"Certified AI & RegTech Compliance Analyst",abbr:"CARCA",color:"#8B5CF6",what:"Claude API, RAG, DPDPA 2023, AML/KYC, ComplyAdvantage, n8n, digital content strategy.",roles:"GenAI Analyst, Compliance, RegTech, Content Writer"},
   {bi:"B4",name:"Certified AI Product Manager — BFSI",abbr:"CAPM-BFSI",color:"#F59E0B",what:"PRD writing, Figma, Agile/SAFe, Six Sigma DMAIC, ITIL Foundation, InsurTech, Placement Bootcamp.",roles:"Associate PM, BA, AI/ML Analyst, Consulting"},
   {bi:"B5",name:"Certified Digital Banking & FinTech Strategist",abbr:"CDBFS",color:"#0EA5E9",what:"FLEXCUBE, SAP BFSI, Finacle, Salesforce CRM, wealth advisory practice, FinTech strategy frameworks.",roles:"RM, Wealth Manager, Digital BA, Consulting"},
-  {bi:"B6",name:"Post Graduate Diploma in FinTech, Banking & AI",abbr:"PGDFBA",color:"#D4A017",what:"Master credential: all 40 credits, 12 capstones, 2 mock interviews, major capstone jury cleared.",roles:"All 16 target roles — the definitive career-entry credential"},
+  {bi:"B6",name:"Post Graduate Diploma in FinTech, Banking & AI",abbr:"ADFBA",color:"#D4A017",what:"Master credential: all 40 credits, 12 capstones, 2 mock interviews, major capstone jury cleared.",roles:"All 16 target roles — the definitive career-entry credential"},
 ];
 
 const BI_COLORS = ["#3B82F6","#10B981","#8B5CF6","#E05A2B","#1565A0","#374151"];
@@ -636,7 +636,7 @@ function Hero() {
               <span className="badge badge-outline" style={{borderColor:'rgba(255,255,255,.5)',color:'var(--white)'}}>Placement-First</span>
             </div>
             <h1 className="h-display" style={{color:'var(--white)',marginBottom:20}}>
-              Post Graduate Diploma in<br />
+              Advance Diploma in<br />
               <span style={{color:'var(--gold2)'}}>FinTech, Banking & AI</span>
             </h1>
             <p style={{fontFamily:'var(--font-body)',fontSize:16,fontWeight:400,color:'rgba(255,255,255,.72)',marginBottom:36,maxWidth:560,lineHeight:1.7}}>
@@ -800,15 +800,15 @@ function CurriculumSection() {
     {
       period:'Months 11–12 · Capstone & Launch',
       theme:'Industry Immersion, Major Capstone, Content Portfolio & Career Launch',
-      cert:{label:'🎓 Master Certificate',name:'Post Graduate Diploma in FinTech, Banking & AI — PGDFBA',isMaster:true},
+      cert:{label:'🎓 Master Certificate',name:'Post Graduate Diploma in FinTech, Banking & AI — ADFBA',isMaster:true},
       meta:[['6–7','Credits'],['2','Capstones'],['9','Lectures'],['9','Cases']],
       courses:['Track A: AI PM — Integrated AI Banking Workflow','Track B: Risk — Full-Firm NBFC Risk Simulation','Track C: FinTech — Business Strategy & Launch','Track D: Wealth — 5-Client Advisory Portfolio','Track E: Content — BFSI Content Strategy Launch'],
       tools:['Mock Interview 2 (industry practitioner)','15+ piece content portfolio published','Placement drive + hiring network activation'],
-      milestone:'PGDFBA Master Certificate · 2 Mock Interviews done · Full portfolio launched · Job offers',
+      milestone:'ADFBA Master Certificate · 2 Mock Interviews done · Full portfolio launched · Job offers',
       sidebarBg:'var(--ink)',
       topics:[
         {num:13,color:'#374151',title:'Major Industry Capstone (9 weeks)',tags:[{t:'Portfolio',c:'default'},{t:'All roles · Industry jury',c:'teal'}],items:["Weeks 1–2: Problem scoping + mentor green-light","Weeks 3–5: Research, analysis, data work","Weeks 6–9: Solution build, peer review, refinement","Week 10: 15-min jury presentation + 10-min Q&A","Best projects: LinkedIn case study + Upskillize showcase","CP11: n8n + Claude API + Lovable integrated workflow","CP12: Full-firm NBFC risk simulation — board-ready report","Jury: 1 Upskillize mentor + 1 industry practitioner"]},
-        {num:14,color:'#374151',title:'Career Launch, Alumni Network & Post-Programme Roadmap',tags:[{t:'Career',c:'default'},{t:'All 16 roles',c:'gold'}],items:["BFSI career map: 40+ roles, skills, and salary mapped","Content portfolio: 15+ published pieces, author brand","Certification stacking post-PGDFBA: FRM, CFA, PRMIA, CAIP","LinkedIn content strategy: build domain authority in BFSI","Alumni network: cohort LinkedIn group, peer referrals","PRMIA Bangalore Chapter: events, networking, student membership","90-day career activation plan with measurable milestones","Personal board of directors: building lifelong career network"]},
+        {num:14,color:'#374151',title:'Career Launch, Alumni Network & Post-Programme Roadmap',tags:[{t:'Career',c:'default'},{t:'All 16 roles',c:'gold'}],items:["BFSI career map: 40+ roles, skills, and salary mapped","Content portfolio: 15+ published pieces, author brand","Certification stacking post-ADFBA: FRM, CFA, PRMIA, CAIP","LinkedIn content strategy: build domain authority in BFSI","Alumni network: cohort LinkedIn group, peer referrals","PRMIA Bangalore Chapter: events, networking, student membership","90-day career activation plan with measurable milestones","Personal board of directors: building lifelong career network"]},
       ],
       capstones:[
         {title:'CP11 (Build)','desc':'Integrated AI Banking Workflow — n8n + Claude API + Lovable: full loan origination-to-disbursement with AI underwriting and compliance layer'},
@@ -1035,7 +1035,7 @@ function CreditsSection() {
     {bi:'B3',theme:'AI & RegTech',cert:'CARCA',certColor:'var(--teal)',domain:'3.0',applied:'1.5',immersion:'1.2',career:'0',total:'6.6',hrs:'198'},
     {bi:'B4',theme:'AI Product & Placement',cert:'CAPM-BFSI',certColor:'var(--teal)',domain:'2.5',applied:'1.5',immersion:'1.0',career:'2.0',total:'7.0',hrs:'210'},
     {bi:'B5',theme:'Digital Banking',cert:'CDBFS',certColor:'var(--teal)',domain:'2.5',applied:'2.0',immersion:'1.2',career:'0',total:'6.6',hrs:'198'},
-    {bi:'B6',theme:'Capstone & Launch',cert:'PGDFBA',certColor:'var(--gold)',domain:'1.0',applied:'3.0',immersion:'1.0',career:'1.6',total:'6.6',hrs:'198'},
+    {bi:'B6',theme:'Capstone & Launch',cert:'ADFBA',certColor:'var(--gold)',domain:'1.0',applied:'3.0',immersion:'1.0',career:'1.6',total:'6.6',hrs:'198'},
   ];
   return (
     <section className="section-sm" id="credits">
@@ -1187,7 +1187,7 @@ function CareersSection() {
         <div className="sec-header fade-up">
           <span className="accent-line" />
           <div className="label">16 Career Pathways</div>
-          <h2 className="h1">Where PGDFBA Takes You</h2>
+          <h2 className="h1">Where ADFBA Takes You</h2>
           <p className="lead">Every module, tool, and assessment maps to real roles at banks, NBFCs, FinTechs, and consulting firms. Discover your career cluster below.</p>
         </div>
         <div style={{display:'flex',gap:8,flexWrap:'wrap',marginBottom:28}}>
