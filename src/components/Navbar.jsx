@@ -460,43 +460,10 @@ export default function Navbar() {
                 </div>
 
                 {/* BFSI Lab */}
-                <div className="nb-ind" onMouseEnter={onLabEnter} onMouseLeave={onLabLeave} style={{ position:"relative" }}>
-                  <button className="nbb-lab" aria-haspopup="true" aria-expanded={labOpen}>
-                    🏦 BFSI Lab
-                    <ChevronDown size={13} style={{ transition:"transform .2s", transform: labOpen ? "rotate(180deg)" : "rotate(0)" }} />
-                  </button>
-                  <div className={`nb-lab-panel${labOpen ? " open" : ""}`}>
-                    <div style={{ display:"flex", alignItems:"center", gap:".625rem", marginBottom:".75rem" }}>
-                      <div style={{ width:"44px", height:"44px", borderRadius:".5rem", background:"linear-gradient(135deg,#ccfbf1,#a7f3d0)", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0 }}>
-                        <span style={{ fontSize:"1.35rem" }}>🏦</span>
-                      </div>
-                      <div>
-                        <p style={{ fontSize:".8rem", fontWeight:800, color:"#111827", margin:0, lineHeight:1.3 }}>
-                          India's First FinTech &amp; AI Innovation Lab
-                        </p>
-                        <p style={{ fontSize:".67rem", color:"#6b7280", margin:0 }}>Deployed inside your campus</p>
-                      </div>
-                    </div>
-                    <p style={{ fontSize:".7rem", color:"#374151", lineHeight:1.55, marginBottom:".75rem" }}>
-                      Purpose-built for BFSI learning with live modules, peer-working model and NAAC-ready infrastructure.
-                    </p>
-                    <ul style={{ listStyle:"none", padding:0, margin:"0 0 .875rem", display:"grid", gridTemplateColumns:"1fr 1fr", gap:".3rem .5rem" }}>
-                      {["10 innovation zones","36 live modules","Peer-working model","NAAC-ready","Industry mentors","Live case studies"].map(item => (
-                        <li key={item} style={{ display:"flex", alignItems:"center", gap:".3rem", fontSize:".67rem", color:"#374151" }}>
-                          <span style={{ width:"5px", height:"5px", borderRadius:"50%", background:"#009E85", flexShrink:0, display:"inline-block" }} />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                    <a href="/bfsiinnovationlab"
-                      style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:".4rem", background:"linear-gradient(135deg,#00C9A7,#009E85)", color:"#fff", fontSize:".75rem", fontWeight:700, padding:".5rem 1rem", borderRadius:".45rem", textDecoration:"none", boxShadow:"0 3px 10px rgba(0,201,167,.3)" }}>
-                      Explore the Lab →
-                    </a>
-                  </div>
-                </div>
-
+                <a href="/bfsiinnovationlab" className="nbb-lab">
+                  🏦 BFSI Lab
+                </a>
               </div>
-
               <div className="nb-right">
                 <div className="nbd">
                   <button className="nbb">About <ChevronDown size={15} className="nbc" /></button>
