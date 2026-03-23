@@ -2,9 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 
-/* ─────────────────────────────────────────────────────────────────────────────
-   DATA
-───────────────────────────────────────────────────────────────────────────── */
 const QUARTER_COURSES = [
   {
     label: "AI in FinTech",
@@ -132,14 +129,14 @@ export default function Navbar() {
         .nbd-item:hover{background:var(--c-hover-bg);color:var(--c-hover)}
         .nb-ind{position:relative}
 
-        /* ── PANEL: tighter width, rebalanced columns ── */
+        /* ── PANEL: 4 columns after removing Three Years ── */
         .nb-panel{
           position:absolute;top:calc(100% + 8px);left:-60px;
           background:var(--c-bg);border:1px solid var(--c-border);
           border-radius:.875rem;box-shadow:var(--shadow);
-          width:1060px;
+          width:880px;
           display:grid;
-          grid-template-columns:170px 210px 160px 1fr 190px;
+          grid-template-columns:210px 160px 1fr 190px;
           opacity:0;visibility:hidden;transform:translateY(-8px);
           transition:all .2s cubic-bezier(.4,0,.2,1);z-index:10001;overflow:hidden
         }
@@ -244,28 +241,7 @@ export default function Navbar() {
 
                   <div className={`nb-panel${industryOpen ? " open" : ""}`}>
 
-                    {/* COL 1 – Three Year */}
-                    <div className="nb-col">
-                      <span className="nb-clabel">Three Years</span>
-                      <a href="/courses/threeyearscourses" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".28rem",padding:".45rem .7rem"}}>
-                        {/* Image: smaller height */}
-                        <div style={{width:"100%",height:"46px",borderRadius:".35rem",overflow:"hidden",position:"relative",marginBottom:".05rem"}}>
-                          <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400" alt="MDFDB" style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}} />
-                          <div style={{position:"absolute",bottom:4,right:5,fontSize:".55rem",fontWeight:700,background:"#FAEEDA",color:"#633806",padding:"1px 4px",borderRadius:2}}>NEW</div>
-                        </div>
-                        <span className="nbp" style={{background:"#EEEDFE",color:"#3C3489",fontSize:".57rem",padding:".1rem .38rem"}}>MDFDB</span>
-                        <div style={{fontSize:".72rem",fontWeight:700,color:"var(--c-text)",lineHeight:1.25}}>
-                          Master's Diploma in FinTech &amp; Digital Business
-                        </div>
-                        <div style={{fontSize:".63rem",color:"var(--c-muted)"}}>Parallel to Undergraduation</div>
-                        <div style={{display:"flex",gap:".22rem",flexWrap:"wrap"}}>
-                          <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>Trimester</span>
-                          <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>9 trimesters</span>
-                        </div>
-                      </a>
-                    </div>
-
-                    {/* COL 2 – Two Year */}
+                    {/* COL 1 – Two Year */}
                     <div className="nb-col">
                       <span className="nb-clabel">Two Years</span>
                       <a href="/courses/pgdfdb-2t" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".28rem",padding:".45rem .7rem"}}>
@@ -275,7 +251,7 @@ export default function Navbar() {
                         </div>
                         <span className="nbp" style={{background:"#CCFBF1",color:"#065F46",fontSize:".57rem",padding:".1rem .38rem"}}>ADFDB</span>
                         <div style={{fontSize:".72rem",fontWeight:700,color:"var(--c-text)",lineHeight:1.25}}>
-                          Advanced Diploma in FinTech &amp; Digital Business
+                          PG Diploma in FinTech &amp; Digital Business
                         </div>
                         <div style={{fontSize:".63rem",color:"var(--c-muted)"}}>Parallel to MBA</div>
                         <div style={{display:"flex",gap:".22rem",flexWrap:"wrap"}}>
@@ -297,7 +273,28 @@ export default function Navbar() {
                       </a>
                     </div>
 
-                    {/* COL 3 – One Year */}
+                    {/* COL 1 – Three Year */}
+                   {/* <div className="nb-col">
+                      <span className="nb-clabel">Three Years</span>
+                      <a href="/courses/threeyearscourses" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".28rem",padding:".45rem .7rem"}}>
+                        {/* Image: smaller height */}
+                       {/* <div style={{width:"100%",height:"46px",borderRadius:".35rem",overflow:"hidden",position:"relative",marginBottom:".05rem"}}>
+                          <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400" alt="MDFDB" style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}} />
+                          <div style={{position:"absolute",bottom:4,right:5,fontSize:".55rem",fontWeight:700,background:"#FAEEDA",color:"#633806",padding:"1px 4px",borderRadius:2}}>NEW</div>
+                        </div>
+                        <span className="nbp" style={{background:"#EEEDFE",color:"#3C3489",fontSize:".57rem",padding:".1rem .38rem"}}>MDFDB</span>
+                        <div style={{fontSize:".72rem",fontWeight:700,color:"var(--c-text)",lineHeight:1.25}}>
+                          Master's Diploma in FinTech &amp; Digital Business
+                        </div>
+                        <div style={{fontSize:".63rem",color:"var(--c-muted)"}}>Parallel to Undergraduation</div>
+                        <div style={{display:"flex",gap:".22rem",flexWrap:"wrap"}}>
+                          <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>Trimester</span>
+                          <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>9 trimesters</span>
+                        </div>
+                      </a>
+                    </div> */}
+
+                    {/* COL 2 – One Year */}
                     <div className="nb-col">
                       <span className="nb-clabel">One Year</span>
                       <a href="/courses/pgcdf" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".28rem",padding:".45rem .7rem"}}>
@@ -306,7 +303,7 @@ export default function Navbar() {
                         </div>
                         <span className="nbp nbp-g" style={{fontSize:".57rem",padding:".1rem .38rem"}}>PGDFBA</span>
                         <div style={{fontSize:".72rem",fontWeight:700,color:"var(--c-text)",lineHeight:1.25}}>
-                          PG Diploma in FinTech, Banking &amp; AI
+                          Advance Diploma in FinTech, Banking &amp; AI
                         </div>
                         <div style={{fontSize:".63rem",color:"var(--c-muted)"}}>Online / Hybrid</div>
                         <div style={{display:"flex",gap:".22rem",flexWrap:"wrap"}}>
@@ -316,7 +313,7 @@ export default function Navbar() {
                       </a>
                     </div>
 
-                    {/* COL 4 – Quarterly Certifications */}
+                    {/* COL 3 – Quarterly Certifications */}
                     <div className="nb-col">
                       <span className="nb-clabel">Quarterly Certifications</span>
                       {QUARTER_COURSES.map((c) => (
@@ -352,7 +349,7 @@ export default function Navbar() {
                       ))}
                     </div>
 
-                    {/* COL 5 – FinTech & AI Innovation Lab */}
+                    {/* COL 4 – FinTech & AI Innovation Lab */}
                     <div className="nb-col" style={{background:"linear-gradient(160deg,#f0fdf9 0%,#f0f7ff 100%)"}}>
                       <span className="nb-clabel" style={{color:"#009E85",fontSize:".58rem",letterSpacing:".05em"}}>Innovation Lab</span>
                       <div style={{padding:"0 .875rem .75rem"}}>
@@ -442,14 +439,7 @@ export default function Navbar() {
             </button>
             <div className={`mp${mobileIndustry ? " o" : ""}`}>
 
-              <span className="ms">Three Years</span>
-              <a href="/courses/threeyearscourses" onClick={closeAll} className="msl">
-                <span style={{background:"#EEEDFE",color:"#3C3489",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>MDFDB</span>
-                Master's Diploma in FinTech &amp; Digital Business
-                <span style={{fontSize:".65rem",fontWeight:700,background:"#FAEEDA",color:"#633806",padding:".1rem .35rem",borderRadius:3,marginLeft:2}}>NEW</span>
-              </a>
-
-              <div className="mdiv" />
+              {/* Two Years — Three Years section removed */}
               <span className="ms">Two Years</span>
               <a href="/courses/pgdfdb-2t" onClick={closeAll} className="msl">
                 <span style={{background:"#CCFBF1",color:"#065F46",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>ADFDB</span>
