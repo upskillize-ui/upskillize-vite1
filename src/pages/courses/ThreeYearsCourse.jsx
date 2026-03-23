@@ -17,7 +17,6 @@ const GlobalStyle = () => (
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--dark); color: var(--w); overflow-x: hidden; line-height: 1.6; }
-    h1, h2, h3, h4, h5, h6 { color: #FFFFFF; }
 
 
 
@@ -52,7 +51,7 @@ const GlobalStyle = () => (
     /* SECTION COMMONS */
     section { padding: 88px 5%; position: relative; z-index: 1; }
     .label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: var(--c); margin-bottom: 12px; }
-    .ttl { font-family: 'Outfit',sans-serif; font-weight: 800; font-size: clamp(28px,3.5vw,44px); line-height: 1.1; margin-bottom: 16px; color: #FFFFFF; }
+    .ttl { font-family: 'Outfit',sans-serif; font-weight: 800; font-size: clamp(28px,3.5vw,44px); line-height: 1.1; margin-bottom: 16px; }
     .sub { font-size: 16px; color: var(--w70); max-width: 560px; line-height: 1.75; font-weight: 300; }
     .tc { text-align: center; }
     .tc .sub { margin: 0 auto; }
@@ -165,7 +164,7 @@ const GlobalStyle = () => (
     /* CTA */
     .cta-section { background: var(--dark); text-align: center; padding: 100px 5%; position: relative; overflow: hidden; }
     .cta-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 700px; height: 400px; border-radius: 50%; background: radial-gradient(ellipse,rgba(108,17,255,.2),transparent); pointer-events: none; }
-    .cta-section h2 { font-family: 'Outfit',sans-serif; font-weight: 900; font-size: clamp(28px,4vw,50px); margin-bottom: 16px; position: relative; z-index: 1; color: #FFFFFF; }
+    .cta-section h2 { font-family: 'Outfit',sans-serif; font-weight: 900; font-size: clamp(28px,4vw,50px); margin-bottom: 16px; position: relative; z-index: 1; }
     .cta-section > p { font-size: 17px; color: var(--w70); max-width: 500px; margin: 0 auto 40px; line-height: 1.7; position: relative; z-index: 1; }
     .cta-actions { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; position: relative; z-index: 1; }
 
@@ -288,8 +287,10 @@ function CollegeSVG() {
           <text x="325" y={y + 23} fontFamily="Outfit" fontSize="13" fontWeight="700" fill={col} textAnchor="end">{val}</text>
         </g>
       ))}
-      <rect x="80" y="396" width="220" height="36" rx="18" fill="url(#arc1c)" />
-      <text x="190" y="419" fontFamily="Outfit" fontSize="13" fontWeight="800" fill="#06000F" textAnchor="middle">Schedule a Partnership Call →</text>
+      <a href="/contact" style={{ cursor: "pointer" }}>
+        <rect x="80" y="396" width="220" height="36" rx="18" fill="url(#arc1c)" />
+        <text x="190" y="419" fontFamily="Outfit" fontSize="13" fontWeight="800" fill="#06000F" textAnchor="middle">Schedule a Partnership Call →</text>
+      </a>
     </svg>
   );
 }

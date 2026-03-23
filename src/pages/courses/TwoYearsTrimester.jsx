@@ -619,7 +619,7 @@ export default function UpskillizeADFDB() {
             <div className="cc-row2"><span className="ccr-lbl">Placement Support</span><span className="ccr-val ccr-l">6 Months Post-Grad</span></div>
             <div className="cc-row2"><span className="ccr-lbl">Upfront Cost</span><span className="ccr-val" style={{ color: "var(--coral)" }}>Zero — Revenue Share</span></div>
             <div className="cc-cta-row">
-              <a href="mailto:partner@upskillize.com" className="btn-lime" style={{ display: "inline-flex", justifyContent: "center" }}>Schedule a Call →</a>
+              <a href="/contact" className="btn-lime" style={{ display: "inline-flex", justifyContent: "center" }}>Schedule a Call →</a>
             </div>
           </div>
         </div>
