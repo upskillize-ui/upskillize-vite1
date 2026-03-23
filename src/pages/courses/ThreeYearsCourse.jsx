@@ -276,7 +276,7 @@ function CollegeSVG() {
       <text x="190" y="55" fontFamily="Outfit" fontSize="15" fontWeight="800" fill="white" textAnchor="middle">COLLEGE PARTNERSHIP — AT A GLANCE</text>
       {[
         [102,"Program Duration","3 Years / 9 Trimesters","#00FFD1",true],
-        [150,"Credentials Earned","9 Certs + PGDFDB Diploma","#FFD600",false],
+        [150,"Credentials Earned","9 Certs + MDFDB Diploma","#FFD600",false],
         [198,"Faculty Needed","Zero — Upskillize Delivers All","#00FFD1",true],
         [246,"Programs Included","BFSI · MiniCEO · D2D · AI","#FFD600",false],
         [294,"LMS Platform","EcoPro AI · 5 Agents","#00FFD1",true],
@@ -307,7 +307,7 @@ export default function UpskillizeFintechTrack() {
     { num: 6, tag: "t-c", year: "Year 2 · Trimester 6", title: "Risk, Compliance & Regulatory Technology", desc: "Credit risk, market risk, Basel III basics, AML/KYC technology, GRC platforms and DPDPA compliance — the risk and compliance skills that make every candidate stand out.", topics: ["Credit & Market Risk","Basel III Basics","AML / KYC Platforms","GRC Tools","DPDPA 2023"], cert: "🏅 Cert 6: Certified Risk & Compliance Associate" },
     { num: 7, tag: "t-o", year: "Year 3 · Trimester 7", title: "Investment Banking & Capital Markets", desc: "Equity, debt, M&A, capital markets infrastructure, derivatives basics and investment banking workflows — opening career doors into IB, treasury, and capital markets.", topics: ["ECM / DCM / M&A","Derivatives Basics","Capital Markets Tech","WealthTech Products","ESG & Green Finance"], cert: "🏅 Cert 7: Certified Capital Markets Associate" },
     { num: 8, tag: "t-y", year: "Year 3 · Trimester 8", title: "MiniCEO — Product Thinking & FinTech Entrepreneurship", desc: "Think like a founder, build like a product manager. Business model design, FinTech product strategy, startup pitch, and digital business innovation.", topics: ["Business Model Canvas","Product Thinking","FinTech Startup Strategy","Design Thinking","Investor Pitch Skills"], cert: "🏅 Cert 8: MiniCEO FinTech Product Manager" },
-    { num: 9, tag: "t-y", year: "Year 3 · Trimester 9", title: "Grand Capstone & Placement Launch Sprint", desc: "Synthesise 3 years into one industry-evaluated Grand Capstone project. Placement sprint with mock interviews, employer connects, and personal brand building — then PGDFDB diploma.", topics: ["Grand FinTech Project","Mock Interviews","Employer Connects","LinkedIn & Brand","PGDFDB Diploma Award"], cert: "🎓 PGDFDB Diploma — Post Graduate Diploma in FinTech & Digital Business", isGold: true },
+    { num: 9, tag: "t-y", year: "Year 3 · Trimester 9", title: "Grand Capstone & Placement Launch Sprint", desc: "Synthesise 3 years into one industry-evaluated Grand Capstone project. Placement sprint with mock interviews, employer connects, and personal brand building — then MDFDB diploma.", topics: ["Grand FinTech Project","Mock Interviews","Employer Connects","LinkedIn & Brand","MDFDB Diploma Award"], cert: "🎓 MDFDB Diploma — Post Graduate Diploma in FinTech & Digital Business", isGold: true },
   ];
 
   const jobs = [
@@ -384,7 +384,7 @@ export default function UpskillizeFintechTrack() {
       <section className="tri-section" id="trimesters">
         <div className="label rv tc">3 Years · 9 Trimesters · One Credential Per Trimester</div>
         <h2 className="ttl rv d1 tc">The Most Aggressive FinTech<br />Curriculum Built for UG Students</h2>
-        <p className="sub rv d2 tc">Every trimester = structured learning + live case studies + guest lectures + a capstone project + an industry certificate. You graduate with 9 credentials plus the PGDFDB diploma.</p>
+        <p className="sub rv d2 tc">Every trimester = structured learning + live case studies + guest lectures + a capstone project + an industry certificate. You graduate with 9 credentials plus the MDFDB diploma.</p>
         <div className="tri-grid">
           {trimesters.map((t, i) => (
             <div key={t.num} className={`tri-card rv ${delays[i % 3]}`} style={t.isGold ? { background: "linear-gradient(135deg,rgba(255,214,0,.12),rgba(255,92,0,.08))", borderColor: "rgba(255,214,0,.35)" } : {}}>
@@ -599,7 +599,7 @@ export default function UpskillizeFintechTrack() {
         <div className="cta-glow" />
         <div className="label rv tc">Get Started Today</div>
         <h2 className="rv d1">Your Students Deserve<br />More Than a Degree.</h2>
-        <p className="rv d2">Bring Upskillize Campus Track to your college. Zero investment. Nine certifications. One PGDFDB Diploma. Maximum placement impact.</p>
+        <p className="rv d2">Bring Upskillize Campus Track to your college. Zero investment. Nine certifications. One MDFDB Diploma. Maximum placement impact.</p>
         <div className="cta-actions">
           <a href="/contact" className="btn-grad rv d3">Partner With Us →</a>
         </div>
