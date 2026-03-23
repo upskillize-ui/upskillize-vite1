@@ -57,7 +57,7 @@ export default function Footer() {
             <h3 className="text-xl font-bold">Programs</h3>
             <ul className="space-y-2 text-sm mt-4">
 
-              <li>
+              {/* <li>
                 <Link to="/courses/threeyearscourses" className="text-white/80 transition-colors flex items-center gap-2">
                   MDFDB (Three Years)
                   <span style={{
@@ -67,7 +67,7 @@ export default function Footer() {
                     flexShrink:0
                   }}>NEW</span>
                 </Link>
-              </li>
+              </li> */}
 
               <li>
                 <Link to="/courses/pgdfdb-2t" className="text-white/80 transition-colors flex items-center gap-2">
