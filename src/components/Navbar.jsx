@@ -264,16 +264,16 @@ export default function Navbar() {
         .nb-cert-courses::-webkit-scrollbar-thumb{background:#e5e7eb;border-radius:4px}
 
         /* Innovation Lab panel */
-        .nb-lab-panel{
-          position:absolute;top:calc(100% + 8px);left:50%;
-          transform:translateX(-50%) translateY(-8px);
+       .nb-lab-panel{
+          position:absolute;top:calc(100% + 8px);right:0;
+          transform:translateY(-8px);
           background:linear-gradient(160deg,#f0fdf9 0%,#f0f7ff 100%);
           border:1px solid var(--c-border);border-radius:.875rem;box-shadow:var(--shadow);
           width:300px;padding:1.25rem 1.25rem 1rem;
           opacity:0;visibility:hidden;
           transition:all .2s cubic-bezier(.4,0,.2,1);z-index:10001
         }
-        .nb-lab-panel.register{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+       .nb-lab-panel.open{opacity:1;visibility:visible;transform:translateY(0)}
         .nbb-lab{
           display:inline-flex;align-items:center;gap:.35rem;padding:.45rem .875rem;
           border-radius:.5rem;font-size:.9rem;font-weight:600;
@@ -290,7 +290,7 @@ export default function Navbar() {
         .nb-mob{position:fixed;top:64px;left:0;right:0;bottom:0;background:#fff;
           overflow-y:auto;transform:translateX(100%);
           transition:transform .3s cubic-bezier(.4,0,.2,1);z-index:10000}
-        .nb-mob.register{transform:translateX(0)}
+        .nb-mob.open{transform:translateX(0)}
         @media(min-width:1024px){.nb-mob{display:none!important}}
         .nb-mnav{padding:.75rem 1rem 4rem;display:flex;flex-direction:column;gap:.125rem}
         .ma{display:flex;align-items:center;justify-content:space-between;
@@ -465,7 +465,7 @@ export default function Navbar() {
                     🏦 BFSI Lab
                     <ChevronDown size={13} style={{ transition:"transform .2s", transform: labOpen ? "rotate(180deg)" : "rotate(0)" }} />
                   </button>
-                  <div className={`nb-lab-panel${labOpen ? "register" : ""}`}>
+                  <div className={`nb-lab-panel${labOpen ? " open" : ""}`}>
                     <div style={{ display:"flex", alignItems:"center", gap:".625rem", marginBottom:".75rem" }}>
                       <div style={{ width:"44px", height:"44px", borderRadius:".5rem", background:"linear-gradient(135deg,#ccfbf1,#a7f3d0)", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0 }}>
                         <span style={{ fontSize:"1.35rem" }}>🏦</span>
