@@ -459,7 +459,7 @@ export default function Navbar() {
                   </div>
                 </div>
 
-                {/* BFSI Lab */}
+                {/* Innovation Lab */}
                 <div className="nb-ind" onMouseEnter={onLabEnter} onMouseLeave={onLabLeave} style={{ position:"relative" }}>
                   <button className="nbb-lab" aria-haspopup="true" aria-expanded={labOpen}>
                     🏦 Innovation Lab
@@ -617,7 +617,7 @@ export default function Navbar() {
 
             <button className="ma" onClick={() => setMobileLab(v => !v)}
               style={{ background:"linear-gradient(135deg,#f0fdf9,#f0f7ff)", color:"#065F46", fontWeight:700 }}>
-              🏦 BFSI Lab <ChevronDown size={18} className={`mc${mobileLab ? " o" : ""}`} />
+              🏦 Innovation Lab <ChevronDown size={18} className={`mc${mobileLab ? " o" : ""}`} />
             </button>
             <div className={`mp${mobileLab ? " o" : ""}`}>
               <a href="/bfsiinnovationlab" onClick={closeAll} className="msl">Explore the Lab</a>
