@@ -7,7 +7,6 @@ const CERT_CATEGORIES = [
     label: "AI in FinTech",
     slug: "ai-fintech",
     icon: "🏦",
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=80",
     courses: [
       { label: "BFSI Domain Excellence",          href: "/courses/bfsi-domain-excellence-program",   img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=48",  available: true,  duration: "10 Weeks", mode: "Online", fee: "₹18,000" },
       { label: "Investment Banking & Wealth Tech", href: "/courses/investment-banking-wealth-tech",   img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=48",  available: true,  duration: "12 Weeks", mode: "Hybrid", fee: "₹22,000" },
@@ -21,7 +20,6 @@ const CERT_CATEGORIES = [
     label: "Product Leadership",
     slug: "product-leadership",
     icon: "🚀",
-    img: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=80",
     courses: [
       { label: "The Mini CEO Program",             href: "/courses/the-mini-ceo-program",             img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=48",  available: true,  duration: "12 Weeks", mode: "Online", fee: "₹25,000" },
       { label: "AI Product Management Mastery",    href: "/courses/ai-product-management-mastery",    img: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=48",  available: true,  duration: "10 Weeks", mode: "Hybrid", fee: "₹22,000" },
@@ -34,7 +32,6 @@ const CERT_CATEGORIES = [
     label: "Data & GenAI",
     slug: "data-analytics-genai",
     icon: "📊",
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=80",
     courses: [
       { label: "Data to Decisions: Power BI & AI", href: "/courses/data-decisions",                  img: "https://images.unsplash.com/photo-1543286386-2e659306cd6c?w=48",  available: true,  duration: "10 Weeks", mode: "Online", fee: "₹20,000" },
       { label: "AI & ML for Business Leaders",     href: "/courses/ai-ml-business-leaders",           img: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=48",  available: true,  duration: "12 Weeks", mode: "Hybrid", fee: "₹23,000" },
@@ -45,7 +42,6 @@ const CERT_CATEGORIES = [
     label: "Technology & Dx",
     slug: "technology-digital-transformation",
     icon: "⚙️",
-    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=80",
     courses: [
       { label: "Digital Business Strategy & Innovation", href: "/courses/digital-business-strategy-innovation", img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=48", available: true,  duration: "10 Weeks", mode: "Online", fee: "₹21,000" },
       { label: "AI & Digital Project Management",        href: "/courses/technology-digital-transformation",   img: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=48", available: false, duration: "8 Weeks",  mode: "Hybrid", fee: "₹18,000" },
@@ -54,76 +50,55 @@ const CERT_CATEGORIES = [
   },
 ];
 
-// Course row with Duration / Mode / Fee info tabs
 function CourseRow({ c }) {
   const [activeInfo, setActiveInfo] = useState(null);
-
   const INFO_TABS = [
     { key: "duration", label: "Duration", value: c.duration, color: "#4f46e5", bg: "#ede9fe" },
     { key: "mode",     label: "Mode",     value: c.mode,     color: "#0891b2", bg: "#e0f2fe" },
     { key: "fee",      label: "Fee",      value: c.fee,      color: "#059669", bg: "#d1fae5" },
   ];
-
   return (
-    <div style={{
-      borderBottom: "1px solid #f3f4f6",
-      opacity: c.available ? 1 : 0.62,
-      transition: "background .12s",
-    }}>
-      {/* Course name row */}
-      <a href={c.href}
-        style={{
-          display:"flex",alignItems:"center",gap:".5rem",
-          padding:".35rem .875rem .2rem",textDecoration:"none",
-        }}
+    <div style={{ borderBottom: "1px solid #f3f4f6", opacity: c.available ? 1 : 0.62, transition: "background .12s" }}>
+      <a
+        href={c.href}
+        style={{ display:"flex", alignItems:"center", gap:".5rem", padding:".35rem .875rem .2rem", textDecoration:"none" }}
         onMouseEnter={e => e.currentTarget.parentElement.style.background="#f9fafb"}
         onMouseLeave={e => e.currentTarget.parentElement.style.background="transparent"}
       >
-        <img src={c.img} alt={c.label}
-          style={{width:"22px",height:"22px",borderRadius:".25rem",objectFit:"cover",flexShrink:0}} />
-        <span style={{flex:1,fontSize:".775rem",fontWeight:600,color:"#1f2937",lineHeight:1.3}}>
-          {c.label}
-        </span>
+        <img src={c.img} alt={c.label} style={{ width:"22px", height:"22px", borderRadius:".25rem", objectFit:"cover", flexShrink:0 }} />
+        <span style={{ flex:1, fontSize:".775rem", fontWeight:600, color:"#1f2937", lineHeight:1.3 }}>{c.label}</span>
         {!c.available
-          ? <span style={{fontSize:".55rem",fontWeight:700,background:"#e5e7eb",color:"#6b7280",padding:".1rem .3rem",borderRadius:999,flexShrink:0}}>Soon</span>
-          : <span style={{fontSize:".55rem",fontWeight:700,background:"#dcfce7",color:"#15803d",padding:".1rem .3rem",borderRadius:999,flexShrink:0}}>Open</span>
+          ? <span style={{ fontSize:".55rem", fontWeight:700, background:"#e5e7eb", color:"#6b7280", padding:".1rem .3rem", borderRadius:999, flexShrink:0 }}>Closed</span>
+          : <span style={{ fontSize:".55rem", fontWeight:700, background:"#dcfce7", color:"#15803d", padding:".1rem .3rem", borderRadius:999, flexShrink:0 }}>Register</span>
         }
       </a>
-
-      {/* Info tabs row */}
-      <div style={{display:"flex",alignItems:"center",gap:".25rem",padding:".0rem .875rem .35rem 2.875rem"}}>
+      <div style={{ display:"flex", alignItems:"center", gap:".25rem", padding:"0 .875rem .35rem 2.875rem" }}>
         {INFO_TABS.map(t => (
           <button key={t.key}
             onClick={e => { e.preventDefault(); e.stopPropagation(); setActiveInfo(activeInfo === t.key ? null : t.key); }}
             style={{
-              fontSize:".57rem",fontWeight:700,padding:".1rem .38rem",borderRadius:999,
+              fontSize:".57rem", fontWeight:700, padding:".1rem .38rem", borderRadius:999,
               border: activeInfo === t.key ? `1px solid ${t.color}` : "1px solid #e5e7eb",
               background: activeInfo === t.key ? t.bg : "#f9fafb",
               color: activeInfo === t.key ? t.color : "#6b7280",
-              cursor:"pointer",transition:"all .15s",whiteSpace:"nowrap",
+              cursor:"pointer", transition:"all .15s", whiteSpace:"nowrap",
             }}
-          >
-            {t.label}
-          </button>
+          >{t.label}</button>
         ))}
-        {/* Value bubble */}
         {activeInfo && (() => {
           const t = INFO_TABS.find(x => x.key === activeInfo);
-          return (
-            <span style={{
-              fontSize:".62rem",fontWeight:700,
-              color: t.color,
-              background: t.bg,
-              padding:".12rem .5rem",borderRadius:999,
-              marginLeft:".1rem",
-              animation:"fadeIn .15s ease",
-            }}>
-              {t.value}
-            </span>
-          );
+          return <span style={{ fontSize:".62rem", fontWeight:700, color:t.color, background:t.bg, padding:".12rem .5rem", borderRadius:999, marginLeft:".1rem" }}>{t.value}</span>;
         })()}
       </div>
     </div>
+  );
+}
+
+function Pill({ children, bg, color }) {
+  return (
+    <span style={{ fontSize:".56rem", background:bg, borderRadius:3, padding:"1px 5px", color:color, fontWeight:600, whiteSpace:"nowrap" }}>
+      {children}
+    </span>
   );
 }
 
@@ -173,7 +148,6 @@ export default function Navbar() {
           --c-hover-bg:#f5f3ff;--c-hover:#4f46e5;
           --shadow:0 8px 32px rgba(0,0,0,.11);
         }
-        @keyframes fadeIn{from{opacity:0;transform:translateX(-4px)}to{opacity:1;transform:translateX(0)}}
 
         .nb{position:fixed;top:0;left:0;right:0;z-index:9999}
         .nb-bar{background:var(--c-bg);border-bottom:1px solid transparent;transition:border-color .25s,box-shadow .25s}
@@ -203,59 +177,89 @@ export default function Navbar() {
         .nbd-item:hover{background:var(--c-hover-bg);color:var(--c-hover)}
         .nb-ind{position:relative}
 
-        /* ── HIGHER EDUCATION PANEL: 3 cols ── */
+        /* ── HIGHER EDUCATION PANEL – 2 columns ── */
         .nb-panel{
           position:absolute;top:calc(100% + 8px);left:-60px;
           background:var(--c-bg);border:1px solid var(--c-border);
           border-radius:.875rem;box-shadow:var(--shadow);
-          width:860px;
-          display:grid;grid-template-columns:210px 165px 1fr;
+          width:700px;
+          display:grid;grid-template-columns:240px 1fr;
           opacity:0;visibility:hidden;transform:translateY(-8px);
           transition:all .2s cubic-bezier(.4,0,.2,1);z-index:10001;overflow:hidden
         }
-        .nb-panel.open{opacity:1;visibility:visible;transform:translateY(0)}
-        .nb-col{padding:.6rem 0 .875rem;border-right:1px solid var(--c-border)}
-        .nb-col:last-child{border-right:none}
-        .nb-clabel{display:block;padding:0 .875rem .55rem;font-size:.58rem;font-weight:700;
-          letter-spacing:.05em;text-transform:uppercase;color:var(--c-cyan);
-          border-bottom:1px solid var(--c-border);margin-bottom:.55rem}
-        .nb-crow{display:flex;align-items:center;gap:.625rem;padding:.6rem 1rem;
-          font-size:.875rem;font-weight:600;color:var(--c-text);
-          text-decoration:none;transition:background .12s,color .12s}
-        .nb-crow:hover{background:var(--c-hover-bg);color:var(--c-hover)}
-        .nbp{display:inline-block;font-size:.65rem;font-weight:700;padding:.12rem .4rem;border-radius:999px;flex-shrink:0}
-        .nbp-g{background:#dcfce7;color:#15803d}
+        .nb-panel.register{opacity:1;visibility:visible;transform:translateY(0)}
 
-        /* ── Professional Certifications column ── */
+        /* COL 1 – Institution + Two Years + One Year */
+        .nb-left-col{
+          border-right:1px solid var(--c-border);
+          display:flex;flex-direction:column;
+          background:linear-gradient(160deg,#f8faff 0%,#f5f3ff 100%);
+        }
+        .nb-col-header{
+          font-size:.58rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+          color:var(--c-cyan);padding:.6rem .875rem .5rem;
+          border-bottom:1px solid var(--c-border);
+        }
+        .nb-inst-card{
+          display:flex;flex-direction:column;gap:.4rem;
+          padding:.65rem .875rem .6rem;
+          border-bottom:1px solid var(--c-border);
+        }
+        .nb-inst-name{font-size:.82rem;font-weight:800;color:#111827;line-height:1.3}
+        .nb-inst-desc{font-size:.64rem;color:#6b7280;line-height:1.5;margin:0}
+        .nb-inst-badges{display:flex;flex-wrap:wrap;gap:.25rem}
+        .nb-inst-link{
+          display:inline-flex;align-items:center;justify-content:center;gap:.3rem;
+          background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;
+          font-size:.68rem;font-weight:700;padding:.35rem .7rem;border-radius:.4rem;
+          text-decoration:none;box-shadow:0 2px 8px rgba(79,70,229,.25);
+          transition:opacity .15s;align-self:flex-start;
+        }
+        .nb-inst-link:hover{opacity:.88}
+        .nb-prog-section{padding:.5rem 0 0}
+        .nb-prog-label{
+          display:block;padding:0 .875rem .35rem;font-size:.58rem;font-weight:700;
+          letter-spacing:.05em;text-transform:uppercase;color:var(--c-cyan);
+        }
+        .nb-prog-card{
+          display:flex;flex-direction:column;gap:.25rem;
+          padding:.4rem .875rem .5rem;text-decoration:none;
+          transition:background .12s;
+        }
+        .nb-prog-card:hover{background:#eef2ff}
+        .nb-prog-thumb{width:100%;height:42px;border-radius:.35rem;overflow:hidden;position:relative}
+        .nb-prog-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+        .nb-prog-new{
+          position:absolute;bottom:4px;right:5px;font-size:.52rem;font-weight:700;
+          background:#FAEEDA;color:#633806;padding:1px 4px;border-radius:2px
+        }
+        .nb-prog-title{font-size:.72rem;font-weight:700;color:#111827;line-height:1.25}
+        .nb-prog-pills{display:flex;flex-wrap:wrap;gap:.22rem;margin-top:.03rem}
+        .nb-prog-divider{height:1px;background:var(--c-border);margin:.25rem .875rem 0}
+
+        /* COL 2 – Certifications */
         .nb-certcol{display:flex;flex-direction:column;overflow:hidden}
         .nb-certcol-header{
-          display:block;padding:0 .875rem .55rem;font-size:.58rem;font-weight:700;
+          display:block;padding:.6rem .875rem;font-size:.58rem;font-weight:700;
           letter-spacing:.05em;text-transform:uppercase;color:#7c3aed;
-          border-bottom:1px solid var(--c-border);margin-bottom:0
+          border-bottom:1px solid var(--c-border);
         }
-        /* 4 category tabs side-by-side */
         .nb-cert-tabs{
           display:grid;grid-template-columns:repeat(4,1fr);
-          border-bottom:1px solid var(--c-border);
-          background:#fafafa;
+          border-bottom:1px solid var(--c-border);background:#fafafa;
         }
         .nb-cert-tab{
           display:flex;flex-direction:column;align-items:center;justify-content:center;
-          gap:.18rem;padding:.45rem .3rem;
-          font-size:.62rem;font-weight:600;color:#6b7280;
+          gap:.18rem;padding:.45rem .3rem;font-size:.62rem;font-weight:600;color:#6b7280;
           background:none;border:none;border-right:1px solid #f3f4f6;
           cursor:pointer;transition:all .15s;text-align:center;line-height:1.25;
           border-bottom:2px solid transparent;
         }
         .nb-cert-tab:last-child{border-right:none}
         .nb-cert-tab:hover{background:#f5f3ff;color:#4f46e5}
-        .nb-cert-tab.active{
-          background:#fff;color:#4f46e5;font-weight:700;
-          border-bottom:2px solid #4f46e5;
-        }
+        .nb-cert-tab.active{background:#fff;color:#4f46e5;font-weight:700;border-bottom:2px solid #4f46e5}
         .nb-cert-tab-icon{font-size:.95rem;line-height:1}
-        /* Course list */
-        .nb-cert-courses{overflow-y:auto;max-height:360px;flex:1}
+        .nb-cert-courses{overflow-y:auto;flex:1}
         .nb-cert-courses::-webkit-scrollbar{width:3px}
         .nb-cert-courses::-webkit-scrollbar-thumb{background:#e5e7eb;border-radius:4px}
 
@@ -269,7 +273,7 @@ export default function Navbar() {
           opacity:0;visibility:hidden;
           transition:all .2s cubic-bezier(.4,0,.2,1);z-index:10001
         }
-        .nb-lab-panel.open{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+        .nb-lab-panel.register{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
         .nbb-lab{
           display:inline-flex;align-items:center;gap:.35rem;padding:.45rem .875rem;
           border-radius:.5rem;font-size:.9rem;font-weight:600;
@@ -286,7 +290,7 @@ export default function Navbar() {
         .nb-mob{position:fixed;top:64px;left:0;right:0;bottom:0;background:#fff;
           overflow-y:auto;transform:translateX(100%);
           transition:transform .3s cubic-bezier(.4,0,.2,1);z-index:10000}
-        .nb-mob.open{transform:translateX(0)}
+        .nb-mob.register{transform:translateX(0)}
         @media(min-width:1024px){.nb-mob{display:none!important}}
         .nb-mnav{padding:.75rem 1rem 4rem;display:flex;flex-direction:column;gap:.125rem}
         .ma{display:flex;align-items:center;justify-content:space-between;
@@ -333,63 +337,64 @@ export default function Navbar() {
                   <button className="nbb" aria-haspopup="true" aria-expanded={industryOpen}>
                     Higher Education
                     <ChevronDown size={15} className="nbc"
-                      style={{transform: industryOpen ? "rotate(180deg)" : "rotate(0)"}} />
+                      style={{ transform: industryOpen ? "rotate(180deg)" : "rotate(0)" }} />
                   </button>
 
-                  <div className={`nb-panel${industryOpen ? " open" : ""}`}>
+                  <div className={`nb-panel${industryOpen ? " register" : ""}`}>
 
-                    {/* COL 1 – Two Years */}
-                    <div className="nb-col">
-                      <span className="nb-clabel">Two Years</span>
-                      <a href="/courses/pgdfdb-2t" className="nb-crow"
-                        style={{flexDirection:"column",alignItems:"flex-start",gap:".28rem",padding:".45rem .7rem"}}>
-                        <div style={{width:"100%",height:"46px",borderRadius:".35rem",overflow:"hidden",position:"relative",marginBottom:".05rem"}}>
-                          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400" alt="PGDFDB"
-                            style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}} />
-                          <div style={{position:"absolute",bottom:4,right:5,fontSize:".55rem",fontWeight:700,
-                            background:"#FAEEDA",color:"#633806",padding:"1px 4px",borderRadius:2}}>NEW</div>
-                        </div>
-                        <span className="nbp" style={{background:"#e8f4f0",color:"#0F6E56",fontSize:".57rem",padding:".1rem .38rem"}}>PGDFDB</span>
-                        <div style={{fontSize:".72rem",fontWeight:700,color:"var(--c-text)",lineHeight:1.25}}>
-                          PG Diploma in FinTech &amp; Digital Business
-                        </div>
-                        <div style={{fontSize:".63rem",color:"var(--c-muted)"}}>Parallel to MBA</div>
-                        <div style={{display:"flex",gap:".22rem",flexWrap:"wrap"}}>
-                          <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>Semester</span>
-                          <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>4 semesters</span>
-                        </div>
-                      </a>
-                    </div>
+                    {/* ── COL 1 : Institution + Two Years + One Year ── */}
+                    <div className="nb-left-col">
 
-                    {/* COL 2 – One Year */}
-                    <div className="nb-col">
-                      <span className="nb-clabel">One Year</span>
-                      <a href="/courses/pgcdf" className="nb-crow"
-                        style={{flexDirection:"column",alignItems:"flex-start",gap:".28rem",padding:".45rem .7rem"}}>
-                        <div style={{width:"100%",height:"46px",borderRadius:".35rem",overflow:"hidden",marginBottom:".05rem"}}>
-                          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400" alt="ADFBA"
-                            style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}} />
-                        </div>
-                        <span className="nbp nbp-g" style={{fontSize:".57rem",padding:".1rem .38rem"}}>ADFBA</span>
-                        <div style={{fontSize:".72rem",fontWeight:700,color:"var(--c-text)",lineHeight:1.25}}>
-                          Advance Diploma in FinTech, Banking &amp; AI
-                        </div>
-                        <div style={{fontSize:".63rem",color:"var(--c-muted)"}}>Online / Hybrid</div>
-                        <div style={{display:"flex",gap:".22rem",flexWrap:"wrap"}}>
-                          <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>6 Bimesters</span>
-                          <span style={{fontSize:".56rem",background:"#dcfce7",borderRadius:3,padding:"1px 4px",color:"#15803d"}}>Online / Hybrid</span>
-                        </div>
-                      </a>
-                    </div>
+                      {/* Institution header */}
+                      <div className="nb-col-header">Institution</div>
 
-                    {/* COL 3 – Professional Certifications with 4-tab switcher */}
+                      {/* Two Years */}
+                      <div className="nb-prog-section">
+                        <span className="nb-prog-label">Two Years</span>
+                        <a href="/courses/pgdfdb-2t" className="nb-prog-card">
+                          <div className="nb-prog-thumb">
+                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400" alt="PGDFDB" />
+                            <span className="nb-prog-new">NEW</span>
+                          </div>
+                          <span style={{ display:"inline-block", fontSize:".57rem", fontWeight:700, padding:".1rem .38rem", borderRadius:999, background:"#e8f4f0", color:"#0F6E56", alignSelf:"flex-start" }}>
+                            PGDFDB
+                          </span>
+                          <div className="nb-prog-title">PG Diploma in FinTech &amp; Digital Business</div>
+                          <div className="nb-prog-pills">
+                            <Pill bg="#fef3c7" color="#92400e">Parallel to MBA/PGDM</Pill>
+                            <Pill bg="#f4f6fb" color="#6b7fa3">Any Graduation</Pill>
+                            <Pill bg="#e0f2fe" color="#0369a1">Online / Hybrid</Pill>
+                            <Pill bg="#f4f6fb" color="#6b7fa3">4 Semesters</Pill>
+                          </div>
+                        </a>
+                      </div>
+
+                      <div className="nb-prog-divider" />
+
+                      {/* One Year */}
+                      <div className="nb-prog-section">
+                        <span className="nb-prog-label">One Year</span>
+                        <a href="/courses/pgcdf" className="nb-prog-card">
+                          <div className="nb-prog-thumb">
+                            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400" alt="ADFBA" />
+                          </div>
+                          <span style={{ display:"inline-block", fontSize:".57rem", fontWeight:700, padding:".1rem .38rem", borderRadius:999, background:"#dcfce7", color:"#15803d", alignSelf:"flex-start" }}>
+                            ADFBA
+                          </span>
+                          <div className="nb-prog-title">Advance Diploma in FinTech, Banking &amp; AI</div>
+                          <div className="nb-prog-pills">
+                            <Pill bg="#fef3c7" color="#92400e">Final Year Graduate &amp; Above</Pill>
+                            <Pill bg="#e0f2fe" color="#0369a1">Online / Hybrid</Pill>
+                            <Pill bg="#f4f6fb" color="#6b7fa3">6 Bimesters</Pill>
+                          </div>
+                        </a>
+                      </div>
+
+                    </div>{/* end nb-left-col */}
+
+                    {/* ── COL 2 : Professional Certifications ── */}
                     <div className="nb-certcol">
-                      {/* Section header */}
-                      <span className="nb-certcol-header" style={{padding:".5rem .875rem",display:"block"}}>
-                        Professional Certifications
-                      </span>
-
-                      {/* 4 category tabs side by side */}
+                      <span className="nb-certcol-header">Professional Certifications</span>
                       <div className="nb-cert-tabs">
                         {CERT_CATEGORIES.map((cat, i) => (
                           <button
@@ -402,20 +407,17 @@ export default function Navbar() {
                           </button>
                         ))}
                       </div>
-
-                      {/* Course list for active tab */}
                       <div className="nb-cert-courses">
                         {CERT_CATEGORIES[activeCertTab].courses.map((c, i) => (
                           <CourseRow key={i} c={c} />
                         ))}
-
-                        {/* View all link */}
-                        <a href={`/courses/${CERT_CATEGORIES[activeCertTab].slug}`}
+                        <a
+                          href={`/courses/${CERT_CATEGORIES[activeCertTab].slug}`}
                           style={{
-                            display:"flex",alignItems:"center",justifyContent:"center",
-                            gap:".3rem",padding:".5rem .875rem",
-                            fontSize:".72rem",fontWeight:700,color:"#4f46e5",
-                            textDecoration:"none",background:"#f5f3ff",
+                            display:"flex", alignItems:"center", justifyContent:"center",
+                            gap:".3rem", padding:".5rem .875rem",
+                            fontSize:".72rem", fontWeight:700, color:"#4f46e5",
+                            textDecoration:"none", background:"#f5f3ff",
                             borderTop:"1px solid #ede9fe",
                           }}
                           onMouseEnter={e => e.currentTarget.style.background="#ede9fe"}
@@ -440,7 +442,7 @@ export default function Navbar() {
 
                 {/* Products */}
                 <div className="nbd">
-                  <button className="nbb">Products <ChevronDown size={15} className="nbc" /></button>
+                  <button className="nbb">AI Products <ChevronDown size={15} className="nbc" /></button>
                   <div className="nbd-menu">
                     <a href="/products/compliize" className="nbd-item">Data Complize</a>
                     <a href="/products/optimize"  className="nbd-item">Cost Optimize</a>
@@ -458,41 +460,36 @@ export default function Navbar() {
                 </div>
 
                 {/* BFSI Lab */}
-                <div className="nb-ind" onMouseEnter={onLabEnter} onMouseLeave={onLabLeave} style={{position:"relative"}}>
+                <div className="nb-ind" onMouseEnter={onLabEnter} onMouseLeave={onLabLeave} style={{ position:"relative" }}>
                   <button className="nbb-lab" aria-haspopup="true" aria-expanded={labOpen}>
-                    🏦 BFSI Lab
-                    <ChevronDown size={13} style={{transition:"transform .2s",transform: labOpen ? "rotate(180deg)" : "rotate(0)"}} />
+                    🏦 Innovation Lab
+                    <ChevronDown size={13} style={{ transition:"transform .2s", transform: labOpen ? "rotate(180deg)" : "rotate(0)" }} />
                   </button>
-                  <div className={`nb-lab-panel${labOpen ? " open" : ""}`}>
-                    <div style={{display:"flex",alignItems:"center",gap:".625rem",marginBottom:".75rem"}}>
-                      <div style={{width:"44px",height:"44px",borderRadius:".5rem",
-                        background:"linear-gradient(135deg,#ccfbf1,#a7f3d0)",
-                        display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
-                        <span style={{fontSize:"1.35rem"}}>🏦</span>
+                  <div className={`nb-lab-panel${labOpen ? "register" : ""}`}>
+                    <div style={{ display:"flex", alignItems:"center", gap:".625rem", marginBottom:".75rem" }}>
+                      <div style={{ width:"44px", height:"44px", borderRadius:".5rem", background:"linear-gradient(135deg,#ccfbf1,#a7f3d0)", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0 }}>
+                        <span style={{ fontSize:"1.35rem" }}>🏦</span>
                       </div>
                       <div>
-                        <p style={{fontSize:".8rem",fontWeight:800,color:"#111827",margin:0,lineHeight:1.3}}>
+                        <p style={{ fontSize:".8rem", fontWeight:800, color:"#111827", margin:0, lineHeight:1.3 }}>
                           India's First FinTech &amp; AI Innovation Lab
                         </p>
-                        <p style={{fontSize:".67rem",color:"#6b7280",margin:0}}>Deployed inside your campus</p>
+                        <p style={{ fontSize:".67rem", color:"#6b7280", margin:0 }}>Deployed inside your campus</p>
                       </div>
                     </div>
-                    <p style={{fontSize:".7rem",color:"#374151",lineHeight:1.55,marginBottom:".75rem"}}>
+                    <p style={{ fontSize:".7rem", color:"#374151", lineHeight:1.55, marginBottom:".75rem" }}>
                       Purpose-built for BFSI learning with live modules, peer-working model and NAAC-ready infrastructure.
                     </p>
-                    <ul style={{listStyle:"none",padding:0,margin:"0 0 .875rem",display:"grid",gridTemplateColumns:"1fr 1fr",gap:".3rem .5rem"}}>
+                    <ul style={{ listStyle:"none", padding:0, margin:"0 0 .875rem", display:"grid", gridTemplateColumns:"1fr 1fr", gap:".3rem .5rem" }}>
                       {["10 innovation zones","36 live modules","Peer-working model","NAAC-ready","Industry mentors","Live case studies"].map(item => (
-                        <li key={item} style={{display:"flex",alignItems:"center",gap:".3rem",fontSize:".67rem",color:"#374151"}}>
-                          <span style={{width:"5px",height:"5px",borderRadius:"50%",background:"#009E85",flexShrink:0,display:"inline-block"}} />
+                        <li key={item} style={{ display:"flex", alignItems:"center", gap:".3rem", fontSize:".67rem", color:"#374151" }}>
+                          <span style={{ width:"5px", height:"5px", borderRadius:"50%", background:"#009E85", flexShrink:0, display:"inline-block" }} />
                           {item}
                         </li>
                       ))}
                     </ul>
                     <a href="/bfsiinnovationlab"
-                      style={{display:"flex",alignItems:"center",justifyContent:"center",gap:".4rem",
-                        background:"linear-gradient(135deg,#00C9A7,#009E85)",color:"#fff",
-                        fontSize:".75rem",fontWeight:700,padding:".5rem 1rem",borderRadius:".45rem",
-                        textDecoration:"none",boxShadow:"0 3px 10px rgba(0,201,167,.3)"}}>
+                      style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:".4rem", background:"linear-gradient(135deg,#00C9A7,#009E85)", color:"#fff", fontSize:".75rem", fontWeight:700, padding:".5rem 1rem", borderRadius:".45rem", textDecoration:"none", boxShadow:"0 3px 10px rgba(0,201,167,.3)" }}>
                       Explore the Lab →
                     </a>
                   </div>
@@ -521,53 +518,71 @@ export default function Navbar() {
         </header>
 
         {/* ── MOBILE MENU ── */}
-        <nav className={`nb-mob${mobileOpen ? " open" : ""}`}>
+        <nav className={`nb-mob${mobileOpen ? "register" : ""}`}>
           <div className="nb-mnav">
 
-            {/* Higher Education */}
             <button className="ma" onClick={() => setMobileIndustry(v => !v)}>
               Higher Education <ChevronDown size={18} className={`mc${mobileIndustry ? " o" : ""}`} />
             </button>
             <div className={`mp${mobileIndustry ? " o" : ""}`}>
+
+              <span className="ms">Institution</span>
+              <a href="/about" onClick={closeAll} className="msl">🏛️ Upskillize Institute of FinTech &amp; AI</a>
+              <div className="mdiv" />
+
               <span className="ms">Two Years</span>
-              <a href="/courses/pgdfdb-2t" onClick={closeAll} className="msl">
-                <span style={{background:"#CCFBF1",color:"#065F46",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>PGDFDB</span>
-                PG Diploma in FinTech &amp; Digital Business
-                <span style={{fontSize:".65rem",fontWeight:700,background:"#FAEEDA",color:"#633806",padding:".1rem .35rem",borderRadius:3,marginLeft:2}}>NEW</span>
+              <a href="/courses/pgdfdb-2t" onClick={closeAll} className="msl" style={{ flexDirection:"column", alignItems:"flex-start", gap:".3rem" }}>
+                <div style={{ display:"flex", alignItems:"center", gap:".4rem" }}>
+                  <span style={{ background:"#CCFBF1", color:"#065F46", fontSize:".7rem", fontWeight:700, padding:".15rem .45rem", borderRadius:999 }}>PGDFDB</span>
+                  PG Diploma in FinTech &amp; Digital Business
+                  <span style={{ fontSize:".65rem", fontWeight:700, background:"#FAEEDA", color:"#633806", padding:".1rem .35rem", borderRadius:3 }}>NEW</span>
+                </div>
+                <div style={{ display:"flex", flexWrap:"wrap", gap:".22rem" }}>
+                  <Pill bg="#fef3c7" color="#92400e">Parallel to MBA/PGDM</Pill>
+                  <Pill bg="#f4f6fb" color="#6b7fa3">Any Graduation</Pill>
+                  <Pill bg="#e0f2fe" color="#0369a1">Online / Hybrid</Pill>
+                  <Pill bg="#f4f6fb" color="#6b7fa3">4 Semesters</Pill>
+                </div>
               </a>
               <div className="mdiv" />
+
               <span className="ms">One Year</span>
-              <a href="/courses/pgcdf" onClick={closeAll} className="msl">
-                <span style={{background:"#dcfce7",color:"#15803d",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>ADFBA</span>
-                Advance Diploma in Fintech, Banking &amp; AI
+              <a href="/courses/pgcdf" onClick={closeAll} className="msl" style={{ flexDirection:"column", alignItems:"flex-start", gap:".3rem" }}>
+                <div style={{ display:"flex", alignItems:"center", gap:".4rem" }}>
+                  <span style={{ background:"#dcfce7", color:"#15803d", fontSize:".7rem", fontWeight:700, padding:".15rem .45rem", borderRadius:999 }}>ADFBA</span>
+                  Advance Diploma in FinTech, Banking &amp; AI
+                </div>
+                <div style={{ display:"flex", flexWrap:"wrap", gap:".22rem" }}>
+                  <Pill bg="#fef3c7" color="#92400e">Final Year Graduate &amp; Above</Pill>
+                  <Pill bg="#e0f2fe" color="#0369a1">Online / Hybrid</Pill>
+                  <Pill bg="#f4f6fb" color="#6b7fa3">6 Bimesters</Pill>
+                </div>
               </a>
               <div className="mdiv" />
+
               <span className="ms">Professional Certifications</span>
               {CERT_CATEGORIES.map(cat => (
                 <div key={cat.slug}>
-                  <a href={`/courses/${cat.slug}`} onClick={closeAll} className="msl"
-                    style={{fontWeight:700,gap:".4rem"}}>
+                  <a href={`/courses/${cat.slug}`} onClick={closeAll} className="msl" style={{ fontWeight:700, gap:".4rem" }}>
                     <span>{cat.icon}</span> {cat.label}
                   </a>
                   {cat.courses.map(c => (
                     <a key={c.label} href={c.href} onClick={closeAll}
                       style={{
-                        display:"flex",alignItems:"center",gap:".4rem",
-                        padding:".35rem .75rem .35rem 1.5rem",
-                        borderRadius:".375rem",fontSize:".8rem",fontWeight:400,
-                        color:"#4b5563",textDecoration:"none",opacity: c.available ? 1 : 0.6,
-                        transition:"background .12s",
+                        display:"flex", alignItems:"center", gap:".4rem",
+                        padding:".35rem .75rem .35rem 1.5rem", borderRadius:".375rem",
+                        fontSize:".8rem", fontWeight:400, color:"#4b5563", textDecoration:"none",
+                        opacity: c.available ? 1 : 0.6, transition:"background .12s",
                       }}
                       onMouseEnter={e => e.currentTarget.style.background="#f5f3ff"}
                       onMouseLeave={e => e.currentTarget.style.background="transparent"}
                     >
-                      <img src={c.img} alt={c.label}
-                        style={{width:"17px",height:"17px",borderRadius:".2rem",objectFit:"cover",flexShrink:0}} />
-                      <span style={{flex:1}}>› {c.label}</span>
-                      <div style={{display:"flex",gap:".2rem",flexShrink:0}}>
-                        <span style={{fontSize:".55rem",background:"#ede9fe",color:"#4f46e5",padding:".08rem .28rem",borderRadius:999,fontWeight:600}}>{c.duration}</span>
-                        <span style={{fontSize:".55rem",background:"#e0f2fe",color:"#0891b2",padding:".08rem .28rem",borderRadius:999,fontWeight:600}}>{c.mode}</span>
-                        {!c.available && <span style={{fontSize:".55rem",background:"#e5e7eb",color:"#6b7280",padding:".08rem .28rem",borderRadius:999,fontWeight:700}}>Soon</span>}
+                      <img src={c.img} alt={c.label} style={{ width:"17px", height:"17px", borderRadius:".2rem", objectFit:"cover", flexShrink:0 }} />
+                      <span style={{ flex:1 }}>› {c.label}</span>
+                      <div style={{ display:"flex", gap:".2rem", flexShrink:0 }}>
+                        <span style={{ fontSize:".55rem", background:"#ede9fe", color:"#4f46e5", padding:".08rem .28rem", borderRadius:999, fontWeight:600 }}>{c.duration}</span>
+                        <span style={{ fontSize:".55rem", background:"#e0f2fe", color:"#0891b2", padding:".08rem .28rem", borderRadius:999, fontWeight:600 }}>{c.mode}</span>
+                        {!c.available && <span style={{ fontSize:".55rem", background:"#e5e7eb", color:"#6b7280", padding:".08rem .28rem", borderRadius:999, fontWeight:700 }}>Closed</span>}
                       </div>
                     </a>
                   ))}
@@ -575,7 +590,6 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* Corporates */}
             <button className="ma" onClick={() => setMobileCorp(v => !v)}>
               Corporates <ChevronDown size={18} className={`mc${mobileCorp ? " o" : ""}`} />
             </button>
@@ -584,7 +598,6 @@ export default function Navbar() {
               <a href="/corporate/training"   onClick={closeAll} className="msl">Corporate Training</a>
             </div>
 
-            {/* Products */}
             <button className="ma" onClick={() => setMobileProd(v => !v)}>
               Products <ChevronDown size={18} className={`mc${mobileProd ? " o" : ""}`} />
             </button>
@@ -594,7 +607,6 @@ export default function Navbar() {
               <a href="/products/vendorize" onClick={closeAll} className="msl">De-risk Vendorize</a>
             </div>
 
-            {/* Career Accelerator */}
             <button className="ma" onClick={() => setMobileCareer(v => !v)}>
               Career Accelerator <ChevronDown size={18} className={`mc${mobileCareer ? " o" : ""}`} />
             </button>
@@ -603,24 +615,20 @@ export default function Navbar() {
               <a href="/careers/placement"  onClick={closeAll} className="msl">Placement Assistance</a>
             </div>
 
-            {/* BFSI Lab */}
             <button className="ma" onClick={() => setMobileLab(v => !v)}
-              style={{background:"linear-gradient(135deg,#f0fdf9,#f0f7ff)",color:"#065F46",fontWeight:700}}>
+              style={{ background:"linear-gradient(135deg,#f0fdf9,#f0f7ff)", color:"#065F46", fontWeight:700 }}>
               🏦 BFSI Lab <ChevronDown size={18} className={`mc${mobileLab ? " o" : ""}`} />
             </button>
             <div className={`mp${mobileLab ? " o" : ""}`}>
               <a href="/bfsiinnovationlab" onClick={closeAll} className="msl">Explore the Lab</a>
               <Link to="/connect" onClick={closeAll} className="msl"
-                style={{display:"flex",alignItems:"center",gap:".5rem",
-                  background:"linear-gradient(135deg,#00C9A7,#009E85)",color:"#fff",fontWeight:700,
-                  borderRadius:".5rem",margin:".25rem .75rem",padding:".6rem .875rem"}}>
+                style={{ display:"flex", alignItems:"center", gap:".5rem", background:"linear-gradient(135deg,#00C9A7,#009E85)", color:"#fff", fontWeight:700, borderRadius:".5rem", margin:".25rem .75rem", padding:".6rem .875rem" }}>
                 🚀 Set Up Our Lab →
               </Link>
             </div>
 
             <div className="mdiv" />
 
-            {/* About */}
             <button className="ma" onClick={() => setMobileAbout(v => !v)}>
               About <ChevronDown size={18} className={`mc${mobileAbout ? " o" : ""}`} />
             </button>
@@ -632,10 +640,7 @@ export default function Navbar() {
             <a href="/contact" onClick={closeAll} className="ml">Contact Us</a>
 
             <Link to="/connect" onClick={closeAll}
-              style={{display:"flex",alignItems:"center",justifyContent:"center",gap:"8px",
-                background:"linear-gradient(135deg,#00C9A7,#009E85)",color:"#fff",
-                fontWeight:700,fontSize:"1rem",padding:".875rem",borderRadius:".5rem",
-                textDecoration:"none",margin:".5rem 0",boxShadow:"0 4px 14px rgba(0,201,167,.25)"}}>
+              style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:"8px", background:"linear-gradient(135deg,#00C9A7,#009E85)", color:"#fff", fontWeight:700, fontSize:"1rem", padding:".875rem", borderRadius:".5rem", textDecoration:"none", margin:".5rem 0", boxShadow:"0 4px 14px rgba(0,201,167,.25)" }}>
               🚀 Set Up Our Lab →
             </Link>
 
