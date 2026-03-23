@@ -2,19 +2,19 @@ import React, { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const QUARTER_COURSES = [
+const CERT_CATEGORIES = [
   {
     label: "AI in FinTech",
     slug: "ai-fintech",
     icon: "🏦",
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=80",
-    subCourses: [
-      { label: "BFSI Domain Excellence",           href: "/courses/bfsi-domain-excellence-program",      img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=48", available: true },
-      { label: "Investment Banking & Wealth Tech", href: "/courses/investment-banking-wealth-tech",      img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=48", available: true },
-      { label: "Risk Management & RegTech",        href: "/courses/risk-management-regtech-program",     img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=48", available: true },
-      { label: "FinTech & AI Mastery",             href: "/courses/ai-fintech",                          img: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=48", available: false },
-      { label: "Insurance, InsurTech & DPDPA",     href: "/courses/ai-fintech",                          img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=48", available: false },
-      { label: "AI in Financial Services",         href: "/courses/ai-fintech",                          img: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=48", available: false },
+    courses: [
+      { label: "BFSI Domain Excellence",          href: "/courses/bfsi-domain-excellence-program",   img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=48",  available: true,  duration: "10 Weeks", mode: "Online", fee: "₹18,000" },
+      { label: "Investment Banking & Wealth Tech", href: "/courses/investment-banking-wealth-tech",   img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=48",  available: true,  duration: "12 Weeks", mode: "Hybrid", fee: "₹22,000" },
+      { label: "Risk Management & RegTech",        href: "/courses/risk-management-regtech-program",  img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=48",  available: true,  duration: "10 Weeks", mode: "Online", fee: "₹20,000" },
+      { label: "FinTech & AI Mastery",             href: "/courses/ai-fintech",                       img: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=48",  available: false, duration: "12 Weeks", mode: "Online", fee: "₹24,000" },
+      { label: "Insurance, InsurTech & DPDPA",     href: "/courses/ai-fintech",                       img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=48",  available: false, duration: "8 Weeks",  mode: "Online", fee: "₹16,000" },
+      { label: "AI in Financial Services",         href: "/courses/ai-fintech",                       img: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=48",  available: false, duration: "10 Weeks", mode: "Hybrid", fee: "₹21,000" },
     ],
   },
   {
@@ -22,23 +22,23 @@ const QUARTER_COURSES = [
     slug: "product-leadership",
     icon: "🚀",
     img: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=80",
-    subCourses: [
-      { label: "The Mini CEO Program",             href: "/courses/the-mini-ceo-program",                img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=48", available: true },
-      { label: "AI Product Management Mastery",    href: "/courses/ai-product-management-mastery",       img: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=48", available: true },
-      { label: "Product Management for Techies",   href: "/courses/product-leadership",                  img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=48", available: false },
-      { label: "Design Thinking & User Solutions", href: "/courses/product-leadership",                  img: "https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?w=48", available: false },
-      { label: "Business Analysis Foundation",     href: "/courses/product-leadership",                  img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=48", available: false },
+    courses: [
+      { label: "The Mini CEO Program",             href: "/courses/the-mini-ceo-program",             img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=48",  available: true,  duration: "12 Weeks", mode: "Online", fee: "₹25,000" },
+      { label: "AI Product Management Mastery",    href: "/courses/ai-product-management-mastery",    img: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=48",  available: true,  duration: "10 Weeks", mode: "Hybrid", fee: "₹22,000" },
+      { label: "Product Management for Techies",   href: "/courses/product-leadership",               img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=48",  available: false, duration: "8 Weeks",  mode: "Online", fee: "₹18,000" },
+      { label: "Design Thinking & User Solutions", href: "/courses/product-leadership",               img: "https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?w=48",  available: false, duration: "6 Weeks",  mode: "Online", fee: "₹15,000" },
+      { label: "Business Analysis Foundation",     href: "/courses/product-leadership",               img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=48",  available: false, duration: "8 Weeks",  mode: "Hybrid", fee: "₹17,000" },
     ],
   },
   {
-    label: "Data Analytics, GenAI & BI",
+    label: "Data & GenAI",
     slug: "data-analytics-genai",
     icon: "📊",
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=80",
-    subCourses: [
-      { label: "Data to Decisions: Power BI & AI", href: "/courses/data-decisions",                      img: "https://images.unsplash.com/photo-1543286386-2e659306cd6c?w=48", available: true },
-      { label: "AI & ML for Business Leaders",     href: "/courses/ai-ml-business-leaders",              img: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=48", available: true },
-      { label: "Strategic Data Analytics",         href: "/courses/data-analytics-genai",                img: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=48", available: false },
+    courses: [
+      { label: "Data to Decisions: Power BI & AI", href: "/courses/data-decisions",                  img: "https://images.unsplash.com/photo-1543286386-2e659306cd6c?w=48",  available: true,  duration: "10 Weeks", mode: "Online", fee: "₹20,000" },
+      { label: "AI & ML for Business Leaders",     href: "/courses/ai-ml-business-leaders",           img: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=48",  available: true,  duration: "12 Weeks", mode: "Hybrid", fee: "₹23,000" },
+      { label: "Strategic Data Analytics",         href: "/courses/data-analytics-genai",             img: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=48",  available: false, duration: "10 Weeks", mode: "Online", fee: "₹19,000" },
     ],
   },
   {
@@ -46,26 +46,102 @@ const QUARTER_COURSES = [
     slug: "technology-digital-transformation",
     icon: "⚙️",
     img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=80",
-    subCourses: [
-      { label: "Digital Business Strategy & Innovation", href: "/courses/digital-business-strategy-innovation", img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=48", available: true },
-      { label: "AI & Digital Project Management",        href: "/courses/technology-digital-transformation",   img: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=48", available: false },
-      { label: "Emerging Technologies & Industry 4.0",   href: "/courses/technology-digital-transformation",   img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=48", available: false },
+    courses: [
+      { label: "Digital Business Strategy & Innovation", href: "/courses/digital-business-strategy-innovation", img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=48", available: true,  duration: "10 Weeks", mode: "Online", fee: "₹21,000" },
+      { label: "AI & Digital Project Management",        href: "/courses/technology-digital-transformation",   img: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=48", available: false, duration: "8 Weeks",  mode: "Hybrid", fee: "₹18,000" },
+      { label: "Emerging Technologies & Industry 4.0",   href: "/courses/technology-digital-transformation",   img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=48", available: false, duration: "12 Weeks", mode: "Online", fee: "₹22,000" },
     ],
   },
 ];
 
+// Course row with Duration / Mode / Fee info tabs
+function CourseRow({ c }) {
+  const [activeInfo, setActiveInfo] = useState(null);
+
+  const INFO_TABS = [
+    { key: "duration", label: "Duration", value: c.duration, color: "#4f46e5", bg: "#ede9fe" },
+    { key: "mode",     label: "Mode",     value: c.mode,     color: "#0891b2", bg: "#e0f2fe" },
+    { key: "fee",      label: "Fee",      value: c.fee,      color: "#059669", bg: "#d1fae5" },
+  ];
+
+  return (
+    <div style={{
+      borderBottom: "1px solid #f3f4f6",
+      opacity: c.available ? 1 : 0.62,
+      transition: "background .12s",
+    }}>
+      {/* Course name row */}
+      <a href={c.href}
+        style={{
+          display:"flex",alignItems:"center",gap:".5rem",
+          padding:".35rem .875rem .2rem",textDecoration:"none",
+        }}
+        onMouseEnter={e => e.currentTarget.parentElement.style.background="#f9fafb"}
+        onMouseLeave={e => e.currentTarget.parentElement.style.background="transparent"}
+      >
+        <img src={c.img} alt={c.label}
+          style={{width:"22px",height:"22px",borderRadius:".25rem",objectFit:"cover",flexShrink:0}} />
+        <span style={{flex:1,fontSize:".775rem",fontWeight:600,color:"#1f2937",lineHeight:1.3}}>
+          {c.label}
+        </span>
+        {!c.available
+          ? <span style={{fontSize:".55rem",fontWeight:700,background:"#e5e7eb",color:"#6b7280",padding:".1rem .3rem",borderRadius:999,flexShrink:0}}>Soon</span>
+          : <span style={{fontSize:".55rem",fontWeight:700,background:"#dcfce7",color:"#15803d",padding:".1rem .3rem",borderRadius:999,flexShrink:0}}>Open</span>
+        }
+      </a>
+
+      {/* Info tabs row */}
+      <div style={{display:"flex",alignItems:"center",gap:".25rem",padding:".0rem .875rem .35rem 2.875rem"}}>
+        {INFO_TABS.map(t => (
+          <button key={t.key}
+            onClick={e => { e.preventDefault(); e.stopPropagation(); setActiveInfo(activeInfo === t.key ? null : t.key); }}
+            style={{
+              fontSize:".57rem",fontWeight:700,padding:".1rem .38rem",borderRadius:999,
+              border: activeInfo === t.key ? `1px solid ${t.color}` : "1px solid #e5e7eb",
+              background: activeInfo === t.key ? t.bg : "#f9fafb",
+              color: activeInfo === t.key ? t.color : "#6b7280",
+              cursor:"pointer",transition:"all .15s",whiteSpace:"nowrap",
+            }}
+          >
+            {t.label}
+          </button>
+        ))}
+        {/* Value bubble */}
+        {activeInfo && (() => {
+          const t = INFO_TABS.find(x => x.key === activeInfo);
+          return (
+            <span style={{
+              fontSize:".62rem",fontWeight:700,
+              color: t.color,
+              background: t.bg,
+              padding:".12rem .5rem",borderRadius:999,
+              marginLeft:".1rem",
+              animation:"fadeIn .15s ease",
+            }}>
+              {t.value}
+            </span>
+          );
+        })()}
+      </div>
+    </div>
+  );
+}
+
 export default function Navbar() {
-  const [isScrolled,     setIsScrolled]     = useState(false);
-  const [mobileOpen,     setMobileOpen]     = useState(false);
-  const [industryOpen,   setIndustryOpen]   = useState(false);
-  const [mobileIndustry, setMobileIndustry] = useState(false);
-  const [mobileCorp,     setMobileCorp]     = useState(false);
-  const [mobileProd,     setMobileProd]     = useState(false);
-  const [mobileCareer,   setMobileCareer]   = useState(false);
-  const [mobileAbout,    setMobileAbout]    = useState(false);
-  const [expandedQuarter, setExpandedQuarter] = useState(null);
+  const [isScrolled,      setIsScrolled]    = useState(false);
+  const [mobileOpen,      setMobileOpen]    = useState(false);
+  const [industryOpen,    setIndustryOpen]  = useState(false);
+  const [labOpen,         setLabOpen]       = useState(false);
+  const [activeCertTab,   setActiveCertTab] = useState(0);
+  const [mobileIndustry,  setMobileIndustry]= useState(false);
+  const [mobileCorp,      setMobileCorp]    = useState(false);
+  const [mobileProd,      setMobileProd]    = useState(false);
+  const [mobileCareer,    setMobileCareer]  = useState(false);
+  const [mobileLab,       setMobileLab]     = useState(false);
+  const [mobileAbout,     setMobileAbout]   = useState(false);
 
   const industryTimer = useRef(null);
+  const labTimer      = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 10);
@@ -78,31 +154,30 @@ export default function Navbar() {
   }, [mobileOpen]);
 
   const closeAll = () => {
-    setMobileOpen(false);
-    setMobileIndustry(false);
-    setMobileCorp(false);
-    setMobileProd(false);
-    setMobileCareer(false);
-    setMobileAbout(false);
-    setExpandedQuarter(null);
+    setMobileOpen(false); setMobileIndustry(false); setMobileCorp(false);
+    setMobileProd(false); setMobileCareer(false); setMobileLab(false); setMobileAbout(false);
   };
 
-  const onEnter = () => { clearTimeout(industryTimer.current); setIndustryOpen(true); };
-  const onLeave = () => { industryTimer.current = setTimeout(() => setIndustryOpen(false), 160); };
+  const onEnter    = () => { clearTimeout(industryTimer.current); setIndustryOpen(true); };
+  const onLeave    = () => { industryTimer.current = setTimeout(() => setIndustryOpen(false), 160); };
+  const onLabEnter = () => { clearTimeout(labTimer.current); setLabOpen(true); };
+  const onLabLeave = () => { labTimer.current = setTimeout(() => setLabOpen(false), 160); };
 
   return (
     <>
       <style>{`
         *,*::before,*::after{box-sizing:border-box}
         :root{
-          --c-bg:#fff; --c-border:#e5e7eb; --c-text:#1f2937;
-          --c-muted:#6b7280; --c-indigo:#4f46e5; --c-cyan:#0891b2;
-          --c-hover-bg:#f5f3ff; --c-hover:#4f46e5;
-          --shadow:0 8px 32px rgba(0,0,0,0.11);
+          --c-bg:#fff;--c-border:#e5e7eb;--c-text:#1f2937;
+          --c-muted:#6b7280;--c-indigo:#4f46e5;--c-cyan:#0891b2;
+          --c-hover-bg:#f5f3ff;--c-hover:#4f46e5;
+          --shadow:0 8px 32px rgba(0,0,0,.11);
         }
+        @keyframes fadeIn{from{opacity:0;transform:translateX(-4px)}to{opacity:1;transform:translateX(0)}}
+
         .nb{position:fixed;top:0;left:0;right:0;z-index:9999}
         .nb-bar{background:var(--c-bg);border-bottom:1px solid transparent;transition:border-color .25s,box-shadow .25s}
-        .nb-bar.scrolled{border-color:var(--c-border);box-shadow:0 2px 14px rgba(0,0,0,0.07)}
+        .nb-bar.scrolled{border-color:var(--c-border);box-shadow:0 2px 14px rgba(0,0,0,.07)}
         .nb-inner{max-width:1280px;margin:0 auto;padding:0 1.25rem;height:64px;display:flex;align-items:center}
         .nb-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;margin-right:2rem}
         .nb-logo img{height:42px;width:auto;display:block}
@@ -116,7 +191,6 @@ export default function Navbar() {
           cursor:pointer;text-decoration:none;white-space:nowrap;transition:background .15s,color .15s}
         .nbb:hover{background:var(--c-hover-bg);color:var(--c-hover)}
         .nbc{transition:transform .2s;flex-shrink:0}
-        .nbb:hover .nbc{transform:rotate(180deg)}
         .nbd{position:relative}
         .nbd-menu{position:absolute;top:calc(100% + 8px);left:0;background:var(--c-bg);
           border:1px solid var(--c-border);border-radius:.75rem;box-shadow:var(--shadow);
@@ -129,54 +203,82 @@ export default function Navbar() {
         .nbd-item:hover{background:var(--c-hover-bg);color:var(--c-hover)}
         .nb-ind{position:relative}
 
-        /* ── PANEL: 4 columns after removing Three Years ── */
+        /* ── HIGHER EDUCATION PANEL: 3 cols ── */
         .nb-panel{
           position:absolute;top:calc(100% + 8px);left:-60px;
           background:var(--c-bg);border:1px solid var(--c-border);
           border-radius:.875rem;box-shadow:var(--shadow);
-          width:880px;
-          display:grid;
-          grid-template-columns:210px 160px 1fr 190px;
+          width:860px;
+          display:grid;grid-template-columns:210px 165px 1fr;
           opacity:0;visibility:hidden;transform:translateY(-8px);
           transition:all .2s cubic-bezier(.4,0,.2,1);z-index:10001;overflow:hidden
         }
         .nb-panel.open{opacity:1;visibility:visible;transform:translateY(0)}
         .nb-col{padding:.6rem 0 .875rem;border-right:1px solid var(--c-border)}
         .nb-col:last-child{border-right:none}
-        .nb-clabel{
-          display:block;padding:0 .875rem .55rem;
-          font-size:.58rem;font-weight:700;letter-spacing:.05em;
-          text-transform:uppercase;color:var(--c-cyan);
-          border-bottom:1px solid var(--c-border);margin-bottom:.55rem
-        }
-        .nb-crow{
-          display:flex;align-items:center;gap:.625rem;padding:.6rem 1rem;
+        .nb-clabel{display:block;padding:0 .875rem .55rem;font-size:.58rem;font-weight:700;
+          letter-spacing:.05em;text-transform:uppercase;color:var(--c-cyan);
+          border-bottom:1px solid var(--c-border);margin-bottom:.55rem}
+        .nb-crow{display:flex;align-items:center;gap:.625rem;padding:.6rem 1rem;
           font-size:.875rem;font-weight:600;color:var(--c-text);
-          text-decoration:none;transition:background .12s,color .12s
-        }
+          text-decoration:none;transition:background .12s,color .12s}
         .nb-crow:hover{background:var(--c-hover-bg);color:var(--c-hover)}
-        .nbp{display:inline-block;font-size:.65rem;font-weight:700;
-          padding:.12rem .4rem;border-radius:999px;flex-shrink:0}
-        .nbp-b{background:#dbeafe;color:#1d4ed8}
+        .nbp{display:inline-block;font-size:.65rem;font-weight:700;padding:.12rem .4rem;border-radius:999px;flex-shrink:0}
         .nbp-g{background:#dcfce7;color:#15803d}
-        .nb-qcat{
-          display:flex;align-items:center;justify-content:space-between;
-          gap:.4rem;padding:.35rem .825rem;
-          font-size:.77rem;font-weight:600;color:var(--c-text);
-          cursor:pointer;border:none;background:none;width:100%;text-align:left;
-          transition:background .12s,color .12s
+
+        /* ── Professional Certifications column ── */
+        .nb-certcol{display:flex;flex-direction:column;overflow:hidden}
+        .nb-certcol-header{
+          display:block;padding:0 .875rem .55rem;font-size:.58rem;font-weight:700;
+          letter-spacing:.05em;text-transform:uppercase;color:#7c3aed;
+          border-bottom:1px solid var(--c-border);margin-bottom:0
         }
-        .nb-qcat:hover{background:var(--c-hover-bg);color:var(--c-hover)}
-        .nb-qcat a{text-decoration:none;color:inherit;flex:1}
-        .nb-qcat-chev{flex-shrink:0;transition:transform .2s}
-        .nb-qcat-chev.open{transform:rotate(180deg)}
-        .nb-subcol{max-height:0;overflow:hidden;transition:max-height .3s ease;background:#f9fafb;border-left:2px solid #e0e7ff;margin-left:1rem}
-        .nb-subcol.open{max-height:400px}
-        .nb-subrow{
-          display:block;padding:.32rem .825rem;font-size:.76rem;font-weight:500;
-          color:#4b5563;text-decoration:none;transition:background .12s,color .12s
+        /* 4 category tabs side-by-side */
+        .nb-cert-tabs{
+          display:grid;grid-template-columns:repeat(4,1fr);
+          border-bottom:1px solid var(--c-border);
+          background:#fafafa;
         }
-        .nb-subrow:hover{background:var(--c-hover-bg);color:var(--c-hover)}
+        .nb-cert-tab{
+          display:flex;flex-direction:column;align-items:center;justify-content:center;
+          gap:.18rem;padding:.45rem .3rem;
+          font-size:.62rem;font-weight:600;color:#6b7280;
+          background:none;border:none;border-right:1px solid #f3f4f6;
+          cursor:pointer;transition:all .15s;text-align:center;line-height:1.25;
+          border-bottom:2px solid transparent;
+        }
+        .nb-cert-tab:last-child{border-right:none}
+        .nb-cert-tab:hover{background:#f5f3ff;color:#4f46e5}
+        .nb-cert-tab.active{
+          background:#fff;color:#4f46e5;font-weight:700;
+          border-bottom:2px solid #4f46e5;
+        }
+        .nb-cert-tab-icon{font-size:.95rem;line-height:1}
+        /* Course list */
+        .nb-cert-courses{overflow-y:auto;max-height:360px;flex:1}
+        .nb-cert-courses::-webkit-scrollbar{width:3px}
+        .nb-cert-courses::-webkit-scrollbar-thumb{background:#e5e7eb;border-radius:4px}
+
+        /* Innovation Lab panel */
+        .nb-lab-panel{
+          position:absolute;top:calc(100% + 8px);left:50%;
+          transform:translateX(-50%) translateY(-8px);
+          background:linear-gradient(160deg,#f0fdf9 0%,#f0f7ff 100%);
+          border:1px solid var(--c-border);border-radius:.875rem;box-shadow:var(--shadow);
+          width:300px;padding:1.25rem 1.25rem 1rem;
+          opacity:0;visibility:hidden;
+          transition:all .2s cubic-bezier(.4,0,.2,1);z-index:10001
+        }
+        .nb-lab-panel.open{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+        .nbb-lab{
+          display:inline-flex;align-items:center;gap:.35rem;padding:.45rem .875rem;
+          border-radius:.5rem;font-size:.9rem;font-weight:600;
+          background:linear-gradient(135deg,#ccfbf1,#a7f3d0);
+          color:#065F46;border:none;cursor:pointer;white-space:nowrap;
+          transition:all .18s;box-shadow:0 1px 6px rgba(0,201,167,.15)
+        }
+        .nbb-lab:hover{background:linear-gradient(135deg,#a7f3d0,#6ee7b7);box-shadow:0 2px 12px rgba(0,201,167,.3)}
+
         .nb-ham{display:flex;padding:.5rem;border:none;background:transparent;
           cursor:pointer;color:var(--c-text);border-radius:.375rem;transition:background .15s}
         .nb-ham:hover{background:#f3f4f6}
@@ -192,24 +294,19 @@ export default function Navbar() {
           color:var(--c-text);background:none;border:none;cursor:pointer;
           width:100%;text-align:left;transition:background .13s}
         .ma:hover{background:#f9fafb}
-        .mc{transition:transform .2s}
-        .mc.o{transform:rotate(180deg)}
+        .mc{transition:transform .2s}.mc.o{transform:rotate(180deg)}
         .ml{display:block;padding:.875rem;border-radius:.5rem;font-size:.975rem;
           font-weight:600;color:var(--c-text);text-decoration:none;transition:background .13s}
         .ml:hover{background:#f9fafb}
-        .mp{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1);
+        .mp{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1);
           padding-left:.5rem;border-left:3px solid #e0e7ff;margin-left:.875rem;margin-bottom:.25rem}
-        .mp.o{max-height:2400px}
+        .mp.o{max-height:3200px}
         .ms{display:block;padding:.625rem .75rem .35rem;font-size:.67rem;
           font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c-cyan)}
         .msl{display:flex;align-items:center;gap:.5rem;padding:.55rem .75rem;
           border-radius:.375rem;font-size:.875rem;font-weight:500;color:#374151;
           text-decoration:none;transition:background .12s,color .12s}
         .msl:hover{background:var(--c-hover-bg);color:var(--c-hover)}
-        .mssl{display:flex;align-items:center;gap:.5rem;padding:.4rem .75rem .4rem 1.5rem;
-          border-radius:.375rem;font-size:.8rem;font-weight:400;color:#6b7280;
-          text-decoration:none;transition:background .12s,color .12s}
-        .mssl:hover{background:var(--c-hover-bg);color:var(--c-hover)}
         .mdiv{height:1px;background:#f3f4f6;margin:.375rem 0}
         .nb-sp{height:64px}
         @media(max-width:1023px){.nb-inner{padding:0 .875rem}.nb-logo img{height:38px}}
@@ -217,14 +314,13 @@ export default function Navbar() {
       `}</style>
 
       <div className="nb">
-        {/* ── BAR ── */}
         <header className={`nb-bar${isScrolled ? " scrolled" : ""}`}>
           <div className="nb-inner">
 
             {/* Logo */}
             <a href="/" className="nb-logo" onClick={closeAll}>
               <img src="/images/logo.png" alt="Upskillize"
-                onError={e => { e.target.style.display = "none"; e.target.nextElementSibling.style.display = "block"; }} />
+                onError={e => { e.target.style.display="none"; e.target.nextElementSibling.style.display="block"; }} />
               <span className="nb-logo-text">Upskillize</span>
             </a>
 
@@ -236,37 +332,43 @@ export default function Navbar() {
                 <div className="nb-ind" onMouseEnter={onEnter} onMouseLeave={onLeave}>
                   <button className="nbb" aria-haspopup="true" aria-expanded={industryOpen}>
                     Higher Education
-                    <ChevronDown size={15} className="nbc" style={{ transform: industryOpen ? "rotate(180deg)" : "rotate(0)" }} />
+                    <ChevronDown size={15} className="nbc"
+                      style={{transform: industryOpen ? "rotate(180deg)" : "rotate(0)"}} />
                   </button>
 
                   <div className={`nb-panel${industryOpen ? " open" : ""}`}>
 
-                    {/* COL 1 – Two Year */}
-<div className="nb-col">
-  <span className="nb-clabel">Two Years</span>
-  <a href="/courses/pgdfdb-2t" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".28rem",padding:".45rem .7rem"}}>
-    <div style={{width:"100%",height:"46px",borderRadius:".35rem",overflow:"hidden",position:"relative",marginBottom:".05rem"}}>
-      <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400" alt="ADFDB" style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}} />
-      <div style={{position:"absolute",bottom:4,right:5,fontSize:".55rem",fontWeight:700,background:"#FAEEDA",color:"#633806",padding:"1px 4px",borderRadius:2}}>NEW</div>
-    </div>
+                    {/* COL 1 – Two Years */}
+                    <div className="nb-col">
+                      <span className="nb-clabel">Two Years</span>
+                      <a href="/courses/pgdfdb-2t" className="nb-crow"
+                        style={{flexDirection:"column",alignItems:"flex-start",gap:".28rem",padding:".45rem .7rem"}}>
+                        <div style={{width:"100%",height:"46px",borderRadius:".35rem",overflow:"hidden",position:"relative",marginBottom:".05rem"}}>
+                          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400" alt="PGDFDB"
+                            style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}} />
+                          <div style={{position:"absolute",bottom:4,right:5,fontSize:".55rem",fontWeight:700,
+                            background:"#FAEEDA",color:"#633806",padding:"1px 4px",borderRadius:2}}>NEW</div>
+                        </div>
+                        <span className="nbp" style={{background:"#e8f4f0",color:"#0F6E56",fontSize:".57rem",padding:".1rem .38rem"}}>PGDFDB</span>
+                        <div style={{fontSize:".72rem",fontWeight:700,color:"var(--c-text)",lineHeight:1.25}}>
+                          PG Diploma in FinTech &amp; Digital Business
+                        </div>
+                        <div style={{fontSize:".63rem",color:"var(--c-muted)"}}>Parallel to MBA</div>
+                        <div style={{display:"flex",gap:".22rem",flexWrap:"wrap"}}>
+                          <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>Semester</span>
+                          <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>4 semesters</span>
+                        </div>
+                      </a>
+                    </div>
 
-    <span className="nbp" style={{background:"#e8f4f0",color:"#0F6E56",fontSize:".57rem",padding:".1rem .38rem"}}>PGDFDB</span>
-    <div style={{fontSize:".72rem",fontWeight:700,color:"var(--c-text)",lineHeight:1.25}}>
-      PG Diploma in FinTech &amp; Digital Business
-    </div>
-    <div style={{fontSize:".63rem",color:"var(--c-muted)"}}>Parallel to MBA</div>
-    <div style={{display:"flex",gap:".22rem",flexWrap:"wrap"}}>
-      <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>Semester</span>
-      <span style={{fontSize:".56rem",background:"#f4f6fb",borderRadius:3,padding:"1px 4px",color:"#6b7fa3"}}>4 semesters</span>
-    </div>
-  </a>
-</div>
                     {/* COL 2 – One Year */}
                     <div className="nb-col">
                       <span className="nb-clabel">One Year</span>
-                      <a href="/courses/pgcdf" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".28rem",padding:".45rem .7rem"}}>
+                      <a href="/courses/pgcdf" className="nb-crow"
+                        style={{flexDirection:"column",alignItems:"flex-start",gap:".28rem",padding:".45rem .7rem"}}>
                         <div style={{width:"100%",height:"46px",borderRadius:".35rem",overflow:"hidden",marginBottom:".05rem"}}>
-                          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400" alt="ADFBA" style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}} />
+                          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400" alt="ADFBA"
+                            style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}} />
                         </div>
                         <span className="nbp nbp-g" style={{fontSize:".57rem",padding:".1rem .38rem"}}>ADFBA</span>
                         <div style={{fontSize:".72rem",fontWeight:700,color:"var(--c-text)",lineHeight:1.25}}>
@@ -280,65 +382,46 @@ export default function Navbar() {
                       </a>
                     </div>
 
-                    {/* COL 3 – Quarterly Certifications */}
-                    <div className="nb-col">
-                      <span className="nb-clabel">Quarterly Certifications</span>
-                      {QUARTER_COURSES.map((c) => (
-                        <div key={c.slug}>
-                          <div className="nb-qcat">
-                            <a href={`/courses/${c.slug}`} style={{display:"flex",alignItems:"center",gap:".45rem",flex:1,textDecoration:"none",color:"inherit",fontSize:".8rem",fontWeight:600}}>
-                              <img src={c.img} alt={c.label} style={{width:"26px",height:"26px",borderRadius:".3rem",objectFit:"cover",flexShrink:0}} />
-                              {c.label}
-                            </a>
-                            {c.subCourses.length > 0 && (
-                              <ChevronDown
-                                size={12}
-                                className={`nb-qcat-chev${expandedQuarter === c.slug ? " open" : ""}`}
-                                onClick={(e) => { e.preventDefault(); setExpandedQuarter(expandedQuarter === c.slug ? null : c.slug); }}
-                              />
-                            )}
-                          </div>
-                          {c.subCourses.length > 0 && (
-                            <div className={`nb-subcol${expandedQuarter === c.slug ? " open" : ""}`}>
-                              {c.subCourses.map((s) => (
-                                <a key={s.label} href={s.href} className="nb-subrow"
-                                  style={{opacity: s.available ? 1 : 0.55, display:"flex", alignItems:"center", gap:".45rem"}}>
-                                  <img src={s.img} alt={s.label} style={{width:"20px",height:"20px",borderRadius:".2rem",objectFit:"cover",flexShrink:0}} />
-                                  <span style={{flex:1,fontSize:".75rem"}}>{s.label}</span>
-                                  {!s.available && (
-                                    <span style={{fontSize:".58rem",fontWeight:700,background:"#e5e7eb",color:"#6b7280",padding:".1rem .32rem",borderRadius:999,flexShrink:0}}>Soon</span>
-                                  )}
-                                </a>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      ))}
-                    </div>
+                    {/* COL 3 – Professional Certifications with 4-tab switcher */}
+                    <div className="nb-certcol">
+                      {/* Section header */}
+                      <span className="nb-certcol-header" style={{padding:".5rem .875rem",display:"block"}}>
+                        Professional Certifications
+                      </span>
 
-                    {/* COL 4 – FinTech & AI Innovation Lab */}
-                    <div className="nb-col" style={{background:"linear-gradient(160deg,#f0fdf9 0%,#f0f7ff 100%)"}}>
-                      <span className="nb-clabel" style={{color:"#009E85",fontSize:".58rem",letterSpacing:".05em"}}>Innovation Lab</span>
-                      <div style={{padding:"0 .875rem .75rem"}}>
-                        <div style={{width:"40px",height:"40px",borderRadius:".45rem",background:"linear-gradient(135deg,#ccfbf1,#a7f3d0)",display:"flex",alignItems:"center",justifyContent:"center",marginBottom:".5rem"}}>
-                          <span style={{fontSize:"1.25rem"}}>🏦</span>
-                        </div>
-                        <p style={{fontSize:".72rem",fontWeight:700,color:"#111827",marginBottom:".25rem",lineHeight:1.3}}>
-                          India's First FinTech &amp; AI Lab
-                        </p>
-                        <p style={{fontSize:".66rem",color:"#6b7280",lineHeight:1.5,marginBottom:".55rem"}}>
-                          Deployed inside your campus. Purpose-built for BFSI learning.
-                        </p>
-                        <ul style={{listStyle:"none",padding:0,margin:"0 0 .65rem",display:"flex",flexDirection:"column",gap:".25rem"}}>
-                          {["10 innovation zones","36 live modules","Peer-working model","NAAC-ready"].map(item => (
-                            <li key={item} style={{display:"flex",alignItems:"center",gap:".35rem",fontSize:".67rem",color:"#374151"}}>
-                              <span style={{width:"5px",height:"5px",borderRadius:"50%",background:"#009E85",flexShrink:0,display:"inline-block"}}></span>
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                        <a href="/bfsiinnovationlab" style={{display:"inline-flex",alignItems:"center",gap:".3rem",background:"#009E85",color:"#fff",fontSize:".69rem",fontWeight:700,padding:".38rem .8rem",borderRadius:".4rem",textDecoration:"none",whiteSpace:"nowrap"}}>
-                          Explore the Lab →
+                      {/* 4 category tabs side by side */}
+                      <div className="nb-cert-tabs">
+                        {CERT_CATEGORIES.map((cat, i) => (
+                          <button
+                            key={cat.slug}
+                            className={`nb-cert-tab${activeCertTab === i ? " active" : ""}`}
+                            onClick={() => setActiveCertTab(i)}
+                          >
+                            <span className="nb-cert-tab-icon">{cat.icon}</span>
+                            <span>{cat.label}</span>
+                          </button>
+                        ))}
+                      </div>
+
+                      {/* Course list for active tab */}
+                      <div className="nb-cert-courses">
+                        {CERT_CATEGORIES[activeCertTab].courses.map((c, i) => (
+                          <CourseRow key={i} c={c} />
+                        ))}
+
+                        {/* View all link */}
+                        <a href={`/courses/${CERT_CATEGORIES[activeCertTab].slug}`}
+                          style={{
+                            display:"flex",alignItems:"center",justifyContent:"center",
+                            gap:".3rem",padding:".5rem .875rem",
+                            fontSize:".72rem",fontWeight:700,color:"#4f46e5",
+                            textDecoration:"none",background:"#f5f3ff",
+                            borderTop:"1px solid #ede9fe",
+                          }}
+                          onMouseEnter={e => e.currentTarget.style.background="#ede9fe"}
+                          onMouseLeave={e => e.currentTarget.style.background="#f5f3ff"}
+                        >
+                          View all {CERT_CATEGORIES[activeCertTab].label} courses →
                         </a>
                       </div>
                     </div>
@@ -373,6 +456,48 @@ export default function Navbar() {
                     <a href="/careers/placement"  className="nbd-item">Placement Assistance</a>
                   </div>
                 </div>
+
+                {/* BFSI Lab */}
+                <div className="nb-ind" onMouseEnter={onLabEnter} onMouseLeave={onLabLeave} style={{position:"relative"}}>
+                  <button className="nbb-lab" aria-haspopup="true" aria-expanded={labOpen}>
+                    🏦 BFSI Lab
+                    <ChevronDown size={13} style={{transition:"transform .2s",transform: labOpen ? "rotate(180deg)" : "rotate(0)"}} />
+                  </button>
+                  <div className={`nb-lab-panel${labOpen ? " open" : ""}`}>
+                    <div style={{display:"flex",alignItems:"center",gap:".625rem",marginBottom:".75rem"}}>
+                      <div style={{width:"44px",height:"44px",borderRadius:".5rem",
+                        background:"linear-gradient(135deg,#ccfbf1,#a7f3d0)",
+                        display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
+                        <span style={{fontSize:"1.35rem"}}>🏦</span>
+                      </div>
+                      <div>
+                        <p style={{fontSize:".8rem",fontWeight:800,color:"#111827",margin:0,lineHeight:1.3}}>
+                          India's First FinTech &amp; AI Innovation Lab
+                        </p>
+                        <p style={{fontSize:".67rem",color:"#6b7280",margin:0}}>Deployed inside your campus</p>
+                      </div>
+                    </div>
+                    <p style={{fontSize:".7rem",color:"#374151",lineHeight:1.55,marginBottom:".75rem"}}>
+                      Purpose-built for BFSI learning with live modules, peer-working model and NAAC-ready infrastructure.
+                    </p>
+                    <ul style={{listStyle:"none",padding:0,margin:"0 0 .875rem",display:"grid",gridTemplateColumns:"1fr 1fr",gap:".3rem .5rem"}}>
+                      {["10 innovation zones","36 live modules","Peer-working model","NAAC-ready","Industry mentors","Live case studies"].map(item => (
+                        <li key={item} style={{display:"flex",alignItems:"center",gap:".3rem",fontSize:".67rem",color:"#374151"}}>
+                          <span style={{width:"5px",height:"5px",borderRadius:"50%",background:"#009E85",flexShrink:0,display:"inline-block"}} />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <a href="/bfsiinnovationlab"
+                      style={{display:"flex",alignItems:"center",justifyContent:"center",gap:".4rem",
+                        background:"linear-gradient(135deg,#00C9A7,#009E85)",color:"#fff",
+                        fontSize:".75rem",fontWeight:700,padding:".5rem 1rem",borderRadius:".45rem",
+                        textDecoration:"none",boxShadow:"0 3px 10px rgba(0,201,167,.3)"}}>
+                      Explore the Lab →
+                    </a>
+                  </div>
+                </div>
+
               </div>
 
               <div className="nb-right">
@@ -401,68 +526,53 @@ export default function Navbar() {
 
             {/* Higher Education */}
             <button className="ma" onClick={() => setMobileIndustry(v => !v)}>
-              Higher Education
-              <ChevronDown size={18} className={`mc${mobileIndustry ? " o" : ""}`} />
+              Higher Education <ChevronDown size={18} className={`mc${mobileIndustry ? " o" : ""}`} />
             </button>
             <div className={`mp${mobileIndustry ? " o" : ""}`}>
-
-              {/* Two Years — Three Years section removed */}
               <span className="ms">Two Years</span>
               <a href="/courses/pgdfdb-2t" onClick={closeAll} className="msl">
                 <span style={{background:"#CCFBF1",color:"#065F46",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>PGDFDB</span>
-                 PG Diploma in FinTech &amp; Digital Business
+                PG Diploma in FinTech &amp; Digital Business
                 <span style={{fontSize:".65rem",fontWeight:700,background:"#FAEEDA",color:"#633806",padding:".1rem .35rem",borderRadius:3,marginLeft:2}}>NEW</span>
               </a>
-              <a href="/courses/pgcdb" onClick={closeAll} className="msl">
-                <span style={{background:"#dbeafe",color:"#1d4ed8",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>PGDFDB</span>
-                PG Diploma in FinTech &amp; Digital Business
-              </a>
-
               <div className="mdiv" />
               <span className="ms">One Year</span>
               <a href="/courses/pgcdf" onClick={closeAll} className="msl">
-                <span style={{background:"#dcfce7",color:"#15803d",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>PGDFBA</span>
-                PG Diploma in Fintech, Banking &amp; AI
+                <span style={{background:"#dcfce7",color:"#15803d",fontSize:".7rem",fontWeight:700,padding:".15rem .45rem",borderRadius:999}}>ADFBA</span>
+                Advance Diploma in Fintech, Banking &amp; AI
               </a>
-
               <div className="mdiv" />
-              <span className="ms">Quarterly Certifications</span>
-              {QUARTER_COURSES.map(c => (
-                <div key={c.slug}>
-                  <a href={`/courses/${c.slug}`} onClick={closeAll} className="msl" style={{display:"flex",alignItems:"center",gap:".5rem"}}>
-                    <img src={c.img} alt={c.label} style={{width:"24px",height:"24px",borderRadius:".25rem",objectFit:"cover",flexShrink:0}} />
-                    <span>{c.label}</span>
+              <span className="ms">Professional Certifications</span>
+              {CERT_CATEGORIES.map(cat => (
+                <div key={cat.slug}>
+                  <a href={`/courses/${cat.slug}`} onClick={closeAll} className="msl"
+                    style={{fontWeight:700,gap:".4rem"}}>
+                    <span>{cat.icon}</span> {cat.label}
                   </a>
-                  {c.subCourses.map(s => (
-                    <a key={s.label} href={s.href} onClick={closeAll} className="mssl"
-                      style={{opacity: s.available ? 1 : 0.55, display:"flex", alignItems:"center", gap:".4rem"}}>
-                      <img src={s.img} alt={s.label} style={{width:"18px",height:"18px",borderRadius:".2rem",objectFit:"cover",flexShrink:0}} />
-                      <span style={{flex:1}}>› {s.label}</span>
-                      {!s.available && <span style={{fontSize:".58rem",fontWeight:700,background:"#e5e7eb",color:"#6b7280",padding:".1rem .3rem",borderRadius:999}}>Soon</span>}
+                  {cat.courses.map(c => (
+                    <a key={c.label} href={c.href} onClick={closeAll}
+                      style={{
+                        display:"flex",alignItems:"center",gap:".4rem",
+                        padding:".35rem .75rem .35rem 1.5rem",
+                        borderRadius:".375rem",fontSize:".8rem",fontWeight:400,
+                        color:"#4b5563",textDecoration:"none",opacity: c.available ? 1 : 0.6,
+                        transition:"background .12s",
+                      }}
+                      onMouseEnter={e => e.currentTarget.style.background="#f5f3ff"}
+                      onMouseLeave={e => e.currentTarget.style.background="transparent"}
+                    >
+                      <img src={c.img} alt={c.label}
+                        style={{width:"17px",height:"17px",borderRadius:".2rem",objectFit:"cover",flexShrink:0}} />
+                      <span style={{flex:1}}>› {c.label}</span>
+                      <div style={{display:"flex",gap:".2rem",flexShrink:0}}>
+                        <span style={{fontSize:".55rem",background:"#ede9fe",color:"#4f46e5",padding:".08rem .28rem",borderRadius:999,fontWeight:600}}>{c.duration}</span>
+                        <span style={{fontSize:".55rem",background:"#e0f2fe",color:"#0891b2",padding:".08rem .28rem",borderRadius:999,fontWeight:600}}>{c.mode}</span>
+                        {!c.available && <span style={{fontSize:".55rem",background:"#e5e7eb",color:"#6b7280",padding:".08rem .28rem",borderRadius:999,fontWeight:700}}>Soon</span>}
+                      </div>
                     </a>
                   ))}
                 </div>
               ))}
-
-              <div className="mdiv" />
-              <span className="ms">FinTech &amp; AI Innovation Lab</span>
-              <a href="/bfsiinnovationlab" onClick={closeAll} className="msl">
-                🏦 Explore the Lab
-              </a>
-              <Link
-                to="/connect"
-                onClick={closeAll}
-                className="msl"
-                style={{
-                  display:"flex",alignItems:"center",gap:".5rem",
-                  background:"linear-gradient(135deg,#00C9A7,#009E85)",
-                  color:"#fff",fontWeight:700,borderRadius:".5rem",
-                  margin:".25rem .75rem",padding:".6rem .875rem"
-                }}
-              >
-                🚀 Set Up Our Lab →
-              </Link>
-
             </div>
 
             {/* Corporates */}
@@ -493,6 +603,21 @@ export default function Navbar() {
               <a href="/careers/placement"  onClick={closeAll} className="msl">Placement Assistance</a>
             </div>
 
+            {/* BFSI Lab */}
+            <button className="ma" onClick={() => setMobileLab(v => !v)}
+              style={{background:"linear-gradient(135deg,#f0fdf9,#f0f7ff)",color:"#065F46",fontWeight:700}}>
+              🏦 BFSI Lab <ChevronDown size={18} className={`mc${mobileLab ? " o" : ""}`} />
+            </button>
+            <div className={`mp${mobileLab ? " o" : ""}`}>
+              <a href="/bfsiinnovationlab" onClick={closeAll} className="msl">Explore the Lab</a>
+              <Link to="/connect" onClick={closeAll} className="msl"
+                style={{display:"flex",alignItems:"center",gap:".5rem",
+                  background:"linear-gradient(135deg,#00C9A7,#009E85)",color:"#fff",fontWeight:700,
+                  borderRadius:".5rem",margin:".25rem .75rem",padding:".6rem .875rem"}}>
+                🚀 Set Up Our Lab →
+              </Link>
+            </div>
+
             <div className="mdiv" />
 
             {/* About */}
@@ -506,18 +631,11 @@ export default function Navbar() {
 
             <a href="/contact" onClick={closeAll} className="ml">Contact Us</a>
 
-            {/* Mobile CTA */}
-            <Link
-              to="/connect"
-              onClick={closeAll}
-              style={{
-                display:"flex",alignItems:"center",justifyContent:"center",gap:"8px",
-                background:"linear-gradient(135deg,#00C9A7,#009E85)",
-                color:"#fff",fontWeight:700,fontSize:"1rem",
-                padding:".875rem",borderRadius:".5rem",textDecoration:"none",
-                margin:".5rem 0",boxShadow:"0 4px 14px rgba(0,201,167,.25)"
-              }}
-            >
+            <Link to="/connect" onClick={closeAll}
+              style={{display:"flex",alignItems:"center",justifyContent:"center",gap:"8px",
+                background:"linear-gradient(135deg,#00C9A7,#009E85)",color:"#fff",
+                fontWeight:700,fontSize:"1rem",padding:".875rem",borderRadius:".5rem",
+                textDecoration:"none",margin:".5rem 0",boxShadow:"0 4px 14px rgba(0,201,167,.25)"}}>
               🚀 Set Up Our Lab →
             </Link>
 
