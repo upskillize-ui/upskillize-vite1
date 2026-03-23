@@ -246,7 +246,7 @@ export default function Navbar() {
 
                     {/* COL 1 – Three Year */}
                     <div className="nb-col">
-                      <span className="nb-clabel">Three Year</span>
+                      <span className="nb-clabel">Three Years</span>
                       <a href="/courses/threeyearscourses" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".28rem",padding:".45rem .7rem"}}>
                         {/* Image: smaller height */}
                         <div style={{width:"100%",height:"46px",borderRadius:".35rem",overflow:"hidden",position:"relative",marginBottom:".05rem"}}>
@@ -267,7 +267,7 @@ export default function Navbar() {
 
                     {/* COL 2 – Two Year */}
                     <div className="nb-col">
-                      <span className="nb-clabel">Two Year</span>
+                      <span className="nb-clabel">Two Years</span>
                       <a href="/courses/pgdfdb-2t" className="nb-crow" style={{flexDirection:"column",alignItems:"flex-start",gap:".28rem",padding:".45rem .7rem"}}>
                         <div style={{width:"100%",height:"46px",borderRadius:".35rem",overflow:"hidden",position:"relative",marginBottom:".05rem"}}>
                           <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400" alt="ADFDB" style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}} />
