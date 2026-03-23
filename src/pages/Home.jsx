@@ -1022,7 +1022,7 @@ export default function Home() {
           </div>
           <div className="text-center">
             <Link
-              to="/corporate-consulting"
+              to="/corporate/consulting"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all shadow-xl hover:shadow-2xl hover:scale-105 transform"
             >
               Explore All Consulting Services <ArrowRight className="w-5 h-5" />
