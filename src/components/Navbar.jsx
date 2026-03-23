@@ -346,7 +346,7 @@ export default function Navbar() {
                     <div className="nb-left-col">
 
                       {/* Institution header */}
-                      <div className="nb-col-header">Institution</div>
+                      <div className="nb-col-header"> For Institutions</div>
 
                       {/* Two Years */}
                       <div className="nb-prog-section">
@@ -381,9 +381,9 @@ export default function Navbar() {
                           <span style={{ display:"inline-block", fontSize:".57rem", fontWeight:700, padding:".1rem .38rem", borderRadius:999, background:"#dcfce7", color:"#15803d", alignSelf:"flex-start" }}>
                             ADFBA
                           </span>
-                          <div className="nb-prog-title">Advance Diploma in FinTech, Banking &amp; AI</div>
+                          <div className="nb-prog-title">Advanced Diploma in FinTech, Banking &amp; AI</div>
                           <div className="nb-prog-pills">
-                            <Pill bg="#fef3c7" color="#92400e">Final Year Graduate &amp; Above</Pill>
+                            <Pill bg="#fef3c7" color="#92400e">Final Year Graduation &amp; Above</Pill>
                             <Pill bg="#e0f2fe" color="#0369a1">Online / Hybrid</Pill>
                             <Pill bg="#f4f6fb" color="#6b7fa3">6 Bimesters</Pill>
                           </div>
@@ -459,10 +459,10 @@ export default function Navbar() {
                   </div>
                 </div>
 
-                {/* Innovation Lab */}
+                {/* BFSI Lab */}
                 <div className="nb-ind" onMouseEnter={onLabEnter} onMouseLeave={onLabLeave} style={{ position:"relative" }}>
                   <button className="nbb-lab" aria-haspopup="true" aria-expanded={labOpen}>
-                    🏦 Innovation Lab
+                    🏦 BFSI Lab
                     <ChevronDown size={13} style={{ transition:"transform .2s", transform: labOpen ? "rotate(180deg)" : "rotate(0)" }} />
                   </button>
                   <div className={`nb-lab-panel${labOpen ? "register" : ""}`}>
