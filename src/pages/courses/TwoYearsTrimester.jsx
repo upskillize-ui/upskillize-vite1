@@ -679,7 +679,7 @@ export default function UpskillizeADFDB() {
         <p className="rv d2">Partner with Upskillize and give your PG students the FinTech credential India's top employers are looking for — delivered entirely by us.</p>
         <div className="cta2-actions">
           <a href="/contact" className="btn-lime rv d3">Request a Partnership Call →</a>
-          <a href="https://www.upskillize.com" className="btn-line rv d4">Visit Upskillize.com</a>
+          <a href="/contact" className="btn-line rv d4">Contact Us</a>
         </div>
       </section>
 
