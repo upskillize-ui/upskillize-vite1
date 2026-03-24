@@ -50,10 +50,10 @@ import CAIPLandingPage from "./pages/courses/CIPLandingPage";
 import DigitalStrategyProgram from "./pages/courses/DigitalStrategyProgram";
 import CorporateReadinessProgram from "./pages/courses/CorporateReadinessProgram";
 import PgCDFLandingPage from "./pages/courses/PgCDFLandingPage";
-import PgCDBLandingPage from "./pages/courses/PgCDBLandingPage";
+import PgCDBLandingPage from "./pages/courses/TwoYearsSemester";
 import ThreeYearsCourse from "./pages/courses/ThreeYearsCourse";
-import TwoYearsTrimester from "./pages/courses/TwoYearsTrimester";
 import BFSIInnovationLab from "./pages/BFSIInnovationLab";
+import TwoYearsSemester from "./pages/courses/TwoYearsSemester";
 import RegisterPage from "./pages/RegisterPage";
 
 import "./App.css";
@@ -131,8 +131,7 @@ function App() {
             <Route path="/courses/threeyearscourse" element={<ThreeYearsCourse />} />
 
             {/* TWO YEARS TRIMESTER — both slugs point to same page */}
-            <Route path="/courses/twoyearstrimester" element={<TwoYearsTrimester />} />
-            <Route path="/courses/pgdfdb-2t" element={<TwoYearsTrimester />} />
+            <Route path="/courses/pgdfdb-2t" element={<TwoYearsSemester />} />
 
             {/* BFSI INNOVATION LAB */}
             <Route path="/bfsiinnovationlab" element={<BFSIInnovationLab />} />

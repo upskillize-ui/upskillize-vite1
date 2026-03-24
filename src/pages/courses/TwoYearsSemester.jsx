@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef, useLayoutEffect } from "react";
 
 /* ═══════════════════════════════════════════════════════════════════════════════
-   PGCDB (BFSI) — Post Graduate Certificate in Digital Business | Upskillize
+   PGDFDB (BFSI) — Post Graduate Diplona in FinTech & Digital Business | Upskillize
    Full website converted from HTML → JSX. All styles, content, and interactions
    preserved 1-to-1.
 ═══════════════════════════════════════════════════════════════════════════════ */
@@ -1460,7 +1460,7 @@ h2.section-title em { font-style: normal; color: var(--purple); }
 
 `;
 
-export default function PGCDBWebsite() {
+export default function TwoYearsSemester() {
 
   /* ── State ──────────────────────────────────────────────────────────────── */
   const [activeSylPart,   setActiveSylPart]   = useState(0);
@@ -1475,7 +1475,7 @@ export default function PGCDBWebsite() {
 
   /* ── Inject Google Fonts + Global CSS ───────────────────────────────────── */
   useLayoutEffect(() => {
-  if (!document.getElementById("pgcdb-fonts")) {
+  if (!document.getElementById("pgdfdb-fonts")) {
     const pc1 = document.createElement("link");
     pc1.rel = "preconnect"; pc1.href = "https://fonts.googleapis.com";
     document.head.appendChild(pc1);
@@ -1483,13 +1483,13 @@ export default function PGCDBWebsite() {
     pc2.rel = "preconnect"; pc2.href = "https://fonts.gstatic.com"; pc2.crossOrigin = "anonymous";
     document.head.appendChild(pc2);
     const link  = document.createElement("link");
-    link.id     = "pgcdb-fonts";
+    link.id     = "pgdfdb-fonts";
     link.rel    = "stylesheet";
     link.href   = "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,400&display=swap";
     document.head.appendChild(link);
   }
   const styleEl       = document.createElement("style");
-  styleEl.id          = "pgcdb-styles";
+  styleEl.id          = "pgdfdb-styles";
   styleEl.textContent = GLOBAL_CSS;
   document.head.appendChild(styleEl);
   return () => { styleEl.remove(); };
@@ -1666,7 +1666,7 @@ export default function PGCDBWebsite() {
     <div className="hero-left">
       <div className="hero-badge">Flagship Program 2026</div>
       <h1>The Future of<br/><em>BFSI is Digital.</em><br/>Are You Ready?</h1>
-      <p className="hero-sub">Post Graduate Certificate in Digital Business — BFSI</p>
+      <p className="hero-sub">Post Graduate Diploma in Fintech & Digital Business — BFSI</p>
       <p className="hero-desc">India's only MBA-parallel program that transforms you into a Full-Stack Digital Business Leader in Banking, FinTech, WealthTech, InsurTech, and RegTech — while you are still completing your MBA.</p>
       <div className="hero-pills">
         <span className="pill">NSQF Level 7</span>
@@ -1685,7 +1685,7 @@ export default function PGCDBWebsite() {
       <div className="orb orb1"></div>
       <div className="orb orb2"></div>
       <div className="hero-card-main">
-        <div className="hc-label">PGCDB (BFSI)</div>
+        <div className="hc-label">PGDFDB (BFSI)</div>
         <div className="hc-title">1500 Hours of Mastery</div>
         <div className="hc-sub">Across 16 modules, 4 capstones, and a dedicated Innovation Lab</div>
         <div className="stat-row">
@@ -1854,7 +1854,7 @@ export default function PGCDBWebsite() {
       <div className="fintech-points fade-up fade-up-d2">
         <div className="fp">
           <div className="fp-icon" style={{background: "#EBF4FF"}}>🏗</div>
-          <div><h4>Startup Ecosystem Readiness</h4><p>PGCDB (BFSI) prepares you to build in a startup, join a FinTech as a founding team member, or launch your own venture — with domain depth, product skills, and investor pitch capability.</p></div>
+          <div><h4>Startup Ecosystem Readiness</h4><p>PGDFDB (BFSI) prepares you to build in a startup, join a FinTech as a founding team member, or launch your own venture — with domain depth, product skills, and investor pitch capability.</p></div>
         </div>
         <div className="fp">
           <div className="fp-icon" style={{background: "var(--light)"}}>📦</div>
@@ -1862,11 +1862,11 @@ export default function PGCDBWebsite() {
         </div>
         <div className="fp">
           <div className="fp-icon" style={{background: "#E8F5EE"}}>🌍</div>
-          <div><h4>Global Career Access</h4><p>BFSI is the most globally portable career. PGCDB (BFSI) graduates are equipped for roles in DIFC Dubai, Canary Wharf London, Marina Bay Singapore, and Bay Street Toronto.</p></div>
+          <div><h4>Global Career Access</h4><p>BFSI is the most globally portable career. PGDFDB (BFSI) graduates are equipped for roles in DIFC Dubai, Canary Wharf London, Marina Bay Singapore, and Bay Street Toronto.</p></div>
         </div>
         <div className="fp">
           <div className="fp-icon" style={{background: "#FFF0F0"}}>⚖</div>
-          <div><h4>The Regulatory Advantage</h4><p>Understanding RBI, SEBI, IRDAI, and PFRDA regulations is a rare skill. PGCDB graduates are the professionals who bridge technology, business, and regulation — the most sought-after profile in modern BFSI hiring.</p></div>
+          <div><h4>The Regulatory Advantage</h4><p>Understanding RBI, SEBI, IRDAI, and PFRDA regulations is a rare skill. PGDFDB graduates are the professionals who bridge technology, business, and regulation — the most sought-after profile in modern BFSI hiring.</p></div>
         </div>
         <div className="fp">
           <div className="fp-icon" style={{background: "#FFF8E1"}}>💡</div>
@@ -1882,7 +1882,7 @@ export default function PGCDBWebsite() {
   <div className="container">
     <p className="section-label fade-up">24 Months. 4 Parts. 4 Certificates.</p>
     <h2 className="section-title fade-up fade-up-d1">A Complete <em>Digital BFSI</em><br/>Learning Journey</h2>
-    <p className="section-lead fade-up fade-up-d2">PGCDB (BFSI) is structured in four progressive parts — each 4 months long, each ending with a capstone project presented to an industry panel, and each earning you a formal certificate milestone you can add to your resume immediately.</p>
+    <p className="section-lead fade-up fade-up-d2">PGDFDB (BFSI) is structured in four progressive parts — each 4 months long, each ending with a capstone project presented to an industry panel, and each earning you a formal certificate milestone you can add to your resume immediately.</p>
     <div className="parts-grid">
       <div className="part-card part-1 fade-up">
         <div className="part-header">
@@ -1953,7 +1953,7 @@ export default function PGCDBWebsite() {
           </ul>
         </div>
         <div className="part-footer">
-          <span className="cert-badge" style={{background: "rgba(201,168,76,.15)", color: "#8B6914"}}>MBA++ / PGCDB (BFSI) — NSQF Level 7</span>
+          <span className="cert-badge" style={{background: "rgba(201,168,76,.15)", color: "#8B6914"}}>MBA++ / PGDFDB (BFSI) — NSQF Level 7</span>
           <span style={{fontSize: "12px", color: "var(--muted)"}}>👑 MiniCEO Flagship</span>
         </div>
       </div>
@@ -2356,7 +2356,7 @@ export default function PGCDBWebsite() {
       <div className="sph-badges">
         <span className="sph-badge">👑 MiniCEO (Full)</span>
         <span className="sph-badge">🛡 InsuranceTech (Full)</span>
-        <span className="sph-badge">MBA++ / PGCDB (BFSI)</span>
+        <span className="sph-badge">MBA++ / PGDFDB (BFSI)</span>
       </div>
     </div>
     <div className={moduleClass("m13")} id="m13">
@@ -2456,7 +2456,7 @@ export default function PGCDBWebsite() {
       <h4>Digital BFSI Leadership Thesis — Solo Graduation Showcase</h4>
       <p>Each student delivers a solo 20-minute "Digital BFSI Leadership Thesis" to an external panel of BFSI investors and CXOs: personal expertise domain, 3-year DX roadmap for a real company, AI + data strategy, ESG + regulatory positioning, P&L impact analysis, and complete 4-capstone portfolio review. Top 10% receive Upskillize BFSI Fellows recognition.</p>
       <div className="cap-meta">
-        <span className="cap-tag" style={{background: "rgba(201,168,76,.15)", color: "#8B6914"}}>🎓 Earns: MBA++ / PGCDB (BFSI) — NSQF Level 7</span>
+        <span className="cap-tag" style={{background: "rgba(201,168,76,.15)", color: "#8B6914"}}>🎓 Earns: MBA++ / PGDFDB (BFSI) — NSQF Level 7</span>
         <span className="cap-tag" style={{background: "rgba(201,168,76,.15)", color: "#8B6914"}}>~48 student hours</span>
         <span className="cap-tag" style={{background: "rgba(201,168,76,.15)", color: "#8B6914"}}>Investor + CXO jury</span>
         <span className="cap-tag" style={{background: "rgba(201,168,76,.15)", color: "#8B6914"}}>BFSI Fellows Award</span>
@@ -2471,7 +2471,7 @@ export default function PGCDBWebsite() {
 <div className="container">
   <p className="section-label fade-up">Your Professional Future</p>
   <h2 className="section-title fade-up fade-up-d1">Roles, Salary Ranges<br/><em>& Internship Pathways</em></h2>
-  <p className="section-lead fade-up fade-up-d2">PGCDB (BFSI) prepares you for a broad spectrum of high-growth careers across Banking, FinTech, WealthTech, InsurTech, and RegTech — both in India and globally. Here is exactly what the market looks like.</p>
+  <p className="section-lead fade-up fade-up-d2">PGDFDB (BFSI) prepares you for a broad spectrum of high-growth careers across Banking, FinTech, WealthTech, InsurTech, and RegTech — both in India and globally. Here is exactly what the market looks like.</p>
 
   <div className="careers-tabs fade-up">
     <button className={careerTabClass("banking")} onClick={() => showCareer('banking')}>🏦 Banking & NBFC</button>
@@ -2690,7 +2690,7 @@ export default function PGCDBWebsite() {
         <div className="rc-company">Emirates NBD · FAB · Mashreq · ADCB · ENBD Securities</div>
         <div className="rc-salary">AED 8,000 – 18,000/mo</div>
         <div className="rc-salary-lbl">≈ ₹18–42 LPA · Tax-free income</div>
-        <ul className="rc-skills"><li>BFSI domain expertise (PGCDB certified)</li><li>English proficiency + Arabic advantage</li><li>CBUAE / DFSA regulatory knowledge</li><li>Power BI and data analytics</li></ul>
+        <ul className="rc-skills"><li>BFSI domain expertise (PGDFDB certified)</li><li>English proficiency + Arabic advantage</li><li>CBUAE / DFSA regulatory knowledge</li><li>Power BI and data analytics</li></ul>
         <div className="rc-growth">📈 Growth → Senior Manager · AED 25–50K/mo (Golden Visa eligible)</div>
       </div>
       <div className="role-card fade-up fade-up-d1">
@@ -2812,14 +2812,14 @@ export default function PGCDBWebsite() {
   <div className="container">
     <p className="section-label fade-up">UGC Outcome-Based Education Framework</p>
     <h2 className="section-title fade-up fade-up-d1" style={{color:"#ffffff"}}>The <em style={{color:"var(--gold)"}}>RUBRIC</em> Framework:<br/>UGC OBE — Aligned &amp; Accredited.</h2>
-    <p className="section-lead fade-up fade-up-d2">PGCDB (BFSI) is designed fully in accordance with the UGC Curriculum and Credit Framework for Postgraduate Programmes (2023) and AICTE's Outcome-Based Education (OBE) mandate. The RUBRIC framework below defines how every learning element of this programme is structured, delivered, assessed, and improved — ensuring NSQF Level 7 standards are met and CO-PO attainment is measurable at every stage.</p>
+    <p className="section-lead fade-up fade-up-d2">PGDFDB (BFSI) is designed fully in accordance with the UGC Curriculum and Credit Framework for Postgraduate Programmes (2023) and AICTE's Outcome-Based Education (OBE) mandate. The RUBRIC framework below defines how every learning element of this programme is structured, delivered, assessed, and improved — ensuring NSQF Level 7 standards are met and CO-PO attainment is measurable at every stage.</p>
 
     <table className="rubric-intro-table fade-up">
       <thead>
         <tr>
           <th style={{width: "44px"}}>Letter</th>
           <th>UGC OBE Dimension</th>
-          <th>What It Means for PGCDB (BFSI)</th>
+          <th>What It Means for PGDFDB (BFSI)</th>
           <th>UGC / AICTE Reference</th>
         </tr>
       </thead>
@@ -2833,13 +2833,13 @@ export default function PGCDBWebsite() {
         <tr>
           <td>U</td>
           <td>Universal Graduate Attributes &amp; Employability</td>
-          <td>PGCDB (BFSI) develops eight Universal Graduate Attributes aligned to UGC's NHEQF Level 7 descriptors: BFSI Domain Competency, Digital Technology Proficiency, Regulatory Intelligence, Product &amp; Innovation Thinking, Data-Driven Decision Making, Professional Readiness, Leadership &amp; Strategy, and Global &amp; Ethical Awareness. Every module maps to at least three of these eight attributes — ensuring no graduate leaves with one-dimensional expertise.</td>
+          <td>PGDFDB (BFSI) develops eight Universal Graduate Attributes aligned to UGC's NHEQF Level 7 descriptors: BFSI Domain Competency, Digital Technology Proficiency, Regulatory Intelligence, Product &amp; Innovation Thinking, Data-Driven Decision Making, Professional Readiness, Leadership &amp; Strategy, and Global &amp; Ethical Awareness. Every module maps to at least three of these eight attributes — ensuring no graduate leaves with one-dimensional expertise.</td>
           <td>UGC NHEQF Level 7 Graduate Attributes; NCrF §3 — Learning Outcomes; NEP 2020 §11 — Holistic Education</td>
         </tr>
         <tr>
           <td>B</td>
           <td>Bloom's Taxonomy Aligned Assessments</td>
-          <td>All 128 lessons are classified at a specific Bloom's Taxonomy level — from Remember (L1) and Understand (L2) in foundational modules, to Apply (L3) and Analyse (L4) in intermediate modules, to Evaluate (L5) and Create (L6) in advanced modules and capstones. PG-level programmes must demonstrate dominance of L4–L6 learning activities, and PGCDB (BFSI) ensures at least 60% of all assessments operate at L4 or above.</td>
+          <td>All 128 lessons are classified at a specific Bloom's Taxonomy level — from Remember (L1) and Understand (L2) in foundational modules, to Apply (L3) and Analyse (L4) in intermediate modules, to Evaluate (L5) and Create (L6) in advanced modules and capstones. PG-level programmes must demonstrate dominance of L4–L6 learning activities, and PGDFDB (BFSI) ensures at least 60% of all assessments operate at L4 or above.</td>
           <td>AICTE OBE Guidelines §4 — Bloom's Taxonomy; UGC CCFPGP 2023 §7 — Assessment Strategy</td>
         </tr>
         <tr>
@@ -2879,7 +2879,7 @@ export default function PGCDBWebsite() {
       <div className="rubric-card">
         <div className="r-letter">B</div>
         <div className="r-title">Bloom's Taxonomy Aligned Assessments</div>
-        <div className="r-body">Part 1 establishes L1–L3 (Know, Understand, Apply). Parts 2–3 develop L4–L5 (Analyse, Evaluate). Part 4 and all capstones operate at L5–L6 (Evaluate, Create). PG standards require ≥60% of assessment at L4+. PGCDB (BFSI) achieves 68%.</div>
+        <div className="r-body">Part 1 establishes L1–L3 (Know, Understand, Apply). Parts 2–3 develop L4–L5 (Analyse, Evaluate). Part 4 and all capstones operate at L5–L6 (Evaluate, Create). PG standards require ≥60% of assessment at L4+. PGDFDB (BFSI) achieves 68%.</div>
         <div className="r-example">→ L1 Recall → L2 Comprehension → L3 Application → L4 Analysis → L5 Evaluation → L6 Creation</div>
       </div>
       <div className="rubric-card">
@@ -2909,10 +2909,10 @@ export default function PGCDBWebsite() {
   <div className="container">
     <p className="section-label fade-up">UGC NHEQF Level 7 — Outcome-Based Education</p>
     <h2 className="section-title fade-up fade-up-d1">Programme Outcomes &amp;<br/><em>Lesson-Level CO Mapping</em></h2>
-    <p className="section-lead fade-up fade-up-d2">As mandated by UGC's Curriculum and Credit Framework for Postgraduate Programmes (2023) and AICTE's OBE Guidelines, every lesson in PGCDB (BFSI) is mapped to Programme Outcomes (POs), assessed at a defined Bloom's Taxonomy level, and tracked for CO-PO attainment across the batch.</p>
+    <p className="section-lead fade-up fade-up-d2">As mandated by UGC's Curriculum and Credit Framework for Postgraduate Programmes (2023) and AICTE's OBE Guidelines, every lesson in PGDFDB (BFSI) is mapped to Programme Outcomes (POs), assessed at a defined Bloom's Taxonomy level, and tracked for CO-PO attainment across the batch.</p>
 
     {/* PO Definitions */}
-    <h3 style={{fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: "800", color: "var(--text)", margin: "48px 0 20px"}}>The 8 Programme Outcomes (POs) — PGCDB (BFSI)</h3>
+    <h3 style={{fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: "800", color: "var(--text)", margin: "48px 0 20px"}}>The 8 Programme Outcomes (POs) — PGDFDB (BFSI)</h3>
     <div className="po-table-wrap fade-up">
       <table className="po-table">
         <thead style={{background: "var(--navy)"}}>
@@ -3186,12 +3186,12 @@ export default function PGCDBWebsite() {
       <div className="icon">🎓</div>
       <div>
         <h5 style={{color: "var(--gold)"}}>UGC Outcome-Based Education (OBE) — RUBRIC Framework</h5>
-        <p style={{color: "rgba(255,255,255,.7)"}}>PGCDB (BFSI) is fully designed in accordance with UGC's Curriculum and Credit Framework for Postgraduate Programmes 2023 (CCFPGP), AICTE's OBE Guidelines, and NEP 2020 mandates. The RUBRIC framework is not a proprietary acronym — it is Upskillize's structured operationalisation of UGC's OBE mandate, with each letter mapped to a specific UGC/AICTE/NCrF regulatory reference.</p>
+        <p style={{color: "rgba(255,255,255,.7)"}}>PGDFDB (BFSI) is fully designed in accordance with UGC's Curriculum and Credit Framework for Postgraduate Programmes 2023 (CCFPGP), AICTE's OBE Guidelines, and NEP 2020 mandates. The RUBRIC framework is not a proprietary acronym — it is Upskillize's structured operationalisation of UGC's OBE mandate, with each letter mapped to a specific UGC/AICTE/NCrF regulatory reference.</p>
       </div>
     </div>
 
     <h2 className="at-h2" style={{marginTop: "40px"}}>RUBRIC — The UGC OBE Operationalisation Framework</h2>
-    <p className="at-lead">Each letter of RUBRIC represents one pillar of the UGC Outcome-Based Education system. Together, they ensure that PGCDB (BFSI) is not just content-rich but outcome-measurable, attainment-tracked, and continuously improved — as required by NAAC, NIRF, and BFSI SSC quality standards.</p>
+    <p className="at-lead">Each letter of RUBRIC represents one pillar of the UGC Outcome-Based Education system. Together, they ensure that PGDFDB (BFSI) is not just content-rich but outcome-measurable, attainment-tracked, and continuously improved — as required by NAAC, NIRF, and BFSI SSC quality standards.</p>
 
     <div className="rubric-full-grid">
 
@@ -3206,7 +3206,7 @@ export default function PGCDBWebsite() {
         </div>
         <div className="rf-body">
           <p>Every one of the 128 lessons is defined by explicit Programme Outcomes (POs) and Course Outcomes (COs) before any content is created. This is the OBE backward design principle mandated by UGC: define what graduates must achieve, then design instruction and assessment to ensure it happens.</p>
-          <p>In PGCDB (BFSI), no lesson is planned around "what to teach" — it is always planned around "what must the student be able to do after this lesson." This shift from content-centric to outcome-centric delivery is the foundation of UGC's CCFPGP 2023.</p>
+          <p>In PGDFDB (BFSI), no lesson is planned around "what to teach" — it is always planned around "what must the student be able to do after this lesson." This shift from content-centric to outcome-centric delivery is the foundation of UGC's CCFPGP 2023.</p>
           <ul>
             <li>128 lessons each carry defined Course Outcomes (COs)</li>
             <li>Every CO is mapped to at least one Programme Outcome (PO)</li>
@@ -3228,8 +3228,8 @@ export default function PGCDBWebsite() {
           </div>
         </div>
         <div className="rf-body">
-          <p>UGC's NHEQF Level 7 specifies that postgraduate graduates must demonstrate eight Universal Graduate Attributes — domain expertise, digital proficiency, critical thinking, communication, research aptitude, ethics, leadership, and global awareness. PGCDB (BFSI) maps all eight across 16 modules.</p>
-          <p>The eight Programme Outcomes of PGCDB (BFSI) are directly derived from these NHEQF Level 7 Graduate Attributes, ensuring that the programme produces graduates who meet the national postgraduate benchmark for knowledge, skills, and professional behaviour.</p>
+          <p>UGC's NHEQF Level 7 specifies that postgraduate graduates must demonstrate eight Universal Graduate Attributes — domain expertise, digital proficiency, critical thinking, communication, research aptitude, ethics, leadership, and global awareness. PGDFDB (BFSI) maps all eight across 16 modules.</p>
+          <p>The eight Programme Outcomes of PGDFDB (BFSI) are directly derived from these NHEQF Level 7 Graduate Attributes, ensuring that the programme produces graduates who meet the national postgraduate benchmark for knowledge, skills, and professional behaviour.</p>
           <ul>
             <li>8 POs derived directly from UGC NHEQF Level 7 descriptors</li>
             <li>Every lesson maps to a minimum of 3 POs</li>
@@ -3251,14 +3251,14 @@ export default function PGCDBWebsite() {
           </div>
         </div>
         <div className="rf-body">
-          <p>AICTE mandates that PG programmes demonstrate dominance of higher-order thinking — at least 60% of all assessments must operate at Bloom's Level 4 (Analyse) or above. PGCDB (BFSI) achieves 68% at L4+, deliberately distributing lower-order levels to foundational lessons and progressively raising cognitive demand across the 24 months.</p>
+          <p>AICTE mandates that PG programmes demonstrate dominance of higher-order thinking — at least 60% of all assessments must operate at Bloom's Level 4 (Analyse) or above. PGDFDB (BFSI) achieves 68% at L4+, deliberately distributing lower-order levels to foundational lessons and progressively raising cognitive demand across the 24 months.</p>
           <p>Part 1 establishes L1–L3. Parts 2–3 develop L3–L5. Part 4 and capstones operate entirely at L5–L6. This progressive Bloom's ladder is the backbone of the curriculum design.</p>
           <ul>
             <li>Part 1 (Foundations): L1 Remember → L3 Apply</li>
             <li>Part 2 (Intermediate): L3 Apply → L4 Analyse</li>
             <li>Part 3 (Advanced): L4 Analyse → L5 Evaluate</li>
             <li>Part 4 / Capstones: L5 Evaluate → L6 Create</li>
-            <li>68% of all PGCDB (BFSI) assessments at L4 or above</li>
+            <li>68% of all PGDFDB (BFSI) assessments at L4 or above</li>
           </ul>
         </div>
         <div className="rf-ref" style={{background: "#8B6914", fontSize: "11px", color: "rgba(255,255,255,.6)", padding: "10px 24px"}}>📖 AICTE OBE Guidelines §4 — Bloom's Taxonomy &nbsp;·&nbsp; UGC CCFPGP 2023 §7</div>
@@ -3274,7 +3274,7 @@ export default function PGCDBWebsite() {
           </div>
         </div>
         <div className="rf-body">
-          <p>UGC's CCFPGP 2023 mandates that all PG programmes develop "research aptitude and analytical ability." PGCDB (BFSI) operationalises this through four progressively complex capstone projects, 48 Saturday Innovation Lab sessions, and structured mentor-led reflection at every Part milestone.</p>
+          <p>UGC's CCFPGP 2023 mandates that all PG programmes develop "research aptitude and analytical ability." PGDFDB (BFSI) operationalises this through four progressively complex capstone projects, 48 Saturday Innovation Lab sessions, and structured mentor-led reflection at every Part milestone.</p>
           <p>Students are not passive recipients of BFSI knowledge — they research, build, present, and receive industry-panel feedback at every stage. By graduation, each student has a portfolio of 4 research-backed deliverables that demonstrate original analysis of real BFSI problems.</p>
           <ul>
             <li>4 Capstone Projects requiring original research on live BFSI problems</li>
@@ -3297,7 +3297,7 @@ export default function PGCDBWebsite() {
           </div>
         </div>
         <div className="rf-body">
-          <p>NEP 2020 explicitly mandates that higher education institutions break silos between vocational and academic learning. UGC's CCFPGP 2023 requires PG programmes to include "vocational courses relevant to the chosen discipline." PGCDB (BFSI) goes further — the entire programme IS the vocational component of the MBA, delivered by active industry practitioners.</p>
+          <p>NEP 2020 explicitly mandates that higher education institutions break silos between vocational and academic learning. UGC's CCFPGP 2023 requires PG programmes to include "vocational courses relevant to the chosen discipline." PGDFDB (BFSI) goes further — the entire programme IS the vocational component of the MBA, delivered by active industry practitioners.</p>
           <p>Every trainer is a top-1% BFSI professional. Every case study is drawn from Indian BFSI events. Every lesson is cross-tagged for relevance across MBA specialisations. Six distinct flagship courses are woven through 16 modules — ensuring breadth and depth simultaneously.</p>
           <ul>
             <li>Top 1% BFSI industry practitioners as trainers — zero academic-only faculty</li>
@@ -3320,7 +3320,7 @@ export default function PGCDBWebsite() {
           </div>
         </div>
         <div className="rf-body">
-          <p>AICTE's OBE Guidelines §8 mandate a closed-loop improvement cycle: measure CO-PO attainment, compare against targets, identify gaps, and implement curriculum improvements before the next delivery cycle. This is also a NAAC accreditation criterion. PGCDB (BFSI) runs this cycle 4 times per programme — once at the end of every Part.</p>
+          <p>AICTE's OBE Guidelines §8 mandate a closed-loop improvement cycle: measure CO-PO attainment, compare against targets, identify gaps, and implement curriculum improvements before the next delivery cycle. This is also a NAAC accreditation criterion. PGDFDB (BFSI) runs this cycle 4 times per programme — once at the end of every Part.</p>
           <p>Both direct indicators (quiz scores, capstone rubric scores) and indirect indicators (student surveys, employer feedback, placement outcomes) feed into the attainment calculation. Below-target COs trigger an Academic Review Committee intervention within 15 days.</p>
           <ul>
             <li>CO-PO attainment measured 4× per programme (end of each Part)</li>
@@ -3338,8 +3338,8 @@ export default function PGCDBWebsite() {
 
   
   <div className={assessPanelClass("bloom-tab")} id="bloom-tab">
-    <h2 className="at-h2">Bloom's Taxonomy — PGCDB (BFSI) Progression</h2>
-    <p className="at-lead">AICTE mandates that PG programmes operate primarily at Bloom's higher-order levels (L4–L6). The table below shows how PGCDB (BFSI) uses Bloom's Taxonomy across all 4 Parts — beginning with foundational recall and building toward professional-level creation by the MiniCEO Summit.</p>
+    <h2 className="at-h2">Bloom's Taxonomy — PGDFDB (BFSI) Progression</h2>
+    <p className="at-lead">AICTE mandates that PG programmes operate primarily at Bloom's higher-order levels (L4–L6). The table below shows how PGDFDB (BFSI) uses Bloom's Taxonomy across all 4 Parts — beginning with foundational recall and building toward professional-level creation by the MiniCEO Summit.</p>
 
     <div className="bloom-levels">
       <div className="bl" style={{background: "#EBF4FF", border: "1px solid #C3D9F5"}}>
@@ -3380,7 +3380,7 @@ export default function PGCDBWebsite() {
       </div>
     </div>
 
-    <h3 className="at-h3">Bloom's Distribution Across PGCDB (BFSI)</h3>
+    <h3 className="at-h3">Bloom's Distribution Across PGDFDB (BFSI)</h3>
     <table className="at-table">
       <thead style={{background: "var(--navy)"}}>
         <tr>
@@ -3434,7 +3434,7 @@ export default function PGCDBWebsite() {
       <div className="icon">✅</div>
       <div>
         <h5 style={{color: "var(--green)"}}>AICTE Compliance Note</h5>
-        <p style={{color: "#1A4A2A"}}>AICTE OBE Guidelines §4 require that PG programmes maintain ≥60% of all assessment activities at Bloom's Level 4 (Analyse) or above. PGCDB (BFSI) achieves <strong>68%</strong> — exceeding the threshold by 8 percentage points. This is evidenced through the lesson-level CO classifications stored in EcoPro LMS and reported in the annual CO-PO attainment report.</p>
+        <p style={{color: "#1A4A2A"}}>AICTE OBE Guidelines §4 require that PG programmes maintain ≥60% of all assessment activities at Bloom's Level 4 (Analyse) or above. PGDFDB (BFSI) achieves <strong>68%</strong> — exceeding the threshold by 8 percentage points. This is evidenced through the lesson-level CO classifications stored in EcoPro LMS and reported in the annual CO-PO attainment report.</p>
       </div>
     </div>
   </div>
@@ -3442,7 +3442,7 @@ export default function PGCDBWebsite() {
   
   <div className={assessPanelClass("po-tab")} id="po-tab">
     <h2 className="at-h2">Programme Outcomes (POs)</h2>
-    <p className="at-lead">The 8 Programme Outcomes of PGCDB (BFSI) are derived directly from UGC NHEQF Level 7 Graduate Attributes. They define what every student will be able to demonstrate upon successful completion of the programme — not what they will have been taught.</p>
+    <p className="at-lead">The 8 Programme Outcomes of PGDFDB (BFSI) are derived directly from UGC NHEQF Level 7 Graduate Attributes. They define what every student will be able to demonstrate upon successful completion of the programme — not what they will have been taught.</p>
 
     <table className="at-table">
       <thead style={{background: "var(--navy)"}}>
@@ -3639,7 +3639,7 @@ export default function PGCDBWebsite() {
   
   <div className={assessPanelClass("assess-tab")} id="assess-tab">
     <h2 className="at-h2">Assessment Framework</h2>
-    <p className="at-lead">PGCDB (BFSI) uses a multi-modal assessment system consistent with UGC CCFPGP 2023 §7 and AICTE OBE Guidelines §5. Assessments span the full Bloom's taxonomy, use both direct and indirect measurement, and accumulate toward a final CGPA reported on the programme transcript.</p>
+    <p className="at-lead">PGDFDB (BFSI) uses a multi-modal assessment system consistent with UGC CCFPGP 2023 §7 and AICTE OBE Guidelines §5. Assessments span the full Bloom's taxonomy, use both direct and indirect measurement, and accumulate toward a final CGPA reported on the programme transcript.</p>
 
     <h3 className="at-h3">Assessment Components — Weightage & Description</h3>
     <table className="at-table">
@@ -3791,7 +3791,7 @@ export default function PGCDBWebsite() {
   
   <div className={assessPanelClass("scoring-tab")} id="scoring-tab">
     <h2 className="at-h2">Student Scoring, Grading & Transcript</h2>
-    <p className="at-lead">PGCDB (BFSI) adopts the UGC 10-point grading scale as mandated by UGC CCFPGP 2023 §9 and UGC (Examination Reforms) Regulations 2022. SGPA is computed at the end of each Part; CGPA is computed at programme completion. All records are stored in EcoPro LMS and linked to the student's ABC DigiLocker account.</p>
+    <p className="at-lead">PGDFDB (BFSI) adopts the UGC 10-point grading scale as mandated by UGC CCFPGP 2023 §9 and UGC (Examination Reforms) Regulations 2022. SGPA is computed at the end of each Part; CGPA is computed at programme completion. All records are stored in EcoPro LMS and linked to the student's ABC DigiLocker account.</p>
 
     <h3 className="at-h3">UGC 10-Point Grading Scale</h3>
     <div className="score-grid">
@@ -3863,7 +3863,7 @@ export default function PGCDBWebsite() {
       <div className="formula-note">Total credits = 50. CGPA rounded to 2 decimal places. Grade card issued per Part. Consolidated transcript at programme end.</div>
       <h4 style={{marginTop: "20px"}}>Credit Points (For Honours Classification)</h4>
       <div className="formula">Credit Points = <span>Credits × Grade Point × NCrF Level (Level 7)</span></div>
-      <div className="formula-note">PGCDB (BFSI) = Level 7. Credit Points earned = Credits × GP × 7. Stored in ABC DigiLocker. Used for RPL and lateral entry to Master's programmes.</div>
+      <div className="formula-note">PGDFDB (BFSI) = Level 7. Credit Points earned = Credits × GP × 7. Stored in ABC DigiLocker. Used for RPL and lateral entry to Master's programmes.</div>
     </div>
 
     <h3 className="at-h3">Honours Classification & Special Recognition</h3>
@@ -3893,19 +3893,19 @@ export default function PGCDBWebsite() {
           <td style={{color: "var(--purple)"}}>🥈 First Class</td>
           <td>CGPA ≥ 7.0 (A grade)</td>
           <td>Passed all 4 Parts in first attempt + all COs attained</td>
-          <td>Standard PGCDB (BFSI) certificate; LinkedIn badge; Alumni network access</td>
+          <td>Standard PGDFDB (BFSI) certificate; LinkedIn badge; Alumni network access</td>
         </tr>
         <tr>
           <td style={{color: "var(--green)"}}>🥉 Second Class</td>
           <td>CGPA ≥ 5.5 (C grade)</td>
           <td>Passed all 4 Parts; may include 1 re-assessment</td>
-          <td>PGCDB (BFSI) certificate; Alumni network access; extended placement support</td>
+          <td>PGDFDB (BFSI) certificate; Alumni network access; extended placement support</td>
         </tr>
         <tr>
           <td style={{color: "var(--orange)"}}>Pass</td>
           <td>CGPA ≥ 4.0 (D grade)</td>
           <td>All Parts passed (may include re-assessments)</td>
-          <td>PGCDB (BFSI) certificate awarded; 12-month extended placement support; no Honours classification</td>
+          <td>PGDFDB (BFSI) certificate awarded; 12-month extended placement support; no Honours classification</td>
         </tr>
       </tbody>
     </table>
@@ -3924,7 +3924,7 @@ export default function PGCDBWebsite() {
   
   <div className={assessPanelClass("attain-tab")} id="attain-tab">
     <h2 className="at-h2">Attainment Measurement & Continuous Improvement</h2>
-    <p className="at-lead">The closed-loop quality improvement cycle is mandated by AICTE OBE Guidelines §8 and is a key criterion for NAAC accreditation. PGCDB (BFSI) runs this cycle 4 times per programme — once at the end of every Part — ensuring the curriculum is continuously refined based on evidence.</p>
+    <p className="at-lead">The closed-loop quality improvement cycle is mandated by AICTE OBE Guidelines §8 and is a key criterion for NAAC accreditation. PGDFDB (BFSI) runs this cycle 4 times per programme — once at the end of every Part — ensuring the curriculum is continuously refined based on evidence.</p>
 
     <h3 className="at-h3">Attainment Targets — Programme Level</h3>
     <div className="attain-grid">
@@ -4125,7 +4125,7 @@ export default function PGCDBWebsite() {
   <div className="container">
     <p className="section-label fade-up">Product Management · Startup Ecosystem · Digital Business</p>
     <h2 className="section-title fade-up fade-up-d1">Not just a job-seeker.<br/>An <em>industry builder.</em></h2>
-    <p className="section-lead fade-up fade-up-d2">PGCDB (BFSI) equips you for three futures simultaneously: a high-growth corporate career in BFSI, a startup founding team role, or launching your own FinTech venture. The same skills serve all three paths.</p>
+    <p className="section-lead fade-up fade-up-d2">PGDFDB (BFSI) equips you for three futures simultaneously: a high-growth corporate career in BFSI, a startup founding team role, or launching your own FinTech venture. The same skills serve all three paths.</p>
     <div className="startup-layout">
       <div className="startup-cards">
         <div className="sc fade-up">
@@ -4160,14 +4160,14 @@ export default function PGCDBWebsite() {
           <div className="sc-icon" style={{background: "#FDE8DC"}}>🌍</div>
           <div>
             <h4>Global BFSI Opportunities</h4>
-            <p>BFSI is the most globally portable career. A dedicated module covers UAE (DIFC), UK (FCA-regulated roles), Singapore (MAS), Australia (APRA), and Canada (OSFI) — with visa pathways, salary benchmarks, in-demand skills, and top employer mapping. Your PGCDB is your passport.</p>
+            <p>BFSI is the most globally portable career. A dedicated module covers UAE (DIFC), UK (FCA-regulated roles), Singapore (MAS), Australia (APRA), and Canada (OSFI) — with visa pathways, salary benchmarks, in-demand skills, and top employer mapping. Your PGDFDB is your passport.</p>
           </div>
         </div>
         <div className="sc fade-up fade-up-d2">
           <div className="sc-icon" style={{background: "#FAE0E0"}}>🏆</div>
           <div>
             <h4>The MiniCEO Program</h4>
-            <p>The crown jewel of PGCDB (BFSI). Learn CEO-level thinking: P&L management, board communication, digital transformation roadmapping, M&A in financial services, and crisis management. Graduate as a professional who thinks like a business owner, not a job applicant.</p>
+            <p>The crown jewel of PGDFDB (BFSI). Learn CEO-level thinking: P&L management, board communication, digital transformation roadmapping, M&A in financial services, and crisis management. Graduate as a professional who thinks like a business owner, not a job applicant.</p>
           </div>
         </div>
       </div>
@@ -4240,7 +4240,7 @@ export default function PGCDBWebsite() {
         <div className="js-circle" style={{background: "linear-gradient(135deg,#FFF8E1,#FFF0C0)"}}>👑</div>
         <div className="js-num" style={{fontFamily: "var(--font-display)", fontSize: "13px", fontWeight: "700", color: "#8B6914", marginBottom: "8px"}}>MONTHS 16–19</div>
         <h4>Digital Business Leader</h4>
-        <p>MiniCEO Program. Finance transformation. Global career mapping. MiniCEO Summit. PGCDB (BFSI) — MBA++. BFSI Fellow.</p>
+        <p>MiniCEO Program. Finance transformation. Global career mapping. MiniCEO Summit. PGDFDB (BFSI) — MBA++. BFSI Fellow.</p>
       </div>
     </div>
   </div>
@@ -4251,7 +4251,7 @@ export default function PGCDBWebsite() {
   <div className="container">
     <p className="section-label fade-up">Built Into the Program — Not an Afterthought</p>
     <h2 className="section-title fade-up fade-up-d1">Placements &<br/><em>Internships</em></h2>
-    <p className="section-lead fade-up fade-up-d2">Placement is the ultimate metric. We design every element of PGCDB (BFSI) — from the first module to the last capstone — with one question in mind: "Will this help our student get hired and thrive?"</p>
+    <p className="section-lead fade-up fade-up-d2">Placement is the ultimate metric. We design every element of PGDFDB (BFSI) — from the first module to the last capstone — with one question in mind: "Will this help our student get hired and thrive?"</p>
     <div className="placement-grid">
       <div className="pf-list">
         <div className="pf fade-up">
@@ -4308,7 +4308,7 @@ export default function PGCDBWebsite() {
   <div className="container" style={{position: "relative", zIndex: "1"}}>
     <p className="section-label fade-up">4 Certificates. One Extraordinary Destination.</p>
     <h2 className="section-title fade-up fade-up-d1">Every Part. A new<br/><em style={{color: "var(--gold)"}}>credential on your resume.</em></h2>
-    <p className="section-lead fade-up fade-up-d2">You don't wait 24 months for recognition. With PGCDB (BFSI), you earn a formal Upskillize certificate at the end of every Part — a progressive credential that builds your professional profile in real-time, even before you graduate.</p>
+    <p className="section-lead fade-up fade-up-d2">You don't wait 24 months for recognition. With PGDFDB (BFSI), you earn a formal Upskillize certificate at the end of every Part — a progressive credential that builds your professional profile in real-time, even before you graduate.</p>
     <div className="cert-path fade-up fade-up-d1">
       <div className="cert-step">
         <span className="cs-num" style={{color: "var(--blue)"}}>Part 1 · Month 4</span>
@@ -4334,15 +4334,15 @@ export default function PGCDBWebsite() {
       <div className="cert-step">
         <span className="cs-num" style={{color: "var(--gold)"}}>Part 4 · Month 19</span>
         <span className="cs-icon">👑</span>
-        <div className="cs-title">PGCDB (BFSI) — MBA++</div>
+        <div className="cs-title">PGDFDB (BFSI) — MBA++</div>
         <div className="cs-sub">Digital Business Leader</div>
         <span className="cs-badge">MiniCEO + NSQF 7</span>
       </div>
     </div>
     <div className="final-cert fade-up fade-up-d2">
       <div className="fc-eyebrow">The Final Destination</div>
-      <div className="fc-title">Post Graduate Certificate in Digital Business — BFSI</div>
-      <div className="fc-sub">MBA++ · PGCDB (BFSI) · Digital Business Leader</div>
+      <div className="fc-title">Post Graduate Diploma in FinTech & Digital Business — BFSI</div>
+      <div className="fc-sub">MBA++ · PGDFDB (BFSI) · Digital Business Leader</div>
       <div className="fc-tags">
         <span className="fc-tag">NSQF Level 7</span>
         <span className="fc-tag">BFSI SSC Aligned</span>
@@ -4372,7 +4372,7 @@ export default function PGCDBWebsite() {
       <div className="cta-card for-colleges fade-up">
         <div className="eyebrow">For Academic Leaders & Placement Heads</div>
         <h3>Partner with Upskillize</h3>
-        <p>Bring PGCDB (BFSI) to your MBA students and transform your placement outcomes, institutional reputation, and industry partnerships — without adding any burden to your faculty or timetable.</p>
+        <p>Bring PGDFDB (BFSI) to your MBA students and transform your placement outcomes, institutional reputation, and industry partnerships — without adding any burden to your faculty or timetable.</p>
         <ul className="points">
           <li>Upskillize provides all content, trainers, LMS, and assessments — zero faculty load</li>
           <li>BFSI Innovation Lab established on your campus at no cost</li>
@@ -4386,7 +4386,7 @@ export default function PGCDBWebsite() {
       <div className="cta-card for-students fade-up fade-up-d2">
         <div className="eyebrow">For MBA & PGDM Students</div>
         <h3>Start Your BFSI Journey</h3>
-        <p>PGCDB (BFSI) runs alongside your MBA — on weekday evenings and Saturday mornings. No career gap, no extra year. Just 24 months of building, learning, and becoming an industry representative.</p>
+        <p>PGDFDB (BFSI) runs alongside your MBA — on weekday evenings and Saturday mornings. No career gap, no extra year. Just 24 months of building, learning, and becoming an industry representative.</p>
         <ul className="points">
           <li>Earn 4 certificates on the way — each one resume-ready immediately</li>
           <li>Build a real project portfolio in the Innovation Lab</li>
