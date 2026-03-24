@@ -4342,7 +4342,7 @@ export default function TwoYearsSemester() {
     <div className="final-cert fade-up fade-up-d2">
       <div className="fc-eyebrow">The Final Destination</div>
       <div className="fc-title">Post Graduate Diploma in FinTech & Digital Business — BFSI</div>
-      <div className="fc-sub">MBA++ · PGDFDB (BFSI) · Digital Business Leader</div>
+      <div className="fc-sub">MBA++ · PGDFDB (BFSI) · Unique opportunity to be a Fintech & Digital Business Leader"</div>
       <div className="fc-tags">
         <span className="fc-tag">NSQF Level 7</span>
         <span className="fc-tag">BFSI SSC Aligned</span>
