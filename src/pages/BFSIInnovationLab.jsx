@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 /* ─────────────────────────────────────────────────────────────
@@ -9,7 +9,136 @@ import { Link, useNavigate } from "react-router-dom";
      • Footer removed
      • Google Fonts via JSX <link> tag (Plus Jakarta Sans, DM Sans, JetBrains Mono)
      • All HTML → JSX (class→className, kebab-case SVG attrs→camelCase, inline style→{{}})
+     • Partnership Tiers: removed icon, added fee dropdown, removed register button
 ───────────────────────────────────────────────────────────── */
+
+const TIER_DATA = [
+  {
+    cls: "base",
+    badge: "STANDARD",
+    name: "Lab Essentials",
+    sub: "Curriculum + LMS — ideal for year-one adoption",
+    fee: "₹2,50,000 / year",
+    duration: "1 Academic Year",
+    feats: [
+      "4 core zone activations",
+      "lms.upskillize.com cohort access",
+      "2 certification tracks (CAIP / CDBL)",
+      "Quarterly content updates",
+      "RegTech & compliance webinars",
+      "Faculty orientation (1 session)",
+      "Basic placement dashboard",
+    ],
+  },
+  {
+    cls: "feat",
+    badge: "PREMIUM",
+    popular: true,
+    name: "Full Innovation Lab",
+    sub: "Complete lab + all 10 zones — flagship partnership",
+    fee: "₹5,00,000 / year",
+    duration: "1–2 Academic Years",
+    feats: [
+      "All 10 zone activations",
+      "Full LMS + Claude AI agent access",
+      "CAIP + CDBL + FRM / PRM cert tracks",
+      "Capstone review & co-certification",
+      "Monthly RegTech expert sessions",
+      "Faculty train-the-trainer program",
+      "Internship pipeline integration",
+      "Oracle FLEXCUBE + SAP access",
+      "Co-branded certification seals",
+      "Placement performance analytics",
+    ],
+  },
+  {
+    cls: "ent",
+    badge: "ENTERPRISE",
+    name: "Centre of Excellence",
+    sub: "Dedicated CoE — for nationally leading institutions",
+    fee: "Contact for Pricing",
+    duration: "Multi-Year Partnership",
+    feats: [
+      "Everything in Full Lab tier",
+      "Dedicated Upskillize faculty presence",
+      "Physical lab design consultancy",
+      "Custom Indian BFSI case study dev.",
+      "Bank / NBFC MoU facilitation",
+      "ESG reporting framework lab",
+      "National hackathon hosting rights",
+      "NAAC/NBA documentation support",
+      "Research paper publication support",
+    ],
+  },
+];
+
+function PartnershipTiers() {
+  const [openFee, setOpenFee] = useState(null);
+  return (
+    <section className="sec" id="partnership">
+      <style>{`
+        .pt-fee-btn { cursor:pointer; display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:700; padding:7px 14px; border-radius:20px; border:none; margin-top:16px; transition:background .2s,transform .15s; }
+        .pt.base .pt-fee-btn { background:var(--bg2); color:var(--tx2); }
+        .pt.feat .pt-fee-btn { background:var(--tl); color:var(--td); }
+        .pt.ent .pt-fee-btn { background:var(--pl); color:var(--pd); }
+        .pt-fee-btn:hover { transform:scale(1.04); }
+        .pt-fee-drop { overflow:hidden; transition:max-height .35s ease, opacity .3s ease; }
+        .pt-fee-drop.open { max-height:120px; opacity:1; }
+        .pt-fee-drop.closed { max-height:0; opacity:0; }
+        .pt-fee-box { margin-top:10px; border-radius:10px; padding:12px 14px; }
+        .pt.base .pt-fee-box { background:var(--bg2); border:1.5px solid var(--bds); }
+        .pt.feat .pt-fee-box { background:var(--tl); border:1.5px solid var(--tb); }
+        .pt.ent .pt-fee-box { background:var(--pl); border:1.5px solid var(--pb); }
+        .pt-fee-label { font-size:10px; letter-spacing:1px; text-transform:uppercase; margin-bottom:4px; }
+        .pt.base .pt-fee-label { color:var(--tx3); }
+        .pt.feat .pt-fee-label { color:var(--td); }
+        .pt.ent .pt-fee-label { color:var(--pd); }
+        .pt-fee-amount { font-family:var(--fd); font-size:20px; font-weight:800; }
+        .pt.base .pt-fee-amount { color:var(--navy); }
+        .pt.feat .pt-fee-amount { color:var(--td); }
+        .pt.ent .pt-fee-amount { color:var(--pd); }
+        .pt-fee-dur { font-size:11px; margin-top:3px; }
+        .pt.base .pt-fee-dur { color:var(--tx3); }
+        .pt.feat .pt-fee-dur { color:var(--td); }
+        .pt.ent .pt-fee-dur { color:var(--pd); }
+      `}</style>
+      <div className="sc">
+        <div className="sec-label">Engagement Models</div>
+        <h2 className="sec-title">Choose Your <span className="ht">Partnership Tier</span></h2>
+        <p className="sec-sub">Flexible models for different institution sizes, budgets, and ambitions. All tiers include the full FinTech &amp; AI Innovation Lab framework, Agile standup zone, collaboration workspace, and co-certification rights.</p>
+      </div>
+      <div className="pt-grid">
+        {TIER_DATA.map((tier, i) => (
+          <div className={`pt ${tier.cls} reveal${i > 0 ? ` d${i}` : ""}`} key={tier.badge}>
+            {tier.popular && <div className="popular">MOST POPULAR</div>}
+            <span className="pt-badge">{tier.badge}</span>
+            <div className="pt-name">{tier.name}</div>
+            <div className="pt-sub">{tier.sub}</div>
+            <ul className="pt-feats">
+              {tier.feats.map(f => <li key={f}>{f}</li>)}
+            </ul>
+            {/* Fee Dropdown Button */}
+            <button
+              className="pt-fee-btn"
+              onClick={() => setOpenFee(openFee === i ? null : i)}
+              aria-expanded={openFee === i}
+            >
+              💰 {openFee === i ? "Hide Fee" : "View Fee"}
+              <span style={{fontSize:"10px",transition:"transform .25s",display:"inline-block",transform:openFee===i?"rotate(180deg)":"rotate(0deg)"}}>▼</span>
+            </button>
+            <div className={`pt-fee-drop ${openFee === i ? "open" : "closed"}`}>
+              <div className="pt-fee-box">
+                <div className="pt-fee-label">Partnership Fee</div>
+                <div className="pt-fee-amount">{tier.fee}</div>
+                <div className="pt-fee-dur">📅 Duration: {tier.duration}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
 
 export default function FintechAIInnovationLab() {
 
@@ -1909,63 +2038,7 @@ export default function FintechAIInnovationLab() {
         <div className="div"></div>
 
         {/* ── PARTNERSHIP TIERS ── */}
-        <section className="sec" id="partnership">
-          <div className="sc">
-            <div className="sec-label">Engagement Models</div>
-            <h2 className="sec-title">Choose Your <span className="ht">Partnership Tier</span></h2>
-            <p className="sec-sub">Flexible models for different institution sizes, budgets, and ambitions. All tiers include the full FinTech &amp; AI Innovation Lab framework, Agile standup zone, collaboration workspace, and co-certification rights.</p>
-          </div>
-          <div className="pt-grid">
-            <div className="pt base reveal">
-              <span className="pt-badge">STANDARD</span>
-              <div className="pt-name">Lab Essentials</div>
-              <div className="pt-sub">Curriculum + LMS — ideal for year-one adoption</div>
-              <ul className="pt-feats">
-                <li>4 core zone activations</li>
-                <li>lms.upskillize.com cohort access</li>
-                <li>2 certification tracks (CAIP / CDBL)</li>
-                <li>Quarterly content updates</li>
-                <li>RegTech &amp; compliance webinars</li>
-                <li>Faculty orientation (1 session)</li>
-                <li>Basic placement dashboard</li>
-              </ul>
-            </div>
-            <div className="pt feat reveal d1">
-              <div className="popular">MOST POPULAR</div>
-              <span className="pt-badge">PREMIUM</span>
-              <div className="pt-name">Full Innovation Lab</div>
-              <div className="pt-sub">Complete lab + all 10 zones — flagship partnership</div>
-              <ul className="pt-feats">
-                <li>All 10 zone activations</li>
-                <li>Full LMS + Claude AI agent access</li>
-                <li>CAIP + CDBL + FRM / PRM cert tracks</li>
-                <li>Capstone review &amp; co-certification</li>
-                <li>Monthly RegTech expert sessions</li>
-                <li>Faculty train-the-trainer program</li>
-                <li>Internship pipeline integration</li>
-                <li>Oracle FLEXCUBE + SAP access</li>
-                <li>Co-branded certification seals</li>
-                <li>Placement performance analytics</li>
-              </ul>
-            </div>
-            <div className="pt ent reveal d2">
-              <span className="pt-badge">ENTERPRISE</span>
-              <div className="pt-name">Centre of Excellence</div>
-              <div className="pt-sub">Dedicated CoE — for nationally leading institutions</div>
-              <ul className="pt-feats">
-                <li>Everything in Full Lab tier</li>
-                <li>Dedicated Upskillize faculty presence</li>
-                <li>Physical lab design consultancy</li>
-                <li>Custom Indian BFSI case study dev.</li>
-                <li>Bank / NBFC MoU facilitation</li>
-                <li>ESG reporting framework lab</li>
-                <li>National hackathon hosting rights</li>
-                <li>NAAC/NBA documentation support</li>
-                <li>Research paper publication support</li>
-              </ul>
-            </div>
-          </div>
-        </section>
+        <PartnershipTiers />
 
         {/* ── SIGNUP CTA ── */}
         <div className="signup-sec" id="signup">

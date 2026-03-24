@@ -636,8 +636,7 @@ function Hero() {
               <span className="badge badge-outline" style={{borderColor:'rgba(255,255,255,.5)',color:'var(--white)'}}>Placement-First</span>
             </div>
             <h1 className="h-display" style={{color:'var(--white)',marginBottom:20}}>
-              Advanced Diploma in<br />
-              <span style={{color:'var(--gold2)'}}>FinTech, Banking & AI</span>
+              Advanced Diploma in <span style={{color:'var(--gold2)'}}>FinTech, Banking & AI</span>
             </h1>
             <p style={{fontFamily:'var(--font-body)',fontSize:16,fontWeight:400,color:'rgba(255,255,255,.72)',marginBottom:36,maxWidth:560,lineHeight:1.7}}>
               12 months. 6 bimesters. 16 career pathways. One programme built entirely around getting you a job in India's most exciting industry — with 6 stackable industry certificates along the way.
