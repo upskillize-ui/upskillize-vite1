@@ -62,20 +62,13 @@ function CourseRow({ c }) {
       onMouseEnter={e => e.currentTarget.style.background="#f9fafb"}
       onMouseLeave={e => e.currentTarget.style.background="transparent"}
     >
-      {/* Top row: thumbnail + label + Register/Closed */}
-      <div style={{ display:"flex", alignItems:"center", gap:".5rem", padding:".35rem .875rem .2rem" }}>
-        <a href={c.href} style={{ display:"flex", alignItems:"center", gap:".5rem", flex:1, textDecoration:"none", minWidth:0 }}>
-          <img src={c.img} alt={c.label} style={{ width:"22px", height:"22px", borderRadius:".25rem", objectFit:"cover", flexShrink:0 }} />
-          <span style={{ flex:1, fontSize:".875rem", fontWeight:600, color:"#1f2937", lineHeight:1.3 }}>{c.label}</span>
-        </a>
-        {!c.available
-          ? <span style={{ fontSize:".65rem", fontWeight:700, background:"#e5e7eb", color:"#6b7280", padding:".1rem .3rem", borderRadius:999, flexShrink:0 }}>Closed</span>
-          : <Link
-              to={`/register?course=${encodeURIComponent(c.label)}`}
-              style={{ fontSize:".65rem", fontWeight:700, background:"#dcfce7", color:"#15803d", padding:".1rem .38rem", borderRadius:999, flexShrink:0, textDecoration:"none", whiteSpace:"nowrap" }}
-            >Register</Link>
-        }
-      </div>
+      {/* Top row: thumbnail + label */}
+<div style={{ display:"flex", alignItems:"center", gap:".5rem", padding:".35rem .875rem .2rem" }}>
+  <a href={c.href} style={{ display:"flex", alignItems:"center", gap:".5rem", flex:1, textDecoration:"none", minWidth:0 }}>
+    <img src={c.img} alt={c.label} style={{ width:"22px", height:"22px", borderRadius:".25rem", objectFit:"cover", flexShrink:0 }} />
+    <span style={{ flex:1, fontSize:".875rem", fontWeight:600, color:"#1f2937", lineHeight:1.3 }}>{c.label}</span>
+  </a>
+</div>
       {/* Info tabs row */}
       <div style={{ display:"flex", alignItems:"center", gap:".25rem", padding:"0 .875rem .35rem 2.875rem" }}>
         {INFO_TABS.map(t => (
