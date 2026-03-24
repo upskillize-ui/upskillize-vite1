@@ -604,7 +604,7 @@ h2.section-title em{font-style:normal;color:var(--purple);}
   background:radial-gradient(ellipse 70% 50% at 30% 50%,rgba(91,75,138,.3),transparent);
 }
 .certs-section .section-label{color:var(--gold);}
-.certs-section h2{color:var(--white);}
+.certs-section h2.section-title{color:var(--white) !important;}
 .certs-section .section-lead{color:rgba(255,255,255,.55);}
 .cert-path{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(255,255,255,.06);border-radius:20px;overflow:hidden;margin-top:60px;position:relative;z-index:1;}
 .cert-step{padding:40px 28px;transition:background .3s;text-align:center;}
