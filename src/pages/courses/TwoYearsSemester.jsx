@@ -2814,55 +2814,6 @@ export default function TwoYearsSemester() {
     <h2 className="section-title fade-up fade-up-d1" style={{color:"#ffffff"}}>The <em style={{color:"var(--gold)"}}>RUBRIC</em> Framework:<br/>UGC OBE — Aligned &amp; Accredited.</h2>
     <p className="section-lead fade-up fade-up-d2">PGDFDB (BFSI) is designed fully in accordance with the UGC Curriculum and Credit Framework for Postgraduate Programmes (2023) and AICTE's Outcome-Based Education (OBE) mandate. The RUBRIC framework below defines how every learning element of this programme is structured, delivered, assessed, and improved — ensuring NSQF Level 7 standards are met and CO-PO attainment is measurable at every stage.</p>
 
-    <table className="rubric-intro-table fade-up">
-      <thead>
-        <tr>
-          <th style={{width: "44px"}}>Letter</th>
-          <th>UGC OBE Dimension</th>
-          <th>What It Means for PGDFDB (BFSI)</th>
-          <th>UGC / AICTE Reference</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>R</td>
-          <td>Rigorous Outcome-Based Education</td>
-          <td>Every lesson is defined by explicit Programme Outcomes (POs) and Course Outcomes (COs) mapped to Bloom's Taxonomy Levels 1–6. Instruction, assessment, and grading are all anchored to these stated outcomes — not to content coverage. The programme operates on the OBE principle: define what graduates must achieve, then design backwards to ensure it happens.</td>
-          <td>UGC CCFPGP 2023 §5 — Programme Outcomes; AICTE OBE Guidelines §3 — CO-PO Mapping</td>
-        </tr>
-        <tr>
-          <td>U</td>
-          <td>Universal Graduate Attributes &amp; Employability</td>
-          <td>PGDFDB (BFSI) develops eight Universal Graduate Attributes aligned to UGC's NHEQF Level 7 descriptors: BFSI Domain Competency, Digital Technology Proficiency, Regulatory Intelligence, Product &amp; Innovation Thinking, Data-Driven Decision Making, Professional Readiness, Leadership &amp; Strategy, and Global &amp; Ethical Awareness. Every module maps to at least three of these eight attributes — ensuring no graduate leaves with one-dimensional expertise.</td>
-          <td>UGC NHEQF Level 7 Graduate Attributes; NCrF §3 — Learning Outcomes; NEP 2020 §11 — Holistic Education</td>
-        </tr>
-        <tr>
-          <td>B</td>
-          <td>Bloom's Taxonomy Aligned Assessments</td>
-          <td>All 128 lessons are classified at a specific Bloom's Taxonomy level — from Remember (L1) and Understand (L2) in foundational modules, to Apply (L3) and Analyse (L4) in intermediate modules, to Evaluate (L5) and Create (L6) in advanced modules and capstones. PG-level programmes must demonstrate dominance of L4–L6 learning activities, and PGDFDB (BFSI) ensures at least 60% of all assessments operate at L4 or above.</td>
-          <td>AICTE OBE Guidelines §4 — Bloom's Taxonomy; UGC CCFPGP 2023 §7 — Assessment Strategy</td>
-        </tr>
-        <tr>
-          <td>R</td>
-          <td>Research, Reflection &amp; Real-World Application</td>
-          <td>Each of the four Capstone Projects requires students to conduct original research on a live BFSI problem, reflect on their findings through structured mentor review, and apply their learning to create a professional-grade deliverable. Innovation Lab activities operationalise this at weekly frequency — every Saturday session involves applying week's learning to a real BFSI dataset, tool, or business scenario. This satisfies UGC's mandate that PG programmes develop "research aptitude and analytical ability."</td>
-          <td>UGC CCFPGP 2023 §8 — Research Component; NCrF §2.3 — Experiential Learning; AICTE OBE §6 — Capstone Projects</td>
-        </tr>
-        <tr>
-          <td>I</td>
-          <td>Industry Integration &amp; Interdisciplinary Learning</td>
-          <td>Every trainer is an active BFSI industry leader (top 1%). Every case study is drawn from Indian BFSI reality. Every Innovation Lab activity uses tools deployed in real BFSI firms. The programme is explicitly interdisciplinary — Finance, Marketing, HR, Systems, and Operations students study together, and every lesson is tagged with relevance across specialisations. This reflects UGC's emphasis on multidisciplinary education and NEP 2020's vision of breaking silos between vocational and academic learning.</td>
-          <td>NEP 2020 §10 — Multidisciplinary Education; UGC CCFPGP 2023 §6 — Vocational Integration; NCrF §1 — No Hard Separation between Streams</td>
-        </tr>
-        <tr>
-          <td>C</td>
-          <td>Continuous CO-PO Attainment &amp; Improvement</td>
-          <td>CO-PO attainment is measured at the end of every Part (4 times per programme cycle) using both direct indicators (quiz scores, capstone rubric scores, assignment grades) and indirect indicators (student exit surveys, employer feedback, placement outcomes). Where attainment falls below the 75% target threshold, the Academic Review Committee triggers a curriculum adjustment. This closed-loop improvement cycle is the cornerstone of UGC's OBE mandate and NAAC accreditation criteria.</td>
-          <td>UGC CCFPGP 2023 §10 — Evaluation Reforms; AICTE OBE Guidelines §8 — Attainment &amp; Improvement; NAAC Criterion III</td>
-        </tr>
-      </tbody>
-    </table>
-
     <div className="rubric-grid fade-up fade-up-d1" style={{marginTop: "16px"}}>
       <div className="rubric-card">
         <div className="r-letter">R</div>

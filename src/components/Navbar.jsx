@@ -55,7 +55,6 @@ function CourseRow({ c }) {
   const INFO_TABS = [
     { key: "duration", label: "Duration", value: c.duration, color: "#4f46e5", bg: "#ede9fe" },
     { key: "mode",     label: "Mode",     value: c.mode,     color: "#0891b2", bg: "#e0f2fe" },
-    { key: "fee",      label: "Fee",      value: c.fee,      color: "#059669", bg: "#d1fae5" },
   ];
   return (
     <div style={{ borderBottom: "1px solid #f3f4f6", opacity: c.available ? 1 : 0.62, transition: "background .12s" }}
