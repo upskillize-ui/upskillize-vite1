@@ -2859,11 +2859,11 @@ export default function TwoYearsSemester() {
 <section className="po-section" id="programme-outcomes">
   <div className="container">
     <p className="section-label fade-up">UGC NHEQF Level 7 — Outcome-Based Education</p>
-    <h2 className="section-title fade-up fade-up-d1">Programme Outcomes &amp;<br/><em>Lesson-Level CO Mapping</em></h2>
+    <h2 className="section-title fade-up fade-up-d1">Outcomes Driven Learning  &amp;<br/><em>Lesson-Level CO Mapping</em></h2>
     <p className="section-lead fade-up fade-up-d2">As mandated by UGC's Curriculum and Credit Framework for Postgraduate Programmes (2023) and AICTE's OBE Guidelines, every lesson in PGDFDB (BFSI) is mapped to Programme Outcomes (POs), assessed at a defined Bloom's Taxonomy level, and tracked for CO-PO attainment across the batch.</p>
 
     {/* PO Definitions */}
-    <h3 style={{fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: "800", color: "var(--text)", margin: "48px 0 20px"}}>The 8 Programme Outcomes (POs) — PGDFDB (BFSI)</h3>
+    <h3 style={{fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: "800", color: "var(--text)", margin: "48px 0 20px"}}>The 8 Programme Outcomes (POs) — PGDFDB </h3>
     <div className="po-table-wrap fade-up">
       <table className="po-table">
         <thead style={{background: "var(--navy)"}}>
@@ -2931,130 +2931,6 @@ export default function TwoYearsSemester() {
             <td>Assess global BFSI career opportunities and regulatory environments across UAE, UK, Singapore, Australia, and Canada; demonstrate ethical decision-making in financial services, ESG responsibility, and DPDPA/data privacy compliance.</td>
             <td style={{fontSize: "12px", color: "var(--muted)"}}>Global Citizenship</td>
             <td><span className="bloom-chip">L5 — Evaluate</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    {/* Module 1 CO-PO Mapping (Full) */}
-    <h3 style={{fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: "800", color: "var(--text)", margin: "56px 0 8px"}}>CO-PO Mapping — Module 1: BFSI Domain Foundations</h3>
-    <p style={{fontSize: "14px", color: "var(--muted)", marginBottom: "0"}}>Scale: <strong style={{color: "var(--orange)"}}>3 = High</strong> (direct, strong contribution) &nbsp;·&nbsp; <strong style={{color: "var(--purple)"}}>2 = Medium</strong> (moderate contribution) &nbsp;·&nbsp; <strong style={{color: "var(--muted)"}}>1 = Low</strong> (minor contribution) &nbsp;·&nbsp; <strong style={{color: "var(--midGray,#ccc)"}}>— = None</strong></p>
-    <div className="po-table-wrap fade-up">
-      <table className="copo-table">
-        <thead>
-          <tr>
-            <th style={{textAlign: "left", background: "var(--navy)", color: "#fff"}}>Lesson / CO</th>
-            <th style={{background: "var(--navy)", color: "#fff"}}>PO1<br/><small>BFSI Domain</small></th>
-            <th style={{background: "var(--navy)", color: "#fff"}}>PO2<br/><small>Digital Tech</small></th>
-            <th style={{background: "var(--navy)", color: "#fff"}}>PO3<br/><small>Regulatory</small></th>
-            <th style={{background: "var(--navy)", color: "#fff"}}>PO4<br/><small>Product</small></th>
-            <th style={{background: "var(--navy)", color: "#fff"}}>PO5<br/><small>Data</small></th>
-            <th style={{background: "var(--navy)", color: "#fff"}}>PO6<br/><small>Employability</small></th>
-            <th style={{background: "var(--navy)", color: "#fff"}}>PO7<br/><small>Leadership</small></th>
-            <th style={{background: "var(--navy)", color: "#fff"}}>PO8<br/><small>Global</small></th>
-            <th style={{background: "var(--gold)", color: "var(--navy)"}}>Bloom's<br/><small>Level</small></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1.1 Structure of BFSI Industry</td>
-            <td className="copo-h">3</td><td className="copo-l">1</td><td className="copo-m">2</td><td className="copo-l">1</td><td className="copo-n">—</td><td className="copo-m">2</td><td className="copo-l">1</td><td className="copo-m">2</td><td>L2 Understand</td>
-          </tr>
-          <tr>
-            <td>1.2 Banking Operations Deep Dive</td>
-            <td className="copo-h">3</td><td className="copo-m">2</td><td className="copo-m">2</td><td className="copo-l">1</td><td className="copo-m">2</td><td className="copo-m">2</td><td className="copo-m">2</td><td className="copo-l">1</td><td>L3 Apply</td>
-          </tr>
-          <tr>
-            <td>1.3 Credit: Concepts, Products &amp; Life Cycle</td>
-            <td className="copo-h">3</td><td className="copo-m">2</td><td className="copo-m">2</td><td className="copo-m">2</td><td className="copo-m">2</td><td className="copo-m">2</td><td className="copo-l">1</td><td className="copo-l">1</td><td>L3 Apply</td>
-          </tr>
-          <tr>
-            <td>1.4 Insurance Domain</td>
-            <td className="copo-h">3</td><td className="copo-l">1</td><td className="copo-m">2</td><td className="copo-l">1</td><td className="copo-n">—</td><td className="copo-m">2</td><td className="copo-l">1</td><td className="copo-m">2</td><td>L2 Understand</td>
-          </tr>
-          <tr>
-            <td>1.5 Capital Markets &amp; Investments</td>
-            <td className="copo-h">3</td><td className="copo-m">2</td><td className="copo-m">2</td><td className="copo-l">1</td><td className="copo-m">2</td><td className="copo-m">2</td><td className="copo-m">2</td><td className="copo-m">2</td><td>L3 Apply</td>
-          </tr>
-          <tr>
-            <td>1.6 BFSI Business Models &amp; Economics</td>
-            <td className="copo-h">3</td><td className="copo-l">1</td><td className="copo-l">1</td><td className="copo-m">2</td><td className="copo-m">2</td><td className="copo-m">2</td><td className="copo-h">3</td><td className="copo-m">2</td><td>L4 Analyse</td>
-          </tr>
-          <tr>
-            <td>1.7 India's Digital Financial Stack</td>
-            <td className="copo-m">2</td><td className="copo-h">3</td><td className="copo-m">2</td><td className="copo-m">2</td><td className="copo-m">2</td><td className="copo-m">2</td><td className="copo-l">1</td><td className="copo-m">2</td><td>L3 Apply</td>
-          </tr>
-          <tr>
-            <td>1.8 BFSI Regulatory Landscape</td>
-            <td className="copo-m">2</td><td className="copo-l">1</td><td className="copo-h">3</td><td className="copo-l">1</td><td className="copo-l">1</td><td className="copo-m">2</td><td className="copo-m">2</td><td className="copo-m">2</td><td>L4 Analyse</td>
-          </tr>
-          <tr style={{background: "var(--light)"}}>
-            <td style={{fontWeight: "700", color: "var(--navy)"}}>Module 1 Average Attainment</td>
-            <td className="copo-avg">2.6</td><td className="copo-avg">1.6</td><td className="copo-avg">2.0</td><td className="copo-avg">1.4</td><td className="copo-avg">1.4</td><td className="copo-avg">2.0</td><td className="copo-avg">1.6</td><td className="copo-avg">1.8</td><td style={{fontSize: "11px", fontWeight: "700", color: "var(--purple)"}}>Avg L2–L4</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    {/* All Modules PO Summary */}
-    <h3 style={{fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: "800", color: "var(--text)", margin: "56px 0 8px"}}>Programme-Level PO Attainment — All 16 Modules</h3>
-    <p style={{fontSize: "14px", color: "var(--muted)", marginBottom: "0"}}>Module-level average CO-PO scores (out of 3). Primary POs per module shown in gold. Assessed via direct (quiz + capstone) and indirect (survey + employer) indicators at end of each Part.</p>
-    <div className="po-table-wrap fade-up">
-      <table className="copo-table">
-        <thead>
-          <tr>
-            <th style={{textAlign: "left", background: "var(--navy)", color: "#fff", width: "180px"}}>Module</th>
-            <th style={{background: "var(--navy)", color: "#fff"}}>PO1<br/><small>Domain</small></th>
-            <th style={{background: "var(--navy)", color: "#fff"}}>PO2<br/><small>Digital</small></th>
-            <th style={{background: "var(--navy)", color: "#fff"}}>PO3<br/><small>Regulatory</small></th>
-            <th style={{background: "var(--navy)", color: "#fff"}}>PO4<br/><small>Product</small></th>
-            <th style={{background: "var(--navy)", color: "#fff"}}>PO5<br/><small>Data</small></th>
-            <th style={{background: "var(--navy)", color: "#fff"}}>PO6<br/><small>Employ.</small></th>
-            <th style={{background: "var(--navy)", color: "#fff"}}>PO7<br/><small>Leader</small></th>
-            <th style={{background: "var(--navy)", color: "#fff"}}>PO8<br/><small>Global</small></th>
-            <th style={{background: "var(--navy)", color: "#fff"}}>Primary<br/><small>Bloom's</small></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>M1 — BFSI Foundations</td><td className="copo-h">2.6</td><td className="copo-l">1.6</td><td className="copo-m">2.0</td><td className="copo-l">1.4</td><td className="copo-l">1.4</td><td className="copo-m">2.0</td><td className="copo-l">1.6</td><td className="copo-l">1.8</td><td>L2–L4</td></tr>
-          <tr><td>M2 — Digital Transformation</td><td className="copo-m">2.2</td><td className="copo-h">2.8</td><td className="copo-m">2.1</td><td className="copo-m">2.0</td><td className="copo-m">2.0</td><td className="copo-m">2.1</td><td className="copo-l">1.5</td><td className="copo-m">1.8</td><td>L3–L4</td></tr>
-          <tr><td>M3 — FinTech &amp; InsurTech</td><td className="copo-h">2.8</td><td className="copo-m">2.2</td><td className="copo-m">1.8</td><td className="copo-h">2.6</td><td className="copo-l">1.4</td><td className="copo-m">2.3</td><td className="copo-m">2.0</td><td className="copo-m">2.2</td><td>L3–L5</td></tr>
-          <tr><td>M4 — Credit &amp; Loan Origination</td><td className="copo-h">2.8</td><td className="copo-m">2.3</td><td className="copo-m">2.2</td><td className="copo-m">2.1</td><td className="copo-h">2.6</td><td className="copo-m">2.2</td><td className="copo-l">1.4</td><td className="copo-l">1.2</td><td>L3–L4</td></tr>
-          <tr><td>M5 — Payments Technology</td><td className="copo-m">2.4</td><td className="copo-h">2.8</td><td className="copo-m">2.0</td><td className="copo-m">2.2</td><td className="copo-m">1.8</td><td className="copo-m">2.0</td><td className="copo-l">1.3</td><td className="copo-m">1.9</td><td>L3–L5</td></tr>
-          <tr><td>M6 — WealthTech &amp; Investment</td><td className="copo-h">2.6</td><td className="copo-m">2.4</td><td className="copo-m">2.2</td><td className="copo-m">2.4</td><td className="copo-m">2.3</td><td className="copo-m">2.1</td><td className="copo-m">1.8</td><td className="copo-m">2.2</td><td>L4–L5</td></tr>
-          <tr><td>M7 — Supply Chain Finance</td><td className="copo-m">2.5</td><td className="copo-m">2.0</td><td className="copo-m">1.8</td><td className="copo-m">2.2</td><td className="copo-m">2.0</td><td className="copo-m">1.9</td><td className="copo-m">1.7</td><td className="copo-l">1.6</td><td>L3–L4</td></tr>
-          <tr><td>M8 — Data to Decisions + Agile</td><td className="copo-l">1.8</td><td className="copo-h">2.9</td><td className="copo-m">1.6</td><td className="copo-m">2.3</td><td className="copo-h">3.0</td><td className="copo-m">2.2</td><td className="copo-l">1.5</td><td className="copo-l">1.3</td><td>L3–L5</td></tr>
-          <tr><td>M9 — RegTech &amp; Compliance</td><td className="copo-m">2.1</td><td className="copo-m">2.4</td><td className="copo-h">3.0</td><td className="copo-m">2.0</td><td className="copo-m">2.2</td><td className="copo-m">2.1</td><td className="copo-m">1.8</td><td className="copo-m">1.9</td><td>L4–L5</td></tr>
-          <tr><td>M10 — DeFi &amp; Blockchain</td><td className="copo-m">2.0</td><td className="copo-m">2.3</td><td className="copo-m">2.4</td><td className="copo-m">2.1</td><td className="copo-l">1.6</td><td className="copo-l">1.7</td><td className="copo-l">1.6</td><td className="copo-h">2.6</td><td>L4–L5</td></tr>
-          <tr><td>M11 — ESG &amp; Finance Transformation</td><td className="copo-m">2.2</td><td className="copo-m">2.2</td><td className="copo-m">2.5</td><td className="copo-m">2.0</td><td className="copo-h">2.7</td><td className="copo-l">1.8</td><td className="copo-m">2.2</td><td className="copo-m">2.4</td><td>L4–L5</td></tr>
-          <tr><td>M12 — Innovation Lab &amp; Pitch</td><td className="copo-l">1.6</td><td className="copo-h">2.8</td><td className="copo-l">1.5</td><td className="copo-h">3.0</td><td className="copo-m">2.1</td><td className="copo-m">2.4</td><td className="copo-m">2.3</td><td className="copo-m">1.9</td><td>L5–L6</td></tr>
-          <tr><td>M13 — MiniCEO Program</td><td className="copo-m">2.0</td><td className="copo-l">1.6</td><td className="copo-m">1.8</td><td className="copo-m">2.4</td><td className="copo-m">2.0</td><td className="copo-m">2.5</td><td className="copo-h">3.0</td><td className="copo-m">2.2</td><td>L5–L6</td></tr>
-          <tr><td>M14 — Finance Transformation</td><td className="copo-m">2.2</td><td className="copo-m">2.3</td><td className="copo-m">2.1</td><td className="copo-l">1.7</td><td className="copo-h">2.8</td><td className="copo-m">2.0</td><td className="copo-m">2.4</td><td className="copo-l">1.6</td><td>L4–L6</td></tr>
-          <tr><td>M15 — RM, Cards &amp; InsurTech</td><td className="copo-h">2.7</td><td className="copo-m">2.2</td><td className="copo-m">2.0</td><td className="copo-m">2.3</td><td className="copo-l">1.8</td><td className="copo-m">2.4</td><td className="copo-m">2.0</td><td className="copo-m">2.1</td><td>L4–L5</td></tr>
-          <tr><td>M16 — Global Pathways &amp; Alumni</td><td className="copo-m">1.9</td><td className="copo-l">1.5</td><td className="copo-l">1.6</td><td className="copo-l">1.4</td><td className="copo-l">1.3</td><td className="copo-h">3.0</td><td className="copo-m">2.5</td><td className="copo-h">3.0</td><td>L3–L5</td></tr>
-          <tr style={{background: "var(--navy)"}}>
-            <td style={{color: "var(--white)", fontWeight: "700"}}>Programme Average (all 16 modules)</td>
-            <td style={{color: "var(--gold)", fontWeight: "800"}}>2.34</td>
-            <td style={{color: "var(--gold)", fontWeight: "800"}}>2.26</td>
-            <td style={{color: "var(--gold)", fontWeight: "800"}}>2.04</td>
-            <td style={{color: "var(--gold)", fontWeight: "800"}}>2.14</td>
-            <td style={{color: "var(--gold)", fontWeight: "800"}}>2.04</td>
-            <td style={{color: "var(--gold)", fontWeight: "800"}}>2.17</td>
-            <td style={{color: "var(--gold)", fontWeight: "800"}}>1.90</td>
-            <td style={{color: "var(--gold)", fontWeight: "800"}}>2.04</td>
-            <td style={{color: "var(--white)", fontWeight: "700"}}>L3–L6</td>
-          </tr>
-          <tr style={{background: "var(--light)"}}>
-            <td style={{fontWeight: "700", color: "var(--green)"}}>✓ Target (≥ 2.0 for PG)</td>
-            <td style={{color: "var(--green)", fontWeight: "700"}}>✓</td>
-            <td style={{color: "var(--green)", fontWeight: "700"}}>✓</td>
-            <td style={{color: "var(--green)", fontWeight: "700"}}>✓</td>
-            <td style={{color: "var(--green)", fontWeight: "700"}}>✓</td>
-            <td style={{color: "var(--green)", fontWeight: "700"}}>✓</td>
-            <td style={{color: "var(--green)", fontWeight: "700"}}>✓</td>
-            <td style={{color: "var(--orange)", fontWeight: "700"}}>1.90*</td>
-            <td style={{color: "var(--green)", fontWeight: "700"}}>✓</td>
-            <td style={{fontSize: "11px", color: "var(--muted)"}}>*PO7 grows in Parts 3–4</td>
           </tr>
         </tbody>
       </table>
