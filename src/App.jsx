@@ -54,6 +54,7 @@ import PgCDBLandingPage from "./pages/courses/PgCDBLandingPage";
 import ThreeYearsCourse from "./pages/courses/ThreeYearsCourse";
 import TwoYearsTrimester from "./pages/courses/TwoYearsTrimester";
 import BFSIInnovationLab from "./pages/BFSIInnovationLab";
+import RegisterPage from "./pages/RegisterPage";
 
 import "./App.css";
 
@@ -138,6 +139,7 @@ function App() {
 
             {/* ── CATCH-ALL: /courses/:category must be LAST among course routes ── */}
             <Route path="/courses/:category" element={<CoursesPage />} />
+            <Route path="/register" element={<RegisterPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

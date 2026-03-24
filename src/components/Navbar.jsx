@@ -58,20 +58,25 @@ function CourseRow({ c }) {
     { key: "fee",      label: "Fee",      value: c.fee,      color: "#059669", bg: "#d1fae5" },
   ];
   return (
-    <div style={{ borderBottom: "1px solid #f3f4f6", opacity: c.available ? 1 : 0.62, transition: "background .12s" }}>
-      <a
-        href={c.href}
-        style={{ display:"flex", alignItems:"center", gap:".5rem", padding:".35rem .875rem .2rem", textDecoration:"none" }}
-        onMouseEnter={e => e.currentTarget.parentElement.style.background="#f9fafb"}
-        onMouseLeave={e => e.currentTarget.parentElement.style.background="transparent"}
-      >
-        <img src={c.img} alt={c.label} style={{ width:"22px", height:"22px", borderRadius:".25rem", objectFit:"cover", flexShrink:0 }} />
-        <span style={{ flex:1, fontSize:".775rem", fontWeight:600, color:"#1f2937", lineHeight:1.3 }}>{c.label}</span>
+    <div style={{ borderBottom: "1px solid #f3f4f6", opacity: c.available ? 1 : 0.62, transition: "background .12s" }}
+      onMouseEnter={e => e.currentTarget.style.background="#f9fafb"}
+      onMouseLeave={e => e.currentTarget.style.background="transparent"}
+    >
+      {/* Top row: thumbnail + label + Register/Closed */}
+      <div style={{ display:"flex", alignItems:"center", gap:".5rem", padding:".35rem .875rem .2rem" }}>
+        <a href={c.href} style={{ display:"flex", alignItems:"center", gap:".5rem", flex:1, textDecoration:"none", minWidth:0 }}>
+          <img src={c.img} alt={c.label} style={{ width:"22px", height:"22px", borderRadius:".25rem", objectFit:"cover", flexShrink:0 }} />
+          <span style={{ flex:1, fontSize:".775rem", fontWeight:600, color:"#1f2937", lineHeight:1.3 }}>{c.label}</span>
+        </a>
         {!c.available
           ? <span style={{ fontSize:".55rem", fontWeight:700, background:"#e5e7eb", color:"#6b7280", padding:".1rem .3rem", borderRadius:999, flexShrink:0 }}>Closed</span>
-          : <span style={{ fontSize:".55rem", fontWeight:700, background:"#dcfce7", color:"#15803d", padding:".1rem .3rem", borderRadius:999, flexShrink:0 }}>Register</span>
+          : <Link
+              to={`/register?course=${encodeURIComponent(c.label)}`}
+              style={{ fontSize:".55rem", fontWeight:700, background:"#dcfce7", color:"#15803d", padding:".1rem .38rem", borderRadius:999, flexShrink:0, textDecoration:"none", whiteSpace:"nowrap" }}
+            >Register</Link>
         }
-      </a>
+      </div>
+      {/* Info tabs row */}
       <div style={{ display:"flex", alignItems:"center", gap:".25rem", padding:"0 .875rem .35rem 2.875rem" }}>
         {INFO_TABS.map(t => (
           <button key={t.key}
@@ -351,7 +356,8 @@ export default function Navbar() {
                       {/* Two Years */}
                       <div className="nb-prog-section">
                         <span className="nb-prog-label">Two Years</span>
-                        <a href="/courses/pgdfdb-2t" className="nb-prog-card">
+                        <div className="nb-prog-card">
+                          <a href="/courses/pgdfdb-2t" style={{ textDecoration:"none" }}>
                           <div className="nb-prog-thumb">
                             <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400" alt="PGDFDB" />
                             <span className="nb-prog-new">NEW</span>
@@ -366,7 +372,11 @@ export default function Navbar() {
                             <Pill bg="#e0f2fe" color="#0369a1">Online / Hybrid</Pill>
                             <Pill bg="#f4f6fb" color="#6b7fa3">4 Semesters</Pill>
                           </div>
-                        </a>
+                          </a>
+                          <Link to="/register?course=PG%20Diploma%20in%20Digital%20Business%20%26%20FinTech" style={{ display:"flex", alignItems:"center", justifyContent:"center", marginTop:".4rem", padding:".3rem", borderRadius:".35rem", background:"linear-gradient(135deg,#4f46e5,#7c3aed)", color:"#fff", fontSize:".62rem", fontWeight:700, textDecoration:"none", gap:".25rem" }}>
+                            ✦ Register Now
+                          </Link>
+                        </div>
                       </div>
 
                       <div className="nb-prog-divider" />
@@ -374,7 +384,8 @@ export default function Navbar() {
                       {/* One Year */}
                       <div className="nb-prog-section">
                         <span className="nb-prog-label">One Year</span>
-                        <a href="/courses/pgcdf" className="nb-prog-card">
+                        <div className="nb-prog-card">
+                          <a href="/courses/pgcdf" style={{ textDecoration:"none" }}>
                           <div className="nb-prog-thumb">
                             <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400" alt="ADFBA" />
                           </div>
@@ -387,7 +398,11 @@ export default function Navbar() {
                             <Pill bg="#e0f2fe" color="#0369a1">Online / Hybrid</Pill>
                             <Pill bg="#f4f6fb" color="#6b7fa3">6 Bimesters</Pill>
                           </div>
-                        </a>
+                          </a>
+                          <Link to="/register?course=Advanced%20Diploma%20in%20FinTech%2C%20Banking%20%26%20AI" style={{ display:"flex", alignItems:"center", justifyContent:"center", marginTop:".4rem", padding:".3rem", borderRadius:".35rem", background:"linear-gradient(135deg,#059669,#047857)", color:"#fff", fontSize:".62rem", fontWeight:700, textDecoration:"none", gap:".25rem" }}>
+                            ✦ Register Now
+                          </Link>
+                        </div>
                       </div>
 
                     </div>{/* end nb-left-col */}
@@ -450,6 +465,11 @@ export default function Navbar() {
                   </div>
                 </div>
 
+                {/* BFSI Lab — now BEFORE Career Accelerator */}
+                <a href="/bfsiinnovationlab" className="nbb-lab">
+                  🏦 BFSI Lab
+                </a>
+
                 {/* Career Accelerator */}
                 <div className="nbd">
                   <button className="nbb">Career Accelerator <ChevronDown size={15} className="nbc" /></button>
@@ -459,10 +479,6 @@ export default function Navbar() {
                   </div>
                 </div>
 
-                {/* BFSI Lab */}
-                <a href="/bfsiinnovationlab" className="nbb-lab">
-                  🏦 BFSI Lab
-                </a>
               </div>
               <div className="nb-right">
                 <div className="nbd">
@@ -485,7 +501,7 @@ export default function Navbar() {
         </header>
 
         {/* ── MOBILE MENU ── */}
-        <nav className={`nb-mob${mobileOpen ? "register" : ""}`}>
+        <nav className={`nb-mob${mobileOpen ? " open" : ""}`}>
           <div className="nb-mnav">
 
             <button className="ma" onClick={() => setMobileIndustry(v => !v)}>
@@ -511,13 +527,17 @@ export default function Navbar() {
                   <Pill bg="#f4f6fb" color="#6b7fa3">4 Semesters</Pill>
                 </div>
               </a>
+              <Link to="/register?course=PG%20Diploma%20in%20Digital%20Business%20%26%20FinTech" onClick={closeAll}
+                style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:".4rem", margin:".2rem .75rem .35rem", padding:".45rem", borderRadius:".375rem", background:"linear-gradient(135deg,#4f46e5,#7c3aed)", color:"#fff", fontWeight:700, fontSize:".8rem", textDecoration:"none" }}>
+                ✦ Register for PGDFDB →
+              </Link>
               <div className="mdiv" />
 
               <span className="ms">One Year</span>
               <a href="/courses/pgcdf" onClick={closeAll} className="msl" style={{ flexDirection:"column", alignItems:"flex-start", gap:".3rem" }}>
                 <div style={{ display:"flex", alignItems:"center", gap:".4rem" }}>
                   <span style={{ background:"#dcfce7", color:"#15803d", fontSize:".7rem", fontWeight:700, padding:".15rem .45rem", borderRadius:999 }}>ADFBA</span>
-                  Advance Diploma in FinTech, Banking &amp; AI
+                  Advanced Diploma in FinTech, Banking &amp; AI
                 </div>
                 <div style={{ display:"flex", flexWrap:"wrap", gap:".22rem" }}>
                   <Pill bg="#fef3c7" color="#92400e">Final Year Graduate &amp; Above</Pill>
@@ -525,6 +545,10 @@ export default function Navbar() {
                   <Pill bg="#f4f6fb" color="#6b7fa3">6 Bimesters</Pill>
                 </div>
               </a>
+              <Link to="/register?course=Advanced%20Diploma%20in%20FinTech%2C%20Banking%20%26%20AI" onClick={closeAll}
+                style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:".4rem", margin:".2rem .75rem .35rem", padding:".45rem", borderRadius:".375rem", background:"linear-gradient(135deg,#059669,#047857)", color:"#fff", fontWeight:700, fontSize:".8rem", textDecoration:"none" }}>
+                ✦ Register for ADFBA →
+              </Link>
               <div className="mdiv" />
 
               <span className="ms">Professional Certifications</span>
@@ -534,24 +558,22 @@ export default function Navbar() {
                     <span>{cat.icon}</span> {cat.label}
                   </a>
                   {cat.courses.map(c => (
-                    <a key={c.label} href={c.href} onClick={closeAll}
-                      style={{
-                        display:"flex", alignItems:"center", gap:".4rem",
-                        padding:".35rem .75rem .35rem 1.5rem", borderRadius:".375rem",
-                        fontSize:".8rem", fontWeight:400, color:"#4b5563", textDecoration:"none",
-                        opacity: c.available ? 1 : 0.6, transition:"background .12s",
-                      }}
+                    <div key={c.label} style={{ display:"flex", alignItems:"center", gap:".4rem", padding:".35rem .75rem .35rem 1.5rem", borderRadius:".375rem", opacity: c.available ? 1 : 0.6, transition:"background .12s" }}
                       onMouseEnter={e => e.currentTarget.style.background="#f5f3ff"}
                       onMouseLeave={e => e.currentTarget.style.background="transparent"}
                     >
-                      <img src={c.img} alt={c.label} style={{ width:"17px", height:"17px", borderRadius:".2rem", objectFit:"cover", flexShrink:0 }} />
-                      <span style={{ flex:1 }}>› {c.label}</span>
+                      <a href={c.href} onClick={closeAll} style={{ display:"flex", alignItems:"center", gap:".4rem", flex:1, textDecoration:"none", color:"#4b5563", fontSize:".8rem", fontWeight:400, minWidth:0 }}>
+                        <img src={c.img} alt={c.label} style={{ width:"17px", height:"17px", borderRadius:".2rem", objectFit:"cover", flexShrink:0 }} />
+                        <span style={{ flex:1 }}>› {c.label}</span>
+                      </a>
                       <div style={{ display:"flex", gap:".2rem", flexShrink:0 }}>
                         <span style={{ fontSize:".55rem", background:"#ede9fe", color:"#4f46e5", padding:".08rem .28rem", borderRadius:999, fontWeight:600 }}>{c.duration}</span>
-                        <span style={{ fontSize:".55rem", background:"#e0f2fe", color:"#0891b2", padding:".08rem .28rem", borderRadius:999, fontWeight:600 }}>{c.mode}</span>
-                        {!c.available && <span style={{ fontSize:".55rem", background:"#e5e7eb", color:"#6b7280", padding:".08rem .28rem", borderRadius:999, fontWeight:700 }}>Closed</span>}
+                        {c.available
+                          ? <Link to={`/register?course=${encodeURIComponent(c.label)}`} onClick={closeAll} style={{ fontSize:".55rem", background:"#dcfce7", color:"#15803d", padding:".08rem .32rem", borderRadius:999, fontWeight:700, textDecoration:"none" }}>Register</Link>
+                          : <span style={{ fontSize:".55rem", background:"#e5e7eb", color:"#6b7280", padding:".08rem .28rem", borderRadius:999, fontWeight:700 }}>Closed</span>
+                        }
                       </div>
-                    </a>
+                    </div>
                   ))}
                 </div>
               ))}
@@ -574,14 +596,7 @@ export default function Navbar() {
               <a href="/products/vendorize" onClick={closeAll} className="msl">De-risk Vendorize</a>
             </div>
 
-            <button className="ma" onClick={() => setMobileCareer(v => !v)}>
-              Career Accelerator <ChevronDown size={18} className={`mc${mobileCareer ? " o" : ""}`} />
-            </button>
-            <div className={`mp${mobileCareer ? " o" : ""}`}>
-              <a href="/careers/internship" onClick={closeAll} className="msl">Internship Program</a>
-              <a href="/careers/placement"  onClick={closeAll} className="msl">Placement Assistance</a>
-            </div>
-
+            {/* BFSI Lab — now BEFORE Career Accelerator in mobile too */}
             <button className="ma" onClick={() => setMobileLab(v => !v)}
               style={{ background:"linear-gradient(135deg,#f0fdf9,#f0f7ff)", color:"#065F46", fontWeight:700 }}>
               🏦 Innovation Lab <ChevronDown size={18} className={`mc${mobileLab ? " o" : ""}`} />
@@ -592,6 +607,14 @@ export default function Navbar() {
                 style={{ display:"flex", alignItems:"center", gap:".5rem", background:"linear-gradient(135deg,#00C9A7,#009E85)", color:"#fff", fontWeight:700, borderRadius:".5rem", margin:".25rem .75rem", padding:".6rem .875rem" }}>
                 🚀 Set Up Our Lab →
               </Link>
+            </div>
+
+            <button className="ma" onClick={() => setMobileCareer(v => !v)}>
+              Career Accelerator <ChevronDown size={18} className={`mc${mobileCareer ? " o" : ""}`} />
+            </button>
+            <div className={`mp${mobileCareer ? " o" : ""}`}>
+              <a href="/careers/internship" onClick={closeAll} className="msl">Internship Program</a>
+              <a href="/careers/placement"  onClick={closeAll} className="msl">Placement Assistance</a>
             </div>
 
             <div className="mdiv" />
