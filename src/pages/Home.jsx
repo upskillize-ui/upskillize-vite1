@@ -888,7 +888,7 @@ export default function Home() {
               return (
                 <div
                   key={category.id}
-                  className={`bg-[#1e2d4a] rounded-xl shadow-md overflow-hidden border border-gray-700/50 group transition-all duration-400 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(96,165,250,0.2)] hover:border-blue-400 ${shouldCenter ? "lg:col-start-2" : ""}`}
+                  className={`bg-[#1e2d4a] rounded-xl shadow-md overflow-hidden border border-gray-700/50 group transition-all duration-400 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(96,165,250,0.2)] hover:border-blue-400 flex flex-col ${shouldCenter ? "lg:col-start-2" : ""}`}
                 >
                   <div
                     className={`p-6 bg-gradient-to-r ${category.color} text-white flex items-center gap-4`}
@@ -902,26 +902,26 @@ export default function Home() {
                       {category.mainCategory}
                     </h3>
                   </div>
-                  <div className="p-6">
-                    <p className="text-gray-300 mb-4 min-h-[60px]">
+                  <div className="p-6 flex flex-col flex-1">
+                    <p className="text-gray-300 mb-4 flex-1">
                       {category.shortDesc}
                     </p>
                     {hasContent ? (
                       <Link
                         to={`/courses/${category.slug}`}
-                        className="inline-flex items-center gap-2 text-blue-400 font-semibold hover:text-blue-300 group-hover:gap-3 transition-all"
+                        className="inline-flex items-center gap-2 text-blue-400 font-semibold hover:text-blue-300 group-hover:gap-3 transition-all mt-auto"
                       >
                         View Programs <ArrowRight className="w-4 h-4" />
                       </Link>
                     ) : category.slug === "mental-health-social-wellness" ? (
                       <Link
                         to="/course/corporate-readiness-program"
-                        className="inline-flex items-center gap-2 text-blue-400 font-semibold hover:text-blue-300 group-hover:gap-3 transition-all"
+                        className="inline-flex items-center gap-2 text-blue-400 font-semibold hover:text-blue-300 group-hover:gap-3 transition-all mt-auto"
                       >
                         View Programs <ArrowRight className="w-4 h-4" />
                       </Link>
                     ) : (
-                      <span className="inline-block bg-amber-100 text-amber-700 px-4 py-2 rounded-full text-sm font-semibold">
+                      <span className="inline-block bg-amber-100 text-amber-700 px-4 py-2 rounded-full text-sm font-semibold mt-auto self-start">
                         Coming Soon
                       </span>
                     )}
