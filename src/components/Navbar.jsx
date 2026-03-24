@@ -544,13 +544,10 @@ export default function Navbar() {
 
                 {/* BFSI Lab — icon-only dropdown button */}
                 <div className="nbd">
-                  <button className="nbb" style={{padding:".5rem .5rem"}}><ChevronDown size={15} className="nbc" /></button>
-                  <div className="nbd-menu">
-                    <a href="/bfsiinnovationlab"          className="nbd-item">Explore the Lab</a>
-                    <a href="/bfsiinnovationlab/projects" className="nbd-item">Lab Projects</a>
-                    <a href="/bfsiinnovationlab/mentors"  className="nbd-item">Expert Mentors</a>
-                    <a href="/connect"                    className="nbd-item">Set Up Our Lab</a>
-                  </div>
+                  {/* BFSI Lab — direct link */}
+                  <a href="/bfsiinnovationlab" className="nbb">
+                    BFSI Lab <ChevronDown size={15} className="nbc" />
+                  </a>
                 </div>
 
                 {/* Career Accelerator */}
