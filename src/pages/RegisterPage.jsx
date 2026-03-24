@@ -265,7 +265,7 @@ export default function RegisterPage() {
                   {GROUPS.map(group => (
                     <optgroup key={group} label={group}>
                       {ALL_COURSES.filter(c => c.group === group).map(c => (
-                        <option key={c.label} value={c.label}>{c.label} — ₹25,000</option>
+                        <option key={c.label} value={c.label}>{c.label}</option>
                       ))}
                     </optgroup>
                   ))}

@@ -267,7 +267,7 @@ export default function FintechAIInnovationLab() {
 #bfsi-lab .hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;}
 #bfsi-lab .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,201,167,.15);border:1px solid rgba(0,201,167,.35);padding:6px 16px;border-radius:30px;font-family:var(--fm);font-size:10px;color:var(--t);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px;animation:fadeUp .7s ease both;}
 #bfsi-lab .hero-badge::before{content:'🏆';font-size:12px;}
-#bfsi-lab .hero-h1{font-family:var(--fd);font-size:clamp(40px,5vw,68px);font-weight:800;line-height:1.06;letter-spacing:-1px;color:#fff;margin-bottom:20px;animation:fadeUp .7s .1s ease both;}
+#bfsi-lab .hero-h1{font-family:var(--fd);font-size:clamp(22px,2.8vw,36px);font-weight:800;line-height:1.18;letter-spacing:-.4px;color:#fff;margin-bottom:20px;animation:fadeUp .7s .1s ease both;}
 #bfsi-lab .hero-h1 .ht{color:var(--t);}
 #bfsi-lab .hero-h1 .ha{color:var(--a);}
 #bfsi-lab .hero-sub{font-size:17px;color:rgba(255,255,255,.72);line-height:1.78;margin-bottom:28px;animation:fadeUp .7s .2s ease both;}
@@ -675,8 +675,7 @@ export default function FintechAIInnovationLab() {
             <div>
               <div className="hero-badge">India's First FinTech &amp; AI Innovation Lab</div>
               <h1 className="hero-h1">
-                Where <span className="ht">FinTech &amp; AI</span><br/>
-                Leaders Are<br/>
+                Where <span className="ht">FinTech &amp; AI</span> Leaders Are<br/>
                 <span className="ha">Forged.</span>
               </h1>
               <p className="hero-sub">India's first <strong style={{color:"var(--t)"}}>FinTech &amp; AI Innovation Lab</strong> — a perimeter peer-working war room inside your campus. 6 live focus zones. 12 real tools. Risk simulators, ESG labs, M&amp;A war rooms, AI builders, Agile standups, and Capital Markets desks — all firing at once. 20 students <em>doing</em>, not sitting.</p>
