@@ -438,9 +438,6 @@ export default function Navbar() {
                             <Pill bg="#f4f6fb" color="#6b7fa3">4 Semesters</Pill>
                           </div>
                           </a>
-                          <Link to="/register?course=PG%20Diploma%20in%20Digital%20Business%20%26%20FinTech" style={{ display:"flex", alignItems:"center", justifyContent:"center", marginTop:".4rem", padding:".35rem", borderRadius:".35rem", background:"linear-gradient(135deg,#4f46e5,#7c3aed)", color:"#fff", fontSize:".72rem", fontWeight:700, textDecoration:"none", gap:".25rem" }}>
-                            ✦ Register Now
-                          </Link>
                         </div>
                       </div>
 
@@ -465,9 +462,6 @@ export default function Navbar() {
                             <Pill bg="#f4f6fb" color="#6b7fa3">6 Bimesters</Pill>
                           </div>
                           </a>
-                          <Link to="/register?course=Advanced%20Diploma%20in%20FinTech%2C%20Banking%20%26%20AI" style={{ display:"flex", alignItems:"center", justifyContent:"center", marginTop:".4rem", padding:".35rem", borderRadius:".35rem", background:"linear-gradient(135deg,#059669,#047857)", color:"#fff", fontSize:".72rem", fontWeight:700, textDecoration:"none", gap:".25rem" }}>
-                            ✦ Register Now
-                          </Link>
                         </div>
                       </div>
 
