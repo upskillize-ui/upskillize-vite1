@@ -696,7 +696,7 @@ export default function FintechAIInnovationLab() {
             </div>
             <div className="hero-right">
               <div className="hero-stats-grid">
-                <div className="hstat"><div className="hstat-n ct" data-target="9">9</div><div className="hstat-l">Lab Zones</div></div>
+                <div className="hstat"><div className="hstat-n ct" data-target="9">6</div><div className="hstat-l">Lab Zones</div></div>
                 <div className="hstat"><div className="hstat-n cp" data-target="36">36</div><div className="hstat-l">Active Modules</div></div>
                 <div className="hstat"><div className="hstat-n ca" data-target="20">20</div><div className="hstat-l">Seats Per Lab</div></div>
                 <div className="hstat"><div className="hstat-n cw">500+</div><div className="hstat-l">Years Collective FinTech Experience</div></div>

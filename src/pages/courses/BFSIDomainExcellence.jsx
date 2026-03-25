@@ -118,7 +118,7 @@ export default function BFSIExcellenceProgram() {
         </div>
         
         <div className="relative z-10">
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-4">🏦 BFSI Domain Excellence Program</h1>
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-4">🏦 FinTech Domain Excellence Program</h1>
           <p className="text-lg md:text-xl mb-6">40-Hour Professional Certification in Banking, Financial Services & Insurance</p>
           
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-8 max-w-5xl mx-auto">
@@ -135,7 +135,7 @@ export default function BFSIExcellenceProgram() {
       {/* Overview */}
       <section className="px-6 py-12">
         <h2 className="text-center text-4xl font-bold text-blue-900 mb-10 relative">
-          Transform Your Career in BFSI
+          Transform Your Career in FinTech
           <div className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-blue-500 to-blue-700 rounded"></div>
         </h2>
         
@@ -153,7 +153,7 @@ export default function BFSIExcellenceProgram() {
       {/* Curriculum */}
       <section className="bg-gray-50 px-6 py-12">
         <h2 className="text-center text-4xl font-bold text-blue-900 mb-10 relative">
-          Complete 40-Hour BFSI Curriculum
+          Complete 40-Hour FinTech Curriculum
           <div className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-blue-500 to-blue-700 rounded"></div>
         </h2>
         
@@ -196,7 +196,7 @@ export default function BFSIExcellenceProgram() {
                 <div className="text-lg font-semibold">Final Certification Exam</div>
               </div>
               <div className="bg-white/90 text-gray-800 p-3 rounded-lg">
-                <div className="font-semibold text-blue-900 text-sm mb-1">🎓 Comprehensive BFSI Assessment</div>
+                <div className="font-semibold text-blue-900 text-sm mb-1">🎓 Comprehensive FinTech Assessment</div>
                 <div className="text-gray-600 text-xs mb-2">Industry-standard evaluation covering all 18 modules with practical scenarios</div>
                 <div className="inline-block bg-gradient-to-r from-yellow-400 to-yellow-300 text-yellow-900 px-2 py-1 rounded text-xs font-semibold">Professional BFSI Certificate</div>
               </div>
@@ -208,7 +208,7 @@ export default function BFSIExcellenceProgram() {
       {/* Careers */}
       <section className="px-6 py-12">
         <h2 className="text-center text-4xl font-bold text-blue-900 mb-10 relative">
-          BFSI Career Prospects & Salary Ranges
+          FinTech Career Prospects & Salary Ranges
           <div className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-blue-500 to-blue-700 rounded"></div>
         </h2>
         
@@ -242,7 +242,7 @@ export default function BFSIExcellenceProgram() {
 
       {/* CTA */}
       <section className="bg-gradient-to-br from-green-500 to-green-600 text-white px-6 py-12 text-center">
-        <h2 className="text-3xl md:text-4xl font-extrabold mb-3">🚀 Transform Students Into BFSI Professionals</h2>
+        <h2 className="text-3xl md:text-4xl font-extrabold mb-3">🚀 Transform Students Into FinTech Professionals</h2>
         <p className="text-lg mb-6">Join 75+ colleges already building industry-ready talent</p>
         
         <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto border-2 border-white/20">

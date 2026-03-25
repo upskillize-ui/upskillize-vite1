@@ -646,7 +646,7 @@ function Hero() {
               <a href="#curriculum" className="btn btn-outline">View Curriculum →</a>
             </div>
             <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:1,background:'rgba(255,255,255,.12)',borderRadius:'var(--radius-md)',overflow:'hidden'}}>
-              {[['6','Bimesters'],['40','Credits (UGC)'],['1,200','Hours'],['12','Capstones'],['52','Guest Lectures'],['16','Career Roles']].map(([num,lbl]) => (
+              {[['6','Bimesters'],['40','Credits (UGC)'],['600','Hours'],['12','Capstones'],['Guest Lectures'],['16','Career Roles']].map(([num,lbl]) => (
                 <div key={lbl} style={{background:'rgba(255,255,255,.04)',padding:'20px 16px',textAlign:'center'}}>
                   <div style={{fontFamily:'var(--font-display)',fontSize:28,fontWeight:800,color:'var(--gold2)',lineHeight:1,letterSpacing:'-0.03em'}}>{num}</div>
                   <div style={{fontFamily:'var(--font-body)',fontSize:11,fontWeight:400,color:'rgba(255,255,255,.55)',marginTop:4}}>{lbl}</div>
@@ -681,8 +681,8 @@ function OverviewStrip() {
   const pills = [
     ['📅','12 Months · 6 Bimesters'],['🎓','40 Credits (1 credit = 30 hrs)'],
     ['💻','100% Online · Live + Async'],['🏆','6 Industry Certificates'],
-    ['🤖','EcoPro AI-Powered LMS'],['📊','52 Case Studies'],
-    ['🎤','52 Saturday Guest Lectures'],['🚀','Placement Guarantee Support'],
+    ['🤖','EcoPro AI-Powered LMS'],['📊','Case Studies'],
+    ['🎤','Guest Lectures'],['🚀','Placement Guarantee Support'],
   ];
   return (
     <div style={{background:'var(--mist)',borderTop:'1px solid var(--cloud)',borderBottom:'1px solid var(--cloud)'}}>
@@ -895,7 +895,7 @@ function CurriculumSection() {
 function CaseStudiesSection() {
   const [filter, setFilter] = useState('all');
   const filters = [
-    {id:'all',label:'All 52 Cases'},{id:'india',label:'🇮🇳 India (31)'},{id:'global',label:'🌐 Global (21)'},
+    {id:'all',label:'All Cases'},{id:'india',label:'🇮🇳 India (31)'},{id:'global',label:'🌐 Global (21)'},
     {id:'fintech',label:'FinTech'},{id:'risk',label:'Risk & Failure'},{id:'ai',label:'AI & Data'},
   ];
   const visible = filter==='all' ? CASES : CASES.filter(c => c.cat.includes(filter));
@@ -904,7 +904,7 @@ function CaseStudiesSection() {
       <div className="container">
         <div className="sec-header fade-up">
           <span className="accent-line" />
-          <div className="label">52 Real-World Cases</div>
+          <div className="label">Real-World Cases</div>
           <h2 className="h1">Case Study Catalogue</h2>
           <p className="lead">60% Indian BFSI context · 40% Global benchmarks. Every case ends with a student-written 500-word case memo submitted to EcoPro LMS.</p>
         </div>
@@ -944,9 +944,8 @@ function GuestLecturesSection() {
       <div className="container">
         <div className="sec-header fade-up">
           <span className="accent-line" />
-          <div className="label">52 Saturdays · 104 Hours</div>
           <h2 className="h1">Guest Lecture Programme</h2>
-          <p className="lead">Every Saturday, a practising BFSI leader joins live. 60-min keynote + 30-min Q&A + 30-min LMS reflection task. Real conversations, not recorded seminars.</p>
+          <p className="lead">A practising BFSI leader joins live. 60-min keynote + 30-min Q&A + 30-min LMS reflection task. Real conversations, not recorded seminars.</p>
         </div>
         <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(340px,1fr))',gap:20}}>
           {LECTURES.map(l => (
@@ -962,7 +961,7 @@ function GuestLecturesSection() {
           ))}
         </div>
         <div style={{textAlign:'center',marginTop:28}}>
-          <a href="#enrol" className="btn btn-navy">See All 52 Guest Lectures →</a>
+          <a href="#enrol" className="btn btn-navy">See All Guest Lectures →</a>
         </div>
       </div>
     </section>
@@ -979,10 +978,10 @@ function RubricSection() {
     {letter:'I',bg:'rgba(239,68,68,.2)',color:'#F87171',title:'Impact',pts:'20 points',desc:'Communication quality, presentation clarity, executive presence'},
   ];
   const rows = [
-    {label:'Weekly Self-Assessment Test (WSAT)',freq:'52 (every Sunday)',format:'20 MCQ + 2 short answer',weight:'10%',pass:'50%',dist:'80%'},
+    {label:'Weekly Self-Assessment Test (WSAT)',format:'20 MCQ + 2 short answer',weight:'10%',pass:'50%',dist:'80%'},
     {label:'Module-End Test (MET)',freq:'12 (2 per Bimester)',format:'40 MCQ + 1 case analysis',weight:'25%',pass:'60%',dist:'80%'},
     {label:'Capstone Project (RUBRIC-scored)',freq:'12 (2 per Bimester)',format:'Live jury: 15-min + Q&A',weight:'40%',pass:'60/100',dist:'80/100'},
-    {label:'Guest Lecture Engagement',freq:'52 (weekly LMS task)',format:'Reflection / quiz',weight:'10%',pass:'Submit',dist:'Quality score ≥8/10'},
+    {label:'Guest Lecture Engagement',freq:'Weekly LMS task',format:'Reflection / quiz',weight:'10%',pass:'Submit',dist:'Quality score ≥8/10'},
     {label:'Participation & LMS Activity',freq:'Continuous',format:'Attendance, forum, peer review',weight:'15%',pass:'≥75% attendance',dist:'≥90% attendance'},
   ];
   return (
@@ -1236,7 +1235,7 @@ function DeliverySection() {
           <span className="accent-line" />
           <div className="label">100% Online · Industry-Connected</div>
           <h2 className="h1">How the Programme Is Delivered</h2>
-          <p className="lead">Designed for final-year students with college schedules. Live sessions, recorded backups, Saturday guest lectures, and Sunday assessments — a structured weekly rhythm that builds discipline alongside domain knowledge.</p>
+          <p className="lead">Designed for final-year students with college schedules. Live sessions, recorded backups, guest lectures, and assessments — a structured weekly rhythm that builds discipline alongside domain knowledge.</p>
         </div>
         <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:20,marginBottom:40}}>
           {cards.map(c => (
@@ -1342,14 +1341,11 @@ function CTASection() {
     <section id="enrol" style={{background:'var(--navy)',textAlign:'center',padding:'80px 0',position:'relative',overflow:'hidden'}}>
       <div style={{position:'absolute',inset:0,background:'radial-gradient(ellipse 700px 400px at 50% 50%,rgba(10,122,111,.25) 0%,transparent 70%)'}} />
       <div className="container" style={{position:'relative',zIndex:1}}>
-        <span className="badge badge-gold" style={{marginBottom:20,display:'inline-flex'}}>🚀 Applications Open for 2025–26 Cohort</span>
+        <span className="badge badge-gold" style={{marginBottom:20,display:'inline-flex'}}>🚀 Applications Open for 2026–27 Cohort</span>
         <h2 className="h1" style={{color:'var(--white)',marginBottom:16}}>Ready to Start Your BFSI Career?</h2>
         <p className="lead" style={{color:'rgba(255,255,255,.7)',marginBottom:36}}>Join India's most rigorous, placement-first BFSI programme. One year. Six certificates. Sixteen career pathways. A wonderful career.</p>
         <div style={{display:'flex',gap:12,justifyContent:'center',flexWrap:'wrap'}}>
-          <a href="/contact" className="btn btn-primary">Apply Now — 2026 Cohort</a>
-        </div>
-        <div style={{marginTop:40,fontFamily:'var(--font-body)',fontSize:13,fontWeight:400,color:'rgba(255,255,255,.4)'}}>
-          Upskillize Solutions · Bangalore · www.upskillize.com · Excel Beyond
+          <a href="/contact" className="btn btn-primary">Apply Now : 2026 - 2027 Cohort</a>
         </div>
       </div>
     </section>
