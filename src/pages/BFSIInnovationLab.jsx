@@ -1581,7 +1581,6 @@ export default function FintechAIInnovationLab() {
         <section className="sec sec-alt coverage-sec" id="coverage">
           <div className="sc">
             <div className="sec-label">Complete BFSI Spectrum</div>
-            <h2 className="sec-title">Every Vertical. <span className="ht">One War Room.</span></h2>
             <p className="sec-sub">The only innovation lab in India covering the complete BFSI ecosystem — from retail banking to capital markets, InsurTech to RegTech, ESG reporting to Core Banking systems.</p>
           </div>
           <div className="coverage-inner reveal">
@@ -1637,6 +1636,7 @@ export default function FintechAIInnovationLab() {
                 <text x="70" y="76" fontFamily="'DM Sans'" fontSize="9" fill="#6B3FA0" textAnchor="end" fontWeight="600">RegTech</text>
                 <text x="160" y="158" fontFamily="'Plus Jakarta Sans'" fontSize="11" fill="#07112E" textAnchor="middle" fontWeight="800">BFSI</text>
                 <text x="160" y="172" fontFamily="'DM Sans'" fontSize="9" fill="#7A8CAB" textAnchor="middle">Full Spectrum</text>
+                <text x="160" y="195" fontFamily="'DM Sans'" fontSize="8" fontWeight="700" fill="rgba(245,166,35,0.65)" textAnchor="middle" letterSpacing="1">Risk Management</text>
               </svg>
               <div style={{fontSize:"12px",color:"var(--tx3)",fontFamily:"var(--fm)",letterSpacing:".5px",marginTop:"8px"}}>BFSI COVERAGE RADAR</div>
             </div>
