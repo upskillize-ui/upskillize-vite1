@@ -1572,7 +1572,7 @@ export default function FintechAIInnovationLab() {
                 <div style={{fontFamily:"var(--fd)",fontSize:"15px",fontWeight:"700",color:"#fff",marginBottom:"5px"}}>All 6 zones fire simultaneously. Students rotate freely. Ideas cross-pollinate naturally.</div>
                 <div style={{fontSize:"13px",color:"rgba(255,255,255,.55)"}}>This is the FinTech &amp; AI Innovation Lab. India's first. Designed by Upskillize. Built for your campus.</div>
               </div>
-              <Link to="/connect" style={{background:"linear-gradient(135deg,var(--t),var(--td))",color:"var(--navy)",fontWeight:"700",fontSize:"13px",padding:"12px 26px",borderRadius:"10px",whiteSpace:"nowrap",textDecoration:"none",boxShadow:"0 0 24px rgba(0,201,167,.28)",flexShrink:0}}>Bring This to Your Campus →</Link>
+              <Link to="/contact" style={{background:"linear-gradient(135deg,var(--t),var(--td))",color:"var(--navy)",fontWeight:"700",fontSize:"13px",padding:"12px 26px",borderRadius:"10px",whiteSpace:"nowrap",textDecoration:"none",boxShadow:"0 0 24px rgba(0,201,167,.28)",flexShrink:0}}>Bring This to Your Campus →</Link>
             </div>
           </div>
         </section>
