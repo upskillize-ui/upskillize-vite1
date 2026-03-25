@@ -174,11 +174,29 @@ export default function RegisterPage() {
           background: #fff;
           border: 1.5px solid #E2E8F4;
           border-radius: 1.5rem;
-          padding: 2.5rem;
+          padding: 0;
           box-shadow: 0 8px 40px rgba(7,17,46,.09);
           position: relative;
           z-index: 2;
           margin-top: -40px;
+          overflow: hidden;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          align-items: start;
+        }
+        .reg-col-left {
+          padding: 2.5rem;
+          border-right: 1.5px solid #EEF2FA;
+        }
+        .reg-col-right {
+          padding: 2.5rem;
+          background: #F8FAFC;
+          display: flex;
+          flex-direction: column;
+        }
+        @media (max-width: 768px) {
+          .reg-card { grid-template-columns: 1fr; }
+          .reg-col-left { border-right: none; border-bottom: 1.5px solid #EEF2FA; }
         }
         .reg-input {
           transition: border-color .18s, box-shadow .18s;
@@ -242,8 +260,11 @@ export default function RegisterPage() {
       </div>
 
       <div className="reg-page-bg" style={{ padding:"0 1.25rem 2rem" }}>
-        <div style={{ maxWidth:640, margin:"0 auto" }}>
+        <div style={{ maxWidth:1060, margin:"0 auto" }}>
           <div className="reg-card">
+
+            {/* ══ LEFT COLUMN — Step 1 & Step 2 ══ */}
+            <div className="reg-col-left">
 
             {/* STEP 1 — PROGRAM SELECTION */}
             <div style={{ marginBottom:"1.5rem" }}>
@@ -314,7 +335,10 @@ export default function RegisterPage() {
               <LightField icon={<Mail size={16} color="#6B3FA0" />}  type="email" value={form.email} error={errors.email} onChange={v => set("email", v)} placeholder="Email (you@example.com)" />
             </div>
 
-            <div className="reg-divider" />
+            </div>{/* end reg-col-left */}
+
+            {/* ══ RIGHT COLUMN — Step 3 + Fee + Buttons ══ */}
+            <div className="reg-col-right">
 
             {/* STEP 3 — PAYMENT METHOD */}
             <div style={{ marginBottom:"1.5rem" }}>
@@ -398,7 +422,9 @@ export default function RegisterPage() {
               Your data is encrypted and never shared with third parties.
             </div>
 
-          </div>
+            </div>{/* end reg-col-right */}
+
+          </div>{/* end reg-card */}
 
           <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:"2rem", flexWrap:"wrap", padding:"1.5rem 0 0", color:"#7A8CAB", fontSize:".78rem" }}>
             {["✓ 20,000+ enrolled students", "✓ Industry-recognised certificates", "✓ CRO & CDO mentors"].map(t => (

@@ -3,13 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 /* ─────────────────────────────────────────────────────────────
    FinTech & AI Innovation Lab — India's First | Upskillize Solutions
-   Converted from HTML → JSX
-   Changes:
-     • Name updated to "FinTech & AI Innovation Lab" throughout
-     • Footer removed
-     • Google Fonts via JSX <link> tag (Plus Jakarta Sans, DM Sans, JetBrains Mono)
-     • All HTML → JSX (class→className, kebab-case SVG attrs→camelCase, inline style→{{}})
-     • Partnership Tiers: removed icon, added fee dropdown, removed register button
+   SVG floor plan replaced with interactive 3D iframe
+   Copy upskillize_3d_innovation_lab.html → public/ folder
 ───────────────────────────────────────────────────────────── */
 
 const TIER_DATA = [
@@ -117,7 +112,6 @@ function PartnershipTiers() {
             <ul className="pt-feats">
               {tier.feats.map(f => <li key={f}>{f}</li>)}
             </ul>
-            {/* Fee Dropdown Button */}
             <button
               className="pt-fee-btn"
               onClick={() => setOpenFee(openFee === i ? null : i)}
@@ -221,16 +215,12 @@ export default function FintechAIInnovationLab() {
 
   return (
     <>
-      {/* ── Google Fonts: Plus Jakarta Sans + DM Sans + JetBrains Mono ── */}
       <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
         rel="stylesheet"
       />
 
       <style>{`
-/* ═══════════════════════════════════════════════════
-   UPSKILLIZE BRAND DESIGN SYSTEM
-═══════════════════════════════════════════════════ */
 #bfsi-lab {
   --t:#00C9A7;--td:#009E85;--tl:#E6FAF7;--tb:rgba(0,201,167,.22);
   --p:#6B3FA0;--pd:#4E2D7A;--pl:#F0EBF9;--pb:rgba(107,63,160,.2);
@@ -247,7 +237,7 @@ export default function FintechAIInnovationLab() {
   --st:0 8px 32px rgba(0,201,167,.22);
   --sp:0 8px 32px rgba(107,63,160,.18);
   --r4:8px;--r8:12px;--r12:16px;--r16:20px;--r24:26px;
-  --fd:'Plus Jakarta Sans',sans-serif;  /* headings & display */
+  --fd:'Plus Jakarta Sans',sans-serif;
   --fb:'DM Sans',sans-serif;
   --fm:'JetBrains Mono',monospace;
   font-family:var(--fb);font-size:16px;line-height:1.7;color:var(--tx1);
@@ -468,11 +458,6 @@ export default function FintechAIInnovationLab() {
 #bfsi-lab .signup-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(0,201,167,.1),transparent);pointer-events:none;}
 #bfsi-lab .signup-sec h2{font-family:var(--fd);font-size:clamp(30px,4.2vw,54px);font-weight:800;letter-spacing:-.6px;color:#fff;margin-bottom:14px;}
 #bfsi-lab .signup-sec p{color:rgba(255,255,255,.65);font-size:16px;max-width:520px;margin:0 auto 36px;}
-#bfsi-lab .signup-form{display:flex;gap:10px;max-width:480px;margin:0 auto 28px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:6px 6px 6px 18px;}
-#bfsi-lab .signup-form input{flex:1;background:transparent;border:none;outline:none;color:#fff;font-size:14px;font-family:var(--fb);}
-#bfsi-lab .signup-form input::placeholder{color:rgba(255,255,255,.45);}
-#bfsi-lab .signup-form button{background:linear-gradient(135deg,var(--t),var(--td));color:#fff;border:none;font-weight:700;font-size:13px;padding:11px 22px;border-radius:9px;cursor:pointer;font-family:var(--fb);white-space:nowrap;transition:transform .2s;}
-#bfsi-lab .signup-form button:hover{transform:scale(1.03);}
 #bfsi-lab .signup-trust{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;}
 #bfsi-lab .signup-trust-item{display:flex;align-items:center;gap:7px;font-size:12.5px;color:rgba(255,255,255,.6);}
 #bfsi-lab .signup-trust-item span{color:var(--t);font-weight:600;}
@@ -615,9 +600,6 @@ export default function FintechAIInnovationLab() {
 #bfsi-lab .marquee-item{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:11px;font-weight:700;color:var(--navy);padding:0 28px;letter-spacing:.5px;}
 #bfsi-lab .marquee-dot{width:5px;height:5px;border-radius:50%;background:var(--navy);opacity:.4;flex-shrink:0;}
 #bfsi-lab .perimeter-wrap{max-width:1100px;margin:0 auto;border-radius:20px;overflow:hidden;border:1px solid var(--bdr);box-shadow:0 24px 80px rgba(7,17,46,.13);}
-#bfsi-lab .perimeter-header{background:var(--navy);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}
-#bfsi-lab .ph-title{font-family:var(--fd);font-weight:700;font-size:14px;color:#fff;}
-#bfsi-lab .ph-sub{font-size:10px;color:rgba(0,201,167,.7);margin-top:2px;}
 #bfsi-lab .naac-sec{padding:72px 60px;background:#fff;}
 #bfsi-lab .naac-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#07112E,#0D1E4A);color:#fff;font-family:var(--fm);font-size:9px;letter-spacing:1.5px;padding:6px 16px;border-radius:20px;margin-bottom:18px;}
 #bfsi-lab .naac-badge span{background:var(--t);color:var(--navy);font-weight:700;padding:2px 8px;border-radius:10px;font-size:9px;}
@@ -664,8 +646,6 @@ export default function FintechAIInnovationLab() {
           <span className="ann-badge">🏆 INDIA'S FIRST</span>
           <span>FinTech &amp; AI Innovation Lab — 500+ Years Expertise · Open Banking · Blockchain · WealthTech · Trading · InsurTech · AI</span>
         </div>
-
-                
 
         {/* ── HERO ── */}
         <div className="hero">
@@ -863,640 +843,54 @@ export default function FintechAIInnovationLab() {
           </div>
         </div>
 
-        {/* ── 3D LAB VISUAL (PERIMETER FLOOR PLAN) ── */}
+        {/* ── 3D LAB VISUAL — INTERACTIVE (replaces static SVG floor plan) ── */}
+        {/* PREREQUISITE: Copy upskillize_3d_innovation_lab.html → D:/upskillize-vite1/public/ */}
         <section className="sec" style={{paddingBottom:"0"}}>
           <div className="sc">
-            <div className="sec-label">The Physical Lab — Designer's Eye View</div>
+            <div className="sec-label">The Physical Lab — Interactive 3D View</div>
             <h2 className="sec-title">Not a Lab. A <span className="ht">FinTech War Room.</span></h2>
             <p className="sec-sub">10 perimeter dual-monitor stations ring all 4 walls. 2 students per station — shoulder to shoulder, like analysts on a trading floor. The open centre explodes with 6 live technology zones. <strong>Zero rows. Zero passive. Zero ordinary.</strong></p>
           </div>
-          <div className="lab3d-wrap reveal" style={{borderRadius:"0",borderLeft:"none",borderRight:"none"}}>
-    <svg width="100%" viewBox="0 0 1400 820" xmlns="http://www.w3.org/2000/svg" style={{display:"block"}}>
-      <defs>
-        <linearGradient id="lnavyG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#0D1E4A"/><stop offset="100%" stopColor="#07112E"/></linearGradient>
-        <linearGradient id="lroomDk" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#09173A"/><stop offset="100%" stopColor="#060F22"/></linearGradient>
-        <linearGradient id="lfloorIso" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#0D1E44"/><stop offset="100%" stopColor="#07112E"/></linearGradient>
-        <linearGradient id="ldeskNav" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#1A2D60"/><stop offset="100%" stopColor="#0E1A44"/></linearGradient>
-        <linearGradient id="lscT" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#00C9A7" stopOpacity=".55"/><stop offset="100%" stopColor="#00C9A7" stopOpacity=".03"/></linearGradient>
-        <linearGradient id="lscP" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#6B3FA0" stopOpacity=".5"/><stop offset="100%" stopColor="#6B3FA0" stopOpacity=".03"/></linearGradient>
-        <linearGradient id="lscA" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#F5A623" stopOpacity=".45"/><stop offset="100%" stopColor="#F5A623" stopOpacity=".03"/></linearGradient>
-        <radialGradient id="lcentG" cx="50%" cy="50%" r="45%"><stop offset="0%" stopColor="#00C9A7" stopOpacity=".07"/><stop offset="100%" stopColor="#00C9A7" stopOpacity="0"/></radialGradient>
-        <radialGradient id="lamberGl" cx="25%" cy="25%" r="50%"><stop offset="0%" stopColor="#F5A623" stopOpacity=".12"/><stop offset="100%" stopColor="#F5A623" stopOpacity="0"/></radialGradient>
-        <pattern id="lfpTile" width="24" height="24" patternUnits="userSpaceOnUse"><rect width="24" height="24" fill="#F8FAFC"/><rect width="24" height="24" fill="none" stroke="#E2E8F4" strokeWidth=".5"/></pattern>
-        <pattern id="lagileFlr" width="16" height="16" patternUnits="userSpaceOnUse"><rect width="16" height="16" fill="#FFF8E8"/><circle cx="8" cy="8" r=".6" fill="#F5A623" opacity=".3"/></pattern>
-        <pattern id="lopenFlr" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="#EEF6FF"/><polygon points="10,1 18,5.5 18,14.5 10,19 2,14.5 2,5.5" fill="none" stroke="#C8DAFF" strokeWidth=".5"/></pattern>
-        <pattern id="lhexIso" width="28" height="24" patternUnits="userSpaceOnUse"><polygon points="14,1 25,6.5 25,17.5 14,23 3,17.5 3,6.5" fill="none" stroke="rgba(0,201,167,.06)" strokeWidth=".6"/></pattern>
-        <filter id="lgl4"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-        <filter id="lgl2"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-        <filter id="lsh"><feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity=".10"/></filter>
-      </defs>
-
-      {/* PANEL DIVIDER */}
-      <line x1="700" y1="0" x2="700" y2="820" stroke="#0D1E4A" strokeWidth="2"/>
-
-      {/* ══════════════ LEFT PANEL: FLOOR PLAN ══════════════ */}
-      <rect x="0" y="0" width="700" height="820" fill="url(#lnavyG)"/>
-      {/* Header */}
-      <rect x="0" y="0" width="700" height="44" fill="#060F22"/>
-      <text x="14" y="16" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="11.5" fontWeight="700" fill="#fff">Fintech &amp; AI Innovation Lab — Floor Plan (Top View)</text>
-      <text x="14" y="31" fontFamily="monospace" fontSize="9" fill="#00C9A7" opacity=".8">Perimeter ring · Standup Agile Zone NW · Open innovation floor centre</text>
-      <rect x="550" y="7" width="72" height="20" rx="5" fill="rgba(0,201,167,.18)" stroke="#00C9A7" strokeWidth=".8"/>
-      <text x="586" y="21" fontFamily="monospace" fontSize="9" fontWeight="700" fill="#00C9A7" textAnchor="middle">~1,200 sq ft</text>
-      <rect x="630" y="7" width="60" height="20" rx="5" fill="rgba(107,63,160,.18)" stroke="#b39dff" strokeWidth=".8"/>
-      <text x="660" y="21" fontFamily="monospace" fontSize="9" fontWeight="700" fill="#b39dff" textAnchor="middle">10 zones</text>
-
-      {/* Room walls */}
-      <rect x="18" y="52" width="664" height="756" rx="8" fill="url(#lfpTile)" stroke="#0D1E4A" strokeWidth="2.5"/>
-
-      {/* NORTH DISPLAY WALL */}
-      <rect x="18" y="52" width="664" height="56" fill="#07112E"/>
-      <rect x="26" y="56" width="190" height="46" rx="4" fill="rgba(0,201,167,.16)" stroke="#00C9A7" strokeWidth=".8"/>
-      <text x="121" y="74" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="8.5" fontWeight="700" fill="#00C9A7" textAnchor="middle">FINTECH &amp; AI</text>
-      <text x="121" y="88" fontFamily="monospace" fontSize="7" fill="#00C9A7" opacity=".55" textAnchor="middle">UPI · LLM · Open Banking</text>
-      <rect x="228" y="56" width="248" height="46" rx="4" fill="rgba(245,166,35,.18)" stroke="#F5A623" strokeWidth="1.2"/>
-      <text x="352" y="74" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="8" fontWeight="700" fill="#F5A623" textAnchor="middle">AGILE SPRINT BOARD — LIVE</text>
-      <text x="352" y="88" fontFamily="monospace" fontSize="7" fill="#F5A623" opacity=".6" textAnchor="middle">Backlog · In Sprint · Done</text>
-      {/* mini kanban */}
-      <rect x="240" y="94" width="22" height="14" rx="1" fill="rgba(245,166,35,.25)"/><text x="251" y="104" fontFamily="monospace" fontSize="5.5" fill="#F5A623" textAnchor="middle">Back</text>
-      <rect x="266" y="94" width="22" height="14" rx="1" fill="rgba(0,201,167,.2)"/><text x="277" y="104" fontFamily="monospace" fontSize="5.5" fill="#00C9A7" textAnchor="middle">Sprint</text>
-      <rect x="292" y="94" width="22" height="14" rx="1" fill="rgba(107,63,160,.2)"/><text x="303" y="104" fontFamily="monospace" fontSize="5.5" fill="#b39dff" textAnchor="middle">Done</text>
-      <rect x="488" y="56" width="186" height="46" rx="4" fill="rgba(107,63,160,.15)" stroke="#b39dff" strokeWidth=".8"/>
-      <text x="581" y="74" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="8.5" fontWeight="700" fill="#b39dff" textAnchor="middle">RISK · ESG · COMPLIANCE</text>
-      <text x="581" y="88" fontFamily="monospace" fontSize="7" fill="#b39dff" opacity=".55" textAnchor="middle">Basel IV · Scope 1–3 · BRSR</text>
-
-      {/* STANDUP AGILE ZONE (NW) */}
-      <rect x="18" y="116" width="160" height="190" rx="6" fill="url(#lagileFlr)" stroke="#F5A623" strokeWidth="2.2"/>
-      <rect x="22" y="120" width="152" height="20" rx="4" fill="#F5A623"/>
-      <text x="98" y="134" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="9" fontWeight="800" fill="#07112E" textAnchor="middle">⚡ STANDUP ZONE</text>
-      {/* Kanban board */}
-      <rect x="28" y="146" width="146" height="78" rx="4" fill="white" stroke="#F5A623" strokeWidth="1.2"/>
-      <text x="101" y="159" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="7.5" fontWeight="700" fill="#C07A10" textAnchor="middle">Physical Kanban Board</text>
-      <line x1="72" y1="162" x2="72" y2="220" stroke="#F5A623" strokeWidth=".7" strokeDasharray="3,2"/>
-      <line x1="116" y1="162" x2="116" y2="220" stroke="#F5A623" strokeWidth=".7" strokeDasharray="3,2"/>
-      <text x="50" y="172" fontFamily="sans-serif" fontSize="7" fill="#C07A10" textAnchor="middle" fontWeight="700">Backlog</text>
-      <rect x="32" y="176" width="36" height="9" rx="2" fill="#FEF6E7" stroke="#F5A623" strokeWidth=".5"/><text x="50" y="184" fontFamily="sans-serif" fontSize="6" fill="#C07A10" textAnchor="middle">UPI flow</text>
-      <rect x="32" y="189" width="36" height="9" rx="2" fill="#FEF6E7" stroke="#F5A623" strokeWidth=".5"/><text x="50" y="197" fontFamily="sans-serif" fontSize="6" fill="#C07A10" textAnchor="middle">Stablecoin</text>
-      <text x="94" y="172" fontFamily="sans-serif" fontSize="7" fill="#009E85" textAnchor="middle" fontWeight="700">In Sprint</text>
-      <rect x="76" y="176" width="36" height="9" rx="2" fill="#00C9A7"/><text x="94" y="184" fontFamily="sans-serif" fontSize="6" fill="white" textAnchor="middle">Robo AI</text>
-      <rect x="76" y="189" width="36" height="9" rx="2" fill="#00C9A7" opacity=".7"/><text x="94" y="197" fontFamily="sans-serif" fontSize="6" fill="white" textAnchor="middle">ESG map</text>
-      <text x="138" y="172" fontFamily="sans-serif" fontSize="7" fill="#4E2D7A" textAnchor="middle" fontWeight="700">Done ✓</text>
-      <rect x="120" y="176" width="36" height="9" rx="2" fill="#6B3FA0"/><text x="138" y="184" fontFamily="sans-serif" fontSize="6" fill="white" textAnchor="middle">M&amp;A deck</text>
-      <rect x="120" y="189" width="36" height="9" rx="2" fill="#6B3FA0" opacity=".7"/><text x="138" y="197" fontFamily="sans-serif" fontSize="6" fill="white" textAnchor="middle">BRSR rpt</text>
-      <text x="101" y="234" fontFamily="monospace" fontSize="7" fill="#C07A10" textAnchor="middle">Agile Sprint Board mirrored live</text>
-      {/* 4 standing people (simple, clear) */}
-      <circle cx="44" cy="264" r="10" fill="#F5A623" stroke="white" strokeWidth="1.5"/>
-      <text x="44" y="268" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="36" y="274" width="16" height="18" rx="4" fill="#F5A623" opacity=".7"/>
-      <rect x="39" y="292" width="5" height="10" rx="2" fill="#F5A623" opacity=".6"/>
-      <rect x="46" y="292" width="5" height="10" rx="2" fill="#F5A623" opacity=".6"/>
-      {/* arm pointing up */}
-      <line x1="36" y1="280" x2="24" y2="268" stroke="#F5A623" strokeWidth="2.5" strokeLinecap="round"/>
-
-      <circle cx="76" cy="258" r="10" fill="#F5A623" stroke="white" strokeWidth="1.5"/>
-      <text x="76" y="262" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="68" y="268" width="16" height="18" rx="4" fill="#F5A623" opacity=".7"/>
-      <rect x="71" y="286" width="5" height="10" rx="2" fill="#F5A623" opacity=".6"/>
-      <rect x="78" y="286" width="5" height="10" rx="2" fill="#F5A623" opacity=".6"/>
-
-      <circle cx="110" cy="262" r="10" fill="#00C9A7" stroke="white" strokeWidth="1.5"/>
-      <text x="110" y="266" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="102" y="272" width="16" height="18" rx="4" fill="#00C9A7" opacity=".7"/>
-      <rect x="105" y="290" width="5" height="10" rx="2" fill="#00C9A7" opacity=".6"/>
-      <rect x="112" y="290" width="5" height="10" rx="2" fill="#00C9A7" opacity=".6"/>
-
-      <circle cx="143" cy="258" r="10" fill="#6B3FA0" stroke="white" strokeWidth="1.5"/>
-      <text x="143" y="262" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="135" y="268" width="16" height="18" rx="4" fill="#6B3FA0" opacity=".7"/>
-      <rect x="138" y="286" width="5" height="10" rx="2" fill="#6B3FA0" opacity=".6"/>
-      <rect x="145" y="286" width="5" height="10" rx="2" fill="#6B3FA0" opacity=".6"/>
-
-      <text x="98" y="306" fontFamily="monospace" fontSize="6.5" fill="#C07A10" textAnchor="middle">⏱ 15-min daily standup</text>
-
-      {/* NORTH WALL STATIONS (inline helpers for seated student) */}
-      {/* Seated student helper: head=filled circle, torso=rect leaning, chair=rounded rect */}
-      {/* N1: Open Banking */}
-      <rect x="194" y="116" width="155" height="36" rx="5" fill="#E6FAF7" stroke="#00C9A7" strokeWidth="1.3"/>
-      <rect x="202" y="121" width="42" height="22" rx="2" fill="#071022" stroke="#00C9A7" strokeWidth=".7"/>
-      <rect x="252" y="121" width="42" height="22" rx="2" fill="#071022" stroke="#00C9A7" strokeWidth=".7"/>
-      <rect x="300" y="121" width="38" height="22" rx="2" fill="#071022" stroke="#00C9A7" strokeWidth=".7"/>
-      {/* Seated students (chairs face south = facing inward) */}
-      <circle cx="220" cy="168" r="9" fill="#00C9A7" stroke="white" strokeWidth="1.5"/><text x="220" y="172" fontFamily="sans-serif" fontSize="7" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="212" y="177" width="16" height="14" rx="3" fill="#00C9A7" opacity=".7"/><rect x="208" y="191" width="22" height="10" rx="4" fill="#C8D3E8"/>
-      <line x1="212" y1="182" x2="202" y2="173" stroke="#00C9A7" strokeWidth="2" strokeLinecap="round"/><line x1="228" y1="182" x2="238" y2="173" stroke="#00C9A7" strokeWidth="2" strokeLinecap="round"/>
-      <circle cx="267" cy="168" r="9" fill="#00C9A7" stroke="white" strokeWidth="1.5" opacity=".8"/><text x="267" y="172" fontFamily="sans-serif" fontSize="7" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="259" y="177" width="16" height="14" rx="3" fill="#00C9A7" opacity=".65"/><rect x="255" y="191" width="22" height="10" rx="4" fill="#C8D3E8"/>
-      <line x1="259" y1="182" x2="249" y2="173" stroke="#00C9A7" strokeWidth="2" strokeLinecap="round"/><line x1="275" y1="182" x2="285" y2="173" stroke="#00C9A7" strokeWidth="2" strokeLinecap="round"/>
-      <text x="271" y="212" fontFamily="monospace" fontSize="7" fill="#009E85" textAnchor="middle">Pair 01 · Open Banking</text>
-
-      {/* FACILITATOR (wide north centre) */}
-      <rect x="362" y="116" width="194" height="36" rx="5" fill="#07112E" stroke="#00C9A7" strokeWidth="1.8"/>
-      <rect x="372" y="121" width="40" height="22" rx="2" fill="#071022" stroke="#00C9A7" strokeWidth=".9"/>
-      <rect x="420" y="121" width="40" height="22" rx="2" fill="#071022" stroke="#00C9A7" strokeWidth=".9"/>
-      <rect x="468" y="121" width="40" height="22" rx="2" fill="#071022" stroke="#00C9A7" strokeWidth=".9"/>
-      <rect x="516" y="121" width="32" height="22" rx="2" fill="#071022" stroke="#00C9A7" strokeWidth=".9"/>
-      <text x="459" y="134" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="7.5" fontWeight="700" fill="#00C9A7" opacity=".8" textAnchor="middle">FACILITATOR · UPSKILLIZE</text>
-      {/* Facilitator seated (larger, glowing) */}
-      <circle cx="430" cy="172" r="11" fill="#00C9A7" stroke="white" strokeWidth="2" filter="url(#lgl2)"/><text x="430" y="176" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">F</text>
-      <rect x="420" y="183" width="20" height="16" rx="3" fill="#00C9A7" opacity=".8"/><rect x="416" y="199" width="26" height="10" rx="4" fill="#C8D3E8"/>
-      {/* Pointing gesture */}
-      <line x1="420" y1="188" x2="406" y2="178" stroke="#00C9A7" strokeWidth="2.5" strokeLinecap="round"/>
-      <circle cx="405" cy="177" r="3.5" fill="#00C9A7"/>
-      <text x="459" y="216" fontFamily="monospace" fontSize="7" fill="#00C9A7" opacity=".6" textAnchor="middle">Facilitator Station</text>
-      <circle cx="500" cy="170" r="9" fill="#00C9A7" stroke="white" strokeWidth="1.5" opacity=".75"/><text x="500" y="174" fontFamily="sans-serif" fontSize="7" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="492" y="179" width="16" height="14" rx="3" fill="#00C9A7" opacity=".65"/><rect x="488" y="193" width="22" height="10" rx="4" fill="#C8D3E8"/>
-      <line x1="492" y1="184" x2="482" y2="175" stroke="#00C9A7" strokeWidth="2" strokeLinecap="round"/><line x1="508" y1="184" x2="518" y2="175" stroke="#00C9A7" strokeWidth="2" strokeLinecap="round"/>
-
-      {/* N3: WealthTech */}
-      <rect x="570" y="116" width="100" height="36" rx="5" fill="#F0EBF9" stroke="#6B3FA0" strokeWidth="1.3"/>
-      <rect x="578" y="121" width="36" height="22" rx="2" fill="#071022" stroke="#6B3FA0" strokeWidth=".7"/>
-      <rect x="622" y="121" width="36" height="22" rx="2" fill="#071022" stroke="#6B3FA0" strokeWidth=".7"/>
-      <circle cx="596" cy="168" r="9" fill="#6B3FA0" stroke="white" strokeWidth="1.5"/><text x="596" y="172" fontFamily="sans-serif" fontSize="7" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="588" y="177" width="16" height="14" rx="3" fill="#6B3FA0" opacity=".7"/><rect x="584" y="191" width="22" height="10" rx="4" fill="#C8D3E8"/>
-      <line x1="588" y1="182" x2="578" y2="173" stroke="#6B3FA0" strokeWidth="2" strokeLinecap="round"/><line x1="604" y1="182" x2="614" y2="173" stroke="#6B3FA0" strokeWidth="2" strokeLinecap="round"/>
-      <circle cx="637" cy="168" r="9" fill="#6B3FA0" stroke="white" strokeWidth="1.5" opacity=".8"/><text x="637" y="172" fontFamily="sans-serif" fontSize="7" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="629" y="177" width="16" height="14" rx="3" fill="#6B3FA0" opacity=".65"/><rect x="625" y="191" width="22" height="10" rx="4" fill="#C8D3E8"/>
-      <line x1="629" y1="182" x2="619" y2="173" stroke="#6B3FA0" strokeWidth="2" strokeLinecap="round"/><line x1="645" y1="182" x2="655" y2="173" stroke="#6B3FA0" strokeWidth="2" strokeLinecap="round"/>
-      <text x="620" y="212" fontFamily="monospace" fontSize="7" fill="#4E2D7A" textAnchor="middle">Pair 02 · WealthTech</text>
-
-      {/* EAST WALL (students face left/inward — chairs face left) */}
-      {/* E1 Blockchain */}
-      <rect x="634" y="226" width="34" height="114" rx="5" fill="#FDE9EF" stroke="#E8426A" strokeWidth="1.3"/>
-      <rect x="639" y="232" width="22" height="32" rx="2" fill="#071022" stroke="#E8426A" strokeWidth=".7"/>
-      <rect x="639" y="270" width="22" height="32" rx="2" fill="#071022" stroke="#E8426A" strokeWidth=".7"/>
-      {/* east-facing student: chair on right side */}
-      <circle cx="606" cy="255" r="9" fill="#E8426A" stroke="white" strokeWidth="1.5"/><text x="606" y="259" fontFamily="sans-serif" fontSize="7" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="616" y="248" width="14" height="16" rx="3" fill="#E8426A" opacity=".7"/><rect x="628" y="246" width="10" height="22" rx="4" fill="#C8D3E8"/>
-      <line x1="616" y1="253" x2="626" y2="246" stroke="#E8426A" strokeWidth="2" strokeLinecap="round"/>
-      <circle cx="606" cy="293" r="9" fill="#E8426A" stroke="white" strokeWidth="1.5" opacity=".8"/><text x="606" y="297" fontFamily="sans-serif" fontSize="7" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="616" y="286" width="14" height="16" rx="3" fill="#E8426A" opacity=".65"/><rect x="628" y="284" width="10" height="22" rx="4" fill="#C8D3E8"/>
-      <line x1="616" y1="291" x2="626" y2="284" stroke="#E8426A" strokeWidth="2" strokeLinecap="round"/>
-      <text x="596" y="352" fontFamily="monospace" fontSize="6.5" fill="#c0405a" textAnchor="middle" writingMode="vertical-lr">Pair 03 · Blockchain</text>
-
-      {/* E2 Risk Sim */}
-      <rect x="634" y="356" width="34" height="114" rx="5" fill="#FEF6E7" stroke="#F5A623" strokeWidth="1.3"/>
-      <rect x="639" y="362" width="22" height="32" rx="2" fill="#071022" stroke="#F5A623" strokeWidth=".7"/>
-      <rect x="639" y="400" width="22" height="32" rx="2" fill="#071022" stroke="#F5A623" strokeWidth=".7"/>
-      <circle cx="606" cy="385" r="9" fill="#F5A623" stroke="white" strokeWidth="1.5"/><text x="606" y="389" fontFamily="sans-serif" fontSize="7" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="616" y="378" width="14" height="16" rx="3" fill="#F5A623" opacity=".7"/><rect x="628" y="376" width="10" height="22" rx="4" fill="#C8D3E8"/>
-      <line x1="616" y1="383" x2="626" y2="376" stroke="#F5A623" strokeWidth="2" strokeLinecap="round"/>
-      <circle cx="606" cy="423" r="9" fill="#F5A623" stroke="white" strokeWidth="1.5" opacity=".8"/><text x="606" y="427" fontFamily="sans-serif" fontSize="7" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="616" y="416" width="14" height="16" rx="3" fill="#F5A623" opacity=".65"/><rect x="628" y="414" width="10" height="22" rx="4" fill="#C8D3E8"/>
-      <line x1="616" y1="421" x2="626" y2="414" stroke="#F5A623" strokeWidth="2" strokeLinecap="round"/>
-      <text x="596" y="482" fontFamily="monospace" fontSize="6.5" fill="#C07A10" textAnchor="middle" writingMode="vertical-lr">Pair 04 · Risk Sim</text>
-
-      {/* E3 Capital Markets */}
-      <rect x="634" y="486" width="34" height="114" rx="5" fill="#E6FAF7" stroke="#00C9A7" strokeWidth="1.3"/>
-      <rect x="639" y="492" width="22" height="32" rx="2" fill="#071022" stroke="#00C9A7" strokeWidth=".7"/>
-      <rect x="639" y="530" width="22" height="32" rx="2" fill="#071022" stroke="#00C9A7" strokeWidth=".7"/>
-      <circle cx="606" cy="515" r="9" fill="#00C9A7" stroke="white" strokeWidth="1.5"/><text x="606" y="519" fontFamily="sans-serif" fontSize="7" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="616" y="508" width="14" height="16" rx="3" fill="#00C9A7" opacity=".7"/><rect x="628" y="506" width="10" height="22" rx="4" fill="#C8D3E8"/>
-      <line x1="616" y1="513" x2="626" y2="506" stroke="#00C9A7" strokeWidth="2" strokeLinecap="round"/>
-      <circle cx="606" cy="553" r="9" fill="#00C9A7" stroke="white" strokeWidth="1.5" opacity=".8"/><text x="606" y="557" fontFamily="sans-serif" fontSize="7" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="616" y="546" width="14" height="16" rx="3" fill="#00C9A7" opacity=".65"/><rect x="628" y="544" width="10" height="22" rx="4" fill="#C8D3E8"/>
-      <line x1="616" y1="551" x2="626" y2="544" stroke="#00C9A7" strokeWidth="2" strokeLinecap="round"/>
-      <text x="596" y="612" fontFamily="monospace" fontSize="6.5" fill="#009E85" textAnchor="middle" writingMode="vertical-lr">Pair 05 · Capital Mkts</text>
-
-      {/* SOUTH WALL (students face north = chairs face up) */}
-      {/* S1 ESG */}
-      <rect x="28" y="618" width="130" height="34" rx="5" fill="#ECFDF5" stroke="#22C55E" strokeWidth="1.3"/>
-      <rect x="36" y="623" width="34" height="20" rx="2" fill="#071022" stroke="#22C55E" strokeWidth=".7"/>
-      <rect x="78" y="623" width="34" height="20" rx="2" fill="#071022" stroke="#22C55E" strokeWidth=".7"/>
-      <rect x="120" y="623" width="30" height="20" rx="2" fill="#071022" stroke="#22C55E" strokeWidth=".7"/>
-      {/* South-facing seated: chair on south side, student between chair and desk */}
-      <circle cx="53" cy="596" r="9" fill="#22C55E" stroke="white" strokeWidth="1.5"/><text x="53" y="600" fontFamily="sans-serif" fontSize="7" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="45" y="605" width="16" height="14" rx="3" fill="#22C55E" opacity=".7"/><rect x="41" y="619" width="22" height="8" rx="3" fill="#C8D3E8"/>
-      <line x1="45" y1="610" x2="36" y2="619" stroke="#22C55E" strokeWidth="2" strokeLinecap="round"/>
-      <circle cx="100" cy="596" r="9" fill="#22C55E" stroke="white" strokeWidth="1.5" opacity=".8"/><text x="100" y="600" fontFamily="sans-serif" fontSize="7" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="92" y="605" width="16" height="14" rx="3" fill="#22C55E" opacity=".65"/><rect x="88" y="619" width="22" height="8" rx="3" fill="#C8D3E8"/>
-      <line x1="92" y1="610" x2="83" y2="619" stroke="#22C55E" strokeWidth="2" strokeLinecap="round"/>
-      <text x="93" y="670" fontFamily="monospace" fontSize="7" fill="#15803D" textAnchor="middle">Pair 06 · ESG Obs.</text>
-
-      {/* S2 M&A + InsurTech wide */}
-      <rect x="174" y="618" width="280" height="34" rx="5" fill="#FDE9EF" stroke="#E8426A" strokeWidth="1.3"/>
-      <rect x="182" y="623" width="38" height="20" rx="2" fill="#071022" stroke="#E8426A" strokeWidth=".7"/>
-      <rect x="228" y="623" width="38" height="20" rx="2" fill="#071022" stroke="#E8426A" strokeWidth=".7"/>
-      <rect x="280" y="623" width="38" height="20" rx="2" fill="#071022" stroke="#F5A623" strokeWidth=".7"/>
-      <rect x="326" y="623" width="38" height="20" rx="2" fill="#071022" stroke="#F5A623" strokeWidth=".7"/>
-      <rect x="378" y="623" width="38" height="20" rx="2" fill="#071022" stroke="#E8426A" strokeWidth=".7"/>
-      {/* 4 students */}
-      <circle cx="201" cy="596" r="9" fill="#E8426A" stroke="white" strokeWidth="1.5"/><text x="201" y="600" fontFamily="sans-serif" fontSize="7" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="193" y="605" width="16" height="14" rx="3" fill="#E8426A" opacity=".7"/><rect x="189" y="619" width="22" height="8" rx="3" fill="#C8D3E8"/>
-      <circle cx="247" cy="594" r="9" fill="#E8426A" stroke="white" strokeWidth="1.5" opacity=".82"/><text x="247" y="598" fontFamily="sans-serif" fontSize="7" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="239" y="603" width="16" height="14" rx="3" fill="#E8426A" opacity=".68"/><rect x="235" y="617" width="22" height="8" rx="3" fill="#C8D3E8"/>
-      <circle cx="299" cy="596" r="9" fill="#F5A623" stroke="white" strokeWidth="1.5"/><text x="299" y="600" fontFamily="sans-serif" fontSize="7" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="291" y="605" width="16" height="14" rx="3" fill="#F5A623" opacity=".7"/><rect x="287" y="619" width="22" height="8" rx="3" fill="#C8D3E8"/>
-      <circle cx="345" cy="594" r="9" fill="#F5A623" stroke="white" strokeWidth="1.5" opacity=".82"/><text x="345" y="598" fontFamily="sans-serif" fontSize="7" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="337" y="603" width="16" height="14" rx="3" fill="#F5A623" opacity=".68"/><rect x="333" y="617" width="22" height="8" rx="3" fill="#C8D3E8"/>
-      <text x="314" y="670" fontFamily="monospace" fontSize="7" fill="#c0405a" textAnchor="middle">Pair 07+08 · M&amp;A Sim · InsurTech</text>
-
-      {/* S3 Lending Tech */}
-      <rect x="470" y="618" width="154" height="34" rx="5" fill="#E6FAF7" stroke="#00C9A7" strokeWidth="1.3"/>
-      <rect x="478" y="623" width="36" height="20" rx="2" fill="#071022" stroke="#00C9A7" strokeWidth=".7"/>
-      <rect x="522" y="623" width="36" height="20" rx="2" fill="#071022" stroke="#00C9A7" strokeWidth=".7"/>
-      <rect x="566" y="623" width="36" height="20" rx="2" fill="#071022" stroke="#00C9A7" strokeWidth=".7"/>
-      <circle cx="496" cy="596" r="9" fill="#00C9A7" stroke="white" strokeWidth="1.5"/><text x="496" y="600" fontFamily="sans-serif" fontSize="7" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="488" y="605" width="16" height="14" rx="3" fill="#00C9A7" opacity=".7"/><rect x="484" y="619" width="22" height="8" rx="3" fill="#C8D3E8"/>
-      <circle cx="548" cy="594" r="9" fill="#00C9A7" stroke="white" strokeWidth="1.5" opacity=".82"/><text x="548" y="598" fontFamily="sans-serif" fontSize="7" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="540" y="603" width="16" height="14" rx="3" fill="#00C9A7" opacity=".68"/><rect x="536" y="617" width="22" height="8" rx="3" fill="#C8D3E8"/>
-      <text x="547" y="670" fontFamily="monospace" fontSize="7" fill="#009E85" textAnchor="middle">Pair 09 · Lending Tech</text>
-
-      {/* WEST WALL (students face right = chairs face right) */}
-      <rect x="18" y="318" width="34" height="110" rx="5" fill="#F0EBF9" stroke="#6B3FA0" strokeWidth="1.3"/>
-      <rect x="23" y="324" width="22" height="28" rx="2" fill="#071022" stroke="#6B3FA0" strokeWidth=".7"/>
-      <rect x="23" y="358" width="22" height="28" rx="2" fill="#071022" stroke="#6B3FA0" strokeWidth=".7"/>
-      {/* west facing: chair on left, student between chair and desk */}
-      <circle cx="66" cy="346" r="9" fill="#6B3FA0" stroke="white" strokeWidth="1.5"/><text x="66" y="350" fontFamily="sans-serif" fontSize="7" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="52" y="339" width="14" height="16" rx="3" fill="#6B3FA0" opacity=".7"/><rect x="42" y="337" width="10" height="22" rx="4" fill="#C8D3E8"/>
-      <line x1="52" y1="344" x2="44" y2="338" stroke="#6B3FA0" strokeWidth="2" strokeLinecap="round"/>
-      <circle cx="66" cy="384" r="9" fill="#6B3FA0" stroke="white" strokeWidth="1.5" opacity=".8"/><text x="66" y="388" fontFamily="sans-serif" fontSize="7" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="52" y="377" width="14" height="16" rx="3" fill="#6B3FA0" opacity=".65"/><rect x="42" y="375" width="10" height="22" rx="4" fill="#C8D3E8"/>
-      <line x1="52" y1="382" x2="44" y2="376" stroke="#6B3FA0" strokeWidth="2" strokeLinecap="round"/>
-      <text x="58" y="445" fontFamily="monospace" fontSize="6.5" fill="#4E2D7A" textAnchor="middle" writingMode="vertical-lr">Pair 10 · Trading</text>
-
-      {/* OPEN INNOVATION FLOOR */}
-      <rect x="172" y="226" width="448" height="380" rx="8" fill="url(#lopenFlr)" stroke="#D1E5FF" strokeWidth="1.2"/>
-      <text x="396" y="262" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="12" fontWeight="800" fill="#07112E" textAnchor="middle">OPEN INNOVATION FLOOR</text>
-      <text x="396" y="278" fontFamily="sans-serif" fontSize="9.5" fill="#7A8CAB" textAnchor="middle">~380 sq ft · walk · present · sprint · discuss</text>
-      {/* Live Collab Board */}
-      <rect x="220" y="294" width="352" height="155" rx="7" fill="white" stroke="#06B6D4" strokeWidth="1.5"/>
-      <rect x="220" y="294" width="352" height="22" rx="7" fill="#06B6D4"/>
-      <rect x="220" y="308" width="352" height="8" fill="#06B6D4"/>
-      <text x="396" y="309" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="9" fontWeight="700" fill="white" textAnchor="middle">🎯 LIVE COLLABORATION BOARD</text>
-      {/* Sticky notes */}
-      <rect x="232" y="328" width="56" height="34" rx="4" fill="#FEF9C3" stroke="#F59E0B" strokeWidth=".8"/>
-      <text x="260" y="342" fontFamily="sans-serif" fontSize="7" fill="#92400E" textAnchor="middle" fontWeight="700">UPI flow</text><text x="260" y="354" fontFamily="sans-serif" fontSize="7" fill="#92400E" textAnchor="middle">mapping 🗺</text>
-      <rect x="296" y="328" width="56" height="34" rx="4" fill="#D1FAE5" stroke="#10B981" strokeWidth=".8"/>
-      <text x="324" y="342" fontFamily="sans-serif" fontSize="7" fill="#065F46" textAnchor="middle" fontWeight="700">AI lending</text><text x="324" y="354" fontFamily="sans-serif" fontSize="7" fill="#065F46" textAnchor="middle">model 🤖</text>
-      <rect x="360" y="328" width="56" height="34" rx="4" fill="#EDE9FE" stroke="#7C3AED" strokeWidth=".8"/>
-      <text x="388" y="342" fontFamily="sans-serif" fontSize="7" fill="#4C1D95" textAnchor="middle" fontWeight="700">ESG risk</text><text x="388" y="354" fontFamily="sans-serif" fontSize="7" fill="#4C1D95" textAnchor="middle">matrix 🌿</text>
-      <rect x="424" y="328" width="56" height="34" rx="4" fill="#FEE2E2" stroke="#EF4444" strokeWidth=".8"/>
-      <text x="452" y="342" fontFamily="sans-serif" fontSize="7" fill="#991B1B" textAnchor="middle" fontWeight="700">M&amp;A deal</text><text x="452" y="354" fontFamily="sans-serif" fontSize="7" fill="#991B1B" textAnchor="middle">structure 📊</text>
-      <rect x="496" y="328" width="60" height="34" rx="4" fill="#E0F2FE" stroke="#0284C7" strokeWidth=".8"/>
-      <text x="526" y="342" fontFamily="sans-serif" fontSize="7" fill="#075985" textAnchor="middle" fontWeight="700">Stablecoin</text><text x="526" y="354" fontFamily="sans-serif" fontSize="7" fill="#075985" textAnchor="middle">design ⛓</text>
-      <ellipse cx="396" cy="406" rx="130" ry="11" fill="rgba(6,182,212,.1)" stroke="rgba(6,182,212,.4)" strokeWidth="1"/>
-      <text x="396" y="410" fontFamily="sans-serif" fontSize="7.5" fill="#0891B2" textAnchor="middle" fontWeight="700">Fintech Sprint Map · 22 active tickets</text>
-      <text x="396" y="434" fontFamily="monospace" fontSize="7.5" fill="#7A8CAB" textAnchor="middle">Backlog: 8 · In Sprint: 9 · Review: 3 · Done: 2</text>
-      {/* 2 collab groups standing */}
-      <circle cx="244" cy="480" r="11" fill="#00C9A7" stroke="white" strokeWidth="2"/><text x="244" y="484" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="235" y="491" width="18" height="14" rx="3" fill="#00C9A7" opacity=".7"/>
-      <rect x="271" y="292" width="55" height="14" rx="5" fill="#07112E" opacity=".65"/>
-      <text x="298" y="302" fontFamily="sans-serif" fontSize="7" fill="#00C9A7" textAnchor="middle">💬 Sprint retro</text>
-      <circle cx="272" cy="480" r="11" fill="#6B3FA0" stroke="white" strokeWidth="2"/><text x="272" y="484" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="263" y="491" width="18" height="14" rx="3" fill="#6B3FA0" opacity=".7"/>
-
-      <circle cx="492" cy="480" r="11" fill="#F5A623" stroke="white" strokeWidth="2"/><text x="492" y="484" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="483" y="491" width="18" height="14" rx="3" fill="#F5A623" opacity=".7"/>
-      <circle cx="520" cy="480" r="11" fill="#E8426A" stroke="white" strokeWidth="2"/><text x="520" y="484" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="511" y="491" width="18" height="14" rx="3" fill="#E8426A" opacity=".7"/>
-      <rect x="450" y="292" width="50" height="14" rx="5" fill="#07112E" opacity=".65"/>
-      <text x="475" y="302" fontFamily="sans-serif" fontSize="7" fill="#F5A623" textAnchor="middle">⚡ M&amp;A debate</text>
-      {/* Capstone presenter */}
-      <circle cx="396" cy="516" r="13" fill="#b39dff" stroke="white" strokeWidth="2" filter="url(#lgl2)"/><text x="396" y="520" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="9" fontWeight="700" fill="white" textAnchor="middle">P</text>
-      <rect x="383" y="529" width="26" height="18" rx="4" fill="#b39dff" opacity=".75"/>
-      <line x1="383" y1="536" x2="364" y2="524" stroke="#b39dff" strokeWidth="3" strokeLinecap="round"/>
-      <line x1="409" y1="536" x2="428" y2="524" stroke="#b39dff" strokeWidth="3" strokeLinecap="round"/>
-      <text x="396" y="565" fontFamily="sans-serif" fontSize="9" fill="#6B3FA0" textAnchor="middle" fontWeight="700">🎤 Capstone Pitch</text>
-
-      {/* Green wall SW */}
-      <rect x="18" y="616" width="24" height="152" rx="4" fill="rgba(34,197,94,.15)" stroke="#22C55E" strokeWidth="1"/>
-      <circle cx="30" cy="634" r="8" fill="#22C55E" opacity=".6"/><circle cx="30" cy="658" r="7" fill="#15803D" opacity=".5"/>
-      <circle cx="30" cy="682" r="8" fill="#22C55E" opacity=".55"/><circle cx="30" cy="706" r="7" fill="#15803D" opacity=".5"/>
-      <circle cx="30" cy="730" r="8" fill="#22C55E" opacity=".6"/><circle cx="30" cy="754" r="6" fill="#15803D" opacity=".5"/>
-
-      {/* Dimension line */}
-      <line x1="20" y1="810" x2="678" y2="810" stroke="#C8D3E8" strokeWidth=".7" strokeDasharray="4,3"/>
-      <text x="349" y="820" fontFamily="sans-serif" fontSize="8.5" fill="#7A8CAB" textAnchor="middle">~24m × 24m recommended · College provides room · Upskillize delivers everything · 🌬 4 AC zones</text>
-
-      {/* ══════════════ RIGHT PANEL: 3D ISOMETRIC CULTURE VIEW ══════════════ */}
-      <rect x="700" y="0" width="700" height="820" fill="url(#lroomDk)"/>
-      {/* Header */}
-      <rect x="700" y="0" width="700" height="44" fill="#040B1A"/>
-      <text x="714" y="16" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="11.5" fontWeight="700" fill="white">Fintech &amp; AI Innovation Lab — 3D Culture View</text>
-      <text x="714" y="31" fontFamily="sans-serif" fontSize="9" fill="#00C9A7" opacity=".8">Students working · Peers collaborating · Real-time innovation</text>
-      {/* Stat chips */}
-      <rect x="1020" y="7" width="88" height="20" rx="5" fill="rgba(245,166,35,.2)" stroke="#F5A623" strokeWidth=".8"/>
-      <text x="1064" y="20" fontFamily="monospace" fontSize="8.5" fontWeight="700" fill="#F5A623" textAnchor="middle">War room ⚡</text>
-      <rect x="1116" y="7" width="76" height="20" rx="5" fill="rgba(0,201,167,.2)" stroke="#00C9A7" strokeWidth=".8"/>
-      <text x="1154" y="20" fontFamily="monospace" fontSize="8.5" fontWeight="700" fill="#00C9A7" textAnchor="middle">Agile 🏃</text>
-      <rect x="1200" y="7" width="84" height="20" rx="5" fill="rgba(107,63,160,.2)" stroke="#b39dff" strokeWidth=".8"/>
-      <text x="1242" y="20" fontFamily="monospace" fontSize="8.5" fontWeight="700" fill="#b39dff" textAnchor="middle">Peer work 👥</text>
-      <rect x="1292" y="7" width="98" height="20" rx="5" fill="rgba(34,197,94,.18)" stroke="#22C55E" strokeWidth=".8"/>
-      <text x="1341" y="20" fontFamily="monospace" fontSize="8.5" fontWeight="700" fill="#4ade80" textAnchor="middle">ESG-Aligned 🌿</text>
-
-      {/* FLOOR (isometric) */}
-      <polygon points="720,760 1050,555 1380,760 1050,820" fill="#0C1A3E"/>
-      <polygon points="720,760 1050,555 1380,760 1050,820" fill="url(#lhexIso)"/>
-      {/* Floor glow */}
-      <ellipse cx="1050" cy="705" rx="240" ry="65" fill="rgba(0,201,167,.05)"/>
-      <ellipse cx="820" cy="730" rx="110" ry="35" fill="rgba(245,166,35,.06)"/>
-      {/* Back wall */}
-      <polygon points="720,320 1050,175 1380,320 1380,555 1050,410 720,555" fill="#0B1830"/>
-      {/* Ceiling LED */}
-      <line x1="720" y1="551" x2="1050" y2="406" stroke="#00C9A7" strokeWidth="3" opacity=".65" filter="url(#lgl4)"/>
-      <line x1="1050" y1="406" x2="1380" y2="551" stroke="#00C9A7" strokeWidth="3" opacity=".65" filter="url(#lgl4)"/>
-      {/* Standup amber ceiling */}
-      <line x1="720" y1="553" x2="870" y2="478" stroke="#F5A623" strokeWidth="2.5" opacity=".55" filter="url(#lgl4)"/>
-
-      {/* BACK WALL DISPLAYS */}
-      <polygon points="740,334 882,262 882,340 740,412" fill="#071022"/>
-      <polygon points="744,338 878,266 878,336 744,407" fill="url(#lscT)"/>
-      <text x="811" y="302" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="9" fontWeight="700" fill="#00C9A7" textAnchor="middle">FINTECH &amp; AI</text>
-      <text x="811" y="314" fontFamily="monospace" fontSize="7" fill="#00C9A7" opacity=".55" textAnchor="middle">UPI · LLM · Open Banking</text>
-      <polyline points="752,380 768,364 784,370 800,354 816,360 832,344 848,350 864,336 876,340" stroke="#00C9A7" strokeWidth="1.3" fill="none" opacity=".65"/>
-      <circle cx="876" cy="340" r="3" fill="#00C9A7"/>
-
-      {/* Centre display: Upskillize branding + Sprint board */}
-      <polygon points="930,274 1170,172 1170,274 930,376" fill="#071022" stroke="rgba(245,166,35,.3)" strokeWidth=".8"/>
-      <polygon points="934,278 1166,176 1166,270 934,371" fill="rgba(245,166,35,.14)"/>
-      <text x="1050" y="216" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="9.5" fontWeight="700" fill="#F5A623" textAnchor="middle">FINTECH &amp; AI INNOVATION LAB</text>
-      <text x="1050" y="234" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="15" fontWeight="800" fill="white" textAnchor="middle">UPSKILLIZE SOLUTIONS</text>
-      <text x="1050" y="250" fontFamily="monospace" fontSize="7" fill="#00C9A7" opacity=".55" textAnchor="middle">500+ YEARS EXPERTISE · CROs · CDOs · CPOs</text>
-      {/* Sprint board on screen */}
-      <rect x="940" y="260" width="32" height="54" rx="2" fill="rgba(245,166,35,.18)" stroke="rgba(245,166,35,.4)" strokeWidth=".6"/>
-      <text x="956" y="274" fontFamily="sans-serif" fontSize="6.5" fill="#F5A623" textAnchor="middle">Backlog</text>
-      <rect x="943" y="278" width="26" height="9" rx="1" fill="#F5A623" opacity=".65"/><rect x="943" y="291" width="26" height="9" rx="1" fill="#F5A623" opacity=".45"/>
-      <rect x="978" y="260" width="32" height="54" rx="2" fill="rgba(0,201,167,.14)" stroke="rgba(0,201,167,.4)" strokeWidth=".6"/>
-      <text x="994" y="274" fontFamily="sans-serif" fontSize="6.5" fill="#00C9A7" textAnchor="middle">Sprint</text>
-      <rect x="981" y="278" width="26" height="9" rx="1" fill="#00C9A7" opacity=".7"/>
-      <rect x="1016" y="260" width="32" height="54" rx="2" fill="rgba(107,63,160,.14)" stroke="rgba(107,63,160,.4)" strokeWidth=".6"/>
-      <text x="1032" y="274" fontFamily="sans-serif" fontSize="6.5" fill="#b39dff" textAnchor="middle">Done ✓</text>
-      <rect x="1019" y="278" width="26" height="9" rx="1" fill="#6B3FA0" opacity=".7"/><rect x="1019" y="291" width="26" height="9" rx="1" fill="#6B3FA0" opacity=".5"/>
-      <text x="1050" y="338" fontFamily="monospace" fontSize="7.5" fill="rgba(245,166,35,.55)" textAnchor="middle">Live Sprint Board · 22 tickets active</text>
-      <text x="1050" y="360" fontFamily="monospace" fontSize="6.5" fill="rgba(255,255,255,.2)" textAnchor="middle">Learning is a Passion · India's First Fintech &amp; AI Innovation Lab</text>
-
-      {/* Right display: Risk + ESG */}
-      <polygon points="1208,290 1348,218 1348,296 1208,368" fill="#071022"/>
-      <polygon points="1212,294 1344,222 1344,292 1212,363" fill="url(#lscP)"/>
-      <text x="1278" y="254" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="8.5" fontWeight="700" fill="#b39dff" textAnchor="middle">RISK · ESG</text>
-      <circle cx="1278" cy="314" r="22" fill="none" stroke="#6B3FA0" strokeWidth="8" strokeDasharray="44 94" opacity=".7"/>
-      <circle cx="1278" cy="314" r="22" fill="none" stroke="#22C55E" strokeWidth="8" strokeDasharray="28 110" strokeDashOffset="-44" opacity=".6"/>
-      <circle cx="1278" cy="314" r="11" fill="#071022"/>
-      <text x="1278" y="318" fontFamily="sans-serif" fontSize="8" fill="rgba(255,255,255,.6)" textAnchor="middle">ESG</text>
-
-      {/* ══ PERIMETER STATIONS 3D — simplified, clean ══ */}
-
-      {/* STANDUP ZONE NW (3D, amber glow) */}
-      <polygon points="720,553 872,473 904,491 752,571" fill="#0C1B28" stroke="#F5A623" strokeWidth="1.5"/>
-      <polygon points="720,458 858,386 858,474 720,546" fill="#071822" stroke="#F5A623" strokeWidth="1"/>
-      <polygon points="724,462 854,390 854,470 724,541" fill="rgba(245,166,35,.12)"/>
-      <text x="787" y="432" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="8.5" fontWeight="700" fill="#F5A623" textAnchor="middle">⚡ STANDUP</text>
-      {/* Kanban on wall */}
-      <rect x="730" y="440" width="28" height="46" rx="2" fill="rgba(245,166,35,.18)" stroke="#F5A623" strokeWidth=".5"/>
-      <text x="744" y="453" fontFamily="sans-serif" fontSize="6" fill="#F5A623" textAnchor="middle">Back</text><rect x="732" y="457" width="24" height="8" rx="1" fill="#F5A623" opacity=".6"/>
-      <rect x="762" y="440" width="28" height="46" rx="2" fill="rgba(0,201,167,.14)" stroke="#00C9A7" strokeWidth=".5"/>
-      <text x="776" y="453" fontFamily="sans-serif" fontSize="6" fill="#00C9A7" textAnchor="middle">Sprint</text><rect x="764" y="457" width="24" height="8" rx="1" fill="#00C9A7" opacity=".65"/>
-      <rect x="794" y="440" width="28" height="46" rx="2" fill="rgba(107,63,160,.12)" stroke="#6B3FA0" strokeWidth=".5"/>
-      <text x="808" y="453" fontFamily="sans-serif" fontSize="6" fill="#b39dff" textAnchor="middle">Done</text><rect x="796" y="457" width="24" height="8" rx="1" fill="#6B3FA0" opacity=".65"/>
-
-      {/* 4 standing students (CLEAN, CRISP) */}
-      <circle cx="768" cy="534" r="11" fill="#F5A623" stroke="white" strokeWidth="2" filter="url(#lgl2)"/><text x="768" y="538" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="758" y="545" width="20" height="18" rx="4" fill="#F5A623" opacity=".8"/>
-      <rect x="761" y="563" width="7" height="12" rx="2" fill="#F5A623" opacity=".65"/><rect x="770" y="563" width="7" height="12" rx="2" fill="#F5A623" opacity=".65"/>
-      <line x1="758" y1="552" x2="742" y2="540" stroke="#F5A623" strokeWidth="3" strokeLinecap="round"/>
-      <circle cx="741" cy="539" r="4" fill="#F5A623"/>
-
-      <circle cx="800" cy="520" r="10" fill="#F5A623" stroke="white" strokeWidth="2" opacity=".88"/><text x="800" y="524" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="791" y="530" width="18" height="16" rx="4" fill="#F5A623" opacity=".75"/>
-      <rect x="794" y="546" width="6" height="11" rx="2" fill="#F5A623" opacity=".62"/><rect x="802" y="546" width="6" height="11" rx="2" fill="#F5A623" opacity=".62"/>
-
-      <circle cx="834" cy="530" r="10" fill="#00C9A7" stroke="white" strokeWidth="2" opacity=".9"/><text x="834" y="534" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="825" y="540" width="18" height="16" rx="4" fill="#00C9A7" opacity=".78"/>
-      <rect x="828" y="556" width="6" height="11" rx="2" fill="#00C9A7" opacity=".65"/><rect x="836" y="556" width="6" height="11" rx="2" fill="#00C9A7" opacity=".65"/>
-
-      <circle cx="866" cy="520" r="10" fill="#6B3FA0" stroke="white" strokeWidth="2" opacity=".85"/><text x="866" y="524" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="857" y="530" width="18" height="16" rx="4" fill="#6B3FA0" opacity=".75"/>
-      <rect x="860" y="546" width="6" height="11" rx="2" fill="#6B3FA0" opacity=".62"/><rect x="868" y="546" width="6" height="11" rx="2" fill="#6B3FA0" opacity=".62"/>
-
-      <rect x="832" y="497" width="78" height="14" rx="5" fill="#07112E" opacity=".7"/>
-      <text x="871" y="508" fontFamily="sans-serif" fontSize="7" fill="#F5A623" textAnchor="middle">⏱ Daily standup</text>
-
-      {/* NORTH STATIONS (seated pairs) — CLEAN student figures */}
-      {/* N1: Open Banking */}
-      <polygon points="908,492 1004,444 1026,458 930,506" fill="url(#ldeskNav)" stroke="rgba(0,201,167,.35)" strokeWidth=".9"/>
-      <rect x="918" y="434" width="38" height="16" rx="2" fill="#071022" stroke="#00C9A7" strokeWidth=".8"/>
-      <rect x="962" y="428" width="38" height="16" rx="2" fill="#071022" stroke="#00C9A7" strokeWidth=".8"/>
-      {/* Student A: seated, leaning toward screen */}
-      <circle cx="948" cy="492" r="10" fill="#00C9A7" stroke="white" strokeWidth="2" filter="url(#lgl2)"/><text x="948" y="496" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="938" y="502" width="20" height="14" rx="3" fill="#00C9A7" opacity=".75"/><rect x="934" y="516" width="28" height="10" rx="4" fill="#9CA3AF" opacity=".7"/>
-      <line x1="938" y1="508" x2="926" y2="500" stroke="#00C9A7" strokeWidth="2.5" strokeLinecap="round"/>
-      <line x1="958" y1="508" x2="970" y2="500" stroke="#00C9A7" strokeWidth="2.5" strokeLinecap="round"/>
-      {/* Student B */}
-      <circle cx="988" cy="480" r="9" fill="#00C9A7" stroke="white" strokeWidth="2" opacity=".8"/><text x="988" y="484" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="979" y="489" width="18" height="13" rx="3" fill="#00C9A7" opacity=".68"/><rect x="975" y="502" width="26" height="9" rx="4" fill="#9CA3AF" opacity=".6"/>
-      <line x1="979" y1="495" x2="967" y2="487" stroke="#00C9A7" strokeWidth="2" strokeLinecap="round"/>
-      <line x1="997" y1="495" x2="1009" y2="487" stroke="#00C9A7" strokeWidth="2" strokeLinecap="round"/>
-      <text x="958" y="538" fontFamily="sans-serif" fontSize="7.5" fill="rgba(0,201,167,.55)" textAnchor="middle">Pair 01 · Open Banking</text>
-
-      {/* FACILITATOR (wide centre) */}
-      <polygon points="1042,462 1202,382 1234,398 1074,478" fill="#071022" stroke="#00C9A7" strokeWidth="1.6"/>
-      <rect x="1058" y="372" width="44" height="17" rx="2" fill="#071022" stroke="#00C9A7" strokeWidth=".9"/>
-      <rect x="1110" y="366" width="44" height="17" rx="2" fill="#071022" stroke="#00C9A7" strokeWidth=".9"/>
-      <rect x="1162" y="366" width="44" height="17" rx="2" fill="#071022" stroke="#00C9A7" strokeWidth=".9"/>
-      <text x="1143" y="382" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="7.5" fontWeight="700" fill="rgba(0,201,167,.8)" textAnchor="middle">FACILITATOR · UPSKILLIZE</text>
-      {/* Facilitator (upright, prominent) */}
-      <circle cx="1144" cy="468" r="13" fill="#00C9A7" stroke="white" strokeWidth="2.5" filter="url(#lgl2)"/><text x="1144" y="472" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="9" fontWeight="700" fill="white" textAnchor="middle">F</text>
-      <rect x="1131" y="481" width="26" height="18" rx="4" fill="#00C9A7" opacity=".8"/><rect x="1127" y="499" width="34" height="12" rx="5" fill="#9CA3AF" opacity=".6"/>
-      <line x1="1131" y1="490" x2="1113" y2="478" stroke="#00C9A7" strokeWidth="3" strokeLinecap="round"/>
-      <circle cx="1112" cy="476" r="4.5" fill="#00C9A7"/>
-      {/* Co-seat */}
-      <circle cx="1190" cy="450" r="10" fill="#00C9A7" stroke="white" strokeWidth="2" opacity=".75"/><text x="1190" y="454" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="1181" y="460" width="18" height="13" rx="3" fill="#00C9A7" opacity=".65"/><rect x="1177" y="473" width="26" height="9" rx="4" fill="#9CA3AF" opacity=".55"/>
-      <line x1="1181" y1="466" x2="1169" y2="458" stroke="#00C9A7" strokeWidth="2" strokeLinecap="round"/>
-      <line x1="1199" y1="466" x2="1211" y2="458" stroke="#00C9A7" strokeWidth="2" strokeLinecap="round"/>
-      <text x="1144" y="524" fontFamily="sans-serif" fontSize="7.5" fill="rgba(0,201,167,.55)" textAnchor="middle">Facilitator Station</text>
-
-      {/* N2: WealthTech */}
-      <polygon points="1252,436 1348,388 1368,400 1272,448" fill="url(#ldeskNav)" stroke="rgba(107,63,160,.32)" strokeWidth=".9"/>
-      <rect x="1262" y="378" width="36" height="14" rx="2" fill="#071022" stroke="#6B3FA0" strokeWidth=".8"/>
-      <rect x="1304" y="372" width="36" height="14" rx="2" fill="#071022" stroke="#6B3FA0" strokeWidth=".8"/>
-      <circle cx="1284" cy="462" r="10" fill="#6B3FA0" stroke="white" strokeWidth="2" opacity=".88"/><text x="1284" y="466" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="1275" y="472" width="18" height="13" rx="3" fill="#6B3FA0" opacity=".75"/><rect x="1271" y="485" width="26" height="9" rx="4" fill="#9CA3AF" opacity=".55"/>
-      <line x1="1275" y1="478" x2="1263" y2="470" stroke="#6B3FA0" strokeWidth="2" strokeLinecap="round"/>
-      <line x1="1293" y1="478" x2="1305" y2="470" stroke="#6B3FA0" strokeWidth="2" strokeLinecap="round"/>
-      <circle cx="1320" cy="450" r="9" fill="#6B3FA0" stroke="white" strokeWidth="2" opacity=".78"/><text x="1320" y="454" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="1312" y="459" width="16" height="12" rx="3" fill="#6B3FA0" opacity=".65"/><rect x="1308" y="471" width="24" height="9" rx="4" fill="#9CA3AF" opacity=".5"/>
-      <text x="1298" y="498" fontFamily="sans-serif" fontSize="7.5" fill="rgba(107,63,160,.55)" textAnchor="middle">Pair 02 · WealthTech</text>
-
-      {/* EAST WALL STATIONS (pairs, facing left) */}
-      <polygon points="1356,554 1396,534 1398,614 1358,634" fill="url(#ldeskNav)" stroke="rgba(232,66,106,.3)" strokeWidth=".9"/>
-      <rect x="1364" y="542" width="14" height="28" rx="2" fill="#071022" stroke="#E8426A" strokeWidth=".7"/>
-      <rect x="1364" y="576" width="14" height="28" rx="2" fill="#071022" stroke="#E8426A" strokeWidth=".7"/>
-      <circle cx="1330" cy="566" r="9" fill="#E8426A" stroke="white" strokeWidth="2"/><text x="1330" y="570" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="1338" y="559" width="14" height="14" rx="3" fill="#E8426A" opacity=".7"/><rect x="1350" y="557" width="10" height="20" rx="4" fill="#9CA3AF" opacity=".6"/>
-      <circle cx="1330" cy="604" r="9" fill="#E8426A" stroke="white" strokeWidth="2" opacity=".8"/><text x="1330" y="608" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="1338" y="597" width="14" height="14" rx="3" fill="#E8426A" opacity=".65"/><rect x="1350" y="595" width="10" height="20" rx="4" fill="#9CA3AF" opacity=".5"/>
-
-      <polygon points="1358,648 1398,628 1400,708 1360,728" fill="url(#ldeskNav)" stroke="rgba(245,166,35,.28)" strokeWidth=".9"/>
-      <rect x="1366" y="636" width="14" height="28" rx="2" fill="#071022" stroke="#F5A623" strokeWidth=".7"/>
-      <rect x="1366" y="670" width="14" height="28" rx="2" fill="#071022" stroke="#F5A623" strokeWidth=".7"/>
-      <circle cx="1332" cy="660" r="9" fill="#F5A623" stroke="white" strokeWidth="2"/><text x="1332" y="664" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="1340" y="653" width="14" height="14" rx="3" fill="#F5A623" opacity=".7"/><rect x="1352" y="651" width="10" height="20" rx="4" fill="#9CA3AF" opacity=".6"/>
-      <circle cx="1332" cy="698" r="9" fill="#F5A623" stroke="white" strokeWidth="2" opacity=".8"/><text x="1332" y="702" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="1340" y="691" width="14" height="14" rx="3" fill="#F5A623" opacity=".65"/><rect x="1352" y="689" width="10" height="20" rx="4" fill="#9CA3AF" opacity=".5"/>
-
-      {/* SOUTH WALL STATIONS (pairs, backs to viewer) */}
-      {/* S1 ESG */}
-      <polygon points="748,650 844,604 864,616 768,662" fill="url(#ldeskNav)" stroke="rgba(34,197,94,.3)" strokeWidth=".9"/>
-      <rect x="758" y="594" width="36" height="14" rx="2" fill="#071022" stroke="#22C55E" strokeWidth=".8"/>
-      <rect x="800" y="588" width="36" height="14" rx="2" fill="#071022" stroke="#22C55E" strokeWidth=".8"/>
-      {/* South-facing students: backs to viewer, heads + torso visible */}
-      <circle cx="784" cy="640" r="10" fill="#22C55E" stroke="white" strokeWidth="2"/><text x="784" y="644" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="774" y="650" width="20" height="14" rx="3" fill="#22C55E" opacity=".75"/><rect x="770" y="664" width="28" height="10" rx="4" fill="#9CA3AF" opacity=".6"/>
-      <line x1="774" y1="656" x2="762" y2="645" stroke="#22C55E" strokeWidth="2.5" strokeLinecap="round"/>
-      <line x1="794" y1="656" x2="806" y2="645" stroke="#22C55E" strokeWidth="2.5" strokeLinecap="round"/>
-      <circle cx="814" cy="628" r="9" fill="#22C55E" stroke="white" strokeWidth="2" opacity=".8"/><text x="814" y="632" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="805" y="637" width="18" height="13" rx="3" fill="#22C55E" opacity=".68"/><rect x="801" y="650" width="26" height="9" rx="4" fill="#9CA3AF" opacity=".55"/>
-      <line x1="805" y1="643" x2="793" y2="634" stroke="#22C55E" strokeWidth="2" strokeLinecap="round"/>
-      <line x1="823" y1="643" x2="835" y2="634" stroke="#22C55E" strokeWidth="2" strokeLinecap="round"/>
-      <text x="804" y="690" fontFamily="sans-serif" fontSize="7.5" fill="rgba(34,197,94,.55)" textAnchor="middle">Pair 06 · ESG Obs.</text>
-
-      {/* S2 M&A + InsurTech (wide) */}
-      <polygon points="900,622 1132,518 1162,534 930,638" fill="url(#ldeskNav)" stroke="rgba(232,66,106,.3)" strokeWidth=".9"/>
-      <rect x="914" y="508" width="40" height="15" rx="2" fill="#071022" stroke="#E8426A" strokeWidth=".8"/>
-      <rect x="964" y="502" width="40" height="15" rx="2" fill="#071022" stroke="#E8426A" strokeWidth=".8"/>
-      <rect x="1020" y="498" width="40" height="15" rx="2" fill="#071022" stroke="#F5A623" strokeWidth=".8"/>
-      <rect x="1070" y="492" width="40" height="15" rx="2" fill="#071022" stroke="#F5A623" strokeWidth=".8"/>
-      {/* 4 seated students, clean */}
-      <circle cx="934" cy="656" r="10" fill="#E8426A" stroke="white" strokeWidth="2"/><text x="934" y="660" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="924" y="666" width="20" height="14" rx="3" fill="#E8426A" opacity=".75"/><rect x="920" y="680" width="28" height="10" rx="4" fill="#9CA3AF" opacity=".6"/>
-      <line x1="924" y1="672" x2="912" y2="661" stroke="#E8426A" strokeWidth="2.5" strokeLinecap="round"/>
-      <line x1="944" y1="672" x2="956" y2="661" stroke="#E8426A" strokeWidth="2.5" strokeLinecap="round"/>
-      <circle cx="984" cy="648" r="10" fill="#E8426A" stroke="white" strokeWidth="2" opacity=".82"/><text x="984" y="652" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="974" y="658" width="20" height="14" rx="3" fill="#E8426A" opacity=".7"/><rect x="970" y="672" width="28" height="10" rx="4" fill="#9CA3AF" opacity=".55"/>
-      <line x1="974" y1="664" x2="962" y2="653" stroke="#E8426A" strokeWidth="2" strokeLinecap="round"/>
-      <line x1="994" y1="664" x2="1006" y2="653" stroke="#E8426A" strokeWidth="2" strokeLinecap="round"/>
-      <circle cx="1040" cy="642" r="10" fill="#F5A623" stroke="white" strokeWidth="2"/><text x="1040" y="646" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="1030" y="652" width="20" height="14" rx="3" fill="#F5A623" opacity=".75"/><rect x="1026" y="666" width="28" height="10" rx="4" fill="#9CA3AF" opacity=".6"/>
-      <line x1="1030" y1="658" x2="1018" y2="647" stroke="#F5A623" strokeWidth="2.5" strokeLinecap="round"/>
-      <line x1="1050" y1="658" x2="1062" y2="647" stroke="#F5A623" strokeWidth="2.5" strokeLinecap="round"/>
-      <circle cx="1090" cy="634" r="10" fill="#F5A623" stroke="white" strokeWidth="2" opacity=".82"/><text x="1090" y="638" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="1080" y="644" width="20" height="14" rx="3" fill="#F5A623" opacity=".7"/><rect x="1076" y="658" width="28" height="10" rx="4" fill="#9CA3AF" opacity=".55"/>
-      <text x="1014" y="708" fontFamily="sans-serif" fontSize="7.5" fill="rgba(232,66,106,.55)" textAnchor="middle">Pair 07+08 · M&amp;A Simulator · InsurTech</text>
-
-      {/* S3 Lending */}
-      <polygon points="1200,590 1314,538 1334,550 1220,602" fill="url(#ldeskNav)" stroke="rgba(0,201,167,.3)" strokeWidth=".9"/>
-      <rect x="1210" y="528" width="36" height="14" rx="2" fill="#071022" stroke="#00C9A7" strokeWidth=".8"/>
-      <rect x="1252" y="522" width="36" height="14" rx="2" fill="#071022" stroke="#00C9A7" strokeWidth=".8"/>
-      <circle cx="1228" cy="616" r="10" fill="#00C9A7" stroke="white" strokeWidth="2"/><text x="1228" y="620" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="1218" y="626" width="20" height="14" rx="3" fill="#00C9A7" opacity=".75"/><rect x="1214" y="640" width="28" height="10" rx="4" fill="#9CA3AF" opacity=".6"/>
-      <line x1="1218" y1="632" x2="1206" y2="621" stroke="#00C9A7" strokeWidth="2.5" strokeLinecap="round"/>
-      <line x1="1238" y1="632" x2="1250" y2="621" stroke="#00C9A7" strokeWidth="2.5" strokeLinecap="round"/>
-      <circle cx="1274" cy="608" r="9" fill="#00C9A7" stroke="white" strokeWidth="2" opacity=".82"/><text x="1274" y="612" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="1265" y="617" width="18" height="13" rx="3" fill="#00C9A7" opacity=".68"/><rect x="1261" y="630" width="26" height="9" rx="4" fill="#9CA3AF" opacity=".55"/>
-      <text x="1252" y="660" fontFamily="sans-serif" fontSize="7.5" fill="rgba(0,201,167,.55)" textAnchor="middle">Pair 09 · Lending Tech</text>
-
-      {/* WEST WALL */}
-      <polygon points="724,570 760,552 762,632 726,650" fill="url(#ldeskNav)" stroke="rgba(107,63,160,.28)" strokeWidth=".9"/>
-      <rect x="730" y="560" width="14" height="26" rx="2" fill="#071022" stroke="#6B3FA0" strokeWidth=".7"/>
-      <rect x="730" y="592" width="14" height="26" rx="2" fill="#071022" stroke="#6B3FA0" strokeWidth=".7"/>
-      <circle cx="774" cy="590" r="9" fill="#6B3FA0" stroke="white" strokeWidth="2"/><text x="774" y="594" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="760" y="583" width="14" height="14" rx="3" fill="#6B3FA0" opacity=".7"/><rect x="748" y="581" width="10" height="20" rx="4" fill="#9CA3AF" opacity=".6"/>
-      <circle cx="774" cy="626" r="9" fill="#6B3FA0" stroke="white" strokeWidth="2" opacity=".8"/><text x="774" y="630" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="760" y="619" width="14" height="14" rx="3" fill="#6B3FA0" opacity=".65"/><rect x="748" y="617" width="10" height="20" rx="4" fill="#9CA3AF" opacity=".5"/>
-
-      {/* OPEN CENTRE ACTIVITIES */}
-      {/* Collab group 1 (teal + purple standing) */}
-      <circle cx="906" cy="728" r="11" fill="#00C9A7" stroke="white" strokeWidth="2" filter="url(#lgl2)"/><text x="906" y="732" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="896" y="739" width="20" height="15" rx="4" fill="#00C9A7" opacity=".75"/>
-      <circle cx="934" cy="718" r="11" fill="#6B3FA0" stroke="white" strokeWidth="2" opacity=".88"/><text x="934" y="722" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="924" y="729" width="20" height="15" rx="4" fill="#6B3FA0" opacity=".75"/>
-      <rect x="936" y="700" width="74" height="14" rx="5" fill="#07112E" opacity=".72"/>
-      <text x="973" y="711" fontFamily="sans-serif" fontSize="7" fill="#00C9A7" textAnchor="middle">💬 Sprint retro</text>
-
-      {/* Collab group 2 (amber + rose standing) */}
-      <circle cx="1136" cy="718" r="11" fill="#F5A623" stroke="white" strokeWidth="2" opacity=".88"/><text x="1136" y="722" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="1126" y="729" width="20" height="15" rx="4" fill="#F5A623" opacity=".75"/>
-      <circle cx="1164" cy="708" r="11" fill="#E8426A" stroke="white" strokeWidth="2" opacity=".85"/><text x="1164" y="712" fontFamily="sans-serif" fontSize="8" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <rect x="1154" y="719" width="20" height="15" rx="4" fill="#E8426A" opacity=".75"/>
-      <rect x="1080" y="700" width="60" height="14" rx="5" fill="#07112E" opacity=".72"/>
-      <text x="1110" y="711" fontFamily="sans-serif" fontSize="7" fill="#F5A623" textAnchor="middle">⚡ Stablecoin</text>
-
-      {/* MIRO board floating in centre */}
-      <polygon points="908,552 1140,448 1164,462 932,566" fill="#071022" stroke="#06B6D4" strokeWidth="1.5"/>
-      <polygon points="912,556 1136,452 1160,466 936,570" fill="rgba(6,182,212,.12)"/>
-      <text x="1036" y="512" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="9" fontWeight="700" fill="#06B6D4" textAnchor="middle">🎯 LIVE COLLABORATION BOARD</text>
-      <rect x="920" y="524" width="36" height="22" rx="3" fill="#FEF9C3" stroke="#F59E0B" strokeWidth=".8"/><text x="938" y="538" fontFamily="sans-serif" fontSize="6.5" fill="#92400E" textAnchor="middle">UPI map</text>
-      <rect x="964" y="518" width="36" height="22" rx="3" fill="#D1FAE5" stroke="#10B981" strokeWidth=".8"/><text x="982" y="532" fontFamily="sans-serif" fontSize="6.5" fill="#065F46" textAnchor="middle">AI lending</text>
-      <rect x="1008" y="514" width="36" height="22" rx="3" fill="#EDE9FE" stroke="#7C3AED" strokeWidth=".8"/><text x="1026" y="528" fontFamily="sans-serif" fontSize="6.5" fill="#4C1D95" textAnchor="middle">ESG risk</text>
-      <rect x="1052" y="508" width="36" height="22" rx="3" fill="#FEE2E2" stroke="#EF4444" strokeWidth=".8"/><text x="1070" y="522" fontFamily="sans-serif" fontSize="6.5" fill="#991B1B" textAnchor="middle">M&amp;A deal</text>
-      <rect x="1096" y="502" width="46" height="22" rx="3" fill="#E0F2FE" stroke="#0284C7" strokeWidth=".8"/><text x="1119" y="516" fontFamily="sans-serif" fontSize="6.5" fill="#075985" textAnchor="middle">Stablecoin ⛓</text>
-
-      {/* CAPSTONE PRESENTER */}
-      <circle cx="1052" cy="778" r="14" fill="#b39dff" stroke="white" strokeWidth="2.5" filter="url(#lgl2)"/><text x="1052" y="782" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="9" fontWeight="700" fill="white" textAnchor="middle">P</text>
-      <rect x="1038" y="792" width="28" height="18" rx="4" fill="#b39dff" opacity=".75"/>
-      <rect x="1042" y="810" width="8" height="10" rx="2" fill="#b39dff" opacity=".6"/><rect x="1054" y="810" width="8" height="10" rx="2" fill="#b39dff" opacity=".6"/>
-      <line x1="1038" y1="800" x2="1016" y2="786" stroke="#b39dff" strokeWidth="3.5" strokeLinecap="round"/>
-      <line x1="1066" y1="800" x2="1088" y2="786" stroke="#b39dff" strokeWidth="3.5" strokeLinecap="round"/>
-      <text x="1052" y="826" fontFamily="sans-serif" fontSize="8.5" fill="#6B3FA0" textAnchor="middle" fontWeight="700">🎤 Capstone Demo Day</text>
-
-      {/* Living green wall right */}
-      <polygon points="1384,362 1400,370 1400,780 1384,772" fill="rgba(34,197,94,.16)" stroke="#22C55E" strokeWidth="1"/>
-      <circle cx="1392" cy="388" r="10" fill="#22C55E" opacity=".62"/><circle cx="1392" cy="420" r="8" fill="#15803D" opacity=".52"/>
-      <circle cx="1392" cy="452" r="10" fill="#22C55E" opacity=".57"/><circle cx="1392" cy="484" r="8" fill="#15803D" opacity=".52"/>
-      <circle cx="1392" cy="516" r="10" fill="#22C55E" opacity=".62"/><circle cx="1392" cy="548" r="8" fill="#15803D" opacity=".52"/>
-      <circle cx="1392" cy="580" r="10" fill="#22C55E" opacity=".57"/><circle cx="1392" cy="612" r="8" fill="#15803D" opacity=".52"/>
-      <circle cx="1392" cy="644" r="9" fill="#22C55E" opacity=".62"/><circle cx="1392" cy="676" r="8" fill="#15803D" opacity=".52"/>
-      <circle cx="1392" cy="708" r="9" fill="#22C55E" opacity=".57"/><circle cx="1392" cy="740" r="7" fill="#15803D" opacity=".5"/>
-
-      {/* Industry Connect Lounge */}
-      <polygon points="1292,568 1384,524 1384,776 1292,820" fill="rgba(107,63,160,.08)" stroke="#6B3FA0" strokeWidth="1.2"/>
-      <polygon points="1302,594 1382,554 1382,584 1302,624" fill="#071022" stroke="#6B3FA0" strokeWidth=".8"/>
-      <text x="1344" y="572" fontFamily="sans-serif" fontSize="7.5" fill="#b39dff" textAnchor="middle">CXO Mentor</text>
-      <text x="1344" y="584" fontFamily="sans-serif" fontSize="7.5" fill="#b39dff" textAnchor="middle">Sessions</text>
-      <rect x="1304" y="674" width="70" height="22" rx="8" fill="#6B3FA0" opacity=".4"/>
-      <rect x="1304" y="664" width="70" height="14" rx="5" fill="#6B3FA0" opacity=".55"/>
-      <circle cx="1322" cy="662" r="9" fill="#b39dff" opacity=".7"/><text x="1322" y="666" fontFamily="sans-serif" fontSize="7" fontWeight="700" fill="white" textAnchor="middle">M</text>
-      <circle cx="1358" cy="660" r="9" fill="#b39dff" opacity=".65"/><text x="1358" y="664" fontFamily="sans-serif" fontSize="7" fontWeight="700" fill="white" textAnchor="middle">S</text>
-      <text x="1344" y="750" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="8" fontWeight="700" fill="#b39dff" textAnchor="middle">Industry Connect</text>
-      <text x="1344" y="762" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="8" fontWeight="700" fill="#b39dff" textAnchor="middle">Lounge</text>
-
-      {/* STAT BADGES top row RIGHT panel */}
-      <rect x="706" y="50" width="116" height="36" rx="7" fill="rgba(245,166,35,.14)" stroke="rgba(245,166,35,.3)" strokeWidth="1"/>
-      <text x="764" y="65" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="12" fill="#F5A623" textAnchor="middle" fontWeight="800">Standup ⚡</text>
-      <text x="764" y="79" fontFamily="sans-serif" fontSize="7" fill="rgba(245,166,35,.65)" textAnchor="middle">Agile Zone</text>
-
-      <rect x="830" y="50" width="116" height="36" rx="7" fill="rgba(0,201,167,.14)" stroke="rgba(0,201,167,.3)" strokeWidth="1"/>
-      <text x="888" y="65" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="18" fill="#00C9A7" textAnchor="middle" fontWeight="800">10</text>
-      <text x="888" y="79" fontFamily="sans-serif" fontSize="7" fill="rgba(0,201,167,.65)" textAnchor="middle">Perimeter Stations</text>
-
-      <rect x="954" y="50" width="116" height="36" rx="7" fill="rgba(107,63,160,.14)" stroke="rgba(107,63,160,.3)" strokeWidth="1"/>
-      <text x="1012" y="65" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="18" fill="#b39dff" textAnchor="middle" fontWeight="800">20</text>
-      <text x="1012" y="79" fontFamily="sans-serif" fontSize="7" fill="rgba(155,117,255,.65)" textAnchor="middle">Peer Seats (2 each)</text>
-
-      <rect x="1078" y="50" width="156" height="36" rx="7" fill="rgba(245,166,35,.14)" stroke="rgba(245,166,35,.3)" strokeWidth="1"/>
-      <text x="1156" y="64" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="12" fill="#F5A623" textAnchor="middle" fontWeight="800">500+ Years</text>
-      <text x="1156" y="79" fontFamily="sans-serif" fontSize="7" fill="rgba(245,166,35,.65)" textAnchor="middle">Collective Fintech Expertise</text>
-
-      <rect x="1242" y="50" width="154" height="36" rx="7" fill="rgba(232,66,106,.14)" stroke="rgba(232,66,106,.3)" strokeWidth="1"/>
-      <text x="1319" y="63" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="11" fill="#ff9ab5" textAnchor="middle" fontWeight="800">CROs · CDOs · CPOs</text>
-      <text x="1319" y="79" fontFamily="sans-serif" fontSize="7" fill="rgba(255,154,181,.65)" textAnchor="middle">Top Industry Mentors</text>
-
-      {/* Learning is a Passion badge */}
-      <rect x="1258" y="738" width="130" height="36" rx="8" fill="rgba(0,201,167,.12)" stroke="rgba(0,201,167,.3)" strokeWidth="1"/>
-      <text x="1323" y="754" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="10" fill="#00C9A7" textAnchor="middle" fontWeight="800">Learning is a</text>
-      <text x="1323" y="768" fontFamily="Plus Jakarta Sans,sans-serif" fontSize="10" fill="#00C9A7" textAnchor="middle" fontWeight="800">Passion ❤️</text>
-
-      <text x="1050" y="820" fontFamily="sans-serif" fontSize="9.5" fill="rgba(255,255,255,.2)" textAnchor="middle">Fintech &amp; AI Innovation Lab · Perimeter Peer Model · Upskillize Solutions · India's First</text>
-    </svg>
-            <div className="perimeter-header">
+          <div className="reveal" style={{
+            maxWidth:"1080px",
+            margin:"0 auto",
+            borderRadius:"20px",
+            overflow:"hidden",
+            border:"1px solid var(--bdr)",
+            boxShadow:"var(--sh3)",
+          }}>
+            <iframe
+              src="/upskillize_3d_innovation_lab.html"
+              title="FinTech & AI Innovation Lab — 3D Interactive View"
+              style={{
+                width:"100%",
+                height:"620px",
+                border:"none",
+                display:"block",
+              }}
+              allow="accelerometer; autoplay"
+              loading="lazy"
+            />
+            <div style={{
+              background:"#fff",
+              borderTop:"1px solid var(--bdr)",
+              padding:"14px 28px",
+              display:"flex",
+              alignItems:"center",
+              justifyContent:"space-between",
+            }}>
               <div>
-                <div className="ph-title">FinTech &amp; AI Innovation Lab — Floor Plan (Top View)</div>
-                <div className="ph-sub">Perimeter ring · Standup Agile Zone NW · Open innovation floor centre</div>
+                <div style={{fontFamily:"var(--fd)",fontWeight:700,fontSize:"15px",color:"var(--navy)"}}>
+                  FinTech &amp; AI Innovation Lab — Interactive 3D Floor Plan
+                </div>
+                <div style={{fontSize:"12px",color:"var(--tx3)"}}>
+                  Drag to rotate · Scroll to zoom · Click zones to focus · 10 perimeter stations · 6 open-centre zones
+                </div>
               </div>
               <div style={{display:"flex",gap:"8px"}}>
-                <span style={{background:"rgba(0,201,167,.18)",border:"1px solid #00C9A7",borderRadius:"5px",padding:"3px 10px",fontFamily:"var(--fm)",fontSize:"9px",fontWeight:"700",color:"#00C9A7"}}>~1,200 sq ft</span>
-                <span style={{background:"rgba(107,63,160,.18)",border:"1px solid #b39dff",borderRadius:"5px",padding:"3px 10px",fontFamily:"var(--fm)",fontSize:"9px",fontWeight:"700",color:"#b39dff"}}>10 zones</span>
-              </div>
-            </div>
-            <div className="lab3d-caption">
-              <div>
-                <div className="lab3d-caption-title">FinTech &amp; AI Innovation Lab — Perimeter Peer Layout</div>
-                <div className="lab3d-caption-sub">10 dual-monitor perimeter stations · 6 open-centre zones · Agile Standup · ESG Observatory · Capital Markets Desk</div>
-              </div>
-              <div className="lab3d-pills">
-                <span className="lab3d-pill t">Fintech Zone</span>
-                <span className="lab3d-pill p">AI Builder</span>
-                <span className="lab3d-pill a">Risk Bay</span>
+                <span style={{background:"var(--tl)",border:"1px solid var(--tb)",borderRadius:"5px",padding:"3px 10px",fontFamily:"var(--fm)",fontSize:"9px",fontWeight:"700",color:"var(--td)"}}>~1,200 sq ft</span>
+                <span style={{background:"var(--pl)",border:"1px solid var(--pb)",borderRadius:"5px",padding:"3px 10px",fontFamily:"var(--fm)",fontSize:"9px",fontWeight:"700",color:"var(--pd)"}}>10 zones</span>
+                <span style={{background:"var(--al)",border:"1px solid var(--ab)",borderRadius:"5px",padding:"3px 10px",fontFamily:"var(--fm)",fontSize:"9px",fontWeight:"700",color:"var(--ad)"}}>3D Live</span>
               </div>
             </div>
           </div>
@@ -1636,7 +1030,7 @@ export default function FintechAIInnovationLab() {
                 <text x="70" y="76" fontFamily="'DM Sans'" fontSize="9" fill="#6B3FA0" textAnchor="end" fontWeight="600">RegTech</text>
                 <text x="160" y="158" fontFamily="'Plus Jakarta Sans'" fontSize="11" fill="#07112E" textAnchor="middle" fontWeight="800">BFSI</text>
                 <text x="160" y="172" fontFamily="'DM Sans'" fontSize="9" fill="#7A8CAB" textAnchor="middle">Full Spectrum</text>
-                <text x="160" y="195" fontFamily="'DM Sans'" fontSize="8" fontWeight="700" fill="rgba(245,166,35,0.65)" textAnchor="middle" letterSpacing="1">Risk Management</text>
+                <text x="160" y="195" fontFamily="'DM Sans'" fontSize="8" fontWeight="700" fill="rgba(245,166,35,0.65)" textAnchor="middle" letterSpacing="1">⬥ Risk Management ⬥</text>
               </svg>
               <div style={{fontSize:"12px",color:"var(--tx3)",fontFamily:"var(--fm)",letterSpacing:".5px",marginTop:"8px"}}>BFSI COVERAGE RADAR</div>
             </div>
