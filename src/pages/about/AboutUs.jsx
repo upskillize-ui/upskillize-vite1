@@ -60,7 +60,7 @@ const MANAGEMENT = [
     initials: 'PL', photo: null,
     name: 'Mrs. Pushpa Latha', role: 'Head of Legal & Compliance',
     bio: 'Seasoned legal professional overseeing regulatory compliance, governance frameworks, and institutional partnerships. Her meticulous approach ensures Upskillize operates with the highest standards of legal integrity across all educational and corporate engagements.',
-    linkedin: null,
+    linkedin: 'https://www.linkedin.com/in/pushpa-latha-24382a190/',
   },
   {
     initials: 'PV', photo: null,
