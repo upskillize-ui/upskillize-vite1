@@ -60,7 +60,7 @@ const MANAGEMENT = [
     initials: 'PL', photo: null,
     name: 'Mrs. Pushpa Latha', role: 'Head of Legal & Compliance',
     bio: 'Seasoned legal professional overseeing regulatory compliance, governance frameworks, and institutional partnerships. Her meticulous approach ensures Upskillize operates with the highest standards of legal integrity across all educational and corporate engagements.',
-    linkedin: null,
+    linkedin: 'https://www.linkedin.com/in/pushpa-latha-24382a190/',
   },
   {
     initials: 'PV', photo: null,
@@ -71,9 +71,9 @@ const MANAGEMENT = [
 ];
 
 const TECHNICAL = [
-  { initials: 'PP', photo: '/images/technicalIMG/PP.jpeg', name: 'Priyadarshini Pradhan', role: 'Technical Team', linkedin: 'https://www.linkedin.com/in/priyadarshini-pradhan-7a9a62287' },
-  { initials: 'RK', photo: '/images/technicalIMG/RK.jpeg', name: 'Ranjana Kumari',        role: 'Technical Team', linkedin: 'https://www.linkedin.com/in/ranjana-kumari-109386216/' },
-  { initials: 'HS', photo: '/images/technicalIMG/SP.jpeg', name: 'Haritha S P',           role: 'Technical Team', linkedin: 'https://www.linkedin.com/in/haritha-s-p-79bb1527a' },
+  { initials: 'PP', photo: '/images/technicalIMG/PP.jpeg', name: 'Priyadarshini Pradhan', role: 'Full Stack Developer',              linkedin: 'https://www.linkedin.com/in/priyadarshini-pradhan-7a9a62287' },
+  { initials: 'RK', photo: '/images/technicalIMG/RK.jpeg', name: 'Ranjana Kumari',        role: 'Agentic AI Developer',             linkedin: 'https://www.linkedin.com/in/ranjana-kumari-109386216/' },
+  { initials: 'HS', photo: '/images/technicalIMG/SP.jpeg', name: 'Haritha S P',           role: 'Content Creation &\nProduct Management', linkedin: 'https://www.linkedin.com/in/haritha-s-p-79bb1527a' },
 ];
 
 /* ─────────────────────────────────────────
@@ -199,7 +199,7 @@ const About = () => {
             united by a single purpose: bridging academia and real-world excellence.
           </p>
           <div className="aup-hero-stats">
-            <div className="stat-item"><span className="stat-num">50+</span><span className="stat-label">Industry Experts</span></div>
+            <div className="stat-item"><span className="stat-num">12</span><span className="stat-label">Industry Experts</span></div>
             <div className="stat-divider" />
             <div className="stat-item"><span className="stat-num">5</span><span className="stat-label">Advisory Board Members</span></div>
             <div className="stat-divider" />
@@ -677,12 +677,16 @@ const styles = `
 .tech-row {
   display: flex;
   justify-content: center;
+  align-items: stretch;
   gap: 3rem;
   flex-wrap: wrap;
 }
 .tech-card {
   text-align: center;
   transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .tech-card:hover { transform: translateY(-6px); }
 .tech-avatar {
@@ -700,7 +704,14 @@ const styles = `
 .tech-photo { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
 .tech-initials { font-family: var(--font-serif); font-size: 2rem; font-weight: 700; color: var(--blue-300); }
 .tech-name { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 0.3rem; }
-.tech-role { font-size: 0.8rem; color: var(--white-50); letter-spacing: 0.5px; text-transform: uppercase; font-weight: 600; margin-bottom: 0.75rem; }
+.tech-role {
+  font-size: 0.78rem; color: var(--white-50); letter-spacing: 0.3px;
+  font-weight: 600; margin-bottom: 0.75rem;
+  min-height: 2.4rem;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; line-height: 1.5;
+  white-space: pre-line;
+}
 .tech-link {
   display: inline-flex; align-items: center; gap: 0.4rem;
   color: var(--blue-300); text-decoration: none;
@@ -709,6 +720,8 @@ const styles = `
   border: 1.5px solid rgba(78,154,241,0.35);
   border-radius: var(--radius-sm);
   transition: var(--transition);
+  white-space: nowrap;
+  margin-top: auto;
 }
 .tech-link:hover { background: var(--blue-400); color: var(--white); border-color: var(--blue-400); }
 
