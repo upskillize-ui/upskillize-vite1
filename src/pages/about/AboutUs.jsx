@@ -1,220 +1,303 @@
 import React, { useEffect } from 'react';
 
+/* ─────────────────────────────────────────
+   DATA
+───────────────────────────────────────── */
+
+const ADVISORS = [
+  {
+    initials: 'RG', photo: '/images/advisorsIMG/RG.jpg',
+    name: 'Ramesh Gupta', title: 'FinTech, Product & Dx Specialist',
+    bio: '22+ years of global financial services experience with senior leadership roles at Credit Suisse Singapore, Emirates NBD Dubai, FIS Solutions, and Oracle Financial Services. Expert in risk management, regulatory compliance, and digital transformation (SAFe 6.0, FRM, PABF — IIM Bangalore).',
+    linkedin: 'https://www.linkedin.com/in/krgupta/',
+  },
+  {
+    initials: 'SS', photo: '/images/advisorsIMG/SS.jpg',
+    name: 'Dr. Suresh A Shan', title: 'AICTE/BFSI/NAAC/NEP Expert | NBFC-CEO/CIO | AI & ESG Board Advisor',
+    bio: 'Holds 3 PhDs in Computer Science and 2 DBAs in IT Governance. Researcher with deep expertise in cybersecurity, technology adoption in rural India, and IT governance frameworks. Passionate entrepreneur, innovator, and mentor.',
+    linkedin: 'https://www.linkedin.com/in/assuresh/',
+  },
+  {
+    initials: 'SAM', photo: '/images/advisorsIMG/SAM.jpg',
+    name: 'Dr. Suresh A.M.', title: 'Founder & MD, Disciples India Educational Resources Pvt Ltd',
+    bio: 'Founder & Managing Director of Disciples India Group, Bengaluru — three organisations serving entrepreneurship, management & engineering students and higher educational institutions since September 2014.',
+    linkedin: 'https://www.linkedin.com/in/dr-suresh-a-m-59769829/',
+  },
+  {
+    initials: 'RV', photo: '/images/advisorsIMG/RV.jpg',
+    name: 'Rajendra Vemulapalli', title: 'Banking Technology & IT Strategy Expert',
+    bio: 'Accomplished banking technology professional with extensive experience in core banking systems, digital transformation, and enterprise architecture. Proven expertise in leading large-scale technology implementations across financial services in global markets.',
+    linkedin: 'https://www.linkedin.com/in/rajendra-vemulapalli-75031013/',
+  },
+  {
+    initials: 'PB', photo: '/images/advisorsIMG/PR.jpg',
+    name: 'Dr. PurnachandraRao B', title: 'DevOps, Cloud & Quantum Computing Expert',
+    bio: 'PhD in Computer Science with 20+ years bridging academic research and industry practice. Expert in DevOps architectures, cloud platforms, and Java technologies. Pioneering work in quantum computing algorithms, quantum cryptography, and quantum-inspired NLP.',
+    linkedin: 'https://www.linkedin.com/in/bobbepalli/',
+  },
+];
+
+const MANAGEMENT = [
+  {
+    initials: 'AA', photo: '/images/advisorsIMG/AA.jpg',
+    name: 'Amit Agrawal', role: 'Co-Founder & Chief Growth Officer',
+    bio: 'A visionary leader with extensive experience in driving business growth and building strategic partnerships across the EdTech and professional services landscape. His passion for industry-academia collaboration has been instrumental in establishing Upskillize\'s innovative B2B2C approach and forging partnerships with premier MBA institutions.',
+    linkedin: 'https://www.linkedin.com/in/amit-agrawal-5468021/',
+  },
+  {
+    initials: 'AK', photo: '/images/advisorsIMG/AK.jpg',
+    name: 'Alok Kumar', role: 'Business & Technology Executive',
+    bio: 'Distinguished leader with deep expertise in digital transformation, consulting, and strategic execution across BFSI, thought leadership, and technology sectors. Proven track record of driving innovation and delivering complex enterprise solutions that bridge business objectives with cutting-edge technology.',
+    linkedin: 'https://www.linkedin.com/in/alokkumar1978/',
+  },
+  {
+    initials: 'HS', photo: '/images/advisorsIMG/HS.jpg',
+    name: 'Hiren Shukla', role: 'Sales Director — India & Middle East',
+    bio: 'Accomplished global executive with deep expertise in product innovation, digital ecosystems, and enterprise-scale transformation. Decades of leadership across financial services and technology-driven organisations. Known for strategic foresight and cross-border execution excellence.',
+    linkedin: 'https://www.linkedin.com/in/shuklahiren/',
+  },
+  {
+    initials: 'PL', photo: null,
+    name: 'Mrs. Pushpa Latha', role: 'Head of Legal & Compliance',
+    bio: 'Seasoned legal professional overseeing regulatory compliance, governance frameworks, and institutional partnerships. Her meticulous approach ensures Upskillize operates with the highest standards of legal integrity across all educational and corporate engagements.',
+    linkedin: null,
+  },
+  {
+    initials: 'PV', photo: null,
+    name: 'Pavan', role: 'Chartered Accountant (CA)',
+    bio: 'A qualified Chartered Accountant responsible for financial strategy, audit compliance, and fiscal governance at Upskillize. His expertise ensures sound financial stewardship as the organisation scales its reach across India and beyond.',
+    linkedin: null,
+  },
+];
+
+const TECHNICAL = [
+  { initials: 'PP', photo: '/images/technicalIMG/PP.jpeg', name: 'Priyadarshini Pradhan', role: 'Technical Team', linkedin: 'https://www.linkedin.com/in/priyadarshini-pradhan-7a9a62287' },
+  { initials: 'RK', photo: '/images/technicalIMG/RK.jpeg', name: 'Ranjana Kumari',        role: 'Technical Team', linkedin: 'https://www.linkedin.com/in/ranjana-kumari-109386216/' },
+  { initials: 'HS', photo: '/images/technicalIMG/SP.jpeg', name: 'Haritha S P',           role: 'Technical Team', linkedin: 'https://www.linkedin.com/in/haritha-s-p-79bb1527a' },
+];
+
+/* ─────────────────────────────────────────
+   ICONS
+───────────────────────────────────────── */
+const LinkedInIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+  </svg>
+);
+
+/* ─────────────────────────────────────────
+   SUB-COMPONENTS
+───────────────────────────────────────── */
+
+const AdvisorCard = ({ initials, photo, name, title, bio, linkedin }, i) => {
+  const [imgErr, setImgErr] = React.useState(false);
+  const showImg = photo && !imgErr;
+  return (
+    <div className="adv-card" key={name} style={{ animationDelay: `${i * 0.1}s` }}>
+      <div className="adv-avatar-wrap">
+        {showImg
+          ? <img src={photo} alt={name} className="adv-avatar-photo" onError={() => setImgErr(true)} />
+          : <div className="adv-avatar-initials" style={{ display: 'flex' }}>{initials}</div>
+        }
+      </div>
+      <div className="adv-body">
+        <h3 className="adv-name">{name}</h3>
+        <p className="adv-title">{title}</p>
+        <p className="adv-bio">{bio}</p>
+        {linkedin && (
+          <a href={linkedin} target="_blank" rel="noopener noreferrer" className="adv-link">
+            <LinkedInIcon /> View Profile
+          </a>
+        )}
+      </div>
+    </div>
+  );
+};
+
+const MgmtCard = ({ initials, photo, name, role, bio, linkedin }, i) => {
+  const [imgErr, setImgErr] = React.useState(false);
+  const showImg = photo && !imgErr;
+  return (
+    <div className="mgmt-card" key={name} style={{ animationDelay: `${i * 0.1}s` }}>
+      <div className="mgmt-avatar-wrap">
+        {showImg
+          ? <img src={photo} alt={name} className="mgmt-photo" onError={() => setImgErr(true)} />
+          : <div className="mgmt-initials" style={{ display: 'flex' }}>{initials}</div>
+        }
+      </div>
+      <div className="mgmt-body">
+        <h3 className="mgmt-name">{name}</h3>
+        <p className="mgmt-role">{role}</p>
+        <p className="mgmt-bio">{bio}</p>
+        {linkedin ? (
+          <a href={linkedin} target="_blank" rel="noopener noreferrer" className="mgmt-link">
+            <LinkedInIcon /> LinkedIn
+          </a>
+        ) : null}
+      </div>
+    </div>
+  );
+};
+
+const TechCard = ({ initials, photo, name, role, linkedin }) => {
+  const [imgErr, setImgErr] = React.useState(false);
+  const showImg = photo && !imgErr;
+  return (
+    <div className="tech-card" key={name}>
+      <div className="tech-avatar">
+        {showImg
+          ? <img src={photo} alt={name} className="tech-photo" onError={() => setImgErr(true)} />
+          : <span className="tech-initials">{initials}</span>
+        }
+      </div>
+      <h4 className="tech-name">{name}</h4>
+      <p className="tech-role">{role}</p>
+      {linkedin && (
+        <a href={linkedin} target="_blank" rel="noopener noreferrer" className="tech-link">
+          <LinkedInIcon /> LinkedIn
+        </a>
+      )}
+    </div>
+  );
+};
+
+const SectionDivider = ({ label }) => (
+  <div className="divider-wrap">
+    <span className="divider-line" />
+    <span className="divider-label">{label}</span>
+    <span className="divider-line" />
+  </div>
+);
+
+/* ─────────────────────────────────────────
+   MAIN COMPONENT
+───────────────────────────────────────── */
 const About = () => {
   useEffect(() => {
-    const styleId = 'about-us-styles';
-    if (!document.getElementById(styleId)) {
-      const styleSheet = document.createElement('style');
-      styleSheet.id = styleId;
-      styleSheet.textContent = styles;
-      document.head.appendChild(styleSheet);
+    const id = 'about-us-styles';
+    if (!document.getElementById(id)) {
+      const el = document.createElement('style');
+      el.id = id;
+      el.textContent = styles;
+      document.head.appendChild(el);
     }
-    return () => {
-      const existingStyle = document.getElementById(styleId);
-      if (existingStyle) existingStyle.remove();
-    };
+    return () => { const s = document.getElementById(id); if (s) s.remove(); };
   }, []);
 
   return (
-    <div className="about-us-page">
+    <div className="aup">
 
-      {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-content">
-          <span className="hero-tag">About Upskillize</span>
-          <h1>Meet the Minds Behind<br/>Your Success</h1>
-          <p className="hero-subtitle">
-            Industry veterans and thought leaders dedicated to bridging the gap between 
-            academic excellence and real-world industry expertise.
+      {/* ── HERO ── */}
+      <section className="aup-hero">
+        <div className="aup-hero-glow" />
+        <div className="aup-hero-dots" />
+        <div className="aup-hero-content">
+          <span className="aup-chip">About Upskillize</span>
+          <h1 className="aup-hero-h1">Meet the Minds<br />Behind Your Success</h1>
+          <p className="aup-hero-sub">
+            Industry veterans, legal & financial experts, and passionate educators —
+            united by a single purpose: bridging academia and real-world excellence.
           </p>
+          <div className="aup-hero-stats">
+            <div className="stat-item"><span className="stat-num">17</span><span className="stat-label">Industry Experts</span></div>
+            <div className="stat-divider" />
+            <div className="stat-item"><span className="stat-num">5</span><span className="stat-label">Advisory Board Members</span></div>
+            <div className="stat-divider" />
+            <div className="stat-item"><span className="stat-num">4+</span><span className="stat-label">Domains Covered</span></div>
+          </div>
         </div>
       </section>
 
-      {/* Mission Statement */}
-      <section className="mission-section">
-        <div className="mission-content">
-          <p className="mission-quote">
-            At Upskillize, we empower professionals and students with practical, 
-            industry-relevant skills in BFSI, AI Product Management, BI Tools, and GenAI. 
-            Our approach combines deep domain expertise with innovative educational methodologies 
+      {/* ── MISSION ── */}
+      <section className="aup-mission">
+        <div className="aup-mission-inner">
+          <div className="quote-mark">"</div>
+          <p className="aup-mission-text">
+            At Upskillize, we empower professionals and students with practical,
+            industry-relevant skills in BFSI, AI Product Management, BI Tools, and GenAI.
+            Our approach combines deep domain expertise with innovative educational methodologies
             to create transformative learning experiences that drive real career outcomes.
           </p>
         </div>
       </section>
 
-      {/* Leadership Section */}
-      <section className="section leadership-section">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-tag">Leadership</span>
-            <h2 className="section-title">Visionary Leadership</h2>
-            <p className="section-description">
-              Guiding Upskillize with strategic vision and extensive industry experience
+      {/* ── ADVISORY BOARD ── */}
+      <section className="aup-section">
+        <div className="aup-container">
+          <SectionDivider label="Guiding Vision" />
+          <div className="aup-section-head">
+            <h2 className="aup-section-title">Advisory Board</h2>
+            <p className="aup-section-desc">
+              Distinguished thought leaders providing strategic direction and deep domain mentorship
             </p>
           </div>
-
-          {/* One card per row — image LEFT, content RIGHT */}
-          <div className="leadership-stack">
-
-            {/* Card 1 — Amit Agrawal */}
-            <div className="leader-card">
-              <div className="leader-image-wrapper">
-                <img
-                  src="/images/advisorsIMG/AA.jpg"
-                  alt="Amit Agrawal"
-                  className="leader-photo"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.nextElementSibling.style.display = 'flex';
-                  }}
-                />
-                <div className="leader-initials" style={{ display: 'none' }}>AA</div>
-              </div>
-              <div className="leader-content">
-                <h3 className="leader-name">Amit Agrawal</h3>
-                <p className="leader-role">Co-Founder & Chief Growth Officer (CGO)</p>
-                <p className="leader-bio" style={{ textAlign: "justify" }}>
-                  A visionary leader with extensive experience in driving business growth and 
-                  building strategic partnerships across the EdTech and professional services landscape. 
-                  Amit brings unparalleled expertise in sales strategy, client relationship management, 
-                  and scaling business models. His passion for industry-academia collaboration has been 
-                  instrumental in establishing Upskillize's innovative B2B2C approach and forging partnerships 
-                  with premier MBA institutions to deliver cutting-edge professional education.
-                </p>
-                <a
-                  href="https://www.linkedin.com/in/amit-agrawal-5468021/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="linkedin-btn"
-                >
-                  <LinkedInIcon />
-                  Connect on LinkedIn
-                </a>
-              </div>
-            </div>
-
-            {/* Card 2 — Hiren Shukla */}
-            <div className="leader-card">
-              <div className="leader-image-wrapper">
-                <img
-                  src="/images/advisorsIMG/HS.jpg"
-                  alt="Hiren Shukla"
-                  className="leader-photo"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.nextElementSibling.style.display = 'flex';
-                  }}
-                />
-                <div className="leader-initials" style={{ display: 'none' }}>HS</div>
-              </div>
-              <div className="leader-content">
-                <h3 className="leader-name">Hiren Shukla</h3>
-                <p className="leader-role">Sales Director, India & Middle East</p>
-                <p className="leader-bio" style={{ textAlign: "justify" }}>
-                  An accomplished global executive with deep expertise in product innovation, 
-                  digital ecosystems, and enterprise-scale transformation. Hiren brings decades of leadership 
-                  experience across financial services and technology-driven organizations, where he has 
-                  successfully architected growth strategies, modernized operating models, and delivered 
-                  customer-centric digital solutions. Known for his strategic foresight and execution 
-                  excellence, he has led cross-border teams and complex initiatives that drive measurable 
-                  business impact. His commitment to mentoring professionals and advancing practical 
-                  industry-aligned learning makes him a valuable strategic advisor to Upskillize's 
-                  mission of shaping next-generation leaders.
-                </p>
-                <a
-                  href="https://www.linkedin.com/in/shuklahiren/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="linkedin-btn"
-                >
-                  <LinkedInIcon />
-                  Connect on LinkedIn
-                </a>
-              </div>
-            </div>
-
+          <div className="adv-grid">
+            {ADVISORS.map((a, i) => AdvisorCard(a, i))}
           </div>
         </div>
       </section>
 
-      {/* Advisors & Mentors Section */}
-      <section className="section">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-tag">Our Mentors</span>
-            <h2 className="section-title">Advisors & Mentors</h2>
-            <p className="section-description">
-              Distinguished industry experts providing strategic guidance and mentorship
+      {/* ── MANAGEMENT TEAM ── */}
+      <section className="aup-section aup-section--alt">
+        <div className="aup-container">
+          <SectionDivider label="Core Leadership" />
+          <div className="aup-section-head">
+            <h2 className="aup-section-title">Management Team</h2>
+            <p className="aup-section-desc">
+              The driving force behind Upskillize — combining growth, technology, legal, and financial expertise
             </p>
           </div>
-
-          <div className="advisors-grid">
-            {/*<AdvisorCard
-              initials="NP"
-              photo="/images/advisorsIMG/NP.jpg"
-              name="Dr. Nirakar Pradhan"
-              title="PhD, PRM, CFA, FRM"
-              bio="30+ years of extensive leadership in the financial sector with expertise in investment management and risk. Former CIO at Future Generali India Life Insurance and CEO of PRMIA. Independent Director at Finance Industry Development Council (FIDC). Recognized thought leader in risk management and capital markets."
-              linkedin="https://www.linkedin.com/in/drnirakar/"
-              /> */}
-            <AdvisorCard
-              initials="RG"
-              photo="/images/advisorsIMG/RG.jpg"
-              name="Ramesh Gupta"
-              title="FinTech, Product & Dx Specialist"
-              bio="22+ years of global financial services experience with senior leadership roles at Credit Suisse Singapore, Emirates NBD Dubai, FIS Solutions, and Oracle Financial Services. Expert in risk management, regulatory compliance, and digital transformation with certifications including SAFe 6.0, FRM, and PABF from IIM Bangalore."
-              linkedin="https://www.linkedin.com/in/krgupta/"
-            />
-            <AdvisorCard
-              initials="SS"
-              photo="/images/advisorsIMG/SS.jpg"
-              name="Dr. Suresh A Shan"
-              title="AICTE/BFSI/NAAC/NEP Expert | NBFC-CEO/CIO | AI & ESG Board Advisor"
-              bio="Dr. Suresh A Shan holds 3 Doctorates of Philosophy in Computer Science and 2 DBAs in IT Governance. Academic and industry researcher with deep expertise in cybersecurity, technology behaviors in rural India, and IT governance frameworks. Passionate entrepreneur, innovator, mentor, and researcher."
-              linkedin="https://www.linkedin.com/in/assuresh/"
-            />
-            <AdvisorCard
-              initials="SAM"
-              photo="/images/advisorsIMG/SAM.jpg"
-              name="Dr. Suresh A.M."
-              title="Founder & Managing Director, Disciples India Educational Resources Pvt Ltd"
-              bio="Currently engaged as Founder & Managing Director of Disciples India Group, Bengaluru — consisting of three organizations serving entrepreneurship, management & engineering students and higher educational institutions since September 2014."
-              linkedin="https://www.linkedin.com/in/dr-suresh-a-m-59769829/"
-            />
-            <AdvisorCard
-              initials="AK"
-              photo="/images/advisorsIMG/AK.jpg"
-              name="Alok Kumar"
-              title="Business & Technology Executive"
-              bio="Distinguished business and technology leader with deep expertise in digital transformation, consulting, and strategic execution across BFSI, thought leadership, and technology sectors. Proven track record of driving innovation and delivering complex enterprise solutions that bridge business objectives with cutting-edge technology."
-              linkedin="https://www.linkedin.com/in/alokkumar1978/"
-            />
-            <AdvisorCard
-              initials="RV"
-              photo="/images/advisorsIMG/RV.jpg"
-              name="Rajendra Vemulapalli"
-              title="Banking Technology & IT Strategy Expert"
-              bio="Accomplished banking technology professional with extensive experience in core banking systems, digital transformation, and enterprise architecture. Proven expertise in leading large-scale technology implementations and driving innovation across financial services in global markets."
-              linkedin="https://www.linkedin.com/in/rajendra-vemulapalli-75031013/"
-            />
-            <AdvisorCard
-              initials="PB"
-              photo="/images/advisorsIMG/PR.jpg"
-              name="Dr. PurnachandraRao B"
-              title="DevOps, Cloud and Quantum Computing Expert"
-              bio="Ph.D. in Computer Science with 20+ years bridging academic research and industry practice. Expert in DevOps architectures, cloud platforms, and Java technologies. Pioneering work in quantum computing algorithms, quantum cryptography, and quantum-inspired approaches to natural language processing and drug discovery."
-              linkedin="https://www.linkedin.com/in/bobbepalli/"
-            />
+          <div className="mgmt-grid">
+            {MANAGEMENT.map((m, i) => MgmtCard(m, i))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="cta-section">
-        <div className="cta-content">
-          <h2 className="cta-title">Ready to Transform Your Career?</h2>
-          <p className="cta-subtitle">Join NextGen professionals advancing their skills with Upskillize</p>
-          <a href="/courses" className="cta-button">Explore Our Programs</a>
+      {/* ── INDUSTRY EXPERTS ── */}
+      <section className="aup-section aup-section--experts">
+        <div className="aup-container">
+          <SectionDivider label="Real-World Practitioners" />
+          <div className="aup-section-head">
+            <h2 className="aup-section-title">Our Industry Experts</h2>
+            <p className="aup-section-desc">
+              Practitioners from BFSI, FinTech, AI/ML, and enterprise domains who bring live industry context to every programme
+            </p>
+          </div>
+          <div className="experts-coming">
+            <div className="experts-icon">⚡</div>
+            <p className="experts-text">
+              Our curated panel of domain experts is continuously growing. Stay tuned as we bring aboard
+              more seasoned professionals to enrich your learning journey.
+            </p>
+            <a href="/courses" className="aup-btn-outline">Explore Our Programmes →</a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── TECHNICAL TEAM ── */}
+      <section className="aup-section aup-section--tech">
+        <div className="aup-container">
+          <SectionDivider label="Behind the Platform" />
+          <div className="aup-section-head">
+            <h2 className="aup-section-title">Technical Team</h2>
+            <p className="aup-section-desc">
+              The talented professionals keeping Upskillize's platform seamless and learner-first
+            </p>
+          </div>
+          <div className="tech-row">
+            {TECHNICAL.map(t => TechCard(t))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="aup-cta">
+        <div className="aup-cta-glow" />
+        <div className="aup-cta-content">
+          <span className="aup-chip aup-chip--gold">Start Today</span>
+          <h2 className="aup-cta-title">Ready to Transform Your Career?</h2>
+          <p className="aup-cta-sub">Join thousands of NextGen professionals advancing with Upskillize</p>
+          <a href="/courses" className="aup-cta-btn">Explore Our Programmes</a>
         </div>
       </section>
 
@@ -222,485 +305,471 @@ const About = () => {
   );
 };
 
-const AdvisorCard = ({ initials, name, title, bio, linkedin, photo }) => (
-  <div className="advisor-card">
-    <div className="advisor-image-wrapper">
-      {photo && (
-        <img
-          src={photo}
-          alt={name}
-          className="advisor-photo"
-          onError={(e) => {
-            e.target.style.display = 'none';
-            e.target.nextElementSibling.style.display = 'flex';
-          }}
-        />
-      )}
-      <div className="advisor-initials" style={{ display: photo ? 'none' : 'flex' }}>{initials}</div>
-    </div>
-    <div className="advisor-content">
-      <h3 className="advisor-name">{name}</h3>
-      <p className="advisor-title">{title}</p>
-      <p className="advisor-bio justify-text">{bio}</p>
-      <a href={linkedin} target="_blank" rel="noopener noreferrer" className="advisor-linkedin">
-        <LinkedInIcon />
-        View Profile
-      </a>
-    </div>
-  </div>
-);
-
-const LinkedInIcon = () => (
-  <svg className="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-  </svg>
-);
-
+/* ─────────────────────────────────────────
+   STYLES
+───────────────────────────────────────── */
 const styles = `
-@import url('https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700&family=Work+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* ── TOKENS ── */
+:root {
+  --navy-900: #060d1f;
+  --navy-800: #0d1a35;
+  --navy-700: #132240;
+  --navy-600: #1a2d52;
+  --navy-500: #1e3a6b;
+  --blue-400: #4e9af1;
+  --blue-300: #82bcff;
+  --gold:     #f0b429;
+  --gold-dim: rgba(240,180,41,0.15);
+  --white:    #ffffff;
+  --white-80: rgba(255,255,255,0.80);
+  --white-50: rgba(255,255,255,0.50);
+  --white-20: rgba(255,255,255,0.12);
+  --white-08: rgba(255,255,255,0.06);
+  --font-serif: 'Spectral', Georgia, serif;
+  --font-sans:  'DM Sans', system-ui, sans-serif;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+  --shadow-card: 0 12px 48px rgba(0,0,0,0.35);
+  --shadow-hover: 0 24px 64px rgba(0,0,0,0.45);
+  --transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+}
 
-.about-us-page {
+*,.aup *{margin:0;padding:0;box-sizing:border-box;}
+
+/* ── PAGE ── */
+.aup {
   width: 100%;
-  background: linear-gradient(to bottom right, #0f1729, #1a2847, #243452);
-  font-family: 'Work Sans', sans-serif;
-  color: white;
+  background: var(--navy-900);
+  font-family: var(--font-sans);
+  color: var(--white);
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* ── HERO ── */
-.hero {
-  background: linear-gradient(135deg, #0a1628 0%, #1a2d4a 50%, #1e3a5f 100%);
-  padding: 6rem 2rem 5rem;
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -50%; right: -20%;
-  width: 800px; height: 800px;
-  background: radial-gradient(circle, rgba(59,126,161,0.15) 0%, transparent 70%);
-  border-radius: 50%;
-}
-.hero-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-  animation: fadeInUp 0.8s ease-out;
-}
-.hero-tag {
+/* ── CHIP ── */
+.aup-chip {
   display: inline-block;
-  background: rgba(59,126,161,0.2);
-  color: white;
-  padding: 0.5rem 1.5rem;
+  background: var(--white-08);
+  border: 1px solid var(--white-20);
+  color: var(--blue-300);
+  padding: 0.45rem 1.25rem;
   border-radius: 50px;
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  letter-spacing: 0.5px;
-  margin-bottom: 1.5rem;
-  border: 1px solid rgba(96,165,250,0.30);
-}
-.hero h1 {
-  font-family: 'Spectral', serif;
-  font-size: 4rem;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
-}
-.hero-subtitle {
-  font-size: 1.4rem;
-  color: rgba(255,255,255,0.85);
-  max-width: 700px;
-  line-height: 1.8;
-}
-
-/* ── MISSION ── */
-.mission-section {
-  background: linear-gradient(135deg, #0a1628, #1a2d4a);
-  color: white;
-  padding: 5rem 2rem;
-  position: relative;
-  overflow: hidden;
-}
-.mission-section::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  background: repeating-linear-gradient(45deg, transparent, transparent 100px, rgba(255,255,255,0.02) 100px, rgba(255,255,255,0.02) 200px);
-}
-.mission-content {
-  max-width: 900px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-}
-.mission-quote {
-  font-family: 'Spectral', serif;
-  font-size: 2rem;
-  font-weight: 600;
-  line-height: 1.8;
-  text-align: center;
-  position: relative;
-  padding: 2rem 3rem;
-}
-.mission-quote::before { content: '"'; font-family:'Spectral',serif; font-size:5rem; color:rgba(255,255,255,0.3); position:absolute; top:0; left:0; }
-.mission-quote::after  { content: '"'; font-family:'Spectral',serif; font-size:5rem; color:rgba(255,255,255,0.3); position:absolute; bottom:-1rem; right:0; }
-
-/* ── SHARED SECTION ── */
-.section { padding: 5rem 0; }
-.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-.section-header { text-align: center; margin-bottom: 4rem; }
-.section-tag {
-  display: inline-block;
-  color: #60a5fa;
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 1.5px;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-.section-title {
-  font-family: 'Spectral', serif;
-  font-size: 3rem;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 1rem;
-}
-.section-description {
-  font-size: 1.2rem;
-  color: #d1d5db;
-  max-width: 700px;
-  margin: 0 auto;
-  line-height: 1.8;
-}
-.leadership-section {
-  background: linear-gradient(to right, rgba(14,23,41,0.8), rgba(26,45,74,0.8), rgba(30,58,95,0.8));
-}
-
-/* ══════════════════════════════════════════
-   LEADERSHIP CARDS — ONE PER ROW
-   Image: fixed 380px column on LEFT
-   Content: fills remaining space on RIGHT
-══════════════════════════════════════════ */
-.leadership-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
-
-.leader-card {
-  display: grid;
-  grid-template-columns: 380px 1fr;   /* ← image col fixed, content fills rest */
-  grid-template-rows: 1fr;            /* ← single row keeps them side-by-side */
-  min-height: 420px;
-  background: rgba(30,45,74,0.6);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(96,165,250,0.2);
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  animation: fadeInScale 0.8s ease-out;
-}
-.leader-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 30px 80px rgba(96,165,250,0.2);
-  border-color: rgba(96,165,250,0.5);
-}
-
-/* IMAGE — fills entire left column */
-.leader-image-wrapper {
-  position: relative;
-  width: 100%;          /* fills the 380px grid column */
-  height: 100%;         /* stretches to match content height */
-  min-height: 420px;
-  background: linear-gradient(135deg, #0a1628, #1a2d4a);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.leader-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;          /* fills box, crops neatly */
-  object-position: center top; /* keeps face at top */
-  display: block;
-}
-.leader-initials {
-  font-family: 'Spectral', serif;
-  font-size: 7rem;
-  font-weight: 700;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: 2;
-}
-
-/* CONTENT — right column */
-.leader-content {
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0;
-}
-.leader-name {
-  font-family: 'Spectral', serif;
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 0.5rem;
-}
-.leader-role {
-  font-size: 1.15rem;
-  color: #60a5fa;
-  font-weight: 600;
   margin-bottom: 1.5rem;
 }
-.leader-bio {
-  font-size: 1.05rem;
-  color: #d1d5db;
-  line-height: 1.9;
-  margin-bottom: 2rem;
-  flex: 1;
-}
-.linkedin-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  background: #3b82f6;
-  color: white;
-  text-decoration: none;
-  padding: 0.9rem 1.8rem;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  width: fit-content;
-  box-shadow: 0 4px 15px rgba(59,130,246,0.3);
-}
-.linkedin-btn:hover {
-  background: #FFD700;
-  color: #111;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(59,130,246,0.4);
-}
+.aup-chip--gold { color: var(--gold); border-color: rgba(240,180,41,0.4); background: var(--gold-dim); }
 
-/* ── ADVISORS GRID ── */
-.advisors-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 2.5rem;
-  margin-top: 3rem;
-}
-.advisor-card {
-  background: rgba(30,45,74,0.6);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(96,165,250,0.2);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-  transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
-  animation: fadeInUp 0.6s ease-out backwards;
-}
-.justify-text {
-  text-align: justify;
-  line-height: 1.7;
-}
-.advisor-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 60px rgba(96,165,250,0.2);
-  border-color: #60a5fa;
-}
-.advisor-image-wrapper {
+/* ────────────────────────
+   HERO
+──────────────────────── */
+.aup-hero {
   position: relative;
-  width: 100%;
-  height: 300px;
+  background: linear-gradient(150deg, var(--navy-900) 0%, var(--navy-700) 60%, #1a3060 100%);
+  padding: 7rem 2rem 5.5rem;
   overflow: hidden;
-  background: linear-gradient(135deg, #0a1628, #1a2d4a);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
-.advisor-image-wrapper::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 35%;
-  background: linear-gradient(to top, rgba(14,23,41,0.7), transparent);
-  z-index: 1;
+.aup-hero-glow {
+  position: absolute; top: -30%; right: -15%;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(78,154,241,0.12) 0%, transparent 65%);
+  border-radius: 50%; pointer-events: none;
+}
+.aup-hero-dots {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 36px 36px;
   pointer-events: none;
 }
-.advisor-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
+.aup-hero-content {
+  position: relative; z-index: 2;
+  max-width: 820px; margin: 0 auto;
+  animation: fadeUp 0.9s ease-out;
 }
-.advisor-initials {
-  font-family: 'Spectral', serif;
-  font-size: 5rem;
+.aup-hero-h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.6rem, 5vw, 4.4rem);
   font-weight: 700;
-  color: white;
+  line-height: 1.18;
+  color: var(--white);
+  margin-bottom: 1.4rem;
+}
+.aup-hero-sub {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--white-80);
+  max-width: 640px;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+}
+.aup-hero-stats {
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
+  gap: 2.5rem;
+  flex-wrap: wrap;
 }
-.advisor-content { padding: 2rem; }
-.advisor-name {
-  font-family: 'Spectral', serif;
-  font-size: 1.5rem;
+.stat-item { display: flex; flex-direction: column; gap: 0.2rem; }
+.stat-num {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
   font-weight: 700;
-  color: white;
-  margin-bottom: 0.4rem;
+  color: var(--gold);
+  line-height: 1;
 }
-.advisor-title {
-  font-size: 0.95rem;
-  color: #60a5fa;
-  font-weight: 600;
-  margin-bottom: 1.1rem;
-  line-height: 1.5;
-}
-.advisor-bio {
-  font-size: 0.9rem;
-  color: #d1d5db;
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-}
-.advisor-linkedin {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  color: #60a5fa;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-  padding: 0.65rem 1.4rem;
-  border: 2px solid #60a5fa;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-}
-.advisor-linkedin:hover {
-  background: #60a5fa;
-  color: white;
-  transform: translateX(4px);
-}
-.linkedin-icon { width: 20px; height: 20px; }
+.stat-label { font-size: 0.82rem; color: var(--white-50); font-weight: 500; letter-spacing: 0.3px; }
+.stat-divider { width: 1px; height: 3rem; background: var(--white-20); }
 
-/* ── CTA ── */
-.cta-section {
-  background: linear-gradient(to right, rgba(14,23,41,0.9), rgba(26,45,74,0.9), rgba(30,58,95,0.9));
+/* ────────────────────────
+   MISSION
+──────────────────────── */
+.aup-mission {
+  background: linear-gradient(135deg, var(--navy-800), var(--navy-700));
   padding: 5rem 2rem;
-  text-align: center;
   position: relative;
   overflow: hidden;
 }
-.cta-section::before {
+.aup-mission::before {
   content: '';
-  position: absolute;
-  top: -50%; right: -20%;
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(96,165,250,0.15) 0%, transparent 70%);
-  border-radius: 50%;
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(45deg, transparent, transparent 80px, rgba(255,255,255,0.015) 80px, rgba(255,255,255,0.015) 160px);
 }
-.cta-content { position: relative; z-index: 2; }
-.cta-title {
-  font-family: 'Spectral', serif;
-  font-size: 3rem;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 1.5rem;
+.aup-mission-inner {
+  max-width: 860px; margin: 0 auto;
+  position: relative; z-index: 2;
+  border-left: 3px solid var(--gold);
+  padding-left: 3rem;
 }
-.cta-subtitle { font-size: 1.3rem; color: #d1d5db; margin-bottom: 2.5rem; }
-.cta-button {
-  display: inline-block;
-  background: #3b82f6;
-  color: white;
-  padding: 1.25rem 3rem;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 8px 30px rgba(59,130,246,0.3);
+.quote-mark {
+  font-family: var(--font-serif);
+  font-size: 6rem;
+  color: var(--gold);
+  opacity: 0.4;
+  line-height: 1;
+  margin-bottom: -1rem;
 }
-.cta-button:hover {
-  transform: translateY(-4px);
-  background: #FFD700;
-  color: #111;
-  box-shadow: 0 12px 40px rgba(59,130,246,0.4);
+.aup-mission-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+  font-weight: 400;
+  line-height: 1.85;
+  color: var(--white-80);
+  text-align: left;
 }
 
-/* ── ANIMATIONS ── */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(40px); }
+/* ────────────────────────
+   SHARED SECTION
+──────────────────────── */
+.aup-section { padding: 6rem 0; }
+.aup-section--alt { background: linear-gradient(180deg, var(--navy-800) 0%, var(--navy-900) 100%); }
+.aup-section--experts { background: var(--navy-900); }
+.aup-section--tech { background: linear-gradient(180deg, var(--navy-800) 0%, var(--navy-900) 100%); }
+.aup-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+/* DIVIDER */
+.divider-wrap {
+  display: flex; align-items: center; gap: 1.2rem;
+  margin-bottom: 2.5rem;
+}
+.divider-line { flex: 1; height: 1px; background: var(--white-20); }
+.divider-label {
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--blue-300);
+  white-space: nowrap;
+}
+
+/* SECTION HEADER */
+.aup-section-head { text-align: center; margin-bottom: 4rem; }
+.aup-section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+.aup-section-desc {
+  font-size: 1.1rem; color: var(--white-50); max-width: 620px;
+  margin: 0 auto; line-height: 1.8;
+}
+
+/* ────────────────────────
+   ADVISOR CARDS — compact circular avatar (same as mgmt)
+──────────────────────── */
+.adv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+.adv-card {
+  background: var(--navy-700);
+  border: 1px solid var(--white-20);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.5rem 1.5rem;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+  animation: fadeUp 0.7s ease-out backwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.adv-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(78,154,241,0.45);
+}
+/* Circular avatar */
+.adv-avatar-wrap {
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2.5px solid rgba(78,154,241,0.45);
+  background: linear-gradient(135deg, var(--navy-900), var(--navy-600));
+  flex-shrink: 0;
+  margin-bottom: 1.1rem;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+.adv-avatar-photo {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 15%; display: block;
+}
+.adv-avatar-initials {
+  font-family: var(--font-serif); font-size: 1.8rem; font-weight: 700;
+  color: var(--blue-300);
+  align-items: center; justify-content: center;
+  width: 100%; height: 100%;
+}
+.adv-body { display: flex; flex-direction: column; align-items: center; gap: 0; width: 100%; flex: 1; }
+.adv-name { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 0.3rem; line-height: 1.3; }
+.adv-title { font-size: 0.72rem; color: var(--gold); font-weight: 700; line-height: 1.4; margin-bottom: 0.85rem; text-transform: uppercase; letter-spacing: 0.3px; }
+.adv-bio { font-size: 0.82rem; color: var(--white-80); line-height: 1.75; flex: 1; margin-bottom: 1.1rem; text-align: center; }
+.adv-link {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  color: var(--blue-300); text-decoration: none;
+  font-weight: 600; font-size: 0.78rem;
+  padding: 0.45rem 1rem;
+  border: 1.5px solid rgba(78,154,241,0.4);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+.adv-link:hover { background: var(--blue-400); color: var(--white); border-color: var(--blue-400); }
+
+/* ────────────────────────
+   MANAGEMENT TEAM — compact vertical cards
+──────────────────────── */
+.mgmt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+.mgmt-card {
+  background: linear-gradient(160deg, rgba(30,58,107,0.65) 0%, rgba(13,26,53,0.85) 100%);
+  border: 1px solid rgba(240,180,41,0.2);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.5rem 1.5rem;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+  animation: fadeUp 0.7s ease-out backwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.mgmt-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(240,180,41,0.5);
+}
+
+/* Circular avatar */
+.mgmt-avatar-wrap {
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2.5px solid rgba(240,180,41,0.45);
+  background: linear-gradient(135deg, var(--navy-900), var(--navy-600));
+  flex-shrink: 0;
+  margin-bottom: 1.1rem;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+.mgmt-photo {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 15%; display: block;
+}
+.mgmt-initials {
+  font-family: var(--font-serif); font-size: 1.8rem; font-weight: 700;
+  color: var(--gold);
+  align-items: center; justify-content: center;
+  width: 100%; height: 100%;
+}
+.mgmt-body {
+  display: flex; flex-direction: column; align-items: center; gap: 0; width: 100%;
+}
+.mgmt-name {
+  font-family: var(--font-serif); font-size: 1.1rem; font-weight: 700;
+  color: var(--white); margin-bottom: 0.25rem; line-height: 1.3;
+}
+.mgmt-role {
+  font-size: 0.72rem; color: var(--gold); font-weight: 700;
+  letter-spacing: 0.5px; margin-bottom: 0.85rem;
+  text-transform: uppercase; line-height: 1.4;
+}
+.mgmt-bio {
+  font-size: 0.82rem; color: var(--white-80); line-height: 1.7;
+  margin-bottom: 1.1rem; text-align: center;
+}
+.mgmt-link {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  color: var(--blue-300); text-decoration: none;
+  font-weight: 600; font-size: 0.78rem;
+  padding: 0.45rem 1rem;
+  border: 1.5px solid rgba(78,154,241,0.35);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+.mgmt-link:hover { background: var(--blue-400); color: var(--white); border-color: var(--blue-400); }
+
+/* ────────────────────────
+   INDUSTRY EXPERTS
+──────────────────────── */
+.experts-coming {
+  text-align: center;
+  background: var(--white-08);
+  border: 1px dashed var(--white-20);
+  border-radius: var(--radius-lg);
+  padding: 4rem 3rem;
+  max-width: 700px; margin: 0 auto;
+}
+.experts-icon { font-size: 3rem; margin-bottom: 1.25rem; }
+.experts-text { font-size: 1.05rem; color: var(--white-80); line-height: 1.8; margin-bottom: 2rem; }
+.aup-btn-outline {
+  display: inline-block;
+  color: var(--gold); text-decoration: none; font-weight: 700; font-size: 0.95rem;
+  padding: 0.85rem 2.2rem;
+  border: 2px solid var(--gold);
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+}
+.aup-btn-outline:hover { background: var(--gold); color: var(--navy-900); transform: translateY(-3px); }
+
+/* ────────────────────────
+   TECHNICAL TEAM
+──────────────────────── */
+.tech-row {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.tech-card {
+  text-align: center;
+  transition: var(--transition);
+}
+.tech-card:hover { transform: translateY(-6px); }
+.tech-avatar {
+  width: 150px; height: 150px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy-500), var(--navy-700));
+  border: 2px solid rgba(78,154,241,0.35);
+  margin: 0 auto 1.1rem;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  transition: var(--transition);
+}
+.tech-card:hover .tech-avatar { border-color: var(--gold); box-shadow: 0 12px 40px rgba(240,180,41,0.2); }
+.tech-photo { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
+.tech-initials { font-family: var(--font-serif); font-size: 2rem; font-weight: 700; color: var(--blue-300); }
+.tech-name { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 0.3rem; }
+.tech-role { font-size: 0.8rem; color: var(--white-50); letter-spacing: 0.5px; text-transform: uppercase; font-weight: 600; margin-bottom: 0.75rem; }
+.tech-link {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  color: var(--blue-300); text-decoration: none;
+  font-weight: 600; font-size: 0.78rem;
+  padding: 0.4rem 0.9rem;
+  border: 1.5px solid rgba(78,154,241,0.35);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+.tech-link:hover { background: var(--blue-400); color: var(--white); border-color: var(--blue-400); }
+
+/* ────────────────────────
+   CTA
+──────────────────────── */
+.aup-cta {
+  position: relative; overflow: hidden;
+  background: linear-gradient(135deg, var(--navy-700), var(--navy-800));
+  padding: 7rem 2rem;
+  text-align: center;
+  border-top: 1px solid var(--white-20);
+}
+.aup-cta-glow {
+  position: absolute; top: -40%; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(240,180,41,0.1) 0%, transparent 65%);
+  border-radius: 50%; pointer-events: none;
+}
+.aup-cta-content { position: relative; z-index: 2; }
+.aup-cta-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700; color: var(--white); margin-bottom: 1.25rem;
+}
+.aup-cta-sub { font-size: 1.15rem; color: var(--white-80); margin-bottom: 2.5rem; }
+.aup-cta-btn {
+  display: inline-block;
+  background: var(--gold); color: var(--navy-900);
+  font-family: var(--font-sans); font-weight: 700; font-size: 1.05rem;
+  padding: 1.1rem 3rem; border-radius: var(--radius-md);
+  text-decoration: none; letter-spacing: 0.3px;
+  box-shadow: 0 8px 30px rgba(240,180,41,0.35);
+  transition: var(--transition);
+}
+.aup-cta-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(240,180,41,0.45);
+  background: #ffc940;
+}
+
+/* ────────────────────────
+   ANIMATIONS
+──────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-@keyframes fadeInScale {
-  from { opacity: 0; transform: scale(0.97); }
-  to   { opacity: 1; transform: scale(1); }
-}
-.advisor-card:nth-child(1) { animation-delay: 0.1s; }
-.advisor-card:nth-child(2) { animation-delay: 0.2s; }
-.advisor-card:nth-child(3) { animation-delay: 0.3s; }
-.advisor-card:nth-child(4) { animation-delay: 0.4s; }
-.advisor-card:nth-child(5) { animation-delay: 0.5s; }
-.advisor-card:nth-child(6) { animation-delay: 0.6s; }
-.advisor-card:nth-child(7) { animation-delay: 0.7s; }
+.adv-card:nth-child(1){animation-delay:0.05s;}
+.adv-card:nth-child(2){animation-delay:0.12s;}
+.adv-card:nth-child(3){animation-delay:0.19s;}
+.adv-card:nth-child(4){animation-delay:0.26s;}
+.adv-card:nth-child(5){animation-delay:0.33s;}
+.mgmt-card:nth-child(1){animation-delay:0.06s;}
+.mgmt-card:nth-child(2){animation-delay:0.14s;}
+.mgmt-card:nth-child(3){animation-delay:0.22s;}
+.mgmt-card:nth-child(4){animation-delay:0.30s;}
+.mgmt-card:nth-child(5){animation-delay:0.38s;}
 
-/* ── RESPONSIVE ── */
+/* ────────────────────────
+   RESPONSIVE
+──────────────────────── */
 @media (max-width: 900px) {
-  /* stack leader card vertically on tablets */
-  .leader-card {
-    grid-template-columns: 1fr;
-    grid-template-rows: 360px auto;
-    min-height: unset;
-  }
-  .leader-image-wrapper {
-    width: 100%;
-    height: 360px;
-    min-height: unset;
-  }
-  .leader-content { padding: 2.5rem 2rem; }
-  .leader-name { font-size: 2rem; }
+  .adv-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+  .mgmt-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
 }
-
-@media (max-width: 768px) {
-  .hero h1 { font-size: 2.8rem; }
-  .hero-subtitle { font-size: 1.2rem; }
-  .section-title { font-size: 2.2rem; }
-  .mission-quote { font-size: 1.5rem; padding: 1rem 1.5rem; }
-  .cta-title { font-size: 2.2rem; }
-  .advisors-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .leader-card {
-    grid-template-columns: 1fr;
-    grid-template-rows: 320px auto;
-  }
-  .leader-image-wrapper { height: 320px; min-height: unset; }
-}
-
-@media (max-width: 480px) {
-  .hero { padding: 4rem 1.5rem 3rem; }
-  .hero h1 { font-size: 2.2rem; }
-  .section { padding: 3rem 0; }
-  .leader-image-wrapper { height: 260px; }
-  .leader-content { padding: 1.5rem; }
-  .leader-name { font-size: 1.7rem; }
-  .leader-bio { font-size: 0.95rem; }
+@media (max-width: 640px) {
+  .aup-hero { padding: 5rem 1.5rem 4rem; }
+  .aup-hero-stats { gap: 1.5rem; }
+  .stat-num { font-size: 1.8rem; }
+  .aup-mission-inner { padding-left: 1.5rem; }
+  .aup-section { padding: 4rem 0; }
+  .adv-grid, .mgmt-grid { grid-template-columns: repeat(2, 1fr); }
+  .tech-row { gap: 2rem; }
+  .experts-coming { padding: 2.5rem 1.5rem; }
 }
 `;
 
