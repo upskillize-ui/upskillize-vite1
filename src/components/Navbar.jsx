@@ -420,7 +420,7 @@ export default function Navbar() {
                       <div className="nb-prog-section">
                         <span className="nb-prog-label">Two Years</span>
                         <div className="nb-prog-card">
-                          <a href="/courses/pgdfdb-2t" style={{ textDecoration:"none" }}>
+                          <a href="/courses/pgdfdb" style={{ textDecoration:"none" }}>
                           {/* CHANGE 2: taller thumb – nb-prog-thumb now 80px tall */}
                           <div className="nb-prog-thumb">
                             <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400" alt="PGDFDB" />
@@ -580,7 +580,7 @@ export default function Navbar() {
               <div className="mdiv" />
 
               <span className="ms">Two Years</span>
-              <a href="/courses/pgdfdb-2t" onClick={closeAll} className="msl" style={{ flexDirection:"column", alignItems:"flex-start", gap:".3rem" }}>
+              <a href="/courses/pgdfdb" onClick={closeAll} className="msl" style={{ flexDirection:"column", alignItems:"flex-start", gap:".3rem" }}>
                 <div style={{ display:"flex", alignItems:"center", gap:".4rem" }}>
                   <span style={{ background:"#CCFBF1", color:"#065F46", fontSize:".7rem", fontWeight:700, padding:".15rem .45rem", borderRadius:999 }}>PGDFDB</span>
                   PG Diploma in FinTech &amp; Digital Business

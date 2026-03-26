@@ -131,7 +131,7 @@ function App() {
             <Route path="/courses/threeyearscourse" element={<ThreeYearsCourse />} />
 
             {/* TWO YEARS TRIMESTER — both slugs point to same page */}
-            <Route path="/courses/pgdfdb-2t" element={<TwoYearsSemester />} />
+            <Route path="/courses/pgdfdb" element={<TwoYearsSemester />} />
 
             {/* BFSI INNOVATION LAB */}
             <Route path="/bfsiinnovationlab" element={<BFSIInnovationLab />} />
