@@ -60,7 +60,7 @@ const MANAGEMENT = [
     initials: 'PL', photo: null,
     name: 'Mrs. Pushpa Latha', role: 'Head of Legal & Compliance',
     bio: 'Seasoned legal professional overseeing regulatory compliance, governance frameworks, and institutional partnerships. Her meticulous approach ensures Upskillize operates with the highest standards of legal integrity across all educational and corporate engagements.',
-    linkedin: 'https://www.linkedin.com/in/pushpa-latha-24382a190/',
+    linkedin: null,
   },
   {
     initials: 'PV', photo: null,
@@ -199,7 +199,7 @@ const About = () => {
             united by a single purpose: bridging academia and real-world excellence.
           </p>
           <div className="aup-hero-stats">
-            <div className="stat-item"><span className="stat-num">17</span><span className="stat-label">Industry Experts</span></div>
+            <div className="stat-item"><span className="stat-num">50+</span><span className="stat-label">Industry Experts</span></div>
             <div className="stat-divider" />
             <div className="stat-item"><span className="stat-num">5</span><span className="stat-label">Advisory Board Members</span></div>
             <div className="stat-divider" />
@@ -263,34 +263,12 @@ const About = () => {
               Practitioners from BFSI, FinTech, AI/ML, and enterprise domains who bring live industry context to every programme
             </p>
           </div>
-
-          {/* Domain pills */}
-          <div className="exp-domains">
-            {['BFSI', 'FinTech', 'AI / ML', 'GenAI', 'Product Management', 'BI Tools', 'Risk & Compliance', 'Digital Banking'].map(d => (
-              <span key={d} className="exp-domain-pill">{d}</span>
-            ))}
-          </div>
-
-          {/* Placeholder cards */}
-          <div className="exp-grid">
-            {[1,2,3,4].map(n => (
-              <div key={n} className="exp-card">
-                <div className="exp-card-avatar">
-                  <span className="exp-card-icon">👤</span>
-                </div>
-                <div className="exp-card-body">
-                  <div className="exp-card-bar" />
-                  <div className="exp-card-bar exp-card-bar--short" />
-                  <div className="exp-card-bar exp-card-bar--xs" />
-                </div>
-                <span className="exp-coming-badge">Coming Soon</span>
-              </div>
-            ))}
-          </div>
-
-          {/* CTA strip */}
-          <div className="exp-cta-strip">
-            <p className="exp-cta-text">Our curated panel of domain experts is continuously growing.</p>
+          <div className="experts-coming">
+            <div className="experts-icon">⚡</div>
+            <p className="experts-text">
+              Our curated panel of domain experts is continuously growing. Stay tuned as we bring aboard
+              more seasoned professionals to enrich your learning journey.
+            </p>
             <a href="/courses" className="aup-btn-outline">Explore Our Programmes →</a>
           </div>
         </div>
@@ -672,75 +650,16 @@ const styles = `
 /* ────────────────────────
    INDUSTRY EXPERTS
 ──────────────────────── */
-.exp-domains {
-  display: flex; flex-wrap: wrap; gap: 0.65rem;
-  justify-content: center; margin-bottom: 3rem;
-}
-.exp-domain-pill {
-  display: inline-block;
-  background: rgba(78,154,241,0.1);
-  border: 1px solid rgba(78,154,241,0.3);
-  color: var(--blue-300);
-  padding: 0.4rem 1.1rem;
-  border-radius: 50px;
-  font-size: 0.82rem; font-weight: 600; letter-spacing: 0.3px;
-}
-.exp-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-}
-.exp-card {
-  position: relative;
-  background: var(--white-08);
-  border: 1px dashed rgba(78,154,241,0.25);
-  border-radius: var(--radius-lg);
-  padding: 2rem 1.5rem;
-  display: flex; flex-direction: column; align-items: center;
-  gap: 1.25rem; overflow: hidden;
-}
-.exp-card::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(78,154,241,0.04), transparent);
-  pointer-events: none;
-}
-.exp-card-avatar {
-  width: 80px; height: 80px; border-radius: 50%;
-  background: var(--white-08);
-  border: 2px dashed rgba(78,154,241,0.3);
-  display: flex; align-items: center; justify-content: center;
-}
-.exp-card-icon { font-size: 2rem; opacity: 0.35; }
-.exp-card-body { width: 100%; display: flex; flex-direction: column; gap: 0.5rem; align-items: center; }
-.exp-card-bar {
-  height: 10px; border-radius: 6px;
-  background: var(--white-20); width: 80%;
-  animation: shimmer 2s infinite;
-}
-.exp-card-bar--short { width: 55%; }
-.exp-card-bar--xs { width: 35%; height: 8px; }
-.exp-coming-badge {
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 1px;
-  text-transform: uppercase; color: var(--gold);
-  background: var(--gold-dim);
-  border: 1px solid rgba(240,180,41,0.3);
-  padding: 0.3rem 0.9rem; border-radius: 50px;
-}
-@keyframes shimmer {
-  0%, 100% { opacity: 0.4; }
-  50%       { opacity: 0.15; }
-}
-.exp-cta-strip {
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 1.5rem; flex-wrap: wrap;
+.experts-coming {
+  text-align: center;
   background: var(--white-08);
   border: 1px solid var(--white-20);
   border-radius: var(--radius-lg);
-  padding: 1.5rem 2.5rem;
+  padding: 4rem 3rem;
+  max-width: 700px; margin: 0 auto;
 }
-.exp-cta-text { font-size: 1rem; color: var(--white-80); line-height: 1.6; }
+.experts-icon { font-size: 3rem; margin-bottom: 1.25rem; }
+.experts-text { font-size: 1.05rem; color: var(--white-80); line-height: 1.8; margin-bottom: 2rem; }
 .aup-btn-outline {
   display: inline-block;
   color: var(--gold); text-decoration: none; font-weight: 700; font-size: 0.95rem;
