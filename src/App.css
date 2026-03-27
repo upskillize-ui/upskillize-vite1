@@ -416,3 +416,45 @@ img, video {
   width: 100%;
   padding: 0 16px;
 }
+
+/* ✅ MAIN APP LAYOUT */
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ✅ SECTION */
+.section {
+  width: 100%;
+  padding: 40px 20px;
+}
+
+/* ✅ CENTER CONTENT */
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ✅ GRID */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* ✅ CARD */
+.card {
+  padding: 20px;
+  border-radius: 10px;
+  background: #fff;
+}
+
+/* ✅ FULL SCREEN SECTION */
+.full-screen {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -70,7 +70,7 @@ function App() {
         <Navbar />
 
         {/* MAIN CONTENT */}
-        <main className="flex-1 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <main className="flex-1 w-full">
           <Routes>
             {/* MAIN PAGES */}
             <Route path="/" element={<Home />} />

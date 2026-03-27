@@ -172,9 +172,9 @@ export default function Navbar() {
 
         /* ── NAV BAR ── */
         .nb{position:fixed;top:0;left:0;right:0;z-index:9999}
-        .nb-bar{background:var(--c-bg);border-bottom:1px solid transparent;transition:border-color .25s,box-shadow .25s}
+        .nb-bar{background:var(--c-bg);border-bottom:1px solid transparent;transition:border-color .25s,box-shadow .25s,backdrop-filter: blur(8px);}
         .nb-bar.scrolled{border-color:var(--c-border);box-shadow:0 2px 14px rgba(0,0,0,.07)}
-        .nb-inner{max-width:1400px;margin:0 auto;padding:0 1rem;height:56px;width:100%;display:flex;align-items:center}
+        .nb-inner{ width:100%;margin:0 auto;padding:0 1rem;height:56px;width:100%;display:flex;align-items:center;justify-content:space-between;}
         .nb-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;margin-right:1rem}
         .nb-logo img{height:36px;width:auto;display:block}
         .nb-logo-text{font-size:1.1rem;font-weight:800;color:var(--c-indigo);display:none}
@@ -193,7 +193,7 @@ export default function Navbar() {
         .nbd-menu{position:absolute;top:calc(100% + 8px);left:0;background:var(--c-bg);
           border:1px solid var(--c-border);border-radius:.75rem;box-shadow:var(--shadow);
           min-width:190px;padding:.375rem 0;opacity:0;visibility:hidden;
-          transform:translateY(-6px);transition:all .18s ease;z-index:10000}
+          transform:translateY(-6px);transition:all .18s ease;z-index:99999;}
         .nbd-menu.r{left:auto;right:0}
         .nbd:hover .nbd-menu{opacity:1;visibility:visible;transform:translateY(0)}
         .nbd-item{display:block;padding:.6rem 1rem;font-size:.875rem;font-weight:500;
@@ -203,13 +203,13 @@ export default function Navbar() {
         /* ── HIGHER EDUCATION MEGA PANEL ── */
         .nb-ind{position:relative}
         .nb-panel{
-          position:absolute;top:calc(100% + 6px);left:-20px;
+          position:absolute;top:calc(100% + 6px);left:0;
           background:transparent;
-          width:min(580px, 95vw);
+          width:min(700px, 95vw);
           display:grid;grid-template-columns:192px 1fr;column-gap:8px;
           align-items:stretch;
           opacity:0;visibility:hidden;transform:translateY(-8px);
-          transition:all .2s cubic-bezier(.4,0,.2,1);z-index:10001;
+          transition:all .2s cubic-bezier(.4,0,.2,1);z-index:99999;
         }
         .nb-panel.open{opacity:1;visibility:visible;transform:translateY(0)}
 
@@ -307,7 +307,7 @@ export default function Navbar() {
         .nb-ham{display:flex;padding:.5rem;border:none;background:transparent;
           cursor:pointer;color:var(--c-text);border-radius:.375rem;transition:background .15s}
         .nb-ham:hover{background:#f3f4f6}
-        .nb-mob{position:fixed;top:56px;left:0;right:0;height:calc(100vh - 56px);background:#fff;
+        .nb-mob{position:fixed;top:0;left:0;right:0;height:100vh;background:#fff;padding-top:56px;
           overflow-y:auto;transform:translateX(100%);
           transition:transform .3s cubic-bezier(.4,0,.2,1);z-index:10000}
         .nb-mob.open{transform:translateX(0)}
@@ -337,15 +337,23 @@ export default function Navbar() {
         .msl:hover{background:var(--c-hover-bg);color:var(--c-hover)}
         .mdiv{height:1px;background:#f3f4f6;margin:.375rem 0}
         .nb-sp{height:56px}
-        @media(min-width:768px){.nb-sp{height:64px}}
+        @media(min-width:768px){.nb-sp{ height:56px}}
         @media(max-width:767px){.nb-inner{padding:0 .75rem}.nb-logo img{height:32px}}
         @media(max-width:480px){.nb-logo img{height:28px}.nb-inner{padding:0 .5rem}}
+        
+  .nb-left, .nb-right {
+  min-width: 0;
+}
+
+.nbb {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
       `}</style>
 
       <div className="nb">
         <header className={`nb-bar${isScrolled ? " scrolled" : ""}`}>
           <div className="nb-inner">
-
             {/* Logo */}
             <Link to="/" className="nb-logo" onClick={closeAll}>
               <img
@@ -524,7 +532,7 @@ export default function Navbar() {
                     <a href="/about/eco-pro-lms" className="nbd-item">EcoPro LMS</a>
                   </div>
                 </div>
-                <Link to="/contact" className="ml">Contact Us</Link>
+                <Link to="/contact" className="nbb">Contact Us</Link>
               </div>
             </div>
 

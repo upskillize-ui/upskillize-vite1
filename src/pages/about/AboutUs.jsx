@@ -504,9 +504,9 @@ const styles = `
   gap: 1.5rem;
 }
 .adv-card:last-child:nth-child(4n+1) {
-  grid-column: 1 / -1;
-  max-width: calc(25% - 1.2rem);
-  margin: 0 auto;
+  grid-column: unset;
+  max-width: unset;
+  margin: 0;
 }
 .adv-card {
   background: var(--navy-700);
@@ -549,7 +549,7 @@ const styles = `
   width: 100%; height: 100%;
 }
 .adv-body { display: flex; flex-direction: column; align-items: center; gap: 0; width: 100%; flex: 1; }
-.adv-name { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 0.3rem; line-height: 1.3; }
+.adv-name { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 0.3rem; line-height: 1.3; overflow-wrap: anywhere; }
 .adv-title { font-size: 0.72rem; color: var(--gold); font-weight: 700; line-height: 1.4; margin-bottom: 0.85rem; text-transform: uppercase; letter-spacing: 0.3px; }
 .adv-bio { font-size: 0.82rem; color: var(--white-80); line-height: 1.75; flex: 1; margin-bottom: 1.1rem; text-align: center; }
 .adv-link {
@@ -615,7 +615,7 @@ const styles = `
 .mgmt-body {
   display: flex; flex-direction: column; align-items: center; gap: 0; width: 100%; flex: 1;
 }
-.mgmt-name {
+.mgmt-name { overflow-wrap: anywhere;
   font-family: var(--font-serif); font-size: 1.1rem; font-weight: 700;
   color: var(--white); margin-bottom: 0.25rem; line-height: 1.3;
 }
@@ -642,9 +642,9 @@ const styles = `
 .mgmt-link:hover { background: var(--blue-400); color: var(--white); border-color: var(--blue-400); }
 
 .mgmt-card:last-child:nth-child(4n+1) {
-  grid-column: 1 / -1;
-  max-width: calc(25% - 1rem);
-  margin: 0 auto;
+  grid-column: unset;
+  max-width: unset;
+  margin: 0;
 }
 
 /* ────────────────────────
@@ -803,10 +803,16 @@ const styles = `
   .stat-num { font-size: 1.8rem; }
   .aup-mission-inner { padding-left: 1.5rem; }
   .aup-section { padding: 4rem 0; }
-  .adv-grid, .mgmt-grid { grid-template-columns: repeat(2, 1fr); }
+  .adv-grid, .mgmt-grid { grid-template-columns: 1fr; }
   .adv-card:last-child:nth-child(4n+1) { grid-column: unset; }
   .tech-row { gap: 2rem; }
   .experts-coming { padding: 2.5rem 1.5rem; }
+  .adv-container { padding: 0 1rem; }
+}
+@media (max-width: 480px) {
+  .adv-grid, .mgmt-grid { grid-template-columns: 1fr; }
+  .adv-name { font-size: 1rem; }
+  .adv-card, .mgmt-card { padding: 1.25rem 1rem 1rem; }
 }
 `;
 
