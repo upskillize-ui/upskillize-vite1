@@ -60,20 +60,17 @@ import "./App.css";
 
 function App() {
   return (
-    <Router
-      future={{
-        v7_startTransition: true,
-        v7_relativeSplatPath: true,
-      }}
-    >
+    <Router>
       <ScrollToTop />
 
-      <div className="min-h-screen w-full flex flex-col">
-        {/* FIXED NAVBAR */}
+      {/* FULL PAGE FLEX */}
+      <div className="flex flex-col min-h-screen">
+
+        {/* NAVBAR */}
         <Navbar />
 
-        {/* PAGE CONTENT */}
-        <main className="flex-1">
+        {/* MAIN CONTENT */}
+        <main className="flex-1 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <Routes>
             {/* MAIN PAGES */}
             <Route path="/" element={<Home />} />
@@ -108,13 +105,8 @@ function App() {
             {/* COURSE REDIRECTS */}
             <Route path="/courses" element={<Navigate to="/academic" replace />} />
             <Route path="/course/:slug" element={<CourseDetails />} />
-            <Route path="/courses/details/pgcdb" element={<Navigate to="/courses/pgcdb" replace />} />
-            <Route path="/courses/details/pgcdf" element={<Navigate to="/courses/pgcdf" replace />} />
-            <Route path="/courses/corporate-readiness-program" element={<Navigate to="/course/corporate-readiness-program" replace />} />
-            <Route path="/courses/threeyearscourses" element={<Navigate to="/courses/threeyearscourse" replace />} />
 
-            {/* ── SPECIFIC COURSE PAGES ── */}
-            {/* IMPORTANT: All specific /courses/xxx routes MUST come before /courses/:category */}
+            {/* COURSE PAGES */}
             <Route path="/courses/bfsi-domain-excellence-program" element={<BFSIDomainExcellence />} />
             <Route path="/courses/investment-banking-wealth-tech" element={<InvestmentBankingWealthTech />} />
             <Route path="/courses/risk-management-regtech-program" element={<RiskManagementRegTech />} />
@@ -126,24 +118,23 @@ function App() {
             <Route path="/course/corporate-readiness-program" element={<CorporateReadinessProgram />} />
             <Route path="/courses/pgcdf" element={<PgCDFLandingPage />} />
             <Route path="/courses/pgcdb" element={<PgCDBLandingPage />} />
-
-            {/* THREE YEARS */}
             <Route path="/courses/threeyearscourse" element={<ThreeYearsCourse />} />
-
-            {/* TWO YEARS TRIMESTER — both slugs point to same page */}
             <Route path="/courses/pgdfdb" element={<TwoYearsSemester />} />
-
-            {/* BFSI INNOVATION LAB */}
             <Route path="/bfsiinnovationlab" element={<BFSIInnovationLab />} />
 
-            {/* ── CATCH-ALL: /courses/:category must be LAST among course routes ── */}
+            {/* DYNAMIC */}
             <Route path="/courses/:category" element={<CoursesPage />} />
+
             <Route path="/register" element={<RegisterPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
+
+        {/* FOOTER INSIDE FLEX */}
+        <Footer />
       </div>
-      <Footer />
+
+      {/* FLOATING BUTTON */}
       <WhatsAppChat phoneNumber="919820397297" />
     </Router>
   );
