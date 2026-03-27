@@ -1,90 +1,109 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+// ── Icon helper: renders an emoji in a styled rounded square ──
+function IconBox({ icon, size = 22, bg = "#ede9fe", radius = ".25rem" }) {
+  return (
+    <span style={{
+      display: "inline-flex", alignItems: "center", justifyContent: "center",
+      width: size, height: size, borderRadius: radius,
+      background: bg, flexShrink: 0, fontSize: size * 0.55,
+      lineHeight: 1,
+    }}>{icon}</span>
+  );
+}
 
 const CERT_CATEGORIES = [
   {
     label: "AI in FinTech",
     slug: "ai-fintech",
     icon: "🏦",
+    headerBg: "linear-gradient(135deg,#1e3a5f,#2563eb)",
     courses: [
-      { label: "FinTech Domain Excellence",          href: "/courses/bfsi-domain-excellence-program",   img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=48",  available: true,  duration: "10 Weeks", mode: "Online", fee: "₹18,000" },
-      { label: "Investment Banking & Wealth Tech", href: "/courses/investment-banking-wealth-tech",   img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=48",  available: true,  duration: "12 Weeks", mode: "Hybrid", fee: "₹22,000" },
-      { label: "Risk Management & RegTech",        href: "/courses/risk-management-regtech-program",  img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=48",  available: true,  duration: "10 Weeks", mode: "Online", fee: "₹20,000" },
-      { label: "FinTech & AI Mastery",             href: "/courses/ai-fintech",                       img: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=48",  available: false, duration: "12 Weeks", mode: "Online", fee: "₹24,000" },
-      { label: "Insurance, InsurTech & DPDPA",     href: "/courses/ai-fintech",                       img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=48",  available: false, duration: "8 Weeks",  mode: "Online", fee: "₹16,000" },
-      { label: "AI in Financial Services",         href: "/courses/ai-fintech",                       img: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=48",  available: false, duration: "10 Weeks", mode: "Hybrid", fee: "₹21,000" },
+      { label: "FinTech Domain Excellence",       href: "/courses/bfsi-domain-excellence-program",        icon: "🏦", iconBg: "#dbeafe", available: true,  duration: "3 Months", mode: "Online / Hybrid" },
+      { label: "Investment Banking & Wealth Tech", href: "/courses/investment-banking-wealth-tech",        icon: "📈", iconBg: "#dcfce7", available: true,  duration: "3 Months", mode: "Online / Hybrid" },
+      { label: "Risk Management & RegTech",        href: "/courses/risk-management-regtech-program",       icon: "🛡️", iconBg: "#fef3c7", available: true,  duration: "3 Months", mode: "Online / Hybrid" },
+      { label: "FinTech & AI Mastery",             href: "/courses/ai-fintech",                            icon: "🤖", iconBg: "#f3e8ff", available: false, duration: "3 Months", mode: "Online / Hybrid" },
+      { label: "Insurance, InsurTech & DPDPA",     href: "/courses/ai-fintech",                            icon: "🔐", iconBg: "#fce7f3", available: false, duration: "3 Months", mode: "Online / Hybrid" },
+      { label: "AI in Financial Services",         href: "/courses/ai-fintech",                            icon: "💹", iconBg: "#d1fae5", available: false, duration: "3 Months", mode: "Online / Hybrid" },
     ],
   },
   {
     label: "Product Leadership",
     slug: "product-leadership",
     icon: "🚀",
+    headerBg: "linear-gradient(135deg,#6d28d9,#9333ea)",
     courses: [
-      { label: "The Mini CEO Program",             href: "/courses/the-mini-ceo-program",             img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=48",  available: true,  duration: "12 Weeks", mode: "Online", fee: "₹25,000" },
-      { label: "AI Product Management Mastery",    href: "/courses/ai-product-management-mastery",    img: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=48",  available: true,  duration: "10 Weeks", mode: "Hybrid", fee: "₹22,000" },
-      { label: "Product Management for Techies",   href: "/courses/product-leadership",               img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=48",  available: false, duration: "8 Weeks",  mode: "Online", fee: "₹18,000" },
-      { label: "Design Thinking & User Solutions", href: "/courses/product-leadership",               img: "https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?w=48",  available: false, duration: "6 Weeks",  mode: "Online", fee: "₹15,000" },
-      { label: "Business Analysis Foundation",     href: "/courses/product-leadership",               img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=48",  available: false, duration: "8 Weeks",  mode: "Hybrid", fee: "₹17,000" },
+      { label: "The Mini CEO Program",             href: "/courses/the-mini-ceo-program",                  icon: "👑", iconBg: "#fef9c3", available: true,  duration: "3 Months", mode: "Online / Hybrid" },
+      { label: "AI Product Management Mastery",    href: "/courses/ai-product-management-mastery",         icon: "🎯", iconBg: "#ede9fe", available: true,  duration: "3 Months", mode: "Online / Hybrid" },
+      { label: "Product Management for Techies",   href: "/courses/product-leadership",                    icon: "💻", iconBg: "#e0f2fe", available: false, duration: "3 Months", mode: "Online / Hybrid" },
+      { label: "Design Thinking & User Solutions", href: "/courses/product-leadership",                    icon: "🎨", iconBg: "#fce7f3", available: false, duration: "3 Months", mode: "Online / Hybrid" },
+      { label: "Business Analysis Foundation",     href: "/courses/product-leadership",                    icon: "📊", iconBg: "#d1fae5", available: false, duration: "3 Months", mode: "Online / Hybrid" },
     ],
   },
   {
     label: "Data & GenAI",
     slug: "data-analytics-genai",
     icon: "📊",
+    headerBg: "linear-gradient(135deg,#0369a1,#06b6d4)",
     courses: [
-      { label: "Data to Decisions: Power BI & AI", href: "/courses/data-decisions",                  img: "https://images.unsplash.com/photo-1543286386-2e659306cd6c?w=48",  available: true,  duration: "10 Weeks", mode: "Online", fee: "₹20,000" },
-      { label: "AI & ML for Business Leaders",     href: "/courses/ai-ml-business-leaders",           img: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=48",  available: true,  duration: "12 Weeks", mode: "Hybrid", fee: "₹23,000" },
-      { label: "Strategic Data Analytics",         href: "/courses/data-analytics-genai",             img: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=48",  available: false, duration: "10 Weeks", mode: "Online", fee: "₹19,000" },
+      { label: "Data to Decisions: Power BI & AI", href: "/courses/data-decisions",                        icon: "📉", iconBg: "#dbeafe", available: true,  duration: "3 Months", mode: "Online / Hybrid" },
+      { label: "AI & ML for Business Leaders",     href: "/courses/ai-ml-business-leaders",                icon: "🧠", iconBg: "#f3e8ff", available: true,  duration: "3 Months", mode: "Online / Hybrid" },
+      { label: "Strategic Data Analytics",         href: "/courses/data-analytics-genai",                  icon: "🔍", iconBg: "#fef3c7", available: false, duration: "3 Months", mode: "Online / Hybrid" },
     ],
   },
   {
     label: "Technology & Dx",
     slug: "technology-digital-transformation",
     icon: "⚙️",
+    headerBg: "linear-gradient(135deg,#065f46,#059669)",
     courses: [
-      { label: "Digital Business Strategy & Innovation", href: "/courses/digital-business-strategy-innovation", img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=48", available: true,  duration: "10 Weeks", mode: "Online", fee: "₹21,000" },
-      { label: "AI & Digital Project Management",        href: "/courses/technology-digital-transformation",   img: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=48", available: false, duration: "8 Weeks",  mode: "Hybrid", fee: "₹18,000" },
-      { label: "Emerging Technologies & Industry 4.0",   href: "/courses/technology-digital-transformation",   img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=48", available: false, duration: "12 Weeks", mode: "Online", fee: "₹22,000" },
+      { label: "Digital Business Strategy & Innovation", href: "/courses/digital-business-strategy-innovation", icon: "🌐", iconBg: "#d1fae5", available: true,  duration: "3 Months", mode: "Online / Hybrid" },
+      { label: "AI & Digital Project Management",        href: "/courses/technology-digital-transformation",   icon: "⚡", iconBg: "#fef9c3", available: false, duration: "3 Months", mode: "Online / Hybrid" },
+      { label: "Emerging Technologies & Industry 4.0",   href: "/courses/technology-digital-transformation",   icon: "🏭", iconBg: "#e0f2fe", available: false, duration: "3 Months", mode: "Online / Hybrid" },
     ],
   },
 ];
 
-function CourseRow({ c }) {
+function CourseRow({ c, onClose, onSelect }) {
+  const navigate = useNavigate();
   const [activeInfo, setActiveInfo] = useState(null);
   const INFO_TABS = [
     { key: "duration", label: "Duration", value: c.duration, color: "#4f46e5", bg: "#ede9fe" },
     { key: "mode",     label: "Mode",     value: c.mode,     color: "#0891b2", bg: "#e0f2fe" },
   ];
   return (
-    <div style={{ borderBottom: "1px solid #f3f4f6", opacity: c.available ? 1 : 0.62, transition: "background .12s" }}
-      onMouseEnter={e => e.currentTarget.style.background="#f9fafb"}
-      onMouseLeave={e => e.currentTarget.style.background="transparent"}
+    <div
+      style={{ borderBottom: "1px solid #f3f4f6", opacity: c.available ? 1 : 0.62, transition: "background .12s" }}
+      onMouseEnter={e => { e.currentTarget.style.background = "#f9fafb"; onSelect && onSelect(c.label); }}
+      onMouseLeave={e => { e.currentTarget.style.background = "transparent"; onSelect && onSelect(null); }}
     >
-      {/* Top row: thumbnail + label */}
-<div style={{ display:"flex", alignItems:"center", gap:".5rem", padding:".35rem .875rem .2rem" }}>
-  <a href={c.href} style={{ display:"flex", alignItems:"center", gap:".5rem", flex:1, textDecoration:"none", minWidth:0 }}>
-    <img src={c.img} alt={c.label} style={{ width:"22px", height:"22px", borderRadius:".25rem", objectFit:"cover", flexShrink:0 }} />
-    <span style={{ flex:1, fontSize:".875rem", fontWeight:600, color:"#1f2937", lineHeight:1.3 }}>{c.label}</span>
-  </a>
-</div>
-      {/* Info tabs row */}
-      <div style={{ display:"flex", alignItems:"center", gap:".25rem", padding:"0 .875rem .35rem 2.875rem" }}>
+      {/* Top row: icon + label */}
+      <div style={{ display: "flex", alignItems: "center", gap: ".5rem", padding: ".35rem .875rem .2rem" }}>
+        <a href={c.href} style={{ display: "flex", alignItems: "center", gap: ".5rem", flex: 1, textDecoration: "none", minWidth: 0 }}>
+          <IconBox icon={c.icon} size={22} bg={c.iconBg} />
+          <span style={{ flex: 1, fontSize: ".875rem", fontWeight: 600, color: "#1f2937", lineHeight: 1.3 }}>{c.label}</span>
+        </a>
+      </div>
+
+      {/* Info tabs + Register row */}
+      <div style={{ display: "flex", alignItems: "center", gap: ".25rem", padding: "0 .875rem .35rem 2.875rem" }}>
         {INFO_TABS.map(t => (
           <button key={t.key}
             onClick={e => { e.preventDefault(); e.stopPropagation(); setActiveInfo(activeInfo === t.key ? null : t.key); }}
             style={{
-              fontSize:".67rem", fontWeight:700, padding:".1rem .38rem", borderRadius:999,
+              fontSize: ".67rem", fontWeight: 700, padding: ".1rem .38rem", borderRadius: 999,
               border: activeInfo === t.key ? `1px solid ${t.color}` : "1px solid #e5e7eb",
               background: activeInfo === t.key ? t.bg : "#f9fafb",
               color: activeInfo === t.key ? t.color : "#6b7280",
-              cursor:"pointer", transition:"all .15s", whiteSpace:"nowrap",
+              cursor: "pointer", transition: "all .15s", whiteSpace: "nowrap",
             }}
           >{t.label}</button>
         ))}
         {activeInfo && (() => {
           const t = INFO_TABS.find(x => x.key === activeInfo);
-          return <span style={{ fontSize:".72rem", fontWeight:700, color:t.color, background:t.bg, padding:".12rem .5rem", borderRadius:999, marginLeft:".1rem" }}>{t.value}</span>;
+          return <span style={{ fontSize: ".72rem", fontWeight: 700, color: t.color, background: t.bg, padding: ".12rem .5rem", borderRadius: 999, marginLeft: ".1rem" }}>{t.value}</span>;
         })()}
       </div>
     </div>
@@ -93,59 +112,48 @@ function CourseRow({ c }) {
 
 function Pill({ children, bg, color }) {
   return (
-    <span style={{ fontSize:".65rem", background:bg, borderRadius:3, padding:"1px 5px", color:color, fontWeight:600, whiteSpace:"nowrap" }}>
+    <span style={{ fontSize: ".65rem", background: bg, borderRadius: 3, padding: "1px 5px", color, fontWeight: 600, whiteSpace: "nowrap" }}>
       {children}
     </span>
   );
 }
 
+// Program thumbnail with a real themed image + optional badge
+function ProgThumb({ src, alt, badge, overlayColor = "rgba(30,40,80,0.28)" }) {
+  return (
+    <div className="nb-prog-thumb" style={{ position: "relative", overflow: "hidden" }}>
+      <img src={src} alt={alt}
+        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", transition: "transform .35s" }}
+        onMouseEnter={e => e.currentTarget.style.transform = "scale(1.05)"}
+        onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
+      />
+      {/* subtle gradient overlay for text legibility */}
+      <div style={{ position: "absolute", inset: 0, background: overlayColor, pointerEvents: "none" }} />
+      {badge && (
+        <span className="nb-prog-new" style={{ position: "absolute", bottom: 6, right: 6, zIndex: 2 }}>{badge}</span>
+      )}
+    </div>
+  );
+}
+
 export default function Navbar() {
-  const [isScrolled,      setIsScrolled]    = useState(false);
-  const [mobileOpen,      setMobileOpen]    = useState(false);
-  const [industryOpen,    setIndustryOpen]  = useState(false);
-  const [labOpen,         setLabOpen]       = useState(false);
-  const [activeCertTab,   setActiveCertTab] = useState(0);
-  const [mobileIndustry,  setMobileIndustry]= useState(false);
-  const [mobileCorp,      setMobileCorp]    = useState(false);
-  const [mobileProd,      setMobileProd]    = useState(false);
-  const [mobileCareer,    setMobileCareer]  = useState(false);
-  const [mobileLab,       setMobileLab]     = useState(false);
-  const [mobileAbout,     setMobileAbout]   = useState(false);
+  const [isScrolled,     setIsScrolled]    = useState(false);
+  const [mobileOpen,     setMobileOpen]    = useState(false);
+  const [industryOpen,   setIndustryOpen]  = useState(false);
+  const [activeCertTab,  setActiveCertTab] = useState(0);
+  const [selectedCourse, setSelectedCourse] = useState(null);
+  const [mobileIndustry, setMobileIndustry] = useState(false);
+  const [mobileCorp,     setMobileCorp]    = useState(false);
+  const [mobileProd,     setMobileProd]    = useState(false);
+  const [mobileCareer,   setMobileCareer]  = useState(false);
+  const [mobileLab,      setMobileLab]     = useState(false);
+  const [mobileAbout,    setMobileAbout]   = useState(false);
 
-  // ── CHANGE 3: auto-rotate cert tabs ──
-  const certAutoRef      = useRef(null);
-  const certHoveredRef   = useRef(false);
-
-  // Start/restart the auto-rotation timer
-  const startAutoRotate = () => {
-    clearInterval(certAutoRef.current);
-    certAutoRef.current = setInterval(() => {
-      if (!certHoveredRef.current) {
-        setActiveCertTab(prev => (prev + 1) % CERT_CATEGORIES.length);
-      }
-    }, 3000);
-  };
-
-  useEffect(() => {
-    startAutoRotate();
-    return () => clearInterval(certAutoRef.current);
-  }, []);
-
-  // Pause auto-rotation on hover; resume on leave
-  const onCertEnter = () => { certHoveredRef.current = true; };
-  const onCertLeave = () => {
-    certHoveredRef.current = false;
-    startAutoRotate(); // restart timer from full interval after user leaves
-  };
-
-  // Manual tab click: reset timer so it doesn't jump immediately after a click
-  const handleCertTabClick = (i) => {
-    setActiveCertTab(i);
-    startAutoRotate();
-  };
+  // Reset selected course when tab changes
+  const handleTabChange = (i) => { setActiveCertTab(i); setSelectedCourse(null); };
 
   const industryTimer = useRef(null);
-  const labTimer      = useRef(null);
+  const navigate      = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 10);
@@ -160,12 +168,11 @@ export default function Navbar() {
   const closeAll = () => {
     setMobileOpen(false); setMobileIndustry(false); setMobileCorp(false);
     setMobileProd(false); setMobileCareer(false); setMobileLab(false); setMobileAbout(false);
+    setIndustryOpen(false);
   };
 
-  const onEnter    = () => { clearTimeout(industryTimer.current); setIndustryOpen(true); };
-  const onLeave    = () => { industryTimer.current = setTimeout(() => setIndustryOpen(false), 160); };
-  const onLabEnter = () => { clearTimeout(labTimer.current); setLabOpen(true); };
-  const onLabLeave = () => { labTimer.current = setTimeout(() => setLabOpen(false), 160); };
+  const onEnter = () => { clearTimeout(industryTimer.current); setIndustryOpen(true); };
+  const onLeave = () => { industryTimer.current = setTimeout(() => setIndustryOpen(false), 160); };
 
   return (
     <>
@@ -209,35 +216,29 @@ export default function Navbar() {
         /* ── HIGHER EDUCATION PANEL ── */
         .nb-panel{
           position:absolute;top:calc(100% + 8px);left:-60px;
-          background:transparent;
-          border:none;
-          border-radius:.875rem;box-shadow:var(--shadow);
-          width:760px;
-          /* Nice gap between columns via column-gap + separate bg on each column */
+          background:transparent;border:none;border-radius:.875rem;
+          box-shadow:var(--shadow);width:760px;
           display:grid;grid-template-columns:252px 1fr;column-gap:10px;
+          align-items:stretch;
           opacity:0;visibility:hidden;transform:translateY(-8px);
           transition:all .2s cubic-bezier(.4,0,.2,1);z-index:10001;overflow:visible;
         }
         .nb-panel.register{opacity:1;visibility:visible;transform:translateY(0)}
 
-        /* COL 1 – Institution + Two Years + One Year */
+        /* COL 1 */
         .nb-left-col{
           display:flex;flex-direction:column;
-          background:#fff;
-          border:1px solid #e0e7ff;
-          border-radius:.875rem;
-          overflow:hidden;
+          background:#fff;border:1px solid #e0e7ff;border-radius:.875rem;
           box-shadow:0 4px 18px rgba(79,70,229,.08);
         }
         .nb-col-header{
           font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
-          color:#fff;padding:.65rem .875rem .55rem;
+          color:#fff;padding:.55rem .875rem .45rem;
           background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 100%);
-          border-bottom:none;
+          flex-shrink:0;
         }
         .nb-inst-card{
-          display:flex;flex-direction:column;gap:.4rem;
-          padding:.65rem .875rem .6rem;
+          display:flex;flex-direction:column;gap:.4rem;padding:.65rem .875rem .6rem;
           border-bottom:1px solid var(--c-border);
         }
         .nb-inst-name{font-size:.82rem;font-weight:800;color:#111827;line-height:1.3}
@@ -251,106 +252,81 @@ export default function Navbar() {
           transition:opacity .15s;align-self:flex-start;
         }
         .nb-inst-link:hover{opacity:.88}
-        .nb-prog-section{padding:.5rem 0 0;background:linear-gradient(160deg,#f8faff 0%,#f5f3ff 100%)}
+        .nb-prog-section{padding:.3rem 0 0;background:linear-gradient(160deg,#f8faff 0%,#f5f3ff 100%)}
         .nb-prog-label{
-          display:block;padding:0 .875rem .35rem;font-size:.68rem;font-weight:700;
+          display:block;padding:0 .875rem .2rem;font-size:.68rem;font-weight:700;
           letter-spacing:.05em;text-transform:uppercase;color:var(--c-cyan);
         }
         .nb-prog-card{
-          display:flex;flex-direction:column;gap:.25rem;
-          padding:.4rem .875rem .5rem;text-decoration:none;
-          transition:background .12s;
+          display:flex;flex-direction:column;gap:.2rem;padding:.3rem .875rem .35rem;
+          text-decoration:none;transition:background .12s;
         }
         .nb-prog-card:hover{background:#eef2ff}
-
-        /* CHANGE 2: increased program thumbnail height from 42px → 80px */
-        .nb-prog-thumb{width:100%;height:80px;border-radius:.5rem;overflow:hidden;position:relative}
+        .nb-prog-thumb{width:100%;height:58px;border-radius:.4rem;overflow:hidden;position:relative}
         .nb-prog-thumb img{width:100%;height:100%;object-fit:cover;display:block}
         .nb-prog-new{
-          position:absolute;bottom:6px;right:6px;font-size:.62rem;font-weight:700;
+          font-size:.62rem;font-weight:700;
           background:#FAEEDA;color:#633806;padding:1px 4px;border-radius:2px
         }
-        .nb-prog-title{font-size:.82rem;font-weight:700;color:#111827;line-height:1.25}
-        .nb-prog-pills{display:flex;flex-wrap:wrap;gap:.22rem;margin-top:.03rem}
-        .nb-prog-divider{height:1px;background:var(--c-border);margin:.25rem .875rem 0}
+        .nb-prog-title{font-size:.8rem;font-weight:700;color:#111827;line-height:1.25}
+        .nb-prog-pills{display:flex;flex-wrap:wrap;gap:.18rem;margin-top:.02rem}
+        .nb-prog-divider{height:1px;background:var(--c-border);margin:.2rem .875rem 0}
 
         /* COL 2 – Certifications */
         .nb-certcol{
           display:flex;flex-direction:column;overflow:hidden;
-          background:#fff;
-          border:1px solid #e0e7ff;
-          border-radius:.875rem;
+          background:#fff;border:1px solid #e0e7ff;border-radius:.875rem;
           box-shadow:0 4px 18px rgba(124,58,237,.08);
         }
         .nb-certcol-header{
           display:block;padding:.65rem .875rem .55rem;font-size:.68rem;font-weight:700;
           letter-spacing:.05em;text-transform:uppercase;color:#fff;
           background:linear-gradient(135deg,#7c3aed 0%,#4f46e5 100%);
-          border-bottom:none;
+          flex-shrink:0;
         }
         .nb-cert-tabs{
           display:grid;grid-template-columns:repeat(4,1fr);
           border-bottom:1px solid var(--c-border);background:#fafafa;
+          flex-shrink:0;
         }
         .nb-cert-tab{
           display:flex;flex-direction:column;align-items:center;justify-content:center;
           gap:.18rem;padding:.5rem .3rem;font-size:.72rem;font-weight:600;color:#6b7280;
           background:none;border:none;border-right:1px solid #f3f4f6;
-          cursor:pointer;transition:all .25s;text-align:center;line-height:1.25;
+          cursor:pointer;transition:all .2s;text-align:center;line-height:1.25;
           border-bottom:2px solid transparent;
-          position:relative;overflow:hidden;
         }
         .nb-cert-tab:last-child{border-right:none}
         .nb-cert-tab:hover{background:#f5f3ff;color:#4f46e5}
         .nb-cert-tab.active{background:#fff;color:#4f46e5;font-weight:700;border-bottom:2px solid #4f46e5}
-
-        /* CHANGE 3: progress bar animation under the active tab */
-        .nb-cert-tab.active::after{
-          content:"";position:absolute;bottom:0;left:0;height:2px;
-          background:linear-gradient(90deg,#4f46e5,#7c3aed);
-          animation:tabProgress 3s linear forwards;
-          width:0%;
+        .nb-cert-tab-icon{font-size:1.15rem;line-height:1}
+        .nb-cert-courses{flex:1}
+        .nb-cert-list{animation:slideIn .22s cubic-bezier(.4,0,.2,1)}
+        .nb-cert-footer{flex-shrink:0;width:100%}
+        .nb-cert-footer a{
+          display:flex;align-items:center;justify-content:center;
+          gap:.35rem;width:100%;padding:.6rem .875rem;
+          font-size:.82rem;font-weight:700;color:#fff;text-decoration:none;
+          background:#4f46e5;
+          border-top:2px solid #4338ca;
+          border-radius:0 0 .875rem .875rem;
+          transition:background .2s;
+          white-space:nowrap;
         }
-        @keyframes tabProgress{
-          from{width:0%}
-          to{width:100%}
-        }
-
-        .nb-cert-tab-icon{font-size:1.05rem;line-height:1}
-
-        /* CHANGE 3: cert courses panel with fade-slide transition */
-        .nb-cert-courses{overflow-y:auto;flex:1}
-        .nb-cert-courses::-webkit-scrollbar{width:3px}
-        .nb-cert-courses::-webkit-scrollbar-thumb{background:#e5e7eb;border-radius:4px}
-
-        /* CHANGE 3: course list slide-in animation on tab change */
-        .nb-cert-list{animation:slideIn .28s cubic-bezier(.4,0,.2,1)}
+        .nb-cert-footer a:hover{background:#4338ca}
         @keyframes slideIn{
-          from{opacity:0;transform:translateX(8px)}
+          from{opacity:0;transform:translateX(6px)}
           to{opacity:1;transform:translateX(0)}
         }
 
-        /* Innovation Lab panel */
-       .nb-lab-panel{
-          position:absolute;top:calc(100% + 8px);right:0;
-          transform:translateY(-8px);
-          background:linear-gradient(160deg,#f0fdf9 0%,#f0f7ff 100%);
-          border:1px solid var(--c-border);border-radius:.875rem;box-shadow:var(--shadow);
-          width:300px;padding:1.25rem 1.25rem 1rem;
-          opacity:0;visibility:hidden;
-          transition:all .2s cubic-bezier(.4,0,.2,1);z-index:10001
-        }
-       .nb-lab-panel.open{opacity:1;visibility:visible;transform:translateY(0)}
-        
-
         .nbb-lab{
           background:linear-gradient(135deg,#ccfbf1,#a7f3d0)!important;
-          color:#065F46!important;
-          font-weight:700!important;
+          color:#065F46!important;font-weight:700!important;
           box-shadow:0 1px 6px rgba(0,201,167,.18);
         }
-        .nbb-lab:hover{background:linear-gradient(135deg,#a7f3d0,#6ee7b7)!important;box-shadow:0 2px 12px rgba(0,201,167,.32)!important}
+        .nbb-lab:hover{background:linear-gradient(135deg,#a7f3d0,#6ee7b7)!important}
 
+        /* Mobile */
         .nb-ham{display:flex;padding:.5rem;border:none;background:transparent;
           cursor:pointer;color:var(--c-text);border-radius:.375rem;transition:background .15s}
         .nb-ham:hover{background:#f3f4f6}
@@ -392,7 +368,7 @@ export default function Navbar() {
             {/* Logo */}
             <a href="/" className="nb-logo" onClick={closeAll}>
               <img src="/images/logo.png" alt="Upskillize"
-                onError={e => { e.target.style.display="none"; e.target.nextElementSibling.style.display="block"; }} />
+                onError={e => { e.target.style.display = "none"; e.target.nextElementSibling.style.display = "block"; }} />
               <span className="nb-logo-text">Upskillize</span>
             </a>
 
@@ -410,23 +386,21 @@ export default function Navbar() {
 
                   <div className={`nb-panel${industryOpen ? " register" : ""}`}>
 
-                    {/* ── COL 1 : Institution + Two Years + One Year ── */}
+                    {/* ── COL 1: Institution + Degree Programs ── */}
                     <div className="nb-left-col">
-
-                      {/* Institution header */}
-                      <div className="nb-col-header"> For Institutions</div>
+                      <div className="nb-col-header">For Institutions</div>
 
                       {/* Two Years */}
                       <div className="nb-prog-section">
                         <span className="nb-prog-label">Two Years</span>
-                        <div className="nb-prog-card">
-                          <a href="/courses/pgdfdb" style={{ textDecoration:"none" }}>
-                          {/* CHANGE 2: taller thumb – nb-prog-thumb now 80px tall */}
-                          <div className="nb-prog-thumb">
-                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400" alt="PGDFDB" />
-                            <span className="nb-prog-new">NEW</span>
-                          </div>
-                          <span style={{ display:"inline-block", fontSize:".67rem", fontWeight:700, padding:".1rem .38rem", borderRadius:999, background:"#e8f4f0", color:"#0F6E56", alignSelf:"flex-start" }}>
+                        <a href="/courses/pgdfdb" className="nb-prog-card" style={{ textDecoration: "none" }}>
+                          <ProgThumb
+                            src="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?w=600&q=80"
+                            alt="PG Diploma in FinTech & Digital Business"
+                            badge="NEW"
+                            overlayColor="rgba(15,30,80,0.30)"
+                          />
+                          <span style={{ display: "inline-block", fontSize: ".67rem", fontWeight: 700, padding: ".1rem .38rem", borderRadius: 999, background: "#e8f4f0", color: "#0F6E56", alignSelf: "flex-start" }}>
                             PGDFDB
                           </span>
                           <div className="nb-prog-title">PG Diploma in FinTech &amp; Digital Business</div>
@@ -436,8 +410,14 @@ export default function Navbar() {
                             <Pill bg="#e0f2fe" color="#0369a1">Online / Hybrid</Pill>
                             <Pill bg="#f4f6fb" color="#6b7fa3">4 Semesters</Pill>
                           </div>
-                          </a>
-                        </div>
+                        </a>
+                        <Link
+                          to="/register?course=PG%20Diploma%20in%20FinTech%20%26%20Digital%20Business"
+                          onClick={closeAll}
+                          style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: ".4rem", margin: ".1rem .75rem .4rem", padding: ".45rem", borderRadius: ".375rem", background: "linear-gradient(135deg,#4f46e5,#7c3aed)", color: "#fff", fontWeight: 700, fontSize: ".8rem", textDecoration: "none" }}
+                        >
+                          ✦ Register for PGDFDB →
+                        </Link>
                       </div>
 
                       <div className="nb-prog-divider" />
@@ -445,13 +425,13 @@ export default function Navbar() {
                       {/* One Year */}
                       <div className="nb-prog-section">
                         <span className="nb-prog-label">One Year</span>
-                        <div className="nb-prog-card">
-                          <a href="/courses/pgcdf" style={{ textDecoration:"none" }}>
-                          {/* CHANGE 2: taller thumb – nb-prog-thumb now 80px tall */}
-                          <div className="nb-prog-thumb">
-                            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400" alt="ADFBA" />
-                          </div>
-                          <span style={{ display:"inline-block", fontSize:".67rem", fontWeight:700, padding:".1rem .38rem", borderRadius:999, background:"#dcfce7", color:"#15803d", alignSelf:"flex-start" }}>
+                        <a href="/courses/pgcdf" className="nb-prog-card" style={{ textDecoration: "none" }}>
+                          <ProgThumb
+                            src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=600&q=80"
+                            alt="Advanced Diploma in FinTech, Banking & AI"
+                            overlayColor="rgba(5,55,40,0.28)"
+                          />
+                          <span style={{ display: "inline-block", fontSize: ".67rem", fontWeight: 700, padding: ".1rem .38rem", borderRadius: 999, background: "#dcfce7", color: "#15803d", alignSelf: "flex-start" }}>
                             ADFBA
                           </span>
                           <div className="nb-prog-title">Advanced Diploma in FinTech, Banking &amp; AI</div>
@@ -460,49 +440,48 @@ export default function Navbar() {
                             <Pill bg="#e0f2fe" color="#0369a1">Online / Hybrid</Pill>
                             <Pill bg="#f4f6fb" color="#6b7fa3">6 Bimesters</Pill>
                           </div>
-                          </a>
-                        </div>
+                        </a>
+                        <Link
+                          to="/register?course=Advanced%20Diploma%20in%20FinTech%2C%20Banking%20%26%20AI"
+                          onClick={closeAll}
+                          style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: ".4rem", margin: ".1rem .75rem .4rem", padding: ".45rem", borderRadius: ".375rem", background: "linear-gradient(135deg,#059669,#047857)", color: "#fff", fontWeight: 700, fontSize: ".8rem", textDecoration: "none" }}
+                        >
+                          ✦ Register for ADFBA →
+                        </Link>
                       </div>
 
-                    </div>{/* end nb-left-col */}
+                      </div>{/* end nb-left-col */}
 
-                    {/* ── COL 2 : Professional Certifications ── */}
-                    {/* CHANGE 3: onMouseEnter/Leave pause/resume auto-rotation */}
-                    <div className="nb-certcol" onMouseEnter={onCertEnter} onMouseLeave={onCertLeave}>
+                    {/* ── COL 2: Professional Certifications (manual tabs only) ── */}
+                    <div className="nb-certcol">
                       <span className="nb-certcol-header">Professional Certifications</span>
                       <div className="nb-cert-tabs">
                         {CERT_CATEGORIES.map((cat, i) => (
                           <button
                             key={cat.slug}
                             className={`nb-cert-tab${activeCertTab === i ? " active" : ""}`}
-                            onClick={() => handleCertTabClick(i)}
+                            onClick={() => handleTabChange(i)}
                           >
                             <span className="nb-cert-tab-icon">{cat.icon}</span>
                             <span>{cat.label}</span>
                           </button>
                         ))}
                       </div>
-                      {/* CHANGE 3: key on the list div triggers re-mount → re-fires slideIn animation */}
                       <div className="nb-cert-courses">
                         <div key={activeCertTab} className="nb-cert-list">
                           {CERT_CATEGORIES[activeCertTab].courses.map((c, i) => (
-                            <CourseRow key={i} c={c} />
+                            <CourseRow key={i} c={c} onClose={closeAll} onSelect={setSelectedCourse} />
                           ))}
-                          <a
-                            href={`/courses/${CERT_CATEGORIES[activeCertTab].slug}`}
-                            style={{
-                              display:"flex", alignItems:"center", justifyContent:"center",
-                              gap:".3rem", padding:".5rem .875rem",
-                              fontSize:".82rem", fontWeight:700, color:"#4f46e5",
-                              textDecoration:"none", background:"#f5f3ff",
-                              borderTop:"1px solid #ede9fe",
-                            }}
-                            onMouseEnter={e => e.currentTarget.style.background="#ede9fe"}
-                            onMouseLeave={e => e.currentTarget.style.background="#f5f3ff"}
-                          >
-                            View all {CERT_CATEGORIES[activeCertTab].label} courses →
-                          </a>
                         </div>
+                      </div>
+                      {/* Footer pinned at bottom — outside scroll area */}
+                      <div className="nb-cert-footer">
+                        <Link
+                          to={`/register?course=${encodeURIComponent(selectedCourse || CERT_CATEGORIES[activeCertTab].label)}`}
+                          onClick={closeAll}
+                        >
+                          ✦ Register for {selectedCourse || CERT_CATEGORIES[activeCertTab].label} →
+                        </Link>
                       </div>
                     </div>
 
@@ -518,7 +497,7 @@ export default function Navbar() {
                   </div>
                 </div>
 
-                {/* Products */}
+                {/* AI Products */}
                 <div className="nbd">
                   <button className="nbb">AI Products <ChevronDown size={15} className="nbc" /></button>
                   <div className="nbd-menu">
@@ -528,13 +507,10 @@ export default function Navbar() {
                   </div>
                 </div>
 
-                {/* BFSI Lab — icon-only dropdown button */}
-                <div className="nbd">
-                  {/* BFSI Lab — direct link */}
-                  <a href="/bfsiinnovationlab" className="nbb">
-                    BFSI Lab <ChevronDown size={15} className="nbc" />
-                  </a>
-                </div>
+                {/* BFSI Lab */}
+                <a href="/bfsiinnovationlab" className="nbb">
+                  BFSI Lab <ChevronDown size={15} className="nbc" />
+                </a>
 
                 {/* Career Accelerator */}
                 <div className="nbd">
@@ -546,6 +522,7 @@ export default function Navbar() {
                 </div>
 
               </div>
+
               <div className="nb-right">
                 <div className="nbd">
                   <button className="nbb">About <ChevronDown size={15} className="nbc" /></button>
@@ -575,44 +552,50 @@ export default function Navbar() {
             </button>
             <div className={`mp${mobileIndustry ? " o" : ""}`}>
 
-              <span className="ms">Institution</span>
+              <span className="ms">For Institutions</span>
               <a href="/about" onClick={closeAll} className="msl">🏛️ Upskillize Institute of FinTech &amp; AI</a>
               <div className="mdiv" />
 
               <span className="ms">Two Years</span>
-              <a href="/courses/pgdfdb" onClick={closeAll} className="msl" style={{ flexDirection:"column", alignItems:"flex-start", gap:".3rem" }}>
-                <div style={{ display:"flex", alignItems:"center", gap:".4rem" }}>
-                  <span style={{ background:"#CCFBF1", color:"#065F46", fontSize:".7rem", fontWeight:700, padding:".15rem .45rem", borderRadius:999 }}>PGDFDB</span>
+              <a href="/courses/pgdfdb" onClick={closeAll} className="msl" style={{ flexDirection: "column", alignItems: "flex-start", gap: ".3rem" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: ".4rem" }}>
+                  <span style={{ background: "#CCFBF1", color: "#065F46", fontSize: ".7rem", fontWeight: 700, padding: ".15rem .45rem", borderRadius: 999 }}>PGDFDB</span>
                   PG Diploma in FinTech &amp; Digital Business
-                  <span style={{ fontSize:".65rem", fontWeight:700, background:"#FAEEDA", color:"#633806", padding:".1rem .35rem", borderRadius:3 }}>NEW</span>
+                  <span style={{ fontSize: ".65rem", fontWeight: 700, background: "#FAEEDA", color: "#633806", padding: ".1rem .35rem", borderRadius: 3 }}>NEW</span>
                 </div>
-                <div style={{ display:"flex", flexWrap:"wrap", gap:".22rem" }}>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: ".22rem" }}>
                   <Pill bg="#fef3c7" color="#92400e">Parallel to MBA/PGDM</Pill>
                   <Pill bg="#f4f6fb" color="#6b7fa3">Any Graduation</Pill>
                   <Pill bg="#e0f2fe" color="#0369a1">Online / Hybrid</Pill>
                   <Pill bg="#f4f6fb" color="#6b7fa3">4 Semesters</Pill>
                 </div>
               </a>
-              <Link to="/register?course=PG%20Diploma%20in%20Digital%20Business%20%26%20FinTech" onClick={closeAll}
-                style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:".4rem", margin:".2rem .75rem .35rem", padding:".45rem", borderRadius:".375rem", background:"linear-gradient(135deg,#4f46e5,#7c3aed)", color:"#fff", fontWeight:700, fontSize:".8rem", textDecoration:"none" }}>
+              <Link
+                to="/register?course=PG%20Diploma%20in%20FinTech%20%26%20Digital%20Business"
+                onClick={closeAll}
+                style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: ".4rem", margin: ".2rem .75rem .35rem", padding: ".45rem", borderRadius: ".375rem", background: "linear-gradient(135deg,#4f46e5,#7c3aed)", color: "#fff", fontWeight: 700, fontSize: ".8rem", textDecoration: "none" }}
+              >
                 ✦ Register for PGDFDB →
               </Link>
               <div className="mdiv" />
 
               <span className="ms">One Year</span>
-              <a href="/courses/pgcdf" onClick={closeAll} className="msl" style={{ flexDirection:"column", alignItems:"flex-start", gap:".3rem" }}>
-                <div style={{ display:"flex", alignItems:"center", gap:".4rem" }}>
-                  <span style={{ background:"#dcfce7", color:"#15803d", fontSize:".7rem", fontWeight:700, padding:".15rem .45rem", borderRadius:999 }}>ADFBA</span>
+              <a href="/courses/pgcdf" onClick={closeAll} className="msl" style={{ flexDirection: "column", alignItems: "flex-start", gap: ".3rem" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: ".4rem" }}>
+                  <span style={{ background: "#dcfce7", color: "#15803d", fontSize: ".7rem", fontWeight: 700, padding: ".15rem .45rem", borderRadius: 999 }}>ADFBA</span>
                   Advanced Diploma in FinTech, Banking &amp; AI
                 </div>
-                <div style={{ display:"flex", flexWrap:"wrap", gap:".22rem" }}>
-                  <Pill bg="#fef3c7" color="#92400e">Final Year Graduate &amp; Above</Pill>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: ".22rem" }}>
+                  <Pill bg="#fef3c7" color="#92400e">Final Year Graduation &amp; Above</Pill>
                   <Pill bg="#e0f2fe" color="#0369a1">Online / Hybrid</Pill>
                   <Pill bg="#f4f6fb" color="#6b7fa3">6 Bimesters</Pill>
                 </div>
               </a>
-              <Link to="/register?course=Advanced%20Diploma%20in%20FinTech%2C%20Banking%20%26%20AI" onClick={closeAll}
-                style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:".4rem", margin:".2rem .75rem .35rem", padding:".45rem", borderRadius:".375rem", background:"linear-gradient(135deg,#059669,#047857)", color:"#fff", fontWeight:700, fontSize:".8rem", textDecoration:"none" }}>
+              <Link
+                to="/register?course=Advanced%20Diploma%20in%20FinTech%2C%20Banking%20%26%20AI"
+                onClick={closeAll}
+                style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: ".4rem", margin: ".2rem .75rem .35rem", padding: ".45rem", borderRadius: ".375rem", background: "linear-gradient(135deg,#059669,#047857)", color: "#fff", fontWeight: 700, fontSize: ".8rem", textDecoration: "none" }}
+              >
                 ✦ Register for ADFBA →
               </Link>
               <div className="mdiv" />
@@ -620,25 +603,20 @@ export default function Navbar() {
               <span className="ms">Professional Certifications</span>
               {CERT_CATEGORIES.map(cat => (
                 <div key={cat.slug}>
-                  <a href={`/courses/${cat.slug}`} onClick={closeAll} className="msl" style={{ fontWeight:700, gap:".4rem" }}>
+                  <a href={`/courses/${cat.slug}`} onClick={closeAll} className="msl" style={{ fontWeight: 700, gap: ".4rem" }}>
                     <span>{cat.icon}</span> {cat.label}
                   </a>
                   {cat.courses.map(c => (
-                    <div key={c.label} style={{ display:"flex", alignItems:"center", gap:".4rem", padding:".35rem .75rem .35rem 1.5rem", borderRadius:".375rem", opacity: c.available ? 1 : 0.6, transition:"background .12s" }}
-                      onMouseEnter={e => e.currentTarget.style.background="#f5f3ff"}
-                      onMouseLeave={e => e.currentTarget.style.background="transparent"}
+                    <div key={c.label}
+                      style={{ display: "flex", alignItems: "center", gap: ".4rem", padding: ".35rem .75rem .35rem 1.5rem", borderRadius: ".375rem", opacity: c.available ? 1 : 0.6, transition: "background .12s" }}
+                      onMouseEnter={e => e.currentTarget.style.background = "#f5f3ff"}
+                      onMouseLeave={e => e.currentTarget.style.background = "transparent"}
                     >
-                      <a href={c.href} onClick={closeAll} style={{ display:"flex", alignItems:"center", gap:".4rem", flex:1, textDecoration:"none", color:"#4b5563", fontSize:".8rem", fontWeight:400, minWidth:0 }}>
-                        <img src={c.img} alt={c.label} style={{ width:"17px", height:"17px", borderRadius:".2rem", objectFit:"cover", flexShrink:0 }} />
-                        <span style={{ flex:1 }}>› {c.label}</span>
+                      <a href={c.href} onClick={closeAll} style={{ display: "flex", alignItems: "center", gap: ".4rem", flex: 1, textDecoration: "none", color: "#4b5563", fontSize: ".8rem", fontWeight: 400, minWidth: 0 }}>
+                        <IconBox icon={c.icon} size={17} bg={c.iconBg} radius=".2rem" />
+                        <span style={{ flex: 1 }}>› {c.label}</span>
                       </a>
-                      <div style={{ display:"flex", gap:".2rem", flexShrink:0 }}>
-                        <span style={{ fontSize:".55rem", background:"#ede9fe", color:"#4f46e5", padding:".08rem .28rem", borderRadius:999, fontWeight:600 }}>{c.duration}</span>
-                        {c.available
-                          ? <Link to={`/register?course=${encodeURIComponent(c.label)}`} onClick={closeAll} style={{ fontSize:".55rem", background:"#dcfce7", color:"#15803d", padding:".08rem .32rem", borderRadius:999, fontWeight:700, textDecoration:"none" }}>Register</Link>
-                          : <span style={{ fontSize:".55rem", background:"#e5e7eb", color:"#6b7280", padding:".08rem .28rem", borderRadius:999, fontWeight:700 }}>Closed</span>
-                        }
-                      </div>
+                      <span style={{ fontSize: ".55rem", background: "#ede9fe", color: "#4f46e5", padding: ".08rem .28rem", borderRadius: 999, fontWeight: 600, flexShrink: 0 }}>{c.duration}</span>
                     </div>
                   ))}
                 </div>
@@ -654,7 +632,7 @@ export default function Navbar() {
             </div>
 
             <button className="ma" onClick={() => setMobileProd(v => !v)}>
-              Products <ChevronDown size={18} className={`mc${mobileProd ? " o" : ""}`} />
+              AI Products <ChevronDown size={18} className={`mc${mobileProd ? " o" : ""}`} />
             </button>
             <div className={`mp${mobileProd ? " o" : ""}`}>
               <a href="/products/compliize" onClick={closeAll} className="msl">Data Complize</a>
@@ -662,16 +640,10 @@ export default function Navbar() {
               <a href="/products/vendorize" onClick={closeAll} className="msl">De-risk Vendorize</a>
             </div>
 
-            <button className="ma" onClick={() => setMobileLab(v => !v)}
-              style={{ background:"linear-gradient(135deg,#ccfbf1,#a7f3d0)", color:"#065F46", fontWeight:700 }}>
-              BFSI Lab <ChevronDown size={18} className={`mc${mobileLab ? " o" : ""}`} />
-            </button>
-            <div className={`mp${mobileLab ? " o" : ""}`}>
-              <a href="/bfsiinnovationlab"          onClick={closeAll} className="msl">Explore the Lab</a>
-              <a href="/bfsiinnovationlab/projects" onClick={closeAll} className="msl">Lab Projects</a>
-              <a href="/bfsiinnovationlab/mentors"  onClick={closeAll} className="msl">Expert Mentors</a>
-              <a href="/connect"                    onClick={closeAll} className="msl">Set Up Our Lab</a>
-            </div>
+            <a href="/bfsiinnovationlab" onClick={closeAll} className="ml"
+              style={{ background: "linear-gradient(135deg,#ccfbf1,#a7f3d0)", color: "#065F46", fontWeight: 700, borderRadius: ".5rem", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+              BFSI Lab <ChevronDown size={18} />
+            </a>
 
             <button className="ma" onClick={() => setMobileCareer(v => !v)}>
               Career Accelerator <ChevronDown size={18} className={`mc${mobileCareer ? " o" : ""}`} />

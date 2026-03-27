@@ -11,7 +11,7 @@ import ProductLeadershipProgram from "./ProductLeadershipProgram";
 import DataToDecisionsPowerBI from "./DataToDecisionsPowerBI";
 import CIPLandingPage from "./CIPLandingPage";
 import CorporateReadinessProgram from "./CorporateReadinessProgram";
-import PgCDFLandingPage from "./PgCDFLandingPage";
+import PgCDFLandingPage from "./OneYearCourse";
 
 export default function CourseDetails() {
   const { slug } = useParams();

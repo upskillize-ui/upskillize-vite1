@@ -646,7 +646,7 @@ function Hero() {
               <a href="#curriculum" className="btn btn-outline">View Curriculum →</a>
             </div>
             <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:1,background:'rgba(255,255,255,.12)',borderRadius:'var(--radius-md)',overflow:'hidden'}}>
-              {[['6','Bimesters'],['40','Credits (UGC)'],['600','Hours'],['12','Capstones'],['Guest Lectures'],['16','Career Roles']].map(([num,lbl]) => (
+              {[['6','Bimesters'],['40','Credits (UGC)'],['600','Hours'],['12','Capstones'],['52','Case Study'],['16','Career Roles']].map(([num,lbl]) => (
                 <div key={lbl} style={{background:'rgba(255,255,255,.04)',padding:'20px 16px',textAlign:'center'}}>
                   <div style={{fontFamily:'var(--font-display)',fontSize:28,fontWeight:800,color:'var(--gold2)',lineHeight:1,letterSpacing:'-0.03em'}}>{num}</div>
                   <div style={{fontFamily:'var(--font-body)',fontSize:11,fontWeight:400,color:'rgba(255,255,255,.55)',marginTop:4}}>{lbl}</div>
@@ -682,7 +682,7 @@ function OverviewStrip() {
     ['📅','12 Months · 6 Bimesters'],['🎓','40 Credits (1 credit = 30 hrs)'],
     ['💻','100% Online · Live + Async'],['🏆','6 Industry Certificates'],
     ['🤖','EcoPro AI-Powered LMS'],['📊','Case Studies'],
-    ['🎤','Guest Lectures'],['🚀','Placement Guarantee Support'],
+    ['🎤','Guest Lectures'],['🚀','Placement/Internship'],
   ];
   return (
     <div style={{background:'var(--mist)',borderTop:'1px solid var(--cloud)',borderBottom:'1px solid var(--cloud)'}}>
@@ -1222,7 +1222,7 @@ function CareersSection() {
 function DeliverySection() {
   const cards = [
     {icon:'🎙️',title:'Live Weekday Sessions',desc:'4 hours daily, Mon–Fri. Split: 2 hrs instruction + 1 hr case/lab + 1 hr Q&A. Recorded and uploaded to EcoPro LMS within 24 hours for revision.'},
-    {icon:'🎤',title:'Saturday Guest Lectures',desc:'Every Saturday: 2-hour live industry session. 60-min keynote + 30-min student Q&A + 30-min LMS reflection task. 52 Saturdays = 104 hours of live industry access.'},
+    {icon:'🎤',title:'Saturday Guest Lectures',desc:'Saturday: 2-hour live industry session. 60-min keynote + 30-min student Q&A + 30-min LMS reflection task. 52 Saturdays = 104 hours of live industry access.'},
     {icon:'📝',title:'Sunday Assessments',desc:'WSAT window: Saturday midnight to Sunday midnight. Auto-graded. Results and detailed answer explanations visible Monday morning. Builds a weekly learning habit.'},
     {icon:'💻',title:'EcoPro LMS — Async',desc:'Watch recorded sessions, access case study materials, submit assignments, track credits, practice AI interview simulation — available 24/7 on any device.'},
     {icon:'👤',title:'1:1 Mentor Support',desc:'Every student gets an assigned industry mentor from Day 1. 45-min onboarding + 30-min check-in per bimester + open async chat on EcoPro LMS.'},
@@ -1249,7 +1249,7 @@ function DeliverySection() {
         <h3 className="h3" style={{marginBottom:20,textAlign:'center'}}>Weekly Learning Schedule</h3>
         <div className="schedule-timeline">
           {[
-            ['Mon – Fri','4 Hours Daily · Live Online','Core Learning Sessions','2 hrs instruction → 1 hr case study / lab / tool workshop → 1 hr Q&A, peer discussion, assessment prep'],
+            ['Mon – Fri','2 Hours Daily · Live Online','Core Learning Sessions','1 hr instruction → 1 hr case study / lab / tool workshop → 1 hr Q&A, peer discussion, assessment prep'],
             ['Saturday','2 Hours · Live Guest Lecture','Industry Practitioner Session','60-min keynote/fireside chat → 30-min student Q&A → 30-min LMS reflection task (due Thursday)'],
             ['Sunday','Self-Paced · WSAT Window','Weekly Assessment & Self-Study','WSAT test (45 min) + LMS async content + assignment work + capstone project work'],
           ].map(([day,time,title,detail]) => (

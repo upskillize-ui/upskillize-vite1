@@ -49,7 +49,7 @@ import DataToDecisionsPowerBI from "./pages/courses/DataToDecisionsPowerBI";
 import CAIPLandingPage from "./pages/courses/CIPLandingPage";
 import DigitalStrategyProgram from "./pages/courses/DigitalStrategyProgram";
 import CorporateReadinessProgram from "./pages/courses/CorporateReadinessProgram";
-import PgCDFLandingPage from "./pages/courses/PgCDFLandingPage";
+import PgCDFLandingPage from "./pages/courses/OneYearCourse";
 import PgCDBLandingPage from "./pages/courses/TwoYearsSemester";
 import ThreeYearsCourse from "./pages/courses/ThreeYearsCourse";
 import BFSIInnovationLab from "./pages/BFSIInnovationLab";

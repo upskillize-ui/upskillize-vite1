@@ -3,995 +3,725 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Upskillize FinTech & AI Innovation Lab — 3D Experience</title>
+<title>Upskillize FinTech & AI Innovation Lab — 3D Open View</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Sora:wght@300;400;500;600;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Sora:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#050510;color:#e0e8f0;font-family:'Sora',sans-serif;overflow:hidden;height:100vh;width:100vw}
+body{background:#060610;color:#e0e8f0;font-family:'Sora',sans-serif;overflow:hidden;height:100vh;width:100vw}
 #c{width:100%;height:100%;position:relative}
 canvas{display:block}
 
-.hud{position:absolute;top:0;left:0;right:0;padding:14px 20px;display:flex;justify-content:space-between;align-items:flex-start;pointer-events:none;z-index:10}
+.hud{position:absolute;top:0;left:0;right:0;padding:12px 18px;display:flex;justify-content:space-between;align-items:flex-start;pointer-events:none;z-index:10}
 .brand{display:flex;align-items:center;gap:10px}
-.logo-mark{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#00ffc8,#00a5ff);display:flex;align-items:center;justify-content:center;font-family:'Orbitron';font-weight:900;font-size:20px;color:#050510;box-shadow:0 0 25px rgba(0,255,200,0.4)}
-.brand-text .brand-name{font-family:'Orbitron';font-size:18px;font-weight:700;color:#fff;letter-spacing:2px}
-.brand-text .brand-sub{font-size:10px;color:#00ffc8;letter-spacing:3px;font-weight:500;text-transform:uppercase;margin-top:0}
+.brand-logo{height:32px;width:auto;object-fit:contain;filter:drop-shadow(0 0 6px rgba(0,255,200,0.2))}
+.brand-sub{font-size:8px;color:#00ffc8;letter-spacing:2.5px;font-weight:500;text-transform:uppercase;font-family:'Sora',sans-serif;margin-top:1px}
 
-.stats{display:flex;gap:10px;pointer-events:auto}
-.st{background:rgba(0,20,40,0.7);border:1px solid rgba(0,255,200,0.12);border-radius:10px;padding:8px 16px;text-align:center;backdrop-filter:blur(20px)}
-.st .v{font-family:'Orbitron';font-size:20px;font-weight:700;color:#00ffc8;text-shadow:0 0 12px rgba(0,255,200,0.4)}
-.st .l{font-size:8px;letter-spacing:2.5px;color:#5a7a9a;text-transform:uppercase;margin-top:2px}
+.stats{display:flex;gap:8px;pointer-events:auto}
+.st{background:rgba(0,20,40,0.75);border:1px solid rgba(0,255,200,0.12);border-radius:8px;padding:6px 14px;text-align:center;backdrop-filter:blur(15px)}
+.st .v{font-family:'Orbitron';font-size:17px;font-weight:700;color:#00ffc8;text-shadow:0 0 10px rgba(0,255,200,0.3)}
+.st .l{font-size:7px;letter-spacing:2px;color:#5a7a9a;text-transform:uppercase;margin-top:2px}
 
-.zone-nav{position:absolute;bottom:14px;left:14px;right:14px;display:flex;gap:6px;overflow-x:auto;padding:6px 0;pointer-events:auto;z-index:10;-webkit-overflow-scrolling:touch}
-.zone-nav::-webkit-scrollbar{height:3px}
-.zone-nav::-webkit-scrollbar-thumb{background:rgba(0,255,200,0.3);border-radius:2px}
-.zc{flex-shrink:0;background:rgba(5,10,25,0.8);border:1px solid rgba(0,255,200,0.08);border-radius:10px;padding:10px 14px;cursor:pointer;transition:all .3s cubic-bezier(.4,0,.2,1);backdrop-filter:blur(15px);min-width:130px}
-.zc:hover,.zc.on{border-color:#00ffc8;background:rgba(0,255,200,0.06);transform:translateY(-3px);box-shadow:0 6px 25px rgba(0,255,200,0.12)}
-.zc .zn{font-family:'Orbitron';font-size:8px;font-weight:600;color:#00ffc8;letter-spacing:1.5px;text-transform:uppercase}
-.zc .zd{font-size:10px;color:#6a8aaa;line-height:1.3;margin-top:3px}
-.zc .zs{font-family:'Share Tech Mono';font-size:9px;color:#ff6b9d;margin-top:3px}
+.zp{position:absolute;bottom:12px;left:12px;right:12px;display:flex;gap:5px;overflow-x:auto;padding:5px 0;pointer-events:auto;z-index:10}
+.zp::-webkit-scrollbar{height:2px}
+.zp::-webkit-scrollbar-thumb{background:rgba(0,255,200,0.3);border-radius:2px}
+.zc{flex-shrink:0;background:rgba(5,10,25,0.85);border:1px solid rgba(0,255,200,0.08);border-radius:8px;padding:8px 12px;cursor:pointer;transition:all .3s;backdrop-filter:blur(12px);min-width:120px}
+.zc:hover,.zc.on{border-color:#00ffc8;background:rgba(0,255,200,0.07);transform:translateY(-2px);box-shadow:0 4px 20px rgba(0,255,200,0.1)}
+.zc .zn{font-family:'Orbitron';font-size:7.5px;font-weight:600;color:#00ffc8;letter-spacing:1px;text-transform:uppercase}
+.zc .zd{font-size:9px;color:#6a8aaa;line-height:1.25;margin-top:2px}
 
-.ctrls{position:absolute;top:50%;right:14px;transform:translateY(-50%);display:flex;flex-direction:column;gap:6px;pointer-events:auto;z-index:10}
-.cb{width:38px;height:38px;border-radius:10px;background:rgba(5,10,25,0.8);border:1px solid rgba(0,255,200,0.15);color:#00ffc8;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;backdrop-filter:blur(10px);font-family:'Share Tech Mono'}
-.cb:hover{background:rgba(0,255,200,0.12);border-color:#00ffc8;box-shadow:0 0 20px rgba(0,255,200,0.2)}
+.ctrls{position:absolute;top:50%;right:12px;transform:translateY(-50%);display:flex;flex-direction:column;gap:5px;pointer-events:auto;z-index:10}
+.cb{width:34px;height:34px;border-radius:8px;background:rgba(5,10,25,0.85);border:1px solid rgba(0,255,200,0.15);color:#00ffc8;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;backdrop-filter:blur(10px);font-family:'Share Tech Mono'}
+.cb:hover{background:rgba(0,255,200,0.12);border-color:#00ffc8;box-shadow:0 0 15px rgba(0,255,200,0.2)}
 
-.legend{position:absolute;top:74px;left:20px;pointer-events:none;z-index:10;display:flex;flex-direction:column;gap:4px}
-.li{display:flex;align-items:center;gap:7px;font-size:9px;color:#5a7a9a;letter-spacing:1.5px;text-transform:uppercase}
-.ld{width:10px;height:10px;border-radius:50%;flex-shrink:0;box-shadow:0 0 6px currentColor}
+.leg{position:absolute;top:68px;left:16px;pointer-events:none;z-index:10;display:flex;flex-direction:column;gap:3px}
+.li{display:flex;align-items:center;gap:6px;font-size:8px;color:#5a7a9a;letter-spacing:1.5px;text-transform:uppercase}
+.ld{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 
-.info-tag{position:absolute;bottom:72px;right:20px;font-family:'Orbitron';font-size:7px;letter-spacing:3px;color:rgba(0,255,200,0.2);text-transform:uppercase;pointer-events:none;z-index:10;text-align:right;line-height:1.6}
-
-/* Overlay labels */
-.float-label{position:absolute;pointer-events:none;z-index:5;font-family:'Orbitron';font-weight:600;letter-spacing:2px;text-transform:uppercase;text-shadow:0 0 15px currentColor;transition:opacity .3s}
+.tag{position:absolute;bottom:62px;right:16px;font-family:'Orbitron';font-size:6.5px;letter-spacing:2.5px;color:rgba(0,255,200,0.2);text-transform:uppercase;pointer-events:none;z-index:10;text-align:right;line-height:1.6}
 </style>
 </head>
 <body>
 <div id="c">
   <div class="hud">
     <div class="brand">
-      <img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAB5AZMDASIAAhEBAxEB/8QAHQABAQADAAMBAQAAAAAAAAAAAAgFBgcBBAkDAv/EAFUQAAEDAwEEAwkKCgcGBgMAAAECAwQABQYRBwgSIRMxQSIyN1FhcXSxshQVFjU2dYGRlNEYIzNCUlZzobPBJENTVWKSkyUmNEZUZBc4RXKCooTh8P/EABoBAQADAQEBAAAAAAAAAAAAAAACAwQFAQb/xAArEQACAgIBAwEJAAMBAAAAAAAAAQIDBBESBSExMhMUIjM0QVFxgRU18GH/2gAMAwEAAhEDEQA/ALLpSlAKUpQClKUApSlAKUpQClKUApSlAKUpQClKUApSlAKUpQClKUApSlAKUpQClKUApSlAKUpQClKUApSlAKUpQClK8HroD0bzd7XZ4xlXW4xYTIGpW+4Ej99aBeNu2zS2ulv38VLPjisKcH1jlXC97OHfRtQU/ORJdtrsdsQCEktjQd0Bpy11rQ7Ds+ze+Nh214vcnmlf1hZ4E/WdK2140HFSkyxQWtspdO8fs/LnCpu6BOvfGP2ePrrOWbbls0ujgbTfvcijy/pbSmhr5zyqbxsN2ndD0nwfR1a6GSji82la9f8AZ5m9jQpy54vcm2k/1ga40fWNan7vQ+ykOMS8bZcbfc4yZNumx5bJGoWy4Fj91e356+duPX69Y7NEmyXSXbpCDz6JZT9Ck9R+kV37ZbvGLLrNszthCUqISm5MJ0A/aJ/mKqsw5xW490eODRSlK/CBLizoTUyHIbkR3khbbragpKge0EV+9ZCApSlAKU1prQClKUApTWmooBSlNRQClNRTUUApTUU1oBSmtKAUpSgFKa0oBU7b4F8vNonY8m1XWZBDjbpWGHSji0I010qiambfW+MMb/ZvesVfjJO1bJR8nE/hpmGh0yi7/alffVn7CpcmdsixqXNkOyZDsMKcddVxKWeI8yahI1c+754F8W9BHtGtWbFRitIlPRvlKUrnFYqbd8e53O33bHhb7nNhhbLpWI76mwrmOvQ86pLUeOuNbxOzC/7QbhaX7LIhtJhtLS506iCSTqNNKux5RVicvB6vJKhyTJAk/wC8d5+3OffVt7DHn5OyLGH5L7r7y4KStx1ZUpR58yTzNTyd2zOtDpOtHV+mr7qpfZhY5eNbP7LYZ621yoMVLLqmzqkka9VX5U65RSgSm1rsRpmOY5Yzl14aayW6NtomupQhMhQCQFHQAa1m9ieV5PN2t41EmZDcpEd2Xo405IUUqHArkQeutHzb5Z3v0972zWf2DeGXFvTD7Cq2SjH2bevsTaWin95u4T7Zsmmy7dMehyBIaAcZWUqAJ58xUkfDXMf1ou32pX31Vu9f4HJ3pLPtVGlUYUYuD2eQ8FY7oN3ut3xW+u3W4ypzjdwSlCn3CspHRg6DXsrnO9XeLzB2rKYg3e4xGfcTR6NiStCddOvQGt63KvkjkHzkn+GK8bddjmT5vnir5aZMBqMYzbWjyiFap66qjKEch8vBFaUu5NruSZJ0ZPwkvOun/WuffX0EsKlKsUBSlFSjFbJJOpJ4RUoL3bM7UggT7R/nV91VlamFRbXFjOEFbLCG1EdWoSAa8y5QlrixNr7HtUpSsZAUpSgFKa0oDH39+1Q7a7cLz7mTEip6Vbj6QUt6dvPtrkN63i8ajOqatVpnz0pOiXTo2g/QeddP2g2H4TYbdbEFBKpbBQgnqChzTr5NQKlq2bE9ocuYqM5amoqWzop554BB8qfGK6eBVjTi5XPx/wCnOzbciDSqRvX4Sb/SfJVPBr/1PPT6q2PHt4bFJzgau0GdayeXGUhxGv0cwK0j8HHJ+Di+ENo4tNeHo3OvxVp+W7I85xtpUl+1e7YqeZehq6ThHjKesVuWP06z4Yy7/wDfkxu/Or+KS7Hf8jwDZrtPtpnwhEL6h3E+3KCVg/4gOvzEVM+1XZZkWz+SXZaPdtpWrRqeynufIFj80/urH4zf7zjV0TcLJOehSGzooJPcq8ik9R8xqotlW0ezbS7Q/j99iMIuRZIkRFjVuSjtUjX946xVN+Jdh/FH4om7D6lG18ZdmT9sO2rT8BuSYM9TsvHn1/jmddVRyf6xv+Y7as21zolyt0efAkIkRpDYcacQdQpJ6jUYbe9mTuz+/JfgdI7Ypyj7lcVzLKustqPqPaK3PdN2grg3M4NdJGsSUSu3KWfybnWWx5D1jy1jyKo2R9pA6clvuipaUFK55WantPzWJglhReJkGRMbW8lkNsqAVqdefPzVzb8JKw/qxdf9Rv76ym9n4N4/p7fqNSvXe6fgU3085rucXPzbqbeMH2Le2XZtEz3HnbxDgyITbchTBbeUColIB15dnOtrrjm6P4NZXzm76k12OuVlVqu6UI+Ezp403ZVGUvLRpm1nPI+AWaLcpFvenJkSAwENrCSk6E68/NXNvwk7YP8Alad/ror398D5D2j5yHsKqYzXX6dgU3Uqc132cvPzbqruMH2Lb2W5qznmNrvUeA7CQiStjo3FhR1Tpz5eetUzzbdacRymVYJNiuEp2Nw8TrS0BJ1GvLU616+6X4MX/nN71JrjG8V4Xbv5m/ZFZ6MOqzLnU12Wy67KshixsXl6KG2WbU7TtAmzYUOBKgSIqEucD60kuJPLUaeI1i9p22mx4lLdtVvYN2ujfJxCFaNNHxKV4/IKmHFsgueM3NVytD/QyVMrZ4vElQ0J846xX52OyXvIpq49ntsu5SSStwNpKjqeZJPVW3/E0xscpPUf++5k/wAnbKCjFfEdJnbwOdvO8URq1xUH8zoC5+8msrj28XfmH0JvlmiTGPz1RyW1jzA8q5ve9nubWaKqXccbnNR0jVTqU8QT59K1cHUAjtrWsPEtjqKT/RmeXlVvcm1+y6cFy6yZlZhcrJJ6RAPC42oaONK8Sh2VsGo6qifY/lsjDs4hzUuKEOQtLExsHkpBOmunjB51VG2HJHMX2aXe9xFDp0McMdXiWvkk/vr5/Nwnj2qMfD8Hdwsr3mG35NU2tbcbFhc1y0W6Obxd0D8Y2hfC0yfEtXj8gril13h9okxxZirtsBpXeobj8ZT/APImuSLW464t15anHVqKlrUdSpR5kk1uWzbZnlOfF1yysNNw2VcDst9XCgK8Q7VGro0VVx3I6PFLyZtnbztNbcCvfiKvTsXFSRWxWLeVy+MpIu1qtlxQT3RbBZVp5NNRXsL3YsoDRUnJrQpene9C4OfnrVsl2EbRbMhbzVsZujKe2G6FL/ynnXm8aXbsPhZSeyPalZtoyJTcGJKhTIiEqeYeAIAPIEKHXXJt9b4wxv8AZvesV43No0mFlGSxpsd6M+iM2FNuoKVDuvEa/rfW+MMb/ZvesVRCMY5Go+CKWpE6mrn3fTpsXxb0Ie0ahc/yq2NkN4gY/u+WG83N5LMSJbekcUfIo8h5T1VbnJuKJT8GU2ubSLRs6tDEucyuZKkr4GIjSgFrHarn1AVy/wDChtQ/5Sn/AGhFcK2mZjcM5y2TfZxUhtXcRWNeTLQPJPn7TWGslqn3u8RbRbGC/MlOBtpA8Z7T5B1mvYYkFH4/IUVruV3ss2yq2g5EbVbcUmsNNI6STKceSUNJ7NdOsnsFe7tp2ro2cTLbHXZl3ATW1L1S6E8PCdKz+yfB4OBYixaIvC5JUOkmSNObzp6z5h1AVxHfV+N8b/YO+sVlhGud2kuxBJNnunehZH/KT32kfdXdMCv4ynDrXkKYxjCfHD3RE6lGvZrXz3V1HzVdmwPwN4t6Aj1mrMqmNaTiezSRFebfLS9+nve2az+wbwy4t6YfYVWAzb5Z3v0972zWf2DeGXFvTD7Cq3S+W/0WPwUtvX+Byd6Sz7VRmKszev8AA5O9JZ9qozFUYXoZGHpKk3Kvkhf/AJyT/DFZ7a1ttbwLLjYF2FyaQwh3pUvBPfdmlYHcq+SF/wDnJP8ADFc53uPC4r0Fr1GqFXGeQ1I81uRuit6JgJJ+CLx//IH3V36TdER8bcva2VFtqEZRbB5kBHFw+fsr52ufkzV/XggbLZmp/wDRF/wDXmTTCDXFHkkkckb3oseUhKvgpeBqNfyrf31/X4UGPfqrd/8AVb++pVYea6Bv8YnvR21+nTNf2ifrrUsSolxRU34UGPfqrd/9Vv76fhQY9+qt3/1W/vqWkrSrvVA+Y1/VPdKj3givMG2/2XLMut+ORseucZ6csoS664gpRokq1Oh17K7MOVQ/u5RZEnbNYFR2HHUsOLcdKRqEI4FDiPiGpFVntby9nCMGnX1QC30gNRUH891XJI/n9FYsilRmoxK5LvpHobUNqmL4E2Gbg8qXclp4m4UcguEeNXYkeeuEX7eVzCU6fee1223Nfm9KC8ojy9Q1rjNznzLpc5FzuMhciZKcLjzqzqVKNZ7Z3gmRZ3c1wrFGSpDIBfkOnhbaHZqe0+QVrhjV1x3MmopeTb2t4TaWhziVNtqx+iqGNPXW6YlvMyUvIZyuxNqZPJUmEo8Q8pQf5Vhp27Pl7ENTsW+2mW8BqGQlaNT4uI8q43e7XcbJdZFqusVcSbHXwutL60n+Y8tSUKLe0RqL8FV53s8xXadjvwqwl+K3cHEcSHGe5bkEdaHE/mq8tThGfuuOX9LzRdg3O3v9R5KQtJ5g+Stm3cM4kYlnka3uvH3puriWH2ye5Qs8kLHl15HyGuib2OItxZcPMITQQJCvc80pHLi07hZ8/MVqwr5V2ewse4vwcTqWGor2sOzR0eI9a9smyB1p9CEuymShxPWY8lPUR9PPzGoycTccfvykErj3K2yuvqKHEK//AFXdd02+SouZzrCkKXEmRy8UjmG1o7fJqDp9VbJtb2BS8qzd7ILHdokBqZoqU082o8Lg5FSdPH66yWKOLdKt+Psb8HI9rUpM6jgGa27JMMtV7W+htyVHCnEa96sclD/MDSsLiGyOw2LG4dpckzJS46CFu8fDxqKionQdXM0rnS4bejR2MJvZ+DeP6e36jUr1VG9n4N4/p7fqNStX03R/p/6z5nqvz/4VPukeDWV85u+pNdjrjm6Ry2ayvnN31JrsetcDO+on+zt4XyIfo4lvgfIi0fOY9hVTHVOb3/yItHzkPYVUx19B0j6b+s4fVPqH/CqN0rwZP/Ob3qTXGN4rwu3fzN+yK7PuleDJ/wCc3vUmuMbxXhdu/mb9kVlxP9hZ/TTk/RQ/hz4BSjwp5qJAHnPVVubKcYh4rhFut8ZlKXlspdkuad0txQ1JJ7dNdKimCNZ8QHq90Nj/AO4q/wBoBLSAnTQJGledbsaUYjpEE3KR5WkKSpKgCk8iCNQR4qjreBxiNjG0aQ1BbDUOa2JLSEjQIJ14kjya+urHqZ978JGVWMgDiMRzX/NWPpFko5Gl9zX1SCdO/ujhq9eAlJIUBqPIaqbaLElZfuyIXFSp98QGJPCnmV9FoTp5eRqWuenOrP2DFTux7HulHFrFIIUOscSuVdHrL4whL8Mx9Hk1ZJELJPENQdQa7RsD2yQ8EtDmO3q3PO25b6n0SI/NbalacQKe0cuyts2vbvbkiZIvWCqaT0qi47bXDwp4j1ltXZ/7TU/X+w3zH5K497tMy3uIOh6Zogf5uo1h513x0z6Taki3cW2pYHkYSm25FEDpH5F9XRLHnCq3FK0rSFtqCkqGoUDqDXzdISrnoD5a2/Cdo+Y4hIQ5aby+tgHVUWQouMrHiIPV9FZ54Ou8WR9n+C70xmEylykx2g+pPCpwJHEoeInxVNm+t8YY3+ze9YrrmxzaVbNodlW8ygRLnGAEyIVa8H+JPjSa5HvrfGGN6f2b3rFU48XG5JnkVqROxrd8vzyTddnuNYVCU41b7ZFT7qB5dM9qf/qkHl5a0jtpoe0Ea9WvbXVlBSa2WaB//h46rbdk2Y/Bm0Jyi9RwLxOb/EoUOcZk9n/uPWamPBbpAsmY2u7XWCmdCiyEuPMq7R4/KR16eSr/ALVOiXK2x7hBeQ9FkNhxpxJ5KSRqKxZtkklFeCM212PaHVzqYt9X43xz9g76xVO1MW+r8b45+wd9YrLi/NRCHknhfUfNV2bA/A3i3zej+dQmvqPmq7Ngfgbxb5vR/Oted6UTsIrzb5Z3v0972zWf2DeGXFvTD7CqwGbfLO9+nve2az+wbwy4t6YfYVWmXyn+iT8FLb1/gcneks+1UZirM3r/AAOTvSWfaqMxVGF6GRh6Spdyn5IX/wCck/wxXON7fwuK9BZ9Rro+5T8kL/8AOSf4YrnG9v4XFegs+o1XX9Szxes4+7+TNfRSxtpcx+AhxIWhURsKSoaggoHI1863fyZr6L4/8Q270Vr2BTO8RFh+Ax3Hxy94rXy/7Rv7q9W727E7TbJNyuNqtEeJGbLjri4rYCUj6KzqiBqSdAOsmpK3mNqJyW6LxSyP/wCx4bmkh1CuUl0dnlSP3mslNcrZaRBLbNC2s5g1mWVOzYMCNb7Wzq3CYaZSg8GvfK0HMnr8latBiyp05iFCYXIkyHA2y0gaqWo9QFfiTz5nz1VW7DssNkhN5lf42l0ko/oTCxzjtH84/wCJX7hXUsnGmBa3xRuewrZvHwDGAH0odvUwBc18dh7G0n9EfvNc131bo4GcdsqF6IUtyS4nXr0ACfqOtUgKlHfPLnw8sgOvR+9qiPFr0hrn4zc7k2Vx7s4USQCfEKs/dyh2ewbKLUkzIbciagynyp1IUSrq159g0FRhXgyOE8PTqTp2cZFdC+p2x1vRbJbPot762v8AvOF/rp++po3x7fblXayX+C7HddkIXHkFpYVrw6FJOnn0+iuAe6f+4V/qGvBfSoaKe4h5Va1TViOuXJMio6Z/aFraWh1tRSttQWlQ6wQeRq/4cW3ZdgkJq7RG5cSdDbW42sag6pB18+tfPpx1ro1HpE9R7av3Y+pS9lmMKKuIm2MEnXr7gVHNeuLXkjYk13PbxPDscxVpTdhtMeGVjRbiRqtXnJ51nxXnsrxXPcpSe5PZVGKitJHmlNKVHRI5JvWR1O7Ly8NdGJjaz9Oo/nUo1ce1DH/hPgd1syQC68wSzr/aJ5p/eKh55p1h5xh9Cm3mlFDiFDQpUDoQa+m6LYnU4fhnz3VoNWqX5KU3Q7ow5i12s3GkPx5fT8PaUrA5/uruIOlQXjGQXfGbs3dLJMXFlI7niHMKH6Kh2iumq3hszMPohb7Wl7h06YJUefj4eqs+b0u2y5zh4ZfidRrrqUJ/Y2zfAujHvXZLKHEl9UhUkpB5hKU8IJ+upzrM3KbkOY3yRPmLkXOeWlOuEJ14G0jU6DsSB2Vhhz5iuvhUewqVbe2jmZd3trHYvBVG6V4Mn/nN71JrjG8V4Xbv5m/ZFdo3SvBk/wDOT3qTXF94rwu3fzN+yK5mH/sLP6dHJ+ih/DnyVKQpLiO+QoKT5wdRVz7Ob/FybC7ZdorqV9IwlLoB5pcA0UD4udQxpWexDMclxJ9bthujkULOrjKhxNrPlSeWtbeoYTyoLj5RiwctY8ny8MuknlUibyl/j3zaU61DdS7Ht7KY/Gk6gr61aHt69Por0r3tj2hXeEuHIvDcdpYIWYrAaUQesa1oHjJ5knn5TWbp3TZ0T9pY+/2NGdnxvhwh4P5c7xXmPVVt4I9BxnZlYBdZbMJkRWUcbyuFIUvvQT5SakrZjjMjLs1t9nZQroekDslYGoQ0k6kn1VRW9Y0hvYlNZbSAhEiMlI7AAsaVX1ianKFRf0ep95nWG1ocQHG1JWhQ1CknUEeQ1+U2HEnMlmbFYktn811sLH1GoNxTaHmmL8KLNf5bTCf6hxXSN/5TXRLZvK5rGbSmbarTOVpoVEKb1Pj5VyZYVkfB3XBo7Tl+w/Z/kDa1ItQtUpWpD8I8HdeMp6jUg5vYXMXy65469ITIXAfLXSpGgWNAQdOzkRXUb7vIZtPhrYg2+2Wtak6dM0FOKT5Rxcga43MkyJkt6XMfcfkPLLjrrh1UtR5kk1qxq7Yb5+CUU15Oibs9yft22G1IaUoImJXHdSOpQI1GvmI1roG+t/x+N/s3vWK1vdKxmVddoZv5aUINqaVxOdinVDRKfOOutk31v+Pxv9m96xUJNPJWg/UTser6K7RmGz1Vy2EYpnFpY4pcO3BE9CBzcZCjovTtKfVXFz1VcewVpt/YhjLLzaXG3IHCtChqFAlWoNWZVjr4yR7J6IcHPmNCOzy1Qu6ftGMSUMEu8j8Q8Su2uLPeK6y15j1iue7esAcwPMltxkKNon8T0JZ6kc+6b849Vc/YedYfbkMOKaeaUFtrSdChQOoI8tTlGN9Z6/iR9H09Wh66mPfV+N8c/YO+sV1nYPtAazzDkPSFoTd4ejU5sHmVdiwPEofvrk2+r8b43+wd9Yrn48XG5JlUVpk8L6j5quzYH4G8W+b0fzqE1cwauzYH4G8W9AR/OtOd6UTsIrzb5Z3v0972zWf2DeGXFvTD7CqwGbfLO9+nve2az+wbwy4t6YfYVWmXyn+iT8FLb1/gcneks+1UZirM3r/A5O9JZ9qozqjB9DIw8FS7lPyQv/zkn+GK5xvb+FxXoLPqNdH3KuWIZB85J/hiucb2/hcX6Cz6jVdf1LPF6jj7v5M19Fsf+Ibf6K17Ir50ufkzX0FkynoWztybGUEvR7SXW1HnopLWoP1ivc5ekTOR7z+1M2aG5hmPydLlJRpOfQecds/mA/pKH1CpYAAGgr9JUyTcZLk+a+uRKkKLrrizqVqPMk1+daaaVVHROK0dx3ZtlashuDeXX+KfemIvWGy4OUlwfnEdqAfrNVikaDTQCvnQ1dLoy0lpm63BptI0ShuStKU+YA6Cv7F4vP8AfV0+2OffVFuLOyW2yLg2fRWps31ba5rjt4QklGrkdavF+cPr51zXYFc7o/tkxtp+6XB5tT6wpDkpakn8WrrBOhqp9tOHfDjAJ1na4RMRo/DUex1PMD6eY+msyj7vatkdcWQiRqCOwirH3cJeO5LsxgNqttudnW5PuaSlcdClgjvVHl2jtqPpkeRDlvQ5bK2JDCy260saKQodYIrIYtkd8xi5i5WC5PQZIGiig9yseJSeoit99XtY9iclvwX4LDYv7ltv2VH3U94bF/ctt+yo+6pWt28jnUdoIlwbTMWBpxqbLev1GvM/eSzp9spiwbTEUeQUG1OafQaw+6WkODKnNhsWnOy23T0VH3VkGW22WUtMtobbQNEoQNEgeIAVD7O0jOMnyyzs3jIZS46rgzxMMno2z3Y7E1cSeoVVdVKrSkeOLR5FKUqkiKUpQHg9dce2u7FYmUzXb5YZDduurnN5Cx+KfPjOneq8tdiNDVtN86J84PTKraYXR4zRGdy2PbRYLnB8HlS+emsZ1Kk+fmRXtWLYltBubyEvWxu2tqPdOSnR3I8eg11qweetea6P+Zv460jAuk08t9zQdl2zCy4RbHmwTOny0cEqU4NOJJ60pHYmuX3TdwuDtzlO2/JITENbqlMNLjqKm0E8kk689Ko3zUrJDOvhNzUu7NU8OmcVBrsjSdjOFSsDxNyyy57M5xctb/SNIKRooDlofNU3bxXhdu/mb9kVZFRvvFeF27+Zv2RW7pM5WZTlLy0zH1KCrx1GPhM0S3/GMT0lv2xVKbUNhUa+znLzjElm3y3u7eiuJ/ErVp1p070n6qmu3/GMT0hr2xX0BR3ifMK09VvsoshKD0Zum0wuhKM1sjqbsX2ixXOD3kRIH6TL6VD9+lZOwbBM5uD6BcBDtbB75xxzjUPMkffVZ00rE+sZDjrsbF0qhPfc1HZpgNmwS1Ki21KnpL2hkSnO/cP8h5K97aBidtzbFpGPXZTyIz5SriZXwqSpJ1Sfr7K2A15rmSslKXNvudCEFWuMVpEq5Pu0ZFGdUvHrzEuDP5rckFpY85GorSp2xPaZE1HwcVI0H9Q8lWvm1NW/pWl59tGs2HX2z2KZAu9wud56T3FGt8YOqXwDVWupAHI1ojmWLyXc2SXG2PbTHnQ38EZjX+JxaAPXW8Ybu25NOktu5PcI1riAgqbYV0rqh5D1A/XVEY1lr16uRhrxLJbUOAq6e4REttcuzULPP6K2fUCksyySPHNsw2HYzZ8TsTNmscRMaK3zPapau1Sj2k1oW3jZXcNo8m1OwbxGtwhJWlQdZK+Pi06tDyrq+tNazxnKMuS8nm2S1+C9ftD/AL3W37Iv76oPZrjz2KYJaMdkSW5TsCOGlPISUpWdSdQD1ddbD9NedalZdOxakw22antVwqBnmJSLJLIZdPdxZHDqWXB1K83jFcGTuvX/AE55dbvsi/vqnbhJahQpEx7i6KO0p1fCNTwpBJ0+qsPs9y20ZziULJ7EZBt8wKLRfb4F8iQdR2cxSu+da1FhNo5Jsu2JZbgmXx73Dy23us/k5Uf3MsB5s9Y6+vtBrZ9uGyl7aPMtkhq8It/uJtaClTXHx8R1rqlaVnm0ezYjklpx2Tbrxcbtd0OLhxrfGDqlhHfakkAaUd03PnvuNs4yd16YQR8Lmfsx++u+bP7AvFsKtOPLkCUqBHDJdCeEL07dKxmK7RLFfshdxtce5We+IaL4t1zjFl5xoci4jmQpI8YNbiPPSd07FqTDbZNN/wB2y+XK+z7ijKre2iVIW8lCoqyUhR10POsjs73fLzi+c2jIn8lgyWoD/SqZRHUlSxwkaAk8uuqF1Hjrzr5al7zY1rfY95M03bDh8nOcIkY9EmtQnXXUOB5xBUkcJ100FcNG69fv1ut32Vf31UmtNa8runWtRZ4m0c32EbOZuziy3KBNujFxVMlB9K2mygJASE6HU+Ste2wbEpOe5ib+3f24KSwhnoiyVd726612n6afTUVbNT5p9xsmRe67MKSBlzP2U/fVCTrWuRij9kS6ErcgKih0jkCW+HiI/fWX1r8JsluJDflvE9Ew2pxfCNTwpGp0FeztnP1MNtkwN7rt+S2lPwvtx0Gn/CL++v6/Bev363W77Iv76oXZ9ltozjE4mTWIyDAl8XRdO30a+5UUnVPZzFZ+rPerfye8mS3+C9fv1ut32Vf30/Bev363W77Kv76qSlPerfyOTJ82a7v94xTO7VkcjJIMpqC4pamUR1JUvVJTyJPLrqgSOdf1SqrLJWPcjxvZzHa1sbx/O1KuCFG13nTT3W0kEO+IOJ7fP11wG/bv+0S2ur9yRYd0ZHerjvBKlf8AxV1VZlKnXkTgtI9UmiE//CPaZx8PwNuHXprxI08/fVlLfsJ2mTDp7zMxte2RISkfu1q2KaVa82z8I95smnBt266RLtCul+yBhr3M8h4MRGyo8STroVHlpVLDqpSs9lkrHuRFtsUpSoHgpSlAKUpQClKUApSlAeD11H+8LDmvbWrstmHJcQQ3opDSiD3I7QKsA1/CmWlKKlNNkntKQa1YmV7tZzS2ZsrHWRDjvRBMC33EXGITbpgHuhv+oV+mPJV8I7xPmFfmY7P9g1/kFfqBoKnm5vvTi+OtFeHie7Jre9nkUoKViNopSlAK4DvATlWzeA2VTkW+dcFNKmf0eG2Fur7gd6kkA/XXfq4vtttGQnbFs8yy2Y5crxbrMZRm+4QhTiONICe5Uoa6mgOm4tfXL9HeeXYrzaC0sJCLkwlpS+WuqQFK1FaHtkzq9bNMms2S3J4PYI+hcW5tojhTsR8glp0KHMpURwkeMittxzLpN4uqILuHZNa0qSpXuidGbQ0NOwkLJ1PZyrTNtmJ3vaXkVpwN+FKi4YEGbeZ6FhPuhSeTUdHPXXi7onTsFAbNsXn5fesMRf8AMejYlXR1UqJBSyEGHGUfxTaiO+Vw6Ek+OtNtmS53tDyrNY2I5DEsEHG5Qt8MLgpfMySEcSlOFXeo10T3PPtrZthKczgYs9jWawXRLskgw4twKklFwjD8k6NDqDw6Ag6cxWm2e25hsxyXP02jEp9/YyKYblaJERTZS28pHCW3uIjhAVoeLnqKA6rj9wvbGEtXHMIcWJdY8VTk5qI50jQUgEkoJ56EDWuIJ2mbRDslVtqVcYLdn919KjHzFToYHS9HxF7v+l07rxdldnxS3ZLK2cx7bms2PIvsmEtue9GbCWwtYIISBy5AgeXSuBY9s2kY7gzOFvbHY+RZFFeMdq4ynP8AZkhkuapecPHqCEnmkJ11FAUVe5TU7BZ01nXopFscdRr+ipokeuuebnP/AJdsY/ZufxFV0e5wnfgdKtzDDYd971sttM8kcXRkBKdezXkNa0vdhsF5xfYlYLJkEByBcYyHA9HcIKkarUR1EjqNAdLrgG3Oeq17yezGci3T7kW4s3+jwmwt5XIcwCQDp567/XFtsdqyFvbjgWX27G7neLXaY8pEwwQhS2ysAJ7lShrQGGi3b4bb0Njk3GFNxU49bX/cUS5p6OVdC7pxFAGqejSOvmTr2VvO3PNbzi8fHrLjTbHv7kt0Tboj76eJuONNVukfnEJ6h46wV2s+SbRNrGHZC5jkvHbJi7rspT1w4EyZTq08IbShJOiO0kn6K9/eLwWbl0PGrrBtrd3Xj90Ex62LXwe7GSnhcQk6jutOY5jUigPOIZXkVq2ySdmmT3Vm99Paxc7dcEx0sOaBXC42tCO55HmCK/bIsvv9h3gsdxqZIZVjOQ255MdPQAKbmNd1px9ZBT2V6Gy/HmWtob13tey6Ni9qZg9EmfP+MHnVHmhKQpQS2B16nmax++ZAlI2Toyu1Ooj3bHJrcyI6ToRxfi1pT4yQocvJQGw7CMuv+cfCq+T5DSrMi9PQ7KhDQSQy13KiSOatVa8z4qx8jJ8uzHa5kWGYte2cfgY5FaU/LMNMhyTJdBIRovklCQOenM61s2wjGTiWyPHbKtCRIRDS7JIHfvOd2tR8uqq1D3qyPANs+U5VCxu45FZ8lisrSIBQXY8loEFK0qI7hQI0UNdKA2bYJnE7PMFNxu7LDF2gzX7fOQxrwF1pZSVAHqChodPLWkWPJ9o+VZxtMtMPKIdpt+NS+jgqRb0OvE9HxBKuLkU+Xrrbt3PDLrhmBOs39tpq73S4SLlLabXxhpTq+II17SBoNRWF2ZYrkNrzja5On2t5iNep/S25xSk6SE9CU6jQ8ufj0oDYt3nMbpnmya05HekMJuLpcakFkcKFqQspKgOzXTXStMhZPm20J7P5div0O0WSwPvW2JEXBS77sWhslxbqz3SQSdAE+LWtk3XMeveLbG7ZZshtzlvuDT8hTjDigSkKdUQeRI5gitUxyz5ds8nbQbDEw+432Jf5r0+0S4rjYb1dRoW3iogoKT26HUUBn9z3X8H3HeIAHR7UDq16VVddrmu7LYLzjGxeyWXIIC4FxYDvTMLUCUEuKI5gkdRrpVAKUpQClKUApSlAKUpQClKUApSlAKUpQClKUApSlAKUpQClKUApSlAKUpQClKUApSlAKUpQClKUApSlAKUpQClKUApSlAK1XJ8Bx/Jb/Du19TNniGtLjEJ2SoxA4nvXCz3pUPGa2qlAANBSlKAUpSgFKUoBSlKAUpSgFKUoBSlKAUpSgFKUoBSlKAUpSgP/2Q==" alt="Upskillize" style="height:32px;width:auto;display:block;filter:drop-shadow(0 0 12px rgba(0,255,200,0.35))" />
-      <div class="brand-text">
-        <div class="brand-sub" style="margin-top:0">FinTech &amp; AI Innovation Lab · India's First</div>
-      </div>
+      <img src="data:image/png;base64,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" alt="Upskillize" class="brand-logo" />
+      <div class="brand-sub">FinTech &amp; AI Innovation Lab &nbsp;·&nbsp; India's First</div>
     </div>
     <div class="stats">
-      <div class="st"><div class="v">1,200</div><div class="l">Sq Ft</div></div>
+      <div class="st"><div class="v">400</div><div class="l">Sq Ft</div></div>
       <div class="st"><div class="v">10</div><div class="l">Zones</div></div>
-      <div class="st"><div class="v">18</div><div class="l">Students</div></div>
+      <div class="st"><div class="v">20</div><div class="l">Students</div></div>
       <div class="st"><div class="v">22</div><div class="l">Tickets</div></div>
     </div>
   </div>
-
-  <div class="legend">
-    <div class="li"><div class="ld" style="background:#00e676;color:#00e676"></div>Student (seated)</div>
-    <div class="li"><div class="ld" style="background:#ff6b9d;color:#ff6b9d"></div>Mentor (observing)</div>
-    <div class="li"><div class="ld" style="background:#aa66ff;color:#aa66ff"></div>Facilitator</div>
-    <div class="li"><div class="ld" style="background:#ffab40;color:#ffab40"></div>Workstation</div>
+  <div class="leg">
+    <div class="li"><div class="ld" style="background:#00e676"></div>Student (working)</div>
+    <div class="li"><div class="ld" style="background:#ff6b9d"></div>Mentor (helping)</div>
+    <div class="li"><div class="ld" style="background:#aa66ff"></div>Facilitator</div>
+    <div class="li"><div class="ld" style="background:#ffab40"></div>Desk + Laptop</div>
   </div>
-
   <div class="ctrls">
     <button class="cb" onclick="resetCam()" title="Reset">⟲</button>
     <button class="cb" onclick="toggleRot()" title="Rotate">◎</button>
     <button class="cb" onclick="topV()" title="Top">⊡</button>
     <button class="cb" onclick="walkV()" title="Walk">☉</button>
   </div>
-
-  <div class="zone-nav" id="zp"></div>
-
-  <div class="info-tag">
-    Upskillize Solutions<br>
-    Perimeter Floor Model<br>
-    500+ Years Expertise · CXOs · CIOs · CPOs<br>
-    College Provides Room · Upskillize Delivers Everything<br>
-    ~4 AC Zones
-  </div>
+  <div class="zp" id="zp"></div>
+  <div class="tag">Upskillize Solutions<br>~400 Sq Ft · Open Lab<br>College Provides Room · Upskillize Delivers Everything</div>
 </div>
 
 <script>
-// ═══════════════════════════════════════════════════════════
-// UPSKILLIZE FINTECH & AI INNOVATION LAB — FULL 3D SCENE
-// ═══════════════════════════════════════════════════════════
-
-const ZONES = [
-  { id:'open', name:'Open Innovation Floor', desc:'~380 sq ft · Walk · Present · Sprint · Discuss', seats:'Central Hub', x:0, z:0, w:10, d:8, color:0x00ffc8, h:.08 },
-  { id:'collab', name:'Live Collaboration Board', desc:'UPI Flow · AI Lending · ESG Risk · M&A Deal · Stablecoin', seats:'5 Active Project Cards', x:0, z:-5.8, w:10, d:2, color:0xff4081, h:.06 },
-  { id:'sprint', name:'Fintech Sprint Map', desc:'22 Tickets · Backlog:8 · Sprint:9 · Review:3 · Done:2', seats:'Kanban Board', x:0, z:-4.2, w:7, d:1, color:0xffab40, h:.04 },
-  { id:'standup', name:'Standup Agile Zone', desc:'Daily standup · Physical Kanban mirrored live', seats:'NW Corner · 15-min standups', x:-7.5, z:-5.5, w:4, d:4, color:0x40c4ff, h:.08 },
-  { id:'pair01', name:'Pair 01 — Open Banking', desc:'Open Banking APIs & digital payments workstation', seats:'2 Students Seated', x:-4, z:-7.5, w:3, d:2, color:0xffab40, h:.06 },
-  { id:'pair02', name:'Pair 02 — WealthTech', desc:'Wealth management & portfolio simulation', seats:'2 Students Seated', x:7, z:-7.5, w:3, d:2, color:0xff6b9d, h:.06 },
-  { id:'pair06', name:'Pair 06 — ESG Obs.', desc:'ESG Observation & Risk Analysis workstation', seats:'4 Students + Laptops', x:-6.5, z:5.5, w:4, d:2.5, color:0x00e676, h:.06 },
-  { id:'pair0708', name:'Pair 07+08 — M&A · InsurTech', desc:'M&A Simulation + Insurance Technology', seats:'6 Students + Laptops', x:0, z:5.5, w:6, d:2.5, color:0xff6b9d, h:.06 },
-  { id:'pair09', name:'Pair 09 — Lending Tech', desc:'AI Lending model & Digital Lending platform', seats:'4 Students + Laptops', x:6.5, z:5.5, w:4, d:2.5, color:0xffeb3b, h:.06 },
-  { id:'capstone', name:'Capstone Pitch', desc:'Final project presentations & investor pitches', seats:'1 Presenter + Audience', x:0, z:2, w:3.5, d:3, color:0xaa66ff, h:.1 },
-  { id:'mentor', name:'Mentor Sessions', desc:'Industry experts guide & review student work', seats:'2-3 Mentors', x:8.5, z:0, w:2.5, d:3, color:0xff6b9d, h:.06 },
-  { id:'lounge', name:'Learning Connect Lounge', desc:'Passion-driven networking & collaboration', seats:'Lounge seating for 6', x:8, z:5, w:3, d:3, color:0x7c4dff, h:.06 },
-  { id:'pair10', name:'Pair 10 — Trading', desc:'Algo trading simulation & market analysis', seats:'2 Students', x:-9.5, z:0, w:2, d:4, color:0x40c4ff, h:.06 },
-  { id:'facilitator', name:'Facilitator Station', desc:'Upskillize facilitator manages sprints & sessions', seats:'1 Facilitator Desk', x:0, z:-7.5, w:3, d:1.5, color:0xaa66ff, h:.06 }
+const ZONES=[
+  {name:'Open Innovation Floor',desc:'Walk · Present · Sprint · Discuss',x:0,z:0,w:7,d:5,color:0x00ffc8},
+  {name:'Live Collaboration Board',desc:'UPI · AI Lending · ESG · M&A · Stablecoin',x:0,z:-3.8,w:7,d:1.4,color:0xff4081},
+  {name:'Standup Agile Zone',desc:'Daily 15-min standup · Kanban Board',x:-5.2,z:-3.5,w:2.8,d:2.8,color:0x40c4ff},
+  {name:'Pair 06 — ESG Obs.',desc:'4 Students · ESG Risk Analysis',x:-4.5,z:3.8,w:3.2,d:2,color:0x00e676},
+  {name:'Pair 07+08 — M&A · InsurTech',desc:'6 Students · M&A Sim + Insurance',x:0,z:3.8,w:4,d:2,color:0xff6b9d},
+  {name:'Pair 09 — Lending Tech',desc:'4 Students · AI Lending Platform',x:4.5,z:3.8,w:3.2,d:2,color:0xffeb3b},
+  {name:'Capstone Pitch',desc:'Final Presentations · Investor Pitches',x:0,z:1,w:2.5,d:2,color:0xaa66ff},
+  {name:'Mentor Sessions',desc:'Industry Experts · Observe & Guide',x:6.2,z:0,w:2,d:2.5,color:0xff6b9d},
+  {name:'Learning Lounge',desc:'Networking · Passion-driven Collab',x:6,z:3.5,w:2,d:2,color:0x7c4dff},
+  {name:'Facilitator Station',desc:'Upskillize Facilitator · Sprint Mgmt',x:0,z:-5,w:2.5,d:1.2,color:0xaa66ff},
 ];
 
-let scene, camera, renderer, clock;
-let autoRotate = true, isDrag = false, prev = {x:0,y:0};
-let camA = .45, camE = .55, camD = 28;
-let tA = camA, tE = camE, tD = camD;
-let zoneMeshes = [], people = [], laptopScreens = [];
-let t = 0;
+let scene,camera,renderer;
+let autoRotate=true,isDrag=false,prev={x:0,y:0};
+let camA=.5,camE=.5,camD=18;
+let tA=camA,tE=camE,tD=camD;
+let zoneMeshes=[],ppl=[],screens=[],mentorGroups=[];
+let t=0;
 
-function init() {
-  scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x060612);
-  scene.fog = new THREE.FogExp2(0x060612, 0.008);
+function init(){
+  scene=new THREE.Scene();
+  scene.background=new THREE.Color(0x0a0a1a);
 
-  camera = new THREE.PerspectiveCamera(45, innerWidth/innerHeight, .1, 300);
-  renderer = new THREE.WebGLRenderer({ antialias:true });
-  renderer.setSize(innerWidth, innerHeight);
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-  renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.4;
+  camera=new THREE.PerspectiveCamera(50,innerWidth/innerHeight,.1,200);
+  renderer=new THREE.WebGLRenderer({antialias:true});
+  renderer.setSize(innerWidth,innerHeight);
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  renderer.shadowMap.enabled=true;
+  renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+  renderer.toneMapping=THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure=1.6;
   document.getElementById('c').appendChild(renderer.domElement);
-  clock = new THREE.Clock();
 
-  // === LIGHTS ===
-  scene.add(new THREE.AmbientLight(0x1a2850, .5));
-
-  const sun = new THREE.DirectionalLight(0xfff5e8, .7);
-  sun.position.set(12, 25, 12);
-  sun.castShadow = true;
-  sun.shadow.mapSize.set(4096, 4096);
-  sun.shadow.camera.left = -20; sun.shadow.camera.right = 20;
-  sun.shadow.camera.top = 20; sun.shadow.camera.bottom = -20;
-  sun.shadow.camera.near = 1; sun.shadow.camera.far = 60;
-  sun.shadow.bias = -.0005;
+  // === LIGHTS (bright, open air feel) ===
+  scene.add(new THREE.AmbientLight(0xccddef,0.6));
+  const sun=new THREE.DirectionalLight(0xfff8ee,1);
+  sun.position.set(8,18,6);sun.castShadow=true;
+  sun.shadow.mapSize.set(4096,4096);
+  sun.shadow.camera.left=-15;sun.shadow.camera.right=15;
+  sun.shadow.camera.top=15;sun.shadow.camera.bottom=-15;
+  sun.shadow.bias=-.0003;
   scene.add(sun);
+  scene.add(new THREE.DirectionalLight(0x00ffc8,.2).translateX(-8).translateY(10));
+  scene.add(new THREE.HemisphereLight(0x88aacc,0x223344,.4));
 
-  scene.add(new THREE.DirectionalLight(0x00ffc8, .1).translateZ(-15).translateY(10));
-  scene.add(new THREE.HemisphereLight(0x1a3060, 0x0a0a20, .3));
-
-  // Ceiling strip lights
-  for(let x=-8;x<=8;x+=4) for(let z=-6;z<=6;z+=6){
-    const sl = new THREE.RectAreaLight(0xeef4ff, 2, 2.5, .4);
-    sl.position.set(x, 3.95, z);
-    sl.rotation.x = Math.PI;
-    scene.add(sl);
-  }
-
-  buildRoom();
-  buildZones();
-  buildFurniture();
-  buildPeople();
+  buildFloor();
+  buildWalls();
+  buildZonePlatforms();
+  buildAllFurniture();
+  buildAllPeople();
+  buildBoards();
   buildBranding();
-  buildZoneUI();
+  buildUI();
   setupControls();
   updateCam();
-
-  setTimeout(()=>{
-    const ld = document.createElement('div');
-    // remove any loading if needed
-  }, 800);
-
   animate();
 }
 
-// ═══ ROOM STRUCTURE ═══
-function buildRoom() {
-  // Floor - polished concrete look
-  const floorGeo = new THREE.BoxGeometry(24, .2, 18);
-  const floorMat = new THREE.MeshStandardMaterial({ color:0x14182a, metalness:.4, roughness:.6 });
-  const floor = new THREE.Mesh(floorGeo, floorMat);
-  floor.position.y = -.1;
-  floor.receiveShadow = true;
-  scene.add(floor);
+// ═══ FLOOR ═══
+function buildFloor(){
+  // Main floor
+  const f=new THREE.Mesh(
+    new THREE.BoxGeometry(16,.12,12),
+    new THREE.MeshStandardMaterial({color:0x1a1e30,metalness:.3,roughness:.6})
+  );
+  f.position.y=-.06;f.receiveShadow=true;scene.add(f);
 
-  // Sub-floor grid pattern
-  const gridMat = new THREE.LineBasicMaterial({ color:0x1c2240, transparent:true, opacity:.4 });
-  for(let i=-12;i<=12;i+=1){
-    const pts1 = [new THREE.Vector3(i,.01,-9), new THREE.Vector3(i,.01,9)];
-    const pts2 = [new THREE.Vector3(-12,.01,i>9?9:i<-9?-9:i), new THREE.Vector3(12,.01,i>9?9:i<-9?-9:i)];
-    if(i>=-9&&i<=9){
-      scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts2), gridMat));
-    }
-    scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts1), gridMat));
+  // Floor grid
+  const gm=new THREE.LineBasicMaterial({color:0x222840,transparent:true,opacity:.3});
+  for(let i=-8;i<=8;i++){
+    scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(i,.01,-6),new THREE.Vector3(i,.01,6)]),gm));
+  }
+  for(let i=-6;i<=6;i++){
+    scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-8,.01,i),new THREE.Vector3(8,.01,i)]),gm));
   }
 
-  // Ceiling
-  const ceilGeo = new THREE.BoxGeometry(24, .15, 18);
-  const ceilMat = new THREE.MeshStandardMaterial({ color:0x0d1020, metalness:.3, roughness:.8 });
-  const ceil = new THREE.Mesh(ceilGeo, ceilMat);
-  ceil.position.y = 4;
-  scene.add(ceil);
+  // Surrounding ground (dark)
+  const gnd=new THREE.Mesh(
+    new THREE.PlaneGeometry(60,60),
+    new THREE.MeshStandardMaterial({color:0x080810,roughness:.9})
+  );
+  gnd.rotation.x=-Math.PI/2;gnd.position.y=-.13;gnd.receiveShadow=true;scene.add(gnd);
+}
 
-  // Walls
-  const wallMat = new THREE.MeshStandardMaterial({ color:0x141830, metalness:.3, roughness:.5 });
-  const glassMat = new THREE.MeshPhysicalMaterial({ color:0x1a2545, metalness:.1, roughness:.05, transparent:true, opacity:.2, transmission:.3 });
+// ═══ LOW GLASS WALLS (open top, can see inside) ═══
+function buildWalls(){
+  const glassMat=new THREE.MeshPhysicalMaterial({
+    color:0x88ccee,metalness:0,roughness:0,transparent:true,opacity:.08,side:THREE.DoubleSide
+  });
+  const frameMat=new THREE.LineBasicMaterial({color:0x00ffc8,transparent:true,opacity:.25});
 
-  // Back wall (solid)
-  const bw = new THREE.Mesh(new THREE.BoxGeometry(24,4,.15), wallMat);
-  bw.position.set(0,2,-9); bw.receiveShadow=true; scene.add(bw);
+  // Low walls (only 1.2m high so you see inside)
+  const wallH=1.2;
 
-  // Front wall (glass panels)
-  for(let x=-10;x<=10;x+=5){
-    const gp = new THREE.Mesh(new THREE.BoxGeometry(4.5,4,.08), glassMat);
-    gp.position.set(x,2,9); scene.add(gp);
-    // Glass frame
-    const frame = new THREE.LineSegments(
-      new THREE.EdgesGeometry(new THREE.BoxGeometry(4.5,4,.08)),
-      new THREE.LineBasicMaterial({color:0x2a3a60})
-    );
-    frame.position.copy(gp.position); scene.add(frame);
-  }
+  // Back
+  const bw=new THREE.Mesh(new THREE.BoxGeometry(16,wallH,.06),glassMat);
+  bw.position.set(0,wallH/2,-6);scene.add(bw);
+  scene.add(new THREE.LineSegments(new THREE.EdgesGeometry(bw.geometry),frameMat).translateY(wallH/2).translateZ(-6));
 
-  // Side walls
-  const lw = new THREE.Mesh(new THREE.BoxGeometry(.15,4,18), wallMat);
-  lw.position.set(-12,2,0); lw.receiveShadow=true; scene.add(lw);
-  const rw = new THREE.Mesh(new THREE.BoxGeometry(.15,4,18), glassMat);
-  rw.position.set(12,2,0); scene.add(rw);
+  // Front
+  const fw=new THREE.Mesh(new THREE.BoxGeometry(16,wallH,.06),glassMat);
+  fw.position.set(0,wallH/2,6);scene.add(fw);
+  scene.add(new THREE.LineSegments(new THREE.EdgesGeometry(fw.geometry),frameMat).translateY(wallH/2).translateZ(6));
 
-  // Floor neon strips (Upskillize accent)
-  const neonMat = new THREE.MeshBasicMaterial({color:0x00ffc8, transparent:true, opacity:.6});
-  [[-12,.02,0,.06,.02,18],[12,.02,0,.06,.02,18],[0,.02,-9,24,.02,.06],[0,.02,9,24,.02,.06]].forEach(([x,y,z,w,h,d])=>{
-    const n = new THREE.Mesh(new THREE.BoxGeometry(w,h,d), neonMat);
-    n.position.set(x,y,z); scene.add(n);
+  // Left
+  const lw=new THREE.Mesh(new THREE.BoxGeometry(.06,wallH,12),glassMat);
+  lw.position.set(-8,wallH/2,0);scene.add(lw);
+  scene.add(new THREE.LineSegments(new THREE.EdgesGeometry(lw.geometry),frameMat).translateX(-8).translateY(wallH/2));
+
+  // Right
+  const rw=new THREE.Mesh(new THREE.BoxGeometry(.06,wallH,12),glassMat);
+  rw.position.set(8,wallH/2,0);scene.add(rw);
+  scene.add(new THREE.LineSegments(new THREE.EdgesGeometry(rw.geometry),frameMat).translateX(8).translateY(wallH/2));
+
+  // Neon floor border
+  const nm=new THREE.MeshBasicMaterial({color:0x00ffc8,transparent:true,opacity:.5});
+  [[-8,.02,0,.04,.02,12],[8,.02,0,.04,.02,12],[0,.02,-6,16,.02,.04],[0,.02,6,16,.02,.04]].forEach(([x,y,z,w,h,d])=>{
+    scene.add(new THREE.Mesh(new THREE.BoxGeometry(w,h,d),nm).translateX(x).translateY(y).translateZ(z));
   });
 
-  // AC units (4 corners)
-  const acMat = new THREE.MeshStandardMaterial({color:0x2a3555, metalness:.7, roughness:.3});
-  [[-10,3.5,-8],[10,3.5,-8],[-10,3.5,8],[10,3.5,8]].forEach(([x,y,z])=>{
-    const ac = new THREE.Mesh(new THREE.BoxGeometry(2,.25,.6), acMat);
-    ac.position.set(x,y,z); scene.add(ac);
-    // AC indicator light
-    const led = new THREE.Mesh(new THREE.SphereGeometry(.05,8,8), new THREE.MeshBasicMaterial({color:0x00ff88}));
-    led.position.set(x-.7,y-.1,z+.31); scene.add(led);
+  // Corner posts (thin pillars)
+  const pMat=new THREE.MeshStandardMaterial({color:0x2a3555,metalness:.6,roughness:.3});
+  [[-8,-6],[8,-6],[-8,6],[8,6]].forEach(([x,z])=>{
+    const p=new THREE.Mesh(new THREE.BoxGeometry(.08,wallH+.5,.08),pMat);
+    p.position.set(x,(wallH+.5)/2,z);scene.add(p);
+    // Neon tip
+    const tip=new THREE.Mesh(new THREE.SphereGeometry(.06,8,8),new THREE.MeshBasicMaterial({color:0x00ffc8}));
+    tip.position.set(x,wallH+.6,z);scene.add(tip);
   });
-
-  // Ceiling light panels
-  for(let x=-8;x<=8;x+=4) for(let z=-6;z<=6;z+=4){
-    const panel = new THREE.Mesh(
-      new THREE.BoxGeometry(2,.05,1),
-      new THREE.MeshBasicMaterial({color:0x2a3555, transparent:true, opacity:.15})
-    );
-    panel.position.set(x, 3.93, z);
-    scene.add(panel);
-    // Glow plane
-    const glow = new THREE.Mesh(
-      new THREE.PlaneGeometry(1.8,.8),
-      new THREE.MeshBasicMaterial({color:0xddeeff, transparent:true, opacity:.08, side:THREE.DoubleSide})
-    );
-    glow.position.set(x,3.9,z);
-    glow.rotation.x = Math.PI/2;
-    scene.add(glow);
-  }
 }
 
 // ═══ ZONE PLATFORMS ═══
-function buildZones() {
+function buildZonePlatforms(){
   ZONES.forEach((z,i)=>{
-    const geo = new THREE.BoxGeometry(z.w, z.h, z.d);
-    const mat = new THREE.MeshStandardMaterial({
-      color:z.color, transparent:true, opacity:.08,
-      emissive:new THREE.Color(z.color), emissiveIntensity:.05
+    const geo=new THREE.BoxGeometry(z.w,.04,z.d);
+    const mat=new THREE.MeshStandardMaterial({
+      color:z.color,transparent:true,opacity:.06,
+      emissive:new THREE.Color(z.color),emissiveIntensity:.04
     });
-    const m = new THREE.Mesh(geo, mat);
-    m.position.set(z.x, z.h/2, z.z);
-    m.receiveShadow = true;
-    m.userData = {zi:i};
-    scene.add(m);
-    zoneMeshes.push(m);
+    const m=new THREE.Mesh(geo,mat);
+    m.position.set(z.x,.02,z.z);m.receiveShadow=true;
+    scene.add(m);zoneMeshes.push(m);
 
-    // Border glow
-    const edges = new THREE.LineSegments(
+    // Border
+    scene.add(new THREE.LineSegments(
       new THREE.EdgesGeometry(geo),
-      new THREE.LineBasicMaterial({color:z.color, transparent:true, opacity:.25})
-    );
-    edges.position.copy(m.position);
-    scene.add(edges);
+      new THREE.LineBasicMaterial({color:z.color,transparent:true,opacity:.2})
+    ).translateX(z.x).translateY(.02).translateZ(z.z));
 
-    // Zone light
-    const pl = new THREE.PointLight(z.color, .15, 8);
-    pl.position.set(z.x, 2, z.z);
-    scene.add(pl);
+    // Zone soft light
+    const pl=new THREE.PointLight(z.color,.12,5);
+    pl.position.set(z.x,1.5,z.z);scene.add(pl);
   });
 }
 
-// ═══ FURNITURE ═══
-function buildFurniture() {
-  const deskMat = new THREE.MeshStandardMaterial({color:0x1e2a48, metalness:.5, roughness:.4});
-  const deskTopMat = new THREE.MeshStandardMaterial({color:0x2a3a5a, metalness:.3, roughness:.5});
-  const legMat = new THREE.MeshStandardMaterial({color:0x3a3a3a, metalness:.7, roughness:.3});
-  const chairMat = new THREE.MeshStandardMaterial({color:0x1a1a2a, metalness:.3, roughness:.6});
-  const chairBackMat = new THREE.MeshStandardMaterial({color:0x252540, metalness:.2, roughness:.7});
+// ═══ FURNITURE BUILDERS ═══
+const dkMat=new THREE.MeshStandardMaterial({color:0x2a3555,metalness:.4,roughness:.45});
+const lgMat=new THREE.MeshStandardMaterial({color:0x444444,metalness:.7,roughness:.3});
+const chSeat=new THREE.MeshStandardMaterial({color:0x1c1c30,metalness:.2,roughness:.65});
+const chBack=new THREE.MeshStandardMaterial({color:0x282845,metalness:.2,roughness:.65});
 
-  function makeDesk(x, z, rot=0) {
-    const g = new THREE.Group();
-    // Desktop
-    const top = new THREE.Mesh(new THREE.BoxGeometry(1.2,.06,.6), deskTopMat);
-    top.position.y = .72; top.castShadow=true; top.receiveShadow=true; g.add(top);
-    // Legs
-    [[-0.5,0,-.25],[.5,0,-.25],[-.5,0,.25],[.5,0,.25]].forEach(([lx,ly,lz])=>{
-      const leg = new THREE.Mesh(new THREE.CylinderGeometry(.02,.02,.7,6), legMat);
-      leg.position.set(lx,.35,lz); g.add(leg);
+function makeDesk(x,z,ry=0){
+  const g=new THREE.Group();
+  const top=new THREE.Mesh(new THREE.BoxGeometry(1,.05,.55),dkMat);
+  top.position.y=.72;top.castShadow=true;top.receiveShadow=true;g.add(top);
+  [[-.42,.36,-.22],[.42,.36,-.22],[-.42,.36,.22],[.42,.36,.22]].forEach(([lx,ly,lz])=>{
+    const l=new THREE.Mesh(new THREE.CylinderGeometry(.015,.015,.7,6),lgMat);
+    l.position.set(lx,ly,lz);g.add(l);
+  });
+  g.position.set(x,0,z);g.rotation.y=ry;scene.add(g);return g;
+}
+
+function makeChair(x,z,ry=0){
+  const g=new THREE.Group();
+  const s=new THREE.Mesh(new THREE.BoxGeometry(.4,.035,.4),chSeat);
+  s.position.y=.44;g.add(s);
+  const b=new THREE.Mesh(new THREE.BoxGeometry(.4,.45,.035),chBack);
+  b.position.set(0,.69,-.19);g.add(b);
+  [[-.15,.22,-.15],[.15,.22,-.15],[-.15,.22,.15],[.15,.22,.15]].forEach(([lx,ly,lz])=>{
+    g.add(new THREE.Mesh(new THREE.CylinderGeometry(.012,.012,.44,5),lgMat).translateX(lx).translateY(ly).translateZ(lz));
+  });
+  g.position.set(x,0,z);g.rotation.y=ry;scene.add(g);return g;
+}
+
+function makeLaptop(x,y,z,ry=0){
+  const g=new THREE.Group();
+  g.add(new THREE.Mesh(new THREE.BoxGeometry(.3,.015,.22),new THREE.MeshStandardMaterial({color:0x333344,metalness:.8,roughness:.2})));
+  const scr=new THREE.Mesh(new THREE.BoxGeometry(.28,.19,.008),new THREE.MeshStandardMaterial({color:0x0a1530,emissive:0x2266aa,emissiveIntensity:.7,metalness:.9,roughness:.1}));
+  scr.position.set(0,.1,-.1);scr.rotation.x=-.25;g.add(scr);
+  screens.push(scr);
+  const gl=new THREE.PointLight(0x4488ff,.06,1.2);gl.position.set(0,.12,-.08);g.add(gl);
+  g.position.set(x,y,z);g.rotation.y=ry;scene.add(g);return g;
+}
+
+// ═══ PERSON BUILDER ═══
+const skins=[0xd4a574,0xc68642,0x8d5524,0xe0ac69,0xf1c27d,0xb07840,0xa0785a,0xddb892];
+const shirts=[0x2563eb,0x059669,0xd97706,0x7c3aed,0xdc2626,0x0891b2,0xc026d3,0x4f46e5,0x15803d,0x0d9488,0xb45309,0x6d28d9];
+
+function makePerson(x,z,type,seated,lookY=0){
+  const g=new THREE.Group();
+  const skin=skins[Math.floor(Math.random()*skins.length)];
+  const shirt=type==='student'?shirts[Math.floor(Math.random()*shirts.length)]:type==='mentor'?0xee2266:0x8844ee;
+  const skinMat=new THREE.MeshStandardMaterial({color:skin,roughness:.75});
+  const shirtMat=new THREE.MeshStandardMaterial({color:shirt,roughness:.65});
+  const pantsMat=new THREE.MeshStandardMaterial({color:0x1e293b,roughness:.6});
+  const shoeMat=new THREE.MeshStandardMaterial({color:0x111122,roughness:.5});
+
+  if(seated){
+    // === SEATED PERSON (working at desk) ===
+    // Torso
+    const torso=new THREE.Mesh(new THREE.BoxGeometry(.26,.32,.18),shirtMat);
+    torso.position.y=.62;torso.castShadow=true;g.add(torso);
+
+    // Neck
+    g.add(new THREE.Mesh(new THREE.CylinderGeometry(.04,.045,.06,8),skinMat).translateY(.8));
+
+    // Head
+    const head=new THREE.Mesh(new THREE.SphereGeometry(.09,14,14),skinMat);
+    head.position.y=.9;head.castShadow=true;g.add(head);
+
+    // Hair
+    const hairMat=new THREE.MeshStandardMaterial({color:[0x1a1a1a,0x2c1a0e,0x0a0a0a,0x3a2010][Math.floor(Math.random()*4)],roughness:.9});
+    const hair=new THREE.Mesh(new THREE.SphereGeometry(.095,14,10,0,Math.PI*2,0,1.8),hairMat);
+    hair.position.y=.91;g.add(hair);
+
+    // Upper arms
+    [-.17,.17].forEach(s=>{
+      const ua=new THREE.Mesh(new THREE.CylinderGeometry(.032,.028,.18,6),shirtMat);
+      ua.position.set(s,.56,-.02);ua.rotation.z=s>0?.2:-.2;g.add(ua);
     });
-    g.position.set(x,0,z);
-    g.rotation.y = rot;
-    scene.add(g);
-    return g;
-  }
 
-  function makeChair(x, z, rotY=0) {
-    const g = new THREE.Group();
-    // Seat
-    const seat = new THREE.Mesh(new THREE.BoxGeometry(.45,.04,.45), chairMat);
-    seat.position.y = .44; g.add(seat);
-    // Back
-    const back = new THREE.Mesh(new THREE.BoxGeometry(.45,.5,.04), chairBackMat);
-    back.position.set(0,.72,-.22); g.add(back);
-    // Legs
-    [[-0.18,0,-.18],[.18,0,-.18],[-.18,0,.18],[.18,0,.18]].forEach(([lx,ly,lz])=>{
-      const leg = new THREE.Mesh(new THREE.CylinderGeometry(.015,.015,.44,6), legMat);
-      leg.position.set(lx,.22,lz); g.add(leg);
+    // Forearms reaching to laptop
+    [-.12,.12].forEach(s=>{
+      const fa=new THREE.Mesh(new THREE.CylinderGeometry(.025,.022,.18,6),skinMat);
+      fa.position.set(s,.48,-.16);fa.rotation.x=-1.1;g.add(fa);
     });
-    g.position.set(x,0,z);
-    g.rotation.y = rotY;
-    scene.add(g);
-    return g;
+
+    // Hands on laptop
+    [-.08,.08].forEach(s=>{
+      const hand=new THREE.Mesh(new THREE.SphereGeometry(.022,8,8),skinMat);
+      hand.position.set(s,.44,-.22);g.add(hand);
+    });
+
+    // Upper legs (horizontal on chair)
+    [-.065,.065].forEach(s=>{
+      const ul=new THREE.Mesh(new THREE.CylinderGeometry(.042,.038,.32,6),pantsMat);
+      ul.position.set(s,.43,.08);ul.rotation.x=1.4;g.add(ul);
+    });
+
+    // Lower legs
+    [-.065,.065].forEach(s=>{
+      const ll=new THREE.Mesh(new THREE.CylinderGeometry(.035,.03,.32,6),pantsMat);
+      ll.position.set(s,.22,.22);g.add(ll);
+    });
+
+    // Shoes
+    [-.065,.065].forEach(s=>{
+      const shoe=new THREE.Mesh(new THREE.BoxGeometry(.05,.03,.09),shoeMat);
+      shoe.position.set(s,.04,.24);g.add(shoe);
+    });
+
+  } else {
+    // === STANDING PERSON (mentor walking/helping) ===
+    // Legs
+    [-.06,.06].forEach(s=>{
+      const leg=new THREE.Mesh(new THREE.CylinderGeometry(.038,.032,.48,6),pantsMat);
+      leg.position.set(s,.24,0);leg.castShadow=true;g.add(leg);
+    });
+    // Shoes
+    [-.06,.06].forEach(s=>{
+      const shoe=new THREE.Mesh(new THREE.BoxGeometry(.05,.03,.1),shoeMat);
+      shoe.position.set(s,.02,.02);g.add(shoe);
+    });
+
+    // Torso
+    const torso=new THREE.Mesh(new THREE.BoxGeometry(.28,.36,.18),shirtMat);
+    torso.position.y=.67;torso.castShadow=true;g.add(torso);
+
+    // Neck
+    g.add(new THREE.Mesh(new THREE.CylinderGeometry(.04,.045,.06,8),skinMat).translateY(.87));
+
+    // Head
+    const head=new THREE.Mesh(new THREE.SphereGeometry(.09,14,14),skinMat);
+    head.position.y=.97;head.castShadow=true;g.add(head);
+
+    // Hair
+    const hairMat=new THREE.MeshStandardMaterial({color:[0x1a1a1a,0x2c1a0e,0x0a0a0a][Math.floor(Math.random()*3)],roughness:.9});
+    g.add(new THREE.Mesh(new THREE.SphereGeometry(.095,14,10,0,Math.PI*2,0,1.8),hairMat).translateY(.98));
+
+    // Arms
+    const isHelping=type==='mentor';
+    [-.18,.18].forEach((s,idx)=>{
+      const ua=new THREE.Mesh(new THREE.CylinderGeometry(.032,.028,.22,6),shirtMat);
+      if(isHelping && idx===1){
+        // Right arm pointing/helping gesture
+        ua.position.set(s,.62,-.08);
+        ua.rotation.z=.7;ua.rotation.x=-.5;
+      } else if(isHelping && idx===0){
+        // Left arm holding clipboard
+        ua.position.set(s,.58,-.05);
+        ua.rotation.z=-.15;ua.rotation.x=-.3;
+      } else {
+        ua.position.set(s,.58,0);
+        ua.rotation.z=s>0?.1:-.1;
+      }
+      g.add(ua);
+    });
+
+    // Forearms
+    [-.14,.14].forEach((s,idx)=>{
+      const fa=new THREE.Mesh(new THREE.CylinderGeometry(.024,.02,.18,6),skinMat);
+      if(isHelping && idx===1){
+        fa.position.set(s+.08,.52,-.2);fa.rotation.x=-.8;fa.rotation.z=.3;
+      } else if(isHelping && idx===0){
+        fa.position.set(s,.48,-.12);fa.rotation.x=-.9;
+      } else {
+        fa.position.set(s,.45,0);
+      }
+      g.add(fa);
+    });
+
+    // Clipboard for mentors
+    if(isHelping){
+      const cb=new THREE.Mesh(new THREE.BoxGeometry(.12,.16,.01),new THREE.MeshStandardMaterial({color:0xdddddd,roughness:.8}));
+      cb.position.set(-.14,.38,-.18);cb.rotation.x=-.6;g.add(cb);
+    }
   }
 
-  function makeLaptop(x, y, z, rotY=0) {
-    const g = new THREE.Group();
-    // Base
-    const base = new THREE.Mesh(
-      new THREE.BoxGeometry(.35,.02,.25),
-      new THREE.MeshStandardMaterial({color:0x2a2a3a, metalness:.8, roughness:.2})
-    );
-    g.add(base);
-    // Screen
-    const screen = new THREE.Mesh(
-      new THREE.BoxGeometry(.33,.22,.01),
-      new THREE.MeshStandardMaterial({color:0x0a1530, emissive:0x003355, emissiveIntensity:.8, metalness:.9, roughness:.1})
-    );
-    screen.position.set(0,.12,-.12);
-    screen.rotation.x = -.3;
-    g.add(screen);
-    laptopScreens.push(screen);
-    // Screen glow
-    const glow = new THREE.PointLight(0x4488ff, .08, 1.5);
-    glow.position.set(0,.15,-.1);
-    g.add(glow);
+  // === TYPE BADGE floating above ===
+  const bdgY=seated?1.08:1.15;
+  const colors={student:0x00e676,mentor:0xff6b9d,facilitator:0xaa66ff};
+  const labels={student:'S',mentor:'M',facilitator:'F'};
+  const bc=document.createElement('canvas');bc.width=64;bc.height=64;
+  const bx=bc.getContext('2d');
+  bx.beginPath();bx.arc(32,32,28,0,Math.PI*2);
+  bx.fillStyle='#'+colors[type].toString(16).padStart(6,'0');bx.fill();
+  bx.strokeStyle='#fff';bx.lineWidth=3;bx.stroke();
+  bx.fillStyle='#fff';bx.font='bold 26px sans-serif';bx.textAlign='center';bx.textBaseline='middle';
+  bx.fillText(labels[type],32,33);
+  const btex=new THREE.CanvasTexture(bc);
+  const badge=new THREE.Mesh(new THREE.PlaneGeometry(.18,.18),new THREE.MeshBasicMaterial({map:btex,transparent:true,side:THREE.DoubleSide,depthWrite:false}));
+  badge.position.y=bdgY;g.add(badge);
 
-    g.position.set(x,y,z);
-    g.rotation.y = rotY;
-    scene.add(g);
-    return g;
-  }
+  // Soft glow under person
+  const glow=new THREE.PointLight(colors[type],.04,.8);
+  glow.position.y=.1;g.add(glow);
 
-  // === PAIR 06 - ESG (bottom-left) ===
+  g.position.set(x,0,z);g.rotation.y=lookY;
+  scene.add(g);ppl.push(g);
+  return g;
+}
+
+// ═══ BUILD ALL FURNITURE ═══
+function buildAllFurniture(){
+  // ── PAIR 06 ESG (4 desks, bottom-left) ──
   for(let i=0;i<4;i++){
-    const dx = -7.5 + i*1.4;
-    makeDesk(dx, 5.2);
-    makeChair(dx, 5.7, Math.PI);
-    makeLaptop(dx, .76, 5.1);
+    const dx=-5.8+i*1.1;
+    makeDesk(dx,3.6);makeChair(dx,4.2,Math.PI);makeLaptop(dx,.76,3.5);
   }
 
-  // === PAIR 07+08 - M&A/InsurTech (bottom-center) ===
+  // ── PAIR 07+08 M&A/InsurTech (6 desks, bottom-center) ──
   for(let i=0;i<6;i++){
-    const dx = -3.5 + i*1.4;
-    makeDesk(dx, 5.2);
-    makeChair(dx, 5.7, Math.PI);
-    makeLaptop(dx, .76, 5.1);
+    const dx=-2.7+i*1.1;
+    makeDesk(dx,3.6);makeChair(dx,4.2,Math.PI);makeLaptop(dx,.76,3.5);
   }
 
-  // === PAIR 09 - Lending (bottom-right) ===
+  // ── PAIR 09 Lending (4 desks, bottom-right) ──
   for(let i=0;i<4;i++){
-    const dx = 5 + i*1.4;
-    makeDesk(dx, 5.2);
-    makeChair(dx, 5.7, Math.PI);
-    makeLaptop(dx, .76, 5.1);
+    const dx=3.5+i*1.1;
+    makeDesk(dx,3.6);makeChair(dx,4.2,Math.PI);makeLaptop(dx,.76,3.5);
   }
 
-  // === PAIR 01 - Open Banking (top-left) ===
+  // ── Standup zone — no desks, just a small standing table ──
+  const standTable=new THREE.Mesh(new THREE.CylinderGeometry(.35,.35,.9,16),new THREE.MeshStandardMaterial({color:0x2a3050,metalness:.5,roughness:.4}));
+  standTable.position.set(-5.2,.45,-3.5);scene.add(standTable);
+
+  // ── Mentor area desks (right side) ──
   for(let i=0;i<2;i++){
-    makeDesk(-4.5+i*1.5, -7.2);
-    makeChair(-4.5+i*1.5, -6.6, 0);
-    makeLaptop(-4.5+i*1.5, .76, -7.1);
+    makeDesk(6.8,-.6+i*1.3,Math.PI/2);
+    makeChair(6.1,-.6+i*1.3,-Math.PI/2);
+    makeLaptop(6.8,.76,-.6+i*1.3,Math.PI/2);
   }
 
-  // === PAIR 02 - WealthTech (top-right) ===
-  for(let i=0;i<2;i++){
-    makeDesk(6.5+i*1.5, -7.2);
-    makeChair(6.5+i*1.5, -6.6, 0);
-    makeLaptop(6.5+i*1.5, .76, -7.1);
+  // ── Facilitator desk (back center) ──
+  makeDesk(0,-5);makeChair(0,-4.4,0);
+  // Large monitor
+  const mon=new THREE.Mesh(new THREE.BoxGeometry(.5,.35,.025),new THREE.MeshStandardMaterial({color:0x0a1530,emissive:0x226699,emissiveIntensity:.6,metalness:.9,roughness:.1}));
+  mon.position.set(0,1.05,-5);scene.add(mon);screens.push(mon);
+  const monStand=new THREE.Mesh(new THREE.CylinderGeometry(.025,.03,.3,8),lgMat);
+  monStand.position.set(0,.88,-5);scene.add(monStand);
+
+  // ── Capstone podium ──
+  // Raised circular stage
+  const stg=new THREE.Mesh(new THREE.CylinderGeometry(1.2,1.3,.15,32),new THREE.MeshStandardMaterial({color:0x1a1535,emissive:0xaa66ff,emissiveIntensity:.04,metalness:.3,roughness:.5}));
+  stg.position.set(0,.07,1);stg.receiveShadow=true;scene.add(stg);
+  // Ring light
+  scene.add(new THREE.Mesh(new THREE.TorusGeometry(1.25,.02,8,48),new THREE.MeshBasicMaterial({color:0xaa66ff,transparent:true,opacity:.4})).translateY(.16).translateZ(1).rotateX(-Math.PI/2));
+  // Podium lectern
+  const pod=new THREE.Mesh(new THREE.BoxGeometry(.35,.7,.3),new THREE.MeshStandardMaterial({color:0x1a1535,metalness:.4,roughness:.4}));
+  pod.position.set(0,.5,.6);pod.castShadow=true;scene.add(pod);
+  // Podium screen
+  const podScr=new THREE.Mesh(new THREE.BoxGeometry(.28,.18,.01),new THREE.MeshStandardMaterial({color:0x0a1530,emissive:0xaa66ff,emissiveIntensity:.3}));
+  podScr.position.set(0,.9,.44);podScr.rotation.x=-.2;scene.add(podScr);screens.push(podScr);
+  // Spotlight on stage
+  const spot=new THREE.SpotLight(0xeeddff,.6,8,Math.PI/5,.5);
+  spot.position.set(0,5,1);spot.target.position.set(0,0,1);scene.add(spot);scene.add(spot.target);
+
+  // ── Lounge area (bean bags / soft seats) ──
+  for(let i=0;i<3;i++){
+    const bg=new THREE.Group();
+    const seat=new THREE.Mesh(new THREE.SphereGeometry(.28,12,12),new THREE.MeshStandardMaterial({color:[0x4a2080,0x30206a,0x3a1a6a][i],roughness:.85}));
+    seat.scale.set(1,.55,1);seat.position.y=.16;bg.add(seat);
+    bg.position.set(5.5+(i%2)*.8,0,3.2+Math.floor(i/2)*.8);
+    scene.add(bg);
   }
+  // Coffee table
+  scene.add(new THREE.Mesh(new THREE.CylinderGeometry(.3,.3,.28,12),new THREE.MeshStandardMaterial({color:0x2a3050,metalness:.5,roughness:.4})).translateX(6).translateY(.14).translateZ(3.5));
+}
 
-  // === PAIR 10 - Trading (left wall) ===
-  for(let i=0;i<2;i++){
-    makeDesk(-10, -1+i*2, Math.PI/2);
-    makeChair(-9.3, -1+i*2, -Math.PI/2);
-    makeLaptop(-10, .76, -1+i*2, Math.PI/2);
-  }
+// ═══ BUILD BOARDS ═══
+function buildBoards(){
+  // ── LARGE COLLABORATION BOARD (back wall) ──
+  const board=new THREE.Mesh(new THREE.BoxGeometry(6.5,1.8,.06),new THREE.MeshStandardMaterial({color:0x0a0f20,emissive:0x001520,emissiveIntensity:.3,metalness:.85,roughness:.1}));
+  board.position.set(0,.95,-5.92);scene.add(board);
+  scene.add(new THREE.LineSegments(new THREE.EdgesGeometry(board.geometry),new THREE.LineBasicMaterial({color:0x00ffc8,transparent:true,opacity:.3})).translateY(.95).translateZ(-5.92));
 
-  // === FACILITATOR DESK (top-center) ===
-  const facDesk = makeDesk(0, -7.5);
-  // Larger monitor
-  const monitor = new THREE.Mesh(
-    new THREE.BoxGeometry(.6,.4,.03),
-    new THREE.MeshStandardMaterial({color:0x0a1530,emissive:0x004466,emissiveIntensity:.6,metalness:.9,roughness:.1})
-  );
-  monitor.position.set(0,1.1,-7.5);
-  scene.add(monitor);
-  const monStand = new THREE.Mesh(new THREE.CylinderGeometry(.03,.04,.35,8), legMat);
-  monStand.position.set(0,.9,-7.5); scene.add(monStand);
-  laptopScreens.push(monitor);
-
-  // === MENTOR DESKS ===
-  for(let i=0;i<2;i++){
-    makeDesk(9, -1+i*2, Math.PI/2);
-    makeChair(8.3, -1+i*2, -Math.PI/2);
-    makeLaptop(9, .76, -1+i*2, Math.PI/2);
-  }
-
-  // === LARGE SCREEN - Collaboration Board ===
-  const boardGeo = new THREE.BoxGeometry(9, 2.5, .08);
-  const boardMat = new THREE.MeshStandardMaterial({color:0x080818, emissive:0x001825, emissiveIntensity:.4, metalness:.9, roughness:.1});
-  const board = new THREE.Mesh(boardGeo, boardMat);
-  board.position.set(0, 2.2, -8.85);
-  scene.add(board);
-  // Board frame
-  const bf = new THREE.LineSegments(new THREE.EdgesGeometry(boardGeo), new THREE.LineBasicMaterial({color:0x00ffc8, transparent:true, opacity:.4}));
-  bf.position.copy(board.position); scene.add(bf);
-
-  // Project cards on board
-  ['UPI Flow\nmapping','AI Lending\nmodel','ESG Risk\nmatrix','M&A Deal\nstructure','Stablecoin\ndesign'].forEach((txt,i)=>{
-    const c = new THREE.Mesh(
-      new THREE.BoxGeometry(1.5,.8,.02),
-      new THREE.MeshStandardMaterial({
-        color:[0x40c4ff,0x00e676,0xffab40,0xff6b9d,0x7c4dff][i],
-        emissive:[0x40c4ff,0x00e676,0xffab40,0xff6b9d,0x7c4dff][i],
-        emissiveIntensity:.25, transparent:true, opacity:.7
-      })
+  // Project cards
+  ['UPI Flow','AI Lending','ESG Risk','M&A Deal','Stablecoin'].forEach((nm,i)=>{
+    const card=new THREE.Mesh(
+      new THREE.BoxGeometry(1.1,.6,.015),
+      new THREE.MeshStandardMaterial({color:[0x40c4ff,0x00e676,0xffab40,0xff6b9d,0x7c4dff][i],emissive:[0x40c4ff,0x00e676,0xffab40,0xff6b9d,0x7c4dff][i],emissiveIntensity:.2,transparent:true,opacity:.75})
     );
-    c.position.set(-3.6+i*1.8, 2.4, -8.8);
-    scene.add(c);
+    card.position.set(-2.6+i*1.3,1.05,-5.88);scene.add(card);
+    // Card label
+    const lbl=makeCanvasLabel(nm,[0x40c4ff,0x00e676,0xffab40,0xff6b9d,0x7c4dff][i],.7);
+    lbl.position.set(-2.6+i*1.3,1.05,-5.85);scene.add(lbl);
   });
 
-  // Board header text
-  const boardTxt = makeLabel('🔴 LIVE COLLABORATION BOARD', 0xff4081, 1.2);
-  boardTxt.position.set(0, 3.6, -8.8);
-  scene.add(boardTxt);
+  // Board title
+  const bt=makeCanvasLabel('🔴 LIVE COLLABORATION BOARD',0xff4081,1.3);
+  bt.position.set(0,1.95,-5.88);scene.add(bt);
 
-  // Sprint retro / M&A debate tags
-  const tag1 = makeLabel('Sprint Retro', 0x00e676, .5);
-  tag1.position.set(-2.5, 3.1, -8.79); scene.add(tag1);
-  const tag2 = makeLabel('M&A Debate', 0xffab40, .5);
-  tag2.position.set(2.5, 3.1, -8.79); scene.add(tag2);
+  // Sprint retro / M&A debate tabs
+  const t1=makeCanvasLabel('● Sprint Retro',0x00e676,.5);t1.position.set(-1.8,1.65,-5.87);scene.add(t1);
+  const t2=makeCanvasLabel('⚡ M&A Debate',0xffab40,.5);t2.position.set(1.8,1.65,-5.87);scene.add(t2);
 
-  // === KANBAN BOARD (Standup Zone) ===
-  const kanban = new THREE.Mesh(
-    new THREE.BoxGeometry(3.5, 2, .06),
-    new THREE.MeshStandardMaterial({color:0x0a1228, emissive:0x001520, emissiveIntensity:.3, metalness:.8})
-  );
-  kanban.position.set(-7.5, 2, -8.85);
-  scene.add(kanban);
+  // ── KANBAN BOARD (standup zone, left wall) ──
+  const kb=new THREE.Mesh(new THREE.BoxGeometry(.06,1.5,2.4),new THREE.MeshStandardMaterial({color:0x0a1228,emissive:0x001520,emissiveIntensity:.2,metalness:.8}));
+  kb.position.set(-7.92,.85,-3.5);scene.add(kb);
 
   // Kanban columns
-  ['Backlog','Sprint','Done'].forEach((col,i)=>{
-    const cg = new THREE.Mesh(
-      new THREE.BoxGeometry(1,.15,.02),
-      new THREE.MeshBasicMaterial({color:[0xff4081,0xffab40,0x00e676][i]})
-    );
-    cg.position.set(-8.5+i*1.1, 2.85, -8.82);
-    scene.add(cg);
+  ['Back','Sprint','Done'].forEach((col,i)=>{
+    const ch=new THREE.Mesh(new THREE.BoxGeometry(.015,.12,.65),new THREE.MeshBasicMaterial({color:[0xff4081,0xffab40,0x00e676][i]}));
+    ch.position.set(-7.9,1.5,-4.3+i*.8);scene.add(ch);
   });
-
-  // Kanban sticky notes
-  const stickyColors = [0xff4081,0xff4081,0xff4081,0xffab40,0xffab40,0xffab40,0x00e676,0x00e676];
-  stickyColors.forEach((col,i)=>{
-    const s = new THREE.Mesh(
-      new THREE.BoxGeometry(.35,.25,.01),
-      new THREE.MeshStandardMaterial({color:col, emissive:col, emissiveIntensity:.15})
-    );
-    const cx = -8.5 + Math.floor(i/3)*1.1 + (i%2)*.4;
-    const cy = 2.4 - Math.floor((i%3)/2)*.35;
-    s.position.set(cx, cy, -8.82);
-    scene.add(s);
-  });
-
-  const kanbanTxt = makeLabel('STANDUP · KANBAN', 0x40c4ff, .7);
-  kanbanTxt.position.set(-7.5, 3.2, -8.8); scene.add(kanbanTxt);
-
-  // === CAPSTONE STAGE ===
-  // Raised platform
-  const stageGeo = new THREE.CylinderGeometry(1.8, 2, .25, 32);
-  const stageMat = new THREE.MeshStandardMaterial({color:0x1a1535, emissive:0xaa66ff, emissiveIntensity:.05, metalness:.4, roughness:.5});
-  const stage = new THREE.Mesh(stageGeo, stageMat);
-  stage.position.set(0,.12,2); stage.receiveShadow=true; scene.add(stage);
-
-  // Stage ring light
-  const ringGeo = new THREE.TorusGeometry(1.9,.03,8,48);
-  const ringMat = new THREE.MeshBasicMaterial({color:0xaa66ff, transparent:true, opacity:.5});
-  const ring = new THREE.Mesh(ringGeo, ringMat);
-  ring.position.set(0,.26,2); ring.rotation.x=-Math.PI/2; scene.add(ring);
-
-  // Podium
-  const podium = new THREE.Mesh(
-    new THREE.BoxGeometry(.5,.8,.4),
-    new THREE.MeshStandardMaterial({color:0x1a1535, metalness:.5, roughness:.4})
-  );
-  podium.position.set(0,.65,1.5); podium.castShadow=true; scene.add(podium);
-
-  // Spotlight above stage
-  const spot = new THREE.SpotLight(0xaa66ff, .5, 8, Math.PI/6, .5);
-  spot.position.set(0, 3.8, 2);
-  spot.target.position.set(0,0,2);
-  scene.add(spot); scene.add(spot.target);
-
-  // === LOUNGE ===
-  // Sofa-like seating
-  for(let i=0;i<3;i++){
-    const sofa = new THREE.Group();
-    const seat = new THREE.Mesh(
-      new THREE.BoxGeometry(.9,.3,.7),
-      new THREE.MeshStandardMaterial({color:0x2a1a4a, roughness:.8})
-    );
-    seat.position.y=.2; sofa.add(seat);
-    const back = new THREE.Mesh(
-      new THREE.BoxGeometry(.9,.4,.15),
-      new THREE.MeshStandardMaterial({color:0x3a2a5a, roughness:.8})
-    );
-    back.position.set(0,.45,-.28); sofa.add(back);
-    sofa.position.set(7.5+((i%2)*.9), 0, 4.5+Math.floor(i/2)*1.2);
-    sofa.rotation.y = i===2?Math.PI/2:0;
-    scene.add(sofa);
+  // Sticky notes
+  for(let c=0;c<3;c++) for(let r=0;r<3;r++){
+    if(c===2&&r>1) continue;
+    const s=new THREE.Mesh(new THREE.BoxGeometry(.008,.18,.22),new THREE.MeshStandardMaterial({color:[0xff4081,0xffab40,0x00e676][c],emissive:[0xff4081,0xffab40,0x00e676][c],emissiveIntensity:.12}));
+    s.position.set(-7.9,1.2-r*.25,-4.3+c*.8);scene.add(s);
   }
-
-  // Coffee table
-  const ct = new THREE.Mesh(
-    new THREE.CylinderGeometry(.4,.4,.35,16),
-    new THREE.MeshStandardMaterial({color:0x2a3050, metalness:.6, roughness:.3})
-  );
-  ct.position.set(8,.18,5); scene.add(ct);
+  const kbTitle=makeCanvasLabel('KANBAN',0x40c4ff,.4);
+  kbTitle.position.set(-7.88,1.7,-3.5);kbTitle.rotation.y=Math.PI/2;scene.add(kbTitle);
 }
 
-// ═══ PEOPLE ═══
-function buildPeople() {
-  // Skin tones variety
-  const skins = [0xd4a574, 0xc68642, 0x8d5524, 0xe0ac69, 0xf1c27d, 0xb07840];
-  const shirtColors = [0x2563eb, 0x059669, 0xd97706, 0x7c3aed, 0xdc2626, 0x0891b2, 0xc026d3, 0x4f46e5, 0x15803d];
+// ═══ PLACE ALL PEOPLE ═══
+function buildAllPeople(){
+  // ── Students seated at Pair 06 (4) ──
+  for(let i=0;i<4;i++) makePerson(-5.8+i*1.1,4.15,'student',true,Math.PI);
 
-  function makePerson(x, z, type='student', seated=true, lookDir=0) {
-    const g = new THREE.Group();
-    const skin = skins[Math.floor(Math.random()*skins.length)];
-    const shirt = type==='student'?shirtColors[Math.floor(Math.random()*shirtColors.length)]
-      : type==='mentor'?0xff3366 : 0x7c3aed;
+  // ── Students seated at Pair 07+08 (6) ──
+  for(let i=0;i<6;i++) makePerson(-2.7+i*1.1,4.15,'student',true,Math.PI);
 
-    if(seated) {
-      // SEATED PERSON
-      // Torso (seated upright)
-      const torso = new THREE.Mesh(
-        new THREE.BoxGeometry(.3,.35,.2),
-        new THREE.MeshStandardMaterial({color:shirt, roughness:.7})
-      );
-      torso.position.y = .62;
-      g.add(torso);
+  // ── Students seated at Pair 09 (4) ──
+  for(let i=0;i<4;i++) makePerson(3.5+i*1.1,4.15,'student',true,Math.PI);
 
-      // Head
-      const head = new THREE.Mesh(
-        new THREE.SphereGeometry(.1, 12, 12),
-        new THREE.MeshStandardMaterial({color:skin, roughness:.8})
-      );
-      head.position.y = .9;
-      g.add(head);
+  // ── Students in Standup Zone (3 standing around table) ──
+  makePerson(-5.7,-3,'student',false,Math.PI*.3);
+  makePerson(-4.7,-3.8,'student',false,Math.PI*.7);
+  makePerson(-5.2,-4.2,'student',false,-.2);
 
-      // Hair
-      const hair = new THREE.Mesh(
-        new THREE.SphereGeometry(.105, 12, 8, 0, Math.PI*2, 0, Math.PI/2),
-        new THREE.MeshStandardMaterial({color:0x1a1a2a, roughness:.9})
-      );
-      hair.position.y = .92;
-      g.add(hair);
+  // ── Mentors seated at mentor desks ──
+  makePerson(6.15,-.6,'mentor',true,-Math.PI/2);
+  makePerson(6.15,.7,'mentor',true,-Math.PI/2);
 
-      // Upper arms
-      [-.2, .2].forEach(side=>{
-        const arm = new THREE.Mesh(
-          new THREE.CylinderGeometry(.04,.035,.25,6),
-          new THREE.MeshStandardMaterial({color:shirt, roughness:.7})
-        );
-        arm.position.set(side, .58, 0);
-        arm.rotation.z = side>0?.15:-.15;
-        g.add(arm);
-      });
+  // ── Mentor WALKING behind Pair 06 (observing, helping) ──
+  const m1=makePerson(-5,4.9,'mentor',false,Math.PI);
+  mentorGroups.push({mesh:m1,baseX:-5,baseZ:4.9,rangeX:2.5,speed:.3});
 
-      // Forearms on desk
-      [-.18, .18].forEach(side=>{
-        const forearm = new THREE.Mesh(
-          new THREE.CylinderGeometry(.03,.03,.2,6),
-          new THREE.MeshStandardMaterial({color:skin, roughness:.8})
-        );
-        forearm.position.set(side, .46, -.15);
-        forearm.rotation.x = -Math.PI/2.5;
-        g.add(forearm);
-      });
+  // ── Mentor WALKING behind Pair 07+08 (helping a student) ──
+  const m2=makePerson(.5,4.9,'mentor',false,Math.PI);
+  mentorGroups.push({mesh:m2,baseX:.5,baseZ:4.9,rangeX:3,speed:.25});
 
-      // Upper legs
-      [-.08, .08].forEach(side=>{
-        const leg = new THREE.Mesh(
-          new THREE.CylinderGeometry(.05,.045,.35,6),
-          new THREE.MeshStandardMaterial({color:0x1e293b, roughness:.6})
-        );
-        leg.position.set(side, .42, .05);
-        leg.rotation.x = Math.PI/2.2;
-        g.add(leg);
-      });
+  // ── Mentor behind Pair 09 (leaning to help) ──
+  const m3=makePerson(5,4.9,'mentor',false,Math.PI);
+  mentorGroups.push({mesh:m3,baseX:5,baseZ:4.9,rangeX:1.5,speed:.35});
 
-    } else {
-      // STANDING PERSON (mentor observing, facilitator)
-      // Full body standing
-      // Legs
-      [-.07, .07].forEach(side=>{
-        const leg = new THREE.Mesh(
-          new THREE.CylinderGeometry(.045,.04,.5,6),
-          new THREE.MeshStandardMaterial({color:0x1e293b, roughness:.6})
-        );
-        leg.position.set(side, .25, 0);
-        g.add(leg);
-      });
+  // ── Facilitator at desk ──
+  makePerson(0,-4.45,'facilitator',true,0);
 
-      // Torso
-      const torso = new THREE.Mesh(
-        new THREE.BoxGeometry(.32,.4,.2),
-        new THREE.MeshStandardMaterial({color:shirt, roughness:.6})
-      );
-      torso.position.y = .7;
-      g.add(torso);
-
-      // Head
-      const head = new THREE.Mesh(
-        new THREE.SphereGeometry(.1, 12, 12),
-        new THREE.MeshStandardMaterial({color:skin, roughness:.8})
-      );
-      head.position.y = 1.02;
-      g.add(head);
-
-      // Hair
-      const hair = new THREE.Mesh(
-        new THREE.SphereGeometry(.105, 12, 8, 0, Math.PI*2, 0, Math.PI/2),
-        new THREE.MeshStandardMaterial({color:0x1a1a2a, roughness:.9})
-      );
-      hair.position.y = 1.04;
-      g.add(hair);
-
-      // Arms at sides or pointing
-      [-.2, .2].forEach((side,idx)=>{
-        const arm = new THREE.Mesh(
-          new THREE.CylinderGeometry(.035,.03,.35,6),
-          new THREE.MeshStandardMaterial({color:type==='mentor'?shirt:skin, roughness:.7})
-        );
-        arm.position.set(side, .55, 0);
-        if(type==='mentor' && idx===1) {
-          arm.rotation.z = .8; // Pointing/gesturing
-          arm.rotation.x = -.3;
-        } else {
-          arm.rotation.z = side>0?.08:-.08;
-        }
-        g.add(arm);
-      });
-    }
-
-    // Type badge (floating above head)
-    const badgeY = seated?.98:1.15;
-    const badge = makeTypeBadge(type);
-    badge.position.y = badgeY + .12;
-    g.add(badge);
-
-    g.position.set(x, 0, z);
-    g.rotation.y = lookDir;
-    scene.add(g);
-    people.push(g);
-    return g;
-  }
-
-  function makeTypeBadge(type) {
-    const canvas = document.createElement('canvas');
-    canvas.width=64; canvas.height=64;
-    const ctx = canvas.getContext('2d');
-    const colors = {student:'#00e676', mentor:'#ff6b9d', facilitator:'#aa66ff'};
-    const labels = {student:'S', mentor:'M', facilitator:'F'};
-    ctx.beginPath(); ctx.arc(32,32,28,0,Math.PI*2);
-    ctx.fillStyle = colors[type]; ctx.fill();
-    ctx.fillStyle = '#fff';
-    ctx.font = 'bold 28px sans-serif';
-    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-    ctx.fillText(labels[type], 32, 33);
-
-    const tex = new THREE.CanvasTexture(canvas);
-    const m = new THREE.Mesh(
-      new THREE.PlaneGeometry(.22,.22),
-      new THREE.MeshBasicMaterial({map:tex, transparent:true, side:THREE.DoubleSide, depthWrite:false})
-    );
-    return m;
-  }
-
-  // === PLACE ALL STUDENTS (seated at workstations) ===
-  // Pair 06 - ESG (4 students)
-  for(let i=0;i<4;i++) makePerson(-7.5+i*1.4, 5.65, 'student', true, Math.PI);
-  // Pair 07+08 (6 students)
-  for(let i=0;i<6;i++) makePerson(-3.5+i*1.4, 5.65, 'student', true, Math.PI);
-  // Pair 09 (4 students)
-  for(let i=0;i<4;i++) makePerson(5+i*1.4, 5.65, 'student', true, Math.PI);
-  // Pair 01 (2 students)
-  for(let i=0;i<2;i++) makePerson(-4.5+i*1.5, -6.65, 'student', true, 0);
-  // Pair 02 (2 students)
-  for(let i=0;i<2;i++) makePerson(6.5+i*1.5, -6.65, 'student', true, 0);
-  // Pair 10 - Trading (2 students)
-  for(let i=0;i<2;i++) makePerson(-9.35, -1+i*2, 'student', true, -Math.PI/2);
-
-  // === MENTORS (standing, observing students) ===
-  // Mentor behind Pair 06
-  makePerson(-6.5, 6.8, 'mentor', false, Math.PI);
-  // Mentor behind Pair 07+08
-  makePerson(1, 6.8, 'mentor', false, Math.PI);
-  // Mentor at mentor area (seated)
-  makePerson(8.35, -1, 'mentor', true, -Math.PI/2);
-  makePerson(8.35, 1, 'mentor', true, -Math.PI/2);
-
-  // === FACILITATOR (standing at capstone / station) ===
-  makePerson(0, 1.2, 'facilitator', false, Math.PI);
-
-  // === STANDUP ZONE - Students standing ===
-  // A few students standing in standup circle
-  makePerson(-8.5, -5, 'student', false, Math.PI/4);
-  makePerson(-7.5, -5.8, 'student', false, Math.PI/6);
-  makePerson(-6.5, -5, 'student', false, -Math.PI/4);
+  // ── Facilitator standing at Capstone stage ──
+  makePerson(-.3,.7,'facilitator',false,Math.PI);
 }
 
 // ═══ BRANDING ═══
-function buildBranding() {
-  // Upskillize logo on back wall (large)
-  const logoTxt = makeBrandLabel('UPSKILLIZE', 0x00ffc8, 2.2);
-  logoTxt.position.set(6.5, 3.6, -8.8);
-  scene.add(logoTxt);
+function buildBranding(){
+  // Large UPSKILLIZE on back wall
+  const logo=makeCanvasLogo();
+  logo.position.set(5.2,1.6,-5.88);scene.add(logo);
 
   // Tagline
-  const tag = makeLabel('Bridging Academia & Industry', 0x5a8aaa, .8);
-  tag.position.set(6.5, 3.15, -8.8);
-  scene.add(tag);
+  const tl=makeCanvasLabel('Bridging Academia & Industry',0x5a8aaa,.7);
+  tl.position.set(5.2,1.15,-5.88);scene.add(tl);
 
-  // Open Innovation Floor label on floor
-  const floorLabel = makeFloorLabel('OPEN INNOVATION FLOOR', 0x00ffc8);
-  floorLabel.position.set(0, .02, 0);
-  floorLabel.rotation.x = -Math.PI/2;
-  scene.add(floorLabel);
+  // FACILITATOR: UPSKILLIZE label
+  const fl=makeCanvasLabel('FACILITATOR: UPSKILLIZE',0xaa66ff,.8);
+  fl.position.set(0,1.95,-5.5);scene.add(fl);
 
-  // Floor subtitle
-  const floorSub = makeFloorLabel('~380 sq ft · walk · present · sprint · discuss', 0x3a5a7a, 18);
-  floorSub.position.set(0, .02, .8);
-  floorSub.rotation.x = -Math.PI/2;
-  scene.add(floorSub);
+  // Floor labels
+  const mainLbl=makeCanvasLabel('OPEN INNOVATION FLOOR',0x00ffc8,1.4);
+  mainLbl.position.set(0,.02,-.5);mainLbl.rotation.x=-Math.PI/2;scene.add(mainLbl);
 
-  // Capstone label
-  const capLabel = makeLabel('🎤 CAPSTONE PITCH', 0xaa66ff, .8);
-  capLabel.position.set(0, .5, 2.8);
-  scene.add(capLabel);
+  const subLbl=makeCanvasLabel('~380 sq ft · walk · present · sprint · discuss',0x3a5a7a,.8);
+  subLbl.position.set(0,.02,.2);subLbl.rotation.x=-Math.PI/2;scene.add(subLbl);
+
+  const capLbl=makeCanvasLabel('🎤 CAPSTONE PITCH',0xaa66ff,.7);
+  capLbl.position.set(0,.3,1.8);scene.add(capLbl);
 
   // Zone labels on floor
-  const floorLabels = [
-    {text:'PAIR 06 · ESG', x:-6.5, z:7, c:0x00e676},
-    {text:'PAIR 07+08 · M&A · INSURTECH', x:0, z:7, c:0xff6b9d},
-    {text:'PAIR 09 · LENDING TECH', x:6.5, z:7, c:0xffeb3b},
-    {text:'STANDUP ZONE', x:-7.5, z:-3.8, c:0x40c4ff},
-    {text:'MENTOR SESSIONS', x:9, z:-2.5, c:0xff6b9d},
-    {text:'LEARNING LOUNGE', x:8, z:6.8, c:0x7c4dff},
-    {text:'PAIR 10 · TRADING', x:-10.5, z:2, c:0x40c4ff},
-  ];
-  floorLabels.forEach(fl=>{
-    const lb = makeLabel(fl.text, fl.c, .5);
-    lb.position.set(fl.x, .06, fl.z);
-    lb.rotation.x = -Math.PI/2;
-    scene.add(lb);
+  [{t:'PAIR 06 · ESG',x:-4.5,z:5.3,c:0x00e676},{t:'PAIR 07+08 · M&A · INSUR',x:0,z:5.3,c:0xff6b9d},
+   {t:'PAIR 09 · LENDING',x:4.5,z:5.3,c:0xffeb3b},{t:'STANDUP',x:-5.2,z:-2.3,c:0x40c4ff},
+   {t:'MENTORS',x:6.8,z:-2,c:0xff6b9d},{t:'LOUNGE',x:6,z:4.6,c:0x7c4dff}].forEach(fl=>{
+    const lb=makeCanvasLabel(fl.t,fl.c,.5);lb.position.set(fl.x,.03,fl.z);lb.rotation.x=-Math.PI/2;scene.add(lb);
   });
 
-  // Room dimension label
-  const dimLb = makeLabel('~1,200 sq ft · 10 Zones · ~24m × 24m', 0x2a3a5a, .6);
-  dimLb.position.set(0, .02, 8.5);
-  dimLb.rotation.x = -Math.PI/2;
-  scene.add(dimLb);
+  // Sprint info
+  const spLbl=makeCanvasLabel('Sprint Map · 22 Tickets',0xffab40,.6);
+  spLbl.position.set(0,.03,-2.5);spLbl.rotation.x=-Math.PI/2;scene.add(spLbl);
+  const spDet=makeCanvasLabel('Backlog:8 · Sprint:9 · Review:3 · Done:2',0x4a6a8a,.5);
+  spDet.position.set(0,.03,-2);spDet.rotation.x=-Math.PI/2;scene.add(spDet);
 
-  // "FACILITATOR: UPSKILLIZE" on wall
-  const facWall = makeLabel('FACILITATOR: UPSKILLIZE', 0xaa66ff, .7);
-  facWall.position.set(0, 3.6, -8.8);
-  scene.add(facWall);
-
-  // Fintech Sprint Map label
-  const sprintLabel = makeLabel('Fintech Sprint Map · 22 active tickets', 0xffab40, .65);
-  sprintLabel.position.set(0, .06, -4.2);
-  sprintLabel.rotation.x = -Math.PI/2;
-  scene.add(sprintLabel);
-
-  const sprintDetail = makeLabel('Backlog: 8 · In Sprint: 9 · Review: 3 · Done: 2', 0x4a6a8a, .55);
-  sprintDetail.position.set(0, .06, -3.5);
-  sprintDetail.rotation.x = -Math.PI/2;
-  scene.add(sprintDetail);
+  // Room dimensions
+  const dimLbl=makeCanvasLabel('~400 sq ft · 10 Zones · Open Lab Design',0x2a3a5a,.5);
+  dimLbl.position.set(0,.03,5.8);dimLbl.rotation.x=-Math.PI/2;scene.add(dimLbl);
 }
 
-function makeLabel(text, color, scale=1) {
-  const canvas = document.createElement('canvas');
-  canvas.width=1024; canvas.height=128;
-  const ctx = canvas.getContext('2d');
-  ctx.clearRect(0,0,1024,128);
-  ctx.fillStyle = '#'+color.toString(16).padStart(6,'0');
-  ctx.font = 'bold 36px Orbitron, monospace';
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
-  ctx.fillText(text, 512, 64);
-  const tex = new THREE.CanvasTexture(canvas);
-  const m = new THREE.Mesh(
-    new THREE.PlaneGeometry(scale*5, scale*.6),
-    new THREE.MeshBasicMaterial({map:tex, transparent:true, side:THREE.DoubleSide, depthWrite:false})
-  );
-  return m;
+function makeCanvasLabel(text,color,scale=1){
+  const cv=document.createElement('canvas');cv.width=1024;cv.height=128;
+  const ctx=cv.getContext('2d');
+  ctx.fillStyle='#'+color.toString(16).padStart(6,'0');
+  ctx.font='bold 34px Orbitron,monospace';ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText(text,512,64);
+  const tex=new THREE.CanvasTexture(cv);
+  return new THREE.Mesh(new THREE.PlaneGeometry(scale*4.5,scale*.55),new THREE.MeshBasicMaterial({map:tex,transparent:true,side:THREE.DoubleSide,depthWrite:false}));
 }
 
-function makeBrandLabel(text, color, scale=1) {
-  const canvas = document.createElement('canvas');
-  canvas.width=1024; canvas.height=192;
-  const ctx = canvas.getContext('2d');
-  ctx.clearRect(0,0,1024,192);
-  // Glow effect
-  ctx.shadowColor = '#'+color.toString(16).padStart(6,'0');
-  ctx.shadowBlur = 30;
-  ctx.fillStyle = '#'+color.toString(16).padStart(6,'0');
-  ctx.font = 'bold 72px Orbitron, monospace';
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
-  ctx.fillText(text, 512, 96);
-  const tex = new THREE.CanvasTexture(canvas);
-  const m = new THREE.Mesh(
-    new THREE.PlaneGeometry(scale*3, scale*.55),
-    new THREE.MeshBasicMaterial({map:tex, transparent:true, side:THREE.DoubleSide, depthWrite:false})
-  );
-  return m;
-}
-
-function makeFloorLabel(text, color, fontSize=28) {
-  const canvas = document.createElement('canvas');
-  canvas.width=2048; canvas.height=256;
-  const ctx = canvas.getContext('2d');
-  ctx.clearRect(0,0,2048,256);
-  ctx.shadowColor = '#'+color.toString(16).padStart(6,'0');
-  ctx.shadowBlur = 20;
-  ctx.fillStyle = '#'+color.toString(16).padStart(6,'0');
-  ctx.font = `bold ${fontSize*2}px Orbitron, monospace`;
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
-  ctx.fillText(text, 1024, 128);
-  const tex = new THREE.CanvasTexture(canvas);
-  const m = new THREE.Mesh(
-    new THREE.PlaneGeometry(8, 1),
-    new THREE.MeshBasicMaterial({map:tex, transparent:true, side:THREE.DoubleSide, depthWrite:false})
-  );
-  return m;
+function makeCanvasLogo(){
+  const cv=document.createElement('canvas');cv.width=1024;cv.height=256;
+  const ctx=cv.getContext('2d');
+  // Glow
+  ctx.shadowColor='#00ffc8';ctx.shadowBlur=40;
+  ctx.fillStyle='#00ffc8';ctx.font='bold 80px Orbitron,monospace';ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText('UPSKILLIZE',512,128);
+  // Second pass sharper
+  ctx.shadowBlur=0;ctx.fillText('UPSKILLIZE',512,128);
+  const tex=new THREE.CanvasTexture(cv);
+  return new THREE.Mesh(new THREE.PlaneGeometry(5,1.2),new THREE.MeshBasicMaterial({map:tex,transparent:true,side:THREE.DoubleSide,depthWrite:false}));
 }
 
 // ═══ ZONE UI ═══
-function buildZoneUI() {
-  const panel = document.getElementById('zp');
+function buildUI(){
+  const p=document.getElementById('zp');
   ZONES.forEach((z,i)=>{
-    const c = document.createElement('div');
-    c.className='zc';
-    c.innerHTML=`<div class="zn">${z.name}</div><div class="zd">${z.desc}</div><div class="zs">${z.seats}</div>`;
-    c.onclick=()=>focusZone(i);
-    panel.appendChild(c);
+    const c=document.createElement('div');c.className='zc';
+    c.innerHTML=`<div class="zn">${z.name}</div><div class="zd">${z.desc}</div>`;
+    c.onclick=()=>focusZ(i);p.appendChild(c);
   });
 }
-
-function focusZone(i) {
-  const z = ZONES[i];
-  tA = Math.atan2(z.x+.1, z.z+10)+Math.PI;
-  tD = 14;
-  tE = .45;
-  autoRotate = false;
+function focusZ(i){
+  const z=ZONES[i];
+  tA=Math.atan2(z.x+.1,z.z+7)+Math.PI;tD=10;tE=.4;autoRotate=false;
   document.querySelectorAll('.zc').forEach((c,j)=>c.classList.toggle('on',j===i));
-  zoneMeshes.forEach((m,j)=>{
-    m.material.opacity = j===i?.2:.08;
-    m.material.emissiveIntensity = j===i?.15:.05;
-  });
+  zoneMeshes.forEach((m,j)=>{m.material.opacity=j===i?.18:.06;m.material.emissiveIntensity=j===i?.12:.04;});
 }
 
 // ═══ CAMERA ═══
-function updateCam() {
-  const x = Math.sin(camA)*Math.cos(camE)*camD;
-  const y = Math.sin(camE)*camD;
-  const z = Math.cos(camA)*Math.cos(camE)*camD;
-  camera.position.set(x, Math.max(y,1.5), z);
-  camera.lookAt(0,.8,0);
+function updateCam(){
+  camera.position.set(
+    Math.sin(camA)*Math.cos(camE)*camD,
+    Math.max(Math.sin(camE)*camD,1.2),
+    Math.cos(camA)*Math.cos(camE)*camD
+  );
+  camera.lookAt(0,.6,0);
 }
-
-function resetCam(){ tA=.45; tE=.55; tD=28; autoRotate=true;
+function resetCam(){tA=.5;tE=.5;tD=18;autoRotate=true;
   document.querySelectorAll('.zc').forEach(c=>c.classList.remove('on'));
-  zoneMeshes.forEach(m=>{m.material.opacity=.08;m.material.emissiveIntensity=.05;});
+  zoneMeshes.forEach(m=>{m.material.opacity=.06;m.material.emissiveIntensity=.04;});
 }
-function topV(){ tA=0; tE=1.45; tD=20; autoRotate=false; }
-function walkV(){ tA=.3; tE=.15; tD=14; autoRotate=false; }
-function toggleRot(){ autoRotate=!autoRotate; }
+function topV(){tA=0;tE=1.45;tD=14;autoRotate=false;}
+function walkV(){tA=.3;tE=.12;tD=10;autoRotate=false;}
+function toggleRot(){autoRotate=!autoRotate;}
 
-function setupControls() {
-  const cv = renderer.domElement;
-  cv.addEventListener('mousedown',e=>{ isDrag=true; autoRotate=false; prev={x:e.clientX,y:e.clientY}; });
-  cv.addEventListener('mousemove',e=>{
-    if(!isDrag) return;
-    tA -= (e.clientX-prev.x)*.005;
-    tE = Math.max(.05,Math.min(1.5,tE+(e.clientY-prev.y)*.005));
-    prev={x:e.clientX,y:e.clientY};
-  });
+function setupControls(){
+  const cv=renderer.domElement;
+  cv.addEventListener('mousedown',e=>{isDrag=true;autoRotate=false;prev={x:e.clientX,y:e.clientY};});
+  cv.addEventListener('mousemove',e=>{if(!isDrag)return;tA-=(e.clientX-prev.x)*.005;tE=Math.max(.05,Math.min(1.5,tE+(e.clientY-prev.y)*.005));prev={x:e.clientX,y:e.clientY};});
   cv.addEventListener('mouseup',()=>isDrag=false);
   cv.addEventListener('mouseleave',()=>isDrag=false);
-  cv.addEventListener('wheel',e=>{e.preventDefault();tD=Math.max(6,Math.min(40,tD+e.deltaY*.02));},{passive:false});
-
-  let lastTD=0;
-  cv.addEventListener('touchstart',e=>{
-    if(e.touches.length===1){isDrag=true;autoRotate=false;prev={x:e.touches[0].clientX,y:e.touches[0].clientY};}
-    else if(e.touches.length===2){lastTD=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);}
-  });
-  cv.addEventListener('touchmove',e=>{
-    e.preventDefault();
-    if(e.touches.length===1&&isDrag){
-      tA-=(e.touches[0].clientX-prev.x)*.005;
-      tE=Math.max(.05,Math.min(1.5,tE+(e.touches[0].clientY-prev.y)*.005));
-      prev={x:e.touches[0].clientX,y:e.touches[0].clientY};
-    } else if(e.touches.length===2){
-      const d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);
-      tD=Math.max(6,Math.min(40,tD-(d-lastTD)*.05));lastTD=d;
-    }
-  },{passive:false});
+  cv.addEventListener('wheel',e=>{e.preventDefault();tD=Math.max(5,Math.min(35,tD+e.deltaY*.02));},{passive:false});
+  let lTD=0;
+  cv.addEventListener('touchstart',e=>{if(e.touches.length===1){isDrag=true;autoRotate=false;prev={x:e.touches[0].clientX,y:e.touches[0].clientY};}else if(e.touches.length===2){lTD=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);}});
+  cv.addEventListener('touchmove',e=>{e.preventDefault();if(e.touches.length===1&&isDrag){tA-=(e.touches[0].clientX-prev.x)*.005;tE=Math.max(.05,Math.min(1.5,tE+(e.touches[0].clientY-prev.y)*.005));prev={x:e.touches[0].clientX,y:e.touches[0].clientY};}else if(e.touches.length===2){const d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);tD=Math.max(5,Math.min(35,tD-(d-lTD)*.05));lTD=d;}},{passive:false});
   cv.addEventListener('touchend',()=>isDrag=false);
-
-  window.addEventListener('resize',()=>{
-    camera.aspect=innerWidth/innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(innerWidth,innerHeight);
-  });
+  window.addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);});
 }
 
 // ═══ ANIMATE ═══
-function animate() {
+function animate(){
   requestAnimationFrame(animate);
-  t += .008;
+  t+=.008;
 
-  if(autoRotate) tA += .0015;
-  camA += (tA-camA)*.04;
-  camE += (tE-camE)*.04;
-  camD += (tD-camD)*.04;
+  if(autoRotate) tA+=.0012;
+  camA+=(tA-camA)*.04;camE+=(tE-camE)*.04;camD+=(tD-camD)*.04;
   updateCam();
 
-  // People breathing / idle animation
-  people.forEach((p,i)=>{
-    // Gentle breathing
-    const breathe = Math.sin(t*2+i*.7)*.005;
-    p.children.forEach(child=>{
-      if(child.position.y > .5) child.position.y += breathe;
-    });
-    // Badge always faces camera
-    const badge = p.children[p.children.length-1];
-    if(badge && badge.material && badge.material.map) {
-      badge.lookAt(camera.position);
-    }
+  // People idle animation (breathing + badge face camera)
+  ppl.forEach((p,i)=>{
+    const breathe=Math.sin(t*1.8+i*.6)*.003;
+    p.children.forEach(ch=>{if(ch.position&&ch.position.y>.4) ch.position.y+=breathe;});
+    // Last child = badge, make it face camera
+    const badge=p.children[p.children.length-2]; // badge is second to last (glow is last)
+    if(badge&&badge.material&&badge.material.map) badge.lookAt(camera.position);
+  });
+
+  // Mentors walking back and forth (observing students)
+  mentorGroups.forEach(mg=>{
+    const offset=Math.sin(t*mg.speed)*mg.rangeX;
+    mg.mesh.position.x=mg.baseX+offset;
+    // Slight body turn towards walking direction
+    mg.mesh.rotation.y=Math.PI+Math.cos(t*mg.speed)*.15;
   });
 
   // Laptop screen flicker
-  laptopScreens.forEach((s,i)=>{
-    const flick = .6 + Math.sin(t*4+i*1.3)*.15;
-    s.material.emissiveIntensity = flick;
-  });
+  screens.forEach((s,i)=>{s.material.emissiveIntensity=.5+Math.sin(t*3+i*1.5)*.2;});
 
   // Zone pulse
-  zoneMeshes.forEach((m,i)=>{
-    if(m.material.opacity < .15) {
-      m.material.emissiveIntensity = .03 + Math.sin(t*2+i)*.02;
-    }
-  });
+  zoneMeshes.forEach((m,i)=>{if(m.material.opacity<.12)m.material.emissiveIntensity=.03+Math.sin(t*2+i)*.015;});
 
-  renderer.render(scene, camera);
+  renderer.render(scene,camera);
 }
 
 init();

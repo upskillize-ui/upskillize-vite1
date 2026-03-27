@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef, useLayoutEffect } from "react";
 
 /* ═══════════════════════════════════════════════════════════════════════════════
-   PGDFDB (BFSI) — Post Graduate Diplona in FinTech & Digital Business | Upskillize
+   PGDFDB— Post Graduate Diplona in FinTech & Digital Business | Upskillize
    Full website converted from HTML → JSX. All styles, content, and interactions
    preserved 1-to-1.
 ═══════════════════════════════════════════════════════════════════════════════ */
@@ -406,25 +406,25 @@ h2.section-title em{font-style:normal;color:var(--purple);}
 }
 .cert-badge::before{content:'🏅';}
 
-/* Part 1 - blue */
+/* Semester 1 - blue */
 .part-1 .part-header{background:linear-gradient(135deg,#EBF4FF,#F0F8FF);}
 .part-1 .part-num{color:var(--blue);}
 .part-1 .part-title{color:var(--navy);}
 .part-1 .dot{background:var(--blue);}
 .part-1 .cert-badge{background:rgba(74,144,226,.12);color:var(--blue);}
-/* Part 2 - purple */
+/* Semester 2 - purple */
 .part-2 .part-header{background:linear-gradient(135deg,var(--light),#F5F0FF);}
 .part-2 .part-num{color:var(--purple);}
 .part-2 .part-title{color:var(--purple-d);}
 .part-2 .dot{background:var(--purple);}
 .part-2 .cert-badge{background:rgba(91,75,138,.1);color:var(--purple);}
-/* Part 3 - crimson */
+/* Semester 3 - crimson */
 .part-3 .part-header{background:linear-gradient(135deg,#FFF0F0,#FFF5F5);}
 .part-3 .part-num{color:#C0392B;}
 .part-3 .part-title{color:#8B0000;}
 .part-3 .dot{background:#C0392B;}
 .part-3 .cert-badge{background:rgba(192,57,43,.1);color:#C0392B;}
-/* Part 4 - gold */
+/* Semester 4 - gold */
 .part-4 .part-header{background:linear-gradient(135deg,var(--goldLight,#FFF8E1),#FFFAEC);}
 .part-4 .part-num{color:#B8860B;}
 .part-4 .part-title{color:#8B6914;}
@@ -901,7 +901,7 @@ h2.section-title em { font-style: normal; color: var(--purple); }
 .fp h4    { font-family:var(--font-display),sans-serif;    font-size:16px; font-weight:800; letter-spacing:-0.015em; }
 .fp p     { font-family:var(--font-body),sans-serif; font-size:13.5px; font-weight:400; line-height:1.68; }
 
-/* ── Part cards / overview ───────────────────────────────────────────────── */
+/* ── Semester cards / overview ───────────────────────────────────────────────── */
 .part-num     { font-family:var(--font-body),sans-serif; font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
 .part-title   { font-family:var(--font-display),sans-serif;    font-size:22px; font-weight:900; line-height:1.1; letter-spacing:-0.025em; }
 .part-timeline{ font-family:var(--font-body),sans-serif; font-size:12px; font-weight:500; }
@@ -1685,20 +1685,21 @@ export default function TwoYearsSemester() {
       <div className="orb orb1"></div>
       <div className="orb orb2"></div>
       <div className="hero-card-main">
-        <div className="hc-label">PGDFDB (BFSI)</div>
+        <div className="hc-label">PGDFDB</div>
         <div className="hc-title">1200 Hours of Mastery</div>
         <div className="hc-sub">Across 16 modules, 4 capstones, and a dedicated Innovation Lab</div>
         <div className="stat-row">
           <div className="stat-box">
-            <div className="stat-num">6</div>
+            <div className="stat-num">4</div>
             <div className="stat-lbl">Flagship Courses<br/>in One Program</div>
           </div>
           <div className="stat-box">
-            <div className="stat-num">4</div>
-            <div className="stat-lbl">Certificates<br/>on the Way</div>
+            <div className="stat-num">50+</div>
+            <div className="stat-lbl">Casestudy</div>
           </div>
           <div className="stat-box">
-            <div className="stat-lbl">Placement<br/>Ready</div>
+            <div className="stat-num">3</div>
+            <div className="stat-lbl">Interview<br/>Opportunity</div>
           </div>
           <div className="stat-box">
             <div className="stat-num">24</div>
@@ -1853,7 +1854,7 @@ export default function TwoYearsSemester() {
       <div className="fintech-points fade-up fade-up-d2">
         <div className="fp">
           <div className="fp-icon" style={{background: "#EBF4FF"}}>🏗</div>
-          <div><h4>Startup Ecosystem Readiness</h4><p>PGDFDB (BFSI) prepares you to build in a startup, join a FinTech as a founding team member, or launch your own venture — with domain depth, product skills, and investor pitch capability.</p></div>
+          <div><h4>Startup Ecosystem Readiness</h4><p>PGDFDB prepares you to build in a startup, join a FinTech as a founding team member, or launch your own venture — with domain depth, product skills, and investor pitch capability.</p></div>
         </div>
         <div className="fp">
           <div className="fp-icon" style={{background: "var(--light)"}}>📦</div>
@@ -1861,7 +1862,7 @@ export default function TwoYearsSemester() {
         </div>
         <div className="fp">
           <div className="fp-icon" style={{background: "#E8F5EE"}}>🌍</div>
-          <div><h4>Global Career Access</h4><p>BFSI is the most globally portable career. PGDFDB (BFSI) graduates are equipped for roles in DIFC Dubai, Canary Wharf London, Marina Bay Singapore, and Bay Street Toronto.</p></div>
+          <div><h4>Global Career Access</h4><p>BFSI is the most globally portable career. PGDFDB graduates are equipped for roles in DIFC Dubai, Canary Wharf London, Marina Bay Singapore, and Bay Street Toronto.</p></div>
         </div>
         <div className="fp">
           <div className="fp-icon" style={{background: "#FFF0F0"}}>⚖</div>
@@ -1876,16 +1877,50 @@ export default function TwoYearsSemester() {
   </div>
 </section>
 
+{/* CAREER JOURNEY */}
+<section className="career" id="careers">
+  <div className="container">
+    <p className="section-label text-center mx-auto fade-up">From Student to Industry Representative</p>
+    <h2 className="section-title text-center mx-auto fade-up fade-up-d1">Your 24-Month<br/><em>Transformation Path</em></h2>
+    <div className="journey-steps fade-up fade-up-d2">
+      <div className="js-step">
+        <div className="js-circle" style={{background: "linear-gradient(135deg,#EBF4FF,#D6E8F5)"}}>🎓</div>
+        <div className="js-num" style={{fontFamily: "var(--font-display)", fontSize: "13px", fontWeight: "700", color: "var(--blue)", marginBottom: "8px"}}>MONTHS 1–5</div>
+        <h4>BFSI Domain Scholar</h4>
+        <p>Master the full BFSI ecosystem. Earn your first certificate. Build your first credit model and FinTech pitch.</p>
+      </div>
+      <div className="js-step">
+        <div className="js-circle" style={{background: "linear-gradient(135deg,var(--light),#EDE9F7)"}}>⚙</div>
+        <div className="js-num" style={{fontFamily: "var(--font-display)", fontSize: "13px", fontWeight: "700", color: "var(--purple)", marginBottom: "8px"}}>MONTHS 6–10</div>
+        <h4>BFSI Technology Builder</h4>
+        <p>Payments, WealthTech, Data & Agile mastery. Build live Power BI dashboards and robo-advisory apps. Eligible for BFSI internships.</p>
+      </div>
+      <div className="js-step">
+        <div className="js-circle" style={{background: "linear-gradient(135deg,#FFF0F0,#FAE0E0)"}}>🎯</div>
+        <div className="js-num" style={{fontFamily: "var(--font-display)", fontSize: "13px", fontWeight: "700", color: "#C0392B", marginBottom: "8px"}}>MONTHS 11–15</div>
+        <h4>Interview-Ready Professional</h4>
+        <p>RegTech, ESG, AI Product Mgmt. Full Placement Sprint. 2 mock interviews. Portfolio live. Campus interviews at Month 14.</p>
+      </div>
+      <div className="js-step">
+        <div className="js-circle" style={{background: "linear-gradient(135deg,#FFF8E1,#FFF0C0)"}}>👑</div>
+        <div className="js-num" style={{fontFamily: "var(--font-display)", fontSize: "13px", fontWeight: "700", color: "#8B6914", marginBottom: "8px"}}>MONTHS 16–19</div>
+        <h4>Digital Business Leader</h4>
+        <p>MiniCEO Program. Finance transformation. Global career mapping. MiniCEO Summit. PGDFDB — MBA++. BFSI Fellow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 {/* PROGRAM OVERVIEW */}
 <section className="overview" id="overview">
   <div className="container">
     <p className="section-label fade-up">24 Months. 4 Parts. 4 Certificates.</p>
     <h2 className="section-title fade-up fade-up-d1">A Complete <em>Digital BFSI</em><br/>Learning Journey</h2>
-    <p className="section-lead fade-up fade-up-d2">PGDFDB (BFSI) is structured in four progressive parts — each 4 months long, each ending with a capstone project presented to an industry panel, and each earning you a formal certificate milestone you can add to your resume immediately.</p>
+    <p className="section-lead fade-up fade-up-d2">PGDFDB is structured in four progressive parts — each 4 months long, each ending with a capstone project presented to an industry panel, and each earning you a formal certificate milestone you can add to your resume immediately.</p>
     <div className="parts-grid">
       <div className="part-card part-1 fade-up">
         <div className="part-header">
-          <div className="part-num">Part 1 · Months 1–4</div>
+          <div className="part-num">Semester 1 · Months 1–4</div>
           <div className="part-title">BFSI Foundations & FinTech World</div>
           <div className="part-timeline">3 months teaching + 1 month capstone</div>
         </div>
@@ -1897,12 +1932,16 @@ export default function TwoYearsSemester() {
             <li><span className="dot"></span>Module 4 · Loan Origination & Credit Technology — LOS, digital underwriting, RBI guidelines</li>
           </ul>
         </div>
+         <div className="part-footer">
+          <span className="cert-badge">Certificate in FinTech Excellence</span>
+          <span style={{fontSize: "12px", color: "var(--muted)"}}>📈 FinTech</span>
+        </div>
       </div>
       <div className="part-card part-2 fade-up fade-up-d1">
         <div className="part-header">
-          <div className="part-num">Part 2 · Months 6–9</div>
+          <div className="part-num">Semester 2 · Months 6–9</div>
           <div className="part-title">Intermediate Digital BFSI Technologies</div>
-          <div className="part-timeline">3 months teaching + 1 month capstone · 1-month buffer after Part 1</div>
+          <div className="part-timeline">3 months teaching + 1 month capstone · 1-month buffer after Semester 1</div>
         </div>
         <div className="part-body">
           <ul className="module-list">
@@ -1919,7 +1958,7 @@ export default function TwoYearsSemester() {
       </div>
       <div className="part-card part-3 fade-up">
         <div className="part-header">
-          <div className="part-num">Part 3 · Months 11–14 · ⭐ Campus Placement Month</div>
+          <div className="part-num">Semester 3 · Months 11–14 · ⭐ Campus Interview Month</div>
           <div className="part-title">Advanced BFSI & Placement Readiness</div>
           <div className="part-timeline">3 months teaching + 1 month Placement Sprint + Capstone</div>
         </div>
@@ -1939,9 +1978,9 @@ export default function TwoYearsSemester() {
       </div>
       <div className="part-card part-4 fade-up fade-up-d1">
         <div className="part-header">
-          <div className="part-num">Part 4 · Months 16–19</div>
+          <div className="part-num">Semester 4 · Months 16–19</div>
           <div className="part-title">Digital Leadership — The MiniCEO Program</div>
-          <div className="part-timeline">3 months teaching + MiniCEO Summit Capstone · 1-month buffer after Part 3</div>
+          <div className="part-timeline">3 months teaching + MiniCEO Summit Capstone · 1-month buffer after Semester 3</div>
         </div>
         <div className="part-body">
           <ul className="module-list">
@@ -1952,7 +1991,7 @@ export default function TwoYearsSemester() {
           </ul>
         </div>
         <div className="part-footer">
-          <span className="cert-badge" style={{background: "rgba(201,168,76,.15)", color: "#8B6914"}}>MBA++ / PGDFDB (BFSI) — NSQF Level 7</span>
+          <span className="cert-badge" style={{background: "rgba(201,168,76,.15)", color: "#8B6914"}}>MBA++ / PGDFDB  — NSQF Level 7</span>
           <span style={{fontSize: "12px", color: "var(--muted)"}}>👑 MiniCEO Flagship</span>
         </div>
       </div>
@@ -1965,138 +2004,19 @@ export default function TwoYearsSemester() {
 
 <section className="syllabus-section" id="syllabus">
 <div className="container">
-  <p className="section-label fade-up">Complete Course Curriculum</p>
+  <p className="section-label fade-up">What You'll Learn</p>
   <h2 className="section-title fade-up fade-up-d1">Lesson-by-Lesson.<br/><em>Outcome-by-Outcome.</em></h2>
   <p className="section-lead fade-up fade-up-d2">Every lesson carries a course number, a flagship course tag, an Innovation Lab activity, and an hours breakdown — so you know exactly what you are building, learning, and earning at every step of the 24-month journey.</p>
 
   <div className="syl-tabs fade-up fade-up-d1">
-    <button className={sylTabClass(0)} onClick={() => showPart(0)}><span className="tab-part">Months 1–4</span>Part 1 · BFSI Foundations</button>
-    <button className={sylTabClass(1)} onClick={() => showPart(1)}><span className="tab-part">Months 6–9</span>Part 2 · Intermediate</button>
-    <button className={sylTabClass(2)} onClick={() => showPart(2)}><span className="tab-part">Months 11–14</span>Part 3 · Advanced</button>
-    <button className={sylTabClass(3)} onClick={() => showPart(3)}><span className="tab-part">Months 16–19</span>Part 4 · MiniCEO</button>
+    <button className={sylTabClass(0)} onClick={() => showPart(0)}><span className="tab-part">Months 1–4</span>Semester 1 · BFSI Foundations</button>
+    <button className={sylTabClass(1)} onClick={() => showPart(1)}><span className="tab-part">Months 6–9</span>Semester 2 · Intermediate</button>
+    <button className={sylTabClass(2)} onClick={() => showPart(2)}><span className="tab-part">Months 11–14</span>Semester 3 · Advanced</button>
+    <button className={sylTabClass(3)} onClick={() => showPart(3)}><span className="tab-part">Months 16–19</span>Semester 4 · MiniCEO</button>
   </div>
 
   
   <div className={sylPanelClass(0)} id="part-0">
-    <div className="syl-part-header">
-      <div className="sph-left">
-        <h3>Part 1 — BFSI Foundations & FinTech World</h3>
-        <p>Months 1–3 (Teaching) + Month 4 (Capstone) · 4 Modules · 16 Lessons</p>
-      </div>
-      <div className="sph-badges">
-        <span className="sph-badge">🏦 BFSI Domain Excellence</span>
-        <span className="sph-badge">🛡 InsuranceTech (intro)</span>
-        <span className="sph-badge">~270 Student Hours</span>
-      </div>
-    </div>
-
-    {/* M1 */}
-    <div className={moduleClass("m1")} id="m1">
-      <div className="module-heading" style={{background: "#EBF4FF"}} onClick={() => toggleModule('m1')}>
-        <span className="mh-num" style={{background: "var(--blue)", color: "var(--white)"}}>M1</span>
-        <span className="mh-title" style={{color: "var(--navy)"}}>BFSI Domain Foundations</span>
-        <span className="mh-meta" style={{color: "var(--blue)"}}>16 Tr + 9 Sat + 20 Lab hrs</span>
-        <span className="mh-arrow">▾</span>
-      </div>
-      <div className="module-table-wrap">
-        <table className="syl-table">
-          <thead style={{background: "var(--navy)"}}>
-            <tr>
-              <th style={{color: "#fff", width: "68px"}}>#</th>
-              <th style={{color: "#fff"}}>Lesson Title</th>
-              <th style={{color: "#fff"}}>Key Learning Outcomes</th>
-              <th style={{color: "#fff", width: "140px"}}>Innovation Lab</th>
-              <th style={{color: "#fff", width: "100px"}}>Hrs</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>1.1</td><td>Structure of the BFSI Industry</td><td>Map all BFSI sub-sectors and their interdependencies; build a personal BFSI ecosystem model; understand the Indian financial system architecture</td><td><span className="tag-pill lab">LAB-L</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>1.2</td><td>Banking Operations Deep Dive</td><td>Retail, corporate, SME, treasury, liabilities and assets; understand the bank P&L and NIM drivers; visit a core banking workflow end-to-end</td><td><span className="tag-pill lab">LAB-C: Bank P&L model</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>1.3</td><td>Credit: Concepts, Products & Life Cycle</td><td>Define credit as a concept; identify credit product types (term loan, OD, CC, personal loan, home loan, MSME credit); map the 8-stage lending life cycle from origination to closure; distinguish credit risk from credit process</td><td><span className="tag-pill lab">LAB-C: Credit scorecard</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>1.4</td><td>Insurance Domain — Life, General, Health</td><td>Products, distribution, IRDAI regulation, bancassurance, claims lifecycle; InsurTech disruption overview</td><td><span className="tag-pill lab">LAB-L: Acko vs LIC</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>1.5</td><td>Capital Markets & Investments</td><td>Equity, debt, derivatives, MF, PMS, AIF; SEBI regulatory architecture; DEMAT and settlement; ISIN, custodian banks</td><td><span className="tag-pill lab">LAB-C: Portfolio tracker</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>1.6</td><td>BFSI Business Models & Economics</td><td>Revenue streams, cost structures, NIM vs yield vs premium economics; margin benchmarks across BFSI sub-sectors</td><td><span className="tag-pill lab">LAB-C: Unit economics</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>1.7</td><td>India's Digital Financial Stack</td><td>UPI, Aadhaar, DigiLocker, Account Aggregator, ONDC, OCEN — live demonstration and flow mapping of each</td><td><span className="tag-pill lab">LAB-D: UPI API call</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>1.8</td><td>BFSI Regulatory Landscape</td><td>RBI, SEBI, IRDAI, PFRDA, NABARD — powers, key regulations, and recent circulars 2024–25; regulatory calendar management</td><td><span className="tag-pill lab">LAB-F: Compliance checklist</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    {/* M2 */}
-    <div className={moduleClass("m2")} id="m2">
-      <div className="module-heading" style={{background: "#EBF4FF"}} onClick={() => toggleModule('m2')}>
-        <span className="mh-num" style={{background: "var(--blue)", color: "var(--white)"}}>M2</span>
-        <span className="mh-title" style={{color: "var(--navy)"}}>Current Industry & Digital Transformation</span>
-        <span className="mh-meta" style={{color: "var(--blue)"}}>16 Tr + 9 Sat + 19 Lab hrs</span>
-        <span className="mh-arrow">▾</span>
-      </div>
-      <div className="module-table-wrap">
-        <table className="syl-table">
-          <thead style={{background: "var(--navy)"}}><tr><th style={{color: "#fff", width: "68px"}}>#</th><th style={{color: "#fff"}}>Lesson Title</th><th style={{color: "#fff"}}>Key Learning Outcomes</th><th style={{color: "#fff", width: "140px"}}>Innovation Lab</th><th style={{color: "#fff", width: "100px"}}>Hrs</th></tr></thead>
-          <tbody>
-            <tr><td>2.1</td><td>Digital Transformation in BFSI</td><td>DX maturity models, legacy modernisation, cloud migration strategies; real case studies from HDFC, SBI, Kotak</td><td><span className="tag-pill lab">LAB-L: HDFC DX matrix</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>2.2</td><td>Open Banking & API Economy</td><td>API-first architecture, Banking-as-a-Service, embedded finance, marketplace banking; India vs global open banking frameworks</td><td><span className="tag-pill lab">LAB-D: Setu/Cashfree API</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>2.3</td><td>BFSI Technology Landscape</td><td>Core banking systems (Finacle, T24, Temenos), insurance platforms, trading systems, payment gateway technology overview</td><td><span className="tag-pill lab">LAB-L: Tech stack map</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>2.4</td><td>Customer Experience in BFSI</td><td>CX frameworks, omnichannel banking, hyper-personalisation, NPS, CLV measurement, journey mapping tools</td><td><span className="tag-pill lab">LAB-G: Figma onboarding</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>2.5</td><td>AI & ML in BFSI — Overview</td><td>Credit scoring models, fraud detection, chatbots, robo-advisory, AI-based underwriting; practical use-case mapping for each BFSI function</td><td><span className="tag-pill lab">LAB-E: 10 BFSI prompts</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>2.6</td><td>GenAI for BFSI Professionals</td><td>Prompt engineering for BFSI work tasks; Copilot in finance workflows; AI document processing; GenAI governance basics</td><td><span className="tag-pill lab">LAB-E: RBI circular AI tool</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>2.7</td><td>Cybersecurity & DPDPA 2023</td><td>BFSI-specific cyber threats, CERT-In obligations, data privacy BFSI obligations, DPDPA 2023 compliance fundamentals</td><td><span className="tag-pill lab">LAB-F: DPDPA gap assess</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>2.8</td><td>Digital India & Financial Inclusion</td><td>Jan Dhan, PM SVANidhi, PMJJBY, DBT architecture, PM-KISAN — technology-enabled financial inclusion at scale</td><td><span className="tag-pill lab">LAB-A: Inclusion dashboard</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    {/* M3 */}
-    <div className={moduleClass("m3")} id="m3">
-      <div className="module-heading" style={{background: "#EBF4FF"}} onClick={() => toggleModule('m3')}>
-        <span className="mh-num" style={{background: "var(--blue)", color: "var(--white)"}}>M3</span>
-        <span className="mh-title" style={{color: "var(--navy)"}}>FinTech World & InsurTech</span>
-        <span className="mh-meta" style={{color: "var(--blue)"}}>16 Tr + 9 Sat + 22 Lab hrs</span>
-        <span className="mh-arrow">▾</span>
-      </div>
-      <div className="module-table-wrap">
-        <table className="syl-table">
-          <thead style={{background: "var(--navy)"}}><tr><th style={{color: "#fff", width: "68px"}}>#</th><th style={{color: "#fff"}}>Lesson Title</th><th style={{color: "#fff"}}>Key Learning Outcomes</th><th style={{color: "#fff", width: "140px"}}>Innovation Lab</th><th style={{color: "#fff", width: "100px"}}>Hrs</th></tr></thead>
-          <tbody>
-            <tr><td>3.1</td><td>FinTech Ecosystem Map — India 2025</td><td>LendTech, PayTech, WealthTech, InsurTech, RegTech, BankTech categories; key players, funding landscape, NASSCOM/BCG FinTech report deep-dive</td><td><span className="tag-pill lab">LAB-L: FinTech market map</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>3.2</td><td>FinTech Business Models & Unit Economics</td><td>B2B, B2C, B2B2C, platform models; LTV, CAC, payback period, NRR, churn; FinTech margin profiles vs traditional BFSI</td><td><span className="tag-pill lab">LAB-C: Unit economics model</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>3.3</td><td>Digital Lending & BNPL</td><td>Sachet loans, embedded credit, DSP norms, co-lending model, FLDG regulation, RBI Digital Lending Guidelines 2022; BNPL business model anatomy</td><td><span className="tag-pill lab">LAB-B: Loan eligibility app</span></td><td><span className="hrs-cell">2+2+4</span></td></tr>
-            <tr><td>3.4</td><td>InsurTech Revolution</td><td>On-demand insurance, micro-insurance, UBI, telematics, wearables, Bima Sugam platform; IRDAI Sandbox framework; India InsurTech unicorn landscape</td><td><span className="tag-pill lab">LAB-G: Insurance app design</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>3.5</td><td>Neo-Banks & Challenger Banks</td><td>Fi, Jupiter, Niyo — value proposition, regulatory status (PPI, BaaS), growth model; how challenger banks are forcing legacy banks to modernise</td><td><span className="tag-pill lab">LAB-J: Neo-bank pitch deck</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>3.6</td><td>FinTech Fundraising & Valuation</td><td>VC funding stages (pre-seed to Series D+), FinTech revenue multiples, due diligence checklist, term sheet basics, cap table literacy</td><td><span className="tag-pill lab">LAB-C: Startup valuation</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>3.7</td><td>Global FinTech Regulation & Trends</td><td>MiCA (EU crypto regulation), FCA regulatory sandbox (UK), MAS (Singapore), DFSA (UAE); India's FinTech policy trajectory 2025–2030</td><td><span className="tag-pill lab">LAB-L: Regulatory matrix</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>3.8</td><td>FinTech & InsurTech Career Pathways</td><td>Role profiles: Product Manager, Business Analyst, Risk Analyst, Growth Lead, Claims Tech Lead — skills, salary bands, career trajectory</td><td><span className="tag-pill lab">LAB-L: Personal career map</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    {/* M4 */}
-    <div className={moduleClass("m4")} id="m4">
-      <div className="module-heading" style={{background: "#EBF4FF"}} onClick={() => toggleModule('m4')}>
-        <span className="mh-num" style={{background: "var(--blue)", color: "var(--white)"}}>M4</span>
-        <span className="mh-title" style={{color: "var(--navy)"}}>Loan Origination & Credit Technology</span>
-        <span className="mh-meta" style={{color: "var(--blue)"}}>16 Tr + 9 Sat + 23 Lab hrs</span>
-        <span className="mh-arrow">▾</span>
-      </div>
-      <div className="module-table-wrap">
-        <table className="syl-table">
-          <thead style={{background: "var(--navy)"}}><tr><th style={{color: "#fff", width: "68px"}}>#</th><th style={{color: "#fff"}}>Lesson Title</th><th style={{color: "#fff"}}>Key Learning Outcomes</th><th style={{color: "#fff", width: "140px"}}>Innovation Lab</th><th style={{color: "#fff", width: "100px"}}>Hrs</th></tr></thead>
-          <tbody>
-            <tr><td>4.1</td><td>Credit Assessment Framework</td><td>5Cs of credit vs alternate data scoring; CIBIL bureau report reading; bank statement analysis; GST data in credit underwriting</td><td><span className="tag-pill lab">LAB-C: Credit scorecard</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>4.2</td><td>Loan Origination Systems (LOS)</td><td>End-to-end LOS workflow; vendor landscape (Nucleus FinnOne, Newgen, FIS LoanIQ, Finflux); LOS demo walkthrough; key integration points</td><td><span className="tag-pill lab">LAB-B: Digital loan form</span></td><td><span className="hrs-cell">2+2+4</span></td></tr>
-            <tr><td>4.3</td><td>Digital Underwriting & AA Data</td><td>Account Aggregator data use, eNACH mandate, GST data for MSME credit, ML-based underwriting models; alternative credit scoring</td><td><span className="tag-pill lab">LAB-H: Python credit signals</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>4.4</td><td>Collections & Recovery Technology</td><td>Early Warning Systems (EWS), digital collection workflow automation, behavioral nudges, NPA bucket management, SARFAESI overview</td><td><span className="tag-pill lab">LAB-A: NPA dashboard</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>4.5</td><td>Co-lending & FLDG Models</td><td>RBI co-lending master directions 2022, risk sharing structures, technology integration between bank & NBFC in co-lending</td><td><span className="tag-pill lab">LAB-L: Co-lending case</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>4.6</td><td>MSME & Agricultural Credit Technology</td><td>PSL norms, CIBIL MSME Rank, Kisan Credit Cards, FPO financing, satellite-based crop monitoring, NABARD schemes</td><td><span className="tag-pill lab">LAB-C: Agri loan model</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>4.7</td><td>Credit Risk Analytics</td><td>PD, LGD, EAD, ECL computation; Ind AS 109 basics; stress testing intro; building risk heatmaps for credit portfolio monitoring</td><td><span className="tag-pill lab">LAB-A: Credit risk heatmap</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>4.8</td><td>RBI Digital Lending Guidelines 2022</td><td>LSP norms, fair practices code, data collection rules, grievance redressal mechanism, permitted and prohibited digital lending practices</td><td><span className="tag-pill lab">LAB-F: RBI DLG compliance</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
     <div className="capstone-box">
       <div className="cap-label">Capstone 1 — Month 4</div>
       <h4>BFSI Domain Discovery Report</h4>
@@ -2111,109 +2031,6 @@ export default function TwoYearsSemester() {
 
   
   <div className={sylPanelClass(1)} id="part-1">
-    <div className="syl-part-header">
-      <div className="sph-left">
-        <h3>Part 2 — Intermediate Digital BFSI Technologies</h3>
-        <p>Months 6–8 (Teaching) + Month 9 (Capstone) · 4 Modules · 16 Lessons · 1-Month Buffer after Part 1</p>
-      </div>
-      <div className="sph-badges">
-        <span className="sph-badge">📈 InvestmentTech (Full)</span>
-        <span className="sph-badge">📊 Data to Decisions (Full)</span>
-        <span className="sph-badge">~280 Student Hours</span>
-      </div>
-    </div>
-    <div className={moduleClass("m5")} id="m5">
-      <div className="module-heading" style={{background: "var(--light)"}} onClick={() => toggleModule('m5')}>
-        <span className="mh-num" style={{background: "var(--purple)", color: "var(--white)"}}>M5</span>
-        <span className="mh-title" style={{color: "var(--purple-d)"}}>Payments Technology (PaymentsTech)</span>
-        <span className="mh-meta" style={{color: "var(--purple)"}}>16 Tr + 9 Sat + 21 Lab hrs</span>
-        <span className="mh-arrow">▾</span>
-      </div>
-      <div className="module-table-wrap">
-        <table className="syl-table">
-          <thead style={{background: "var(--purple)"}}><tr><th style={{color: "#fff", width: "68px"}}>#</th><th style={{color: "#fff"}}>Lesson Title</th><th style={{color: "#fff"}}>Key Learning Outcomes</th><th style={{color: "#fff", width: "140px"}}>Innovation Lab</th><th style={{color: "#fff", width: "100px"}}>Hrs</th></tr></thead>
-          <tbody>
-            <tr><td>5.1</td><td>Global Payments Architecture</td><td>SWIFT, SEPA, ACH, RTP networks, Fedwire — how money moves internationally; correspondent banking; nostro/vostro accounts</td><td><span className="tag-pill lab">LAB-D: SWIFT message trace</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>5.2</td><td>India Payments Ecosystem Deep Dive</td><td>UPI, IMPS, NEFT, RTGS, NACH, FASTag, BBPS — NPCI architecture, RBI Payment Vision 2025, settlement systems</td><td><span className="tag-pill lab">LAB-D: Razorpay sandbox</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>5.3</td><td>Card Payments Technology</td><td>Card lifecycle (issuing to acquiring), interchange economics, PCI-DSS standards, EMV chip, tokenisation, Visa/Mastercard authorisation flow</td><td><span className="tag-pill lab">LAB-C: Card revenue model</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>5.4</td><td>Digital Wallets & Prepaid Instruments</td><td>PPI regulation, wallet categories (open/semi/closed), interoperability, e-RUPI vouchers, CBDC e-Rupee pilot architecture</td><td><span className="tag-pill lab">LAB-B: Wallet app (Glide)</span></td><td><span className="hrs-cell">2+2+4</span></td></tr>
-            <tr><td>5.5</td><td>Cross-border Payments & Remittances</td><td>Correspondent banking costs, SWIFT gpi, RBI remittance regulations, Project Nexus (BIS), crypto in cross-border context</td><td><span className="tag-pill lab">LAB-C: Remittance model</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>5.6</td><td>Payment Gateway Technology</td><td>Gateway vs aggregator vs acquirer; API integration, settlement cycles, chargeback management, fraud scoring rules, webhook design</td><td><span className="tag-pill lab">LAB-D: Razorpay PG demo</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>5.7</td><td>Merchant Acquiring & POS Technology</td><td>Physical vs digital POS, QR payments, softPOS, MDR regulation, acquiring economics, payment aggregator onboarding</td><td><span className="tag-pill lab">LAB-C: MDR calculator</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>5.8</td><td>CBDC Architecture & Design</td><td>Retail vs wholesale CBDC, token vs account-based models, offline payments, programmable money, global CBDC tracker, India's e-Rupee journey</td><td><span className="tag-pill lab">LAB-L: CBDC policy brief</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div className={moduleClass("m6")} id="m6">
-      <div className="module-heading" style={{background: "var(--light)"}} onClick={() => toggleModule('m6')}>
-        <span className="mh-num" style={{background: "var(--purple)", color: "var(--white)"}}>M6</span>
-        <span className="mh-title" style={{color: "var(--purple-d)"}}>WealthTech & Investment Technology</span>
-        <span className="mh-meta" style={{color: "var(--purple)"}}>16 Tr + 9 Sat + 23 Lab hrs · 📈 InvestmentTech Flagship</span>
-        <span className="mh-arrow">▾</span>
-      </div>
-      <div className="module-table-wrap">
-        <table className="syl-table">
-          <thead style={{background: "var(--purple)"}}><tr><th style={{color: "#fff", width: "68px"}}>#</th><th style={{color: "#fff"}}>Lesson Title</th><th style={{color: "#fff"}}>Key Learning Outcomes</th><th style={{color: "#fff", width: "140px"}}>Innovation Lab</th><th style={{color: "#fff", width: "100px"}}>Hrs</th></tr></thead>
-          <tbody>
-            <tr><td>6.1</td><td>Wealth Management Technology Stack</td><td>RTA platforms (CAMS, KFintech), MFU, BSE StAR MF, portfolio accounting systems, fee calculation engines; HNI vs mass-affluent service delivery</td><td><span className="tag-pill lab">LAB-C: Wealth pyramid</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>6.2</td><td>Mutual Funds Technology — End to End</td><td>AMC technology stack, SIP automation, AMFI data infrastructure, MFU transaction platform, RTA integration, B30 digital push</td><td><span className="tag-pill lab">LAB-A: MF Power BI dashboard</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>6.3</td><td>Robo-Advisory Platforms</td><td>Algorithm-based portfolio construction, mean-variance optimisation basics, auto-rebalancing triggers, tax-loss harvesting; Smallcase, ET Money, Fisdom</td><td><span className="tag-pill lab">LAB-B: Risk profiler app</span></td><td><span className="hrs-cell">2+2+4</span></td></tr>
-            <tr><td>6.4</td><td>Trading Technology & Market Structure</td><td>OMS, DMA access, algorithmic trading basics, HFT concepts, co-location, market microstructure, circuit breakers, dark pools</td><td><span className="tag-pill lab">LAB-H: Python Sharpe ratio</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>6.5</td><td>PMS & AIF Technology</td><td>PMS vs MF regulatory comparison, performance reporting, waterfall calculations, fee structures (fixed + performance), SEBI AIF categories</td><td><span className="tag-pill lab">LAB-C: PMS performance report</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>6.6</td><td>Retirement & Pension Technology</td><td>NPS CRA systems (NSDL/KFINTECH), EPFO digital systems, annuity platforms, PFRDA technology architecture, pension adequacy gap</td><td><span className="tag-pill lab">LAB-C: Retirement calculator</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>6.7</td><td>ESG Investing & Technology</td><td>ESG scores (MSCI, Sustainalytics), BRSR mandatory disclosure, SEBI ESG framework, green bonds, climate risk in portfolio, TCFD</td><td><span className="tag-pill lab">LAB-A: ESG portfolio dashboard</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>6.8</td><td>WealthTech Product Management</td><td>Designing digital wealth experiences, regulatory compliance in WealthTech product, UX for financial products, SEBI digital advisory norms</td><td><span className="tag-pill lab">LAB-G: Robo-advisory UX</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div className={moduleClass("m7")} id="m7">
-      <div className="module-heading" style={{background: "var(--light)"}} onClick={() => toggleModule('m7')}>
-        <span className="mh-num" style={{background: "var(--purple)", color: "var(--white)"}}>M7</span>
-        <span className="mh-title" style={{color: "var(--purple-d)"}}>Supply Chain Finance, Trade Finance & Agri</span>
-        <span className="mh-meta" style={{color: "var(--purple)"}}>16 Tr + 9 Sat + 20 Lab hrs</span>
-        <span className="mh-arrow">▾</span>
-      </div>
-      <div className="module-table-wrap">
-        <table className="syl-table">
-          <thead style={{background: "var(--purple)"}}><tr><th style={{color: "#fff", width: "68px"}}>#</th><th style={{color: "#fff"}}>Lesson Title</th><th style={{color: "#fff"}}>Key Learning Outcomes</th><th style={{color: "#fff", width: "140px"}}>Innovation Lab</th><th style={{color: "#fff", width: "100px"}}>Hrs</th></tr></thead>
-          <tbody>
-            <tr><td>7.1</td><td>Supply Chain Finance Fundamentals</td><td>Receivables financing, payables financing, dynamic discounting, reverse factoring structures; SCF working capital benefits for MSME suppliers</td><td><span className="tag-pill lab">LAB-C: SCF impact model</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>7.2</td><td>Trade Finance Instruments</td><td>Letter of Credit, Bank Guarantee, Bill Discounting, Export Credit, EXIM Bank role; UCP 600 basics; documentary trade process</td><td><span className="tag-pill lab">LAB-L: LC flow + case</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>7.3</td><td>TReDS — India's MSME Receivables Platform</td><td>RXIL, M1xchange, Invoicemart — how TReDS works, RBI TReDS mandate, financing rates, role of financiers vs buyers vs sellers</td><td><span className="tag-pill lab">LAB-D: TReDS API demo</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>7.4</td><td>OCEN & Account Aggregator in SCF</td><td>Open Credit Enablement Network — GST-linked credit flows, AA data for MSME credit, lender integration patterns</td><td><span className="tag-pill lab">LAB-D: Setu AA sandbox</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>7.5</td><td>ERP Integration with BFSI Systems</td><td>SAP/Oracle ERP data feeding bank credit and treasury systems; AP/AR automation in lending context; ERP-to-LOS data mapping</td><td><span className="tag-pill lab">LAB-L: ERP-LOS mapping</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>7.6</td><td>Digital SCF Platforms — India & Global</td><td>C2FO, Taulia (global); M2P, Vayana, Mintifi (India); platform comparison, revenue models, integration approaches</td><td><span className="tag-pill lab">LAB-J: SCF FinTech pitch</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>7.7</td><td>Supply Chain Risk Management</td><td>Supplier risk scoring frameworks, ESG in supply chain finance, climate risk in SCF portfolios, concentration risk management</td><td><span className="tag-pill lab">LAB-A: Supplier risk dashboard</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>7.8</td><td>Agri-Finance Technology</td><td>Kisan Credit Cards, FPO financing, satellite-based crop monitoring, NABARD digital schemes, agri-lending platform landscape</td><td><span className="tag-pill lab">LAB-C: Agri scoring model</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div className={moduleClass("m8")} id="m8">
-      <div className="module-heading" style={{background: "var(--light)"}} onClick={() => toggleModule('m8')}>
-        <span className="mh-num" style={{background: "var(--purple)", color: "var(--white)"}}>M8</span>
-        <span className="mh-title" style={{color: "var(--purple-d)"}}>Data to Decisions + Agile + Six Sigma + ITIL</span>
-        <span className="mh-meta" style={{color: "var(--purple)"}}>16 Tr + 9 Sat + 23 Lab hrs · 📊 D2D Flagship</span>
-        <span className="mh-arrow">▾</span>
-      </div>
-      <div className="module-table-wrap">
-        <table className="syl-table">
-          <thead style={{background: "var(--purple)"}}><tr><th style={{color: "#fff", width: "68px"}}>#</th><th style={{color: "#fff"}}>Lesson Title</th><th style={{color: "#fff"}}>Key Learning Outcomes</th><th style={{color: "#fff", width: "140px"}}>Innovation Lab</th><th style={{color: "#fff", width: "100px"}}>Hrs</th></tr></thead>
-          <tbody>
-            <tr><td>8.1</td><td>Data Literacy & Governance for BFSI</td><td>Data types, quality dimensions, metadata, master data management in banking; BFSI data governance frameworks; regulatory data obligations</td><td><span className="tag-pill lab">LAB-I: SQL — segment query</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>8.2</td><td>Excel Advanced for BFSI Professionals</td><td>Power Query, PivotTables, dynamic arrays, financial modelling with scenario analysis; bank performance dashboards in Excel</td><td><span className="tag-pill lab">LAB-C: Branch tracker Excel</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>8.3</td><td>Power BI for BFSI — End to End</td><td>Data import, star schema modelling, DAX formulas, report design principles, publishing to Power BI Service; BFSI KPI library</td><td><span className="tag-pill lab">LAB-A: NPA monitoring dashboard</span></td><td><span className="hrs-cell">2+2+4</span></td></tr>
-            <tr><td>8.4</td><td>SQL for Business Analysts</td><td>SELECT, JOINs (inner, left, full), GROUP BY, subqueries, CTEs, window functions — applied to BFSI customer-loan-transaction data</td><td><span className="tag-pill lab">LAB-I: 15-query SQL challenge</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>8.5</td><td>Data Storytelling & MIS Reporting</td><td>Pyramid principle for BFSI reporting, chart selection framework, executive-ready MIS report design, monthly BFSI board reporting standards</td><td><span className="tag-pill lab">LAB-A: CFO MIS template</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>8.6</td><td>Agile & Scrum in BFSI</td><td>Scrum ceremonies, user story writing, backlog prioritisation, sprint delivery, SAFe for large banks; Agile vs Waterfall decision framework</td><td><span className="tag-pill lab">LAB-K: Scrum sprint sim</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>8.7</td><td>Six Sigma DMAIC in BFSI</td><td>DMAIC methodology, process capability (Cpk), control charts, defect reduction; applied to KYC TAT, loan processing, fraud rejection rates</td><td><span className="tag-pill lab">LAB-K: DMAIC KYC case</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>8.8</td><td>ITIL Foundation for BFSI</td><td>IT service management concepts, incident/change/problem/release management, BFSI IT governance models, SLA design for BFSI digital services</td><td><span className="tag-pill lab">LAB-L: Bank outage simulation</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
     <div className="capstone-box">
       <div className="cap-label">Capstone 2 — Month 9</div>
       <h4>Digital BFSI Solution Blueprint</h4>
@@ -2229,112 +2046,9 @@ export default function TwoYearsSemester() {
 
   
   <div className={sylPanelClass(2)} id="part-2">
-    <div className="syl-part-header" style={{background: "linear-gradient(135deg,#8B0000,#5C0000)"}}>
-      <div className="sph-left">
-        <h3>Part 3 — Advanced BFSI & Placement Readiness</h3>
-        <p>Months 11–13 (Teaching) + Month 14 (Placement Sprint + Capstone) · 4 Modules · Campus interviews at end of Month 14</p>
-      </div>
-      <div className="sph-badges">
-        <span className="sph-badge">🔒 RegTech (Full)</span>
-        <span className="sph-badge">⭐ Placement Sprint</span>
-        <span className="sph-badge">~310 Student Hours</span>
-      </div>
-    </div>
-    <div className={moduleClass("m9")} id="m9">
-      <div className="module-heading" style={{background: "#FFF0F0"}} onClick={() => toggleModule('m9')}>
-        <span className="mh-num" style={{background: "#C0392B", color: "var(--white)"}}>M9</span>
-        <span className="mh-title" style={{color: "#8B0000"}}>RegTech, Compliance & Regulatory Reporting</span>
-        <span className="mh-meta" style={{color: "#C0392B"}}>16 Tr + 9 Sat + 22 Lab hrs · 🔒 RegTech Flagship</span>
-        <span className="mh-arrow">▾</span>
-      </div>
-      <div className="module-table-wrap">
-        <table className="syl-table">
-          <thead style={{background: "#8B0000"}}><tr><th style={{color: "#fff", width: "68px"}}>#</th><th style={{color: "#fff"}}>Lesson Title</th><th style={{color: "#fff"}}>Key Learning Outcomes</th><th style={{color: "#fff", width: "140px"}}>Innovation Lab</th><th style={{color: "#fff", width: "100px"}}>Hrs</th></tr></thead>
-          <tbody>
-            <tr><td>9.1</td><td>RegTech Ecosystem & Vendor Landscape</td><td>AML, KYC, sanctions screening, transaction monitoring platforms; NICE Actimize, Temenos Compliance, ComplyAdvantage, Featurespace; vendor evaluation</td><td><span className="tag-pill lab">LAB-F: Vendor comparison</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>9.2</td><td>AML & CFT Technology</td><td>Risk-based approach to AML, CDD/EDD workflows, PEP screening, STR/CTR filing obligations, ML models for transaction monitoring</td><td><span className="tag-pill lab">LAB-H: Python AML detector</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>9.3</td><td>KYC & Digital Onboarding Technology</td><td>Video KYC norms, eKYC with Aadhaar OTP, CKYC registry, liveness detection, OKYC, RE-KYC automation, PMLA KYC obligations</td><td><span className="tag-pill lab">LAB-G: Figma KYC journey</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>9.4</td><td>Regulatory Reporting — RBI</td><td>BSR returns, CRILC quarterly reporting, XBRL taxonomy, COSMOS portal, NPA reporting formats, offsite supervision data points</td><td><span className="tag-pill lab">LAB-A: XBRL Power BI analysis</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>9.5</td><td>SEBI Reporting & Disclosure Obligations</td><td>LODR requirements, BRSR disclosure format, SAST triggers, insider trading disclosure window, SEBI SCORES grievance portal</td><td><span className="tag-pill lab">LAB-F: LODR tracker</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>9.6</td><td>DPDPA 2023 & Data Privacy in BFSI</td><td>Data fiduciary vs data processor, consent artefact design, breach notification obligations, data localisation requirements, DPDPA implementation roadmap</td><td><span className="tag-pill lab">LAB-F: DPDPA audit</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>9.7</td><td>Basel III / IV — Capital & Liquidity</td><td>CRAR computation, LCR, NSFR, leverage ratio, Pillar 2 & 3 disclosures; technology for capital computation and stress testing in Indian banks</td><td><span className="tag-pill lab">LAB-C: CRAR calculator</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>9.8</td><td>SupTech & AI in Regulation</td><td>Central bank digital supervision, RBI's supervisory data platform, RegBot concepts, NLP for circular analysis, AI-assisted horizon scanning</td><td><span className="tag-pill lab">LAB-E: GenAI compliance tool</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div className={moduleClass("m10")} id="m10">
-      <div className="module-heading" style={{background: "#FFF0F0"}} onClick={() => toggleModule('m10')}>
-        <span className="mh-num" style={{background: "#C0392B", color: "var(--white)"}}>M10</span>
-        <span className="mh-title" style={{color: "#8B0000"}}>DeFi, Blockchain & Crypto in BFSI</span>
-        <span className="mh-meta" style={{color: "#C0392B"}}>16 Tr + 9 Sat + 19 Lab hrs</span>
-        <span className="mh-arrow">▾</span>
-      </div>
-      <div className="module-table-wrap">
-        <table className="syl-table">
-          <thead style={{background: "#8B0000"}}><tr><th style={{color: "#fff", width: "68px"}}>#</th><th style={{color: "#fff"}}>Lesson Title</th><th style={{color: "#fff"}}>Key Learning Outcomes</th><th style={{color: "#fff", width: "140px"}}>Innovation Lab</th><th style={{color: "#fff", width: "100px"}}>Hrs</th></tr></thead>
-          <tbody>
-            <tr><td>10.1</td><td>Blockchain Fundamentals for Finance</td><td>Distributed ledger technology, consensus mechanisms (PoW, PoS, PBFT), Merkle trees, permissioned vs public blockchain use cases in BFSI</td><td><span className="tag-pill lab">LAB-D: Etherscan explorer</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>10.2</td><td>DeFi Ecosystem — Products & Risks</td><td>DEX, AMM, lending protocols (Aave, Compound), stablecoins (USDC, DAI), yield farming, impermanent loss; DeFi vs CeFi risk comparison</td><td><span className="tag-pill lab">LAB-L: DeFi deep dive</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>10.3</td><td>Crypto Regulation — India & Global</td><td>VDA taxation (30%+1% TDS), PMLA applicability to VDA, RBI stance, MiCA (EU), MAS Singapore crypto framework; regulatory arbitrage landscape</td><td><span className="tag-pill lab">LAB-F: Regulatory matrix</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>10.4</td><td>Blockchain Applications in BFSI</td><td>Cross-border payments (Ripple/Stellar), trade finance (Marco Polo network), bond issuance on blockchain, KYC data sharing, syndicated lending</td><td><span className="tag-pill lab">LAB-D: Ripple API demo</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>10.5</td><td>CBDC Architecture & Design</td><td>Retail vs wholesale CBDC models, token-based vs account-based, programmable money for subsidies, RBI e-Rupee pilot analysis, global CBDC map</td><td><span className="tag-pill lab">LAB-G: e-Rupee wallet UX</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>10.6</td><td>NFTs & Digital Assets in Financial Services</td><td>NFT use cases in BFSI — KYC documents, property title, bond certificates, insurance claims; GIFT City ambitions for tokenised assets</td><td><span className="tag-pill lab">LAB-L: GIFT City research</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>10.7</td><td>Smart Contracts in Finance</td><td>Solidity conceptual, smart contract deployment lifecycle, use cases: auto-settlement, escrow, insurance parametric payouts, loan covenants</td><td><span className="tag-pill lab">LAB-B: Smart contract sim</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>10.8</td><td>Crypto Fraud & Risk Prevention</td><td>Scam typologies (rug pulls, exchange hacks, phishing), FATF travel rule, AML in crypto, investor protection framework, FTX collapse post-mortem</td><td><span className="tag-pill lab">LAB-L: FTX case analysis</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div className={moduleClass("m11")} id="m11">
-      <div className="module-heading" style={{background: "#FFF0F0"}} onClick={() => toggleModule('m11')}>
-        <span className="mh-num" style={{background: "#C0392B", color: "var(--white)"}}>M11</span>
-        <span className="mh-title" style={{color: "#8B0000"}}>ESG, Sustainability, Reporting & Finance Transformation</span>
-        <span className="mh-meta" style={{color: "#C0392B"}}>16 Tr + 9 Sat + 24 Lab hrs</span>
-        <span className="mh-arrow">▾</span>
-      </div>
-      <div className="module-table-wrap">
-        <table className="syl-table">
-          <thead style={{background: "#8B0000"}}><tr><th style={{color: "#fff", width: "68px"}}>#</th><th style={{color: "#fff"}}>Lesson Title</th><th style={{color: "#fff"}}>Key Learning Outcomes</th><th style={{color: "#fff", width: "140px"}}>Innovation Lab</th><th style={{color: "#fff", width: "100px"}}>Hrs</th></tr></thead>
-          <tbody>
-            <tr><td>11.1</td><td>ESG Fundamentals for BFSI</td><td>E, S, G pillar definitions, BFSI-specific materiality, double materiality concept, ESG risk classification by BFSI sub-sector</td><td><span className="tag-pill lab">LAB-A: ESG risk heatmap</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>11.2</td><td>SEBI BRSR — Mandatory Sustainability Reporting</td><td>BRSR format and disclosure principles, essential vs leadership indicators, BRSR Core for top 150 listed entities, BRSR analysis of Indian BFSI firms</td><td><span className="tag-pill lab">LAB-F: SBI BRSR analysis</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>11.3</td><td>Green Finance & Climate Risk</td><td>Green bond issuance framework (ICMA GBP), sustainability-linked loans, TCFD disclosures, RBI climate risk guidance 2024, stress testing for climate risk</td><td><span className="tag-pill lab">LAB-C: Green bond pricing</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>11.4</td><td>Integrated Reporting & Global Standards</td><td>IIRC 6 Capitals framework, ISSB S1/S2 standards, IFRS Sustainability Disclosure Standards, value creation narrative for investors</td><td><span className="tag-pill lab">LAB-J: NBFC IR one-pager</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>11.5</td><td>ESG Data, Scoring & Analytics</td><td>MSCI ESG, Sustainalytics, ISS — data collection challenges, automated disclosure tools, ESG score computation methodology</td><td><span className="tag-pill lab">LAB-A: ESG Power BI dashboard</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>11.6</td><td>Accounting & Finance Transformation (CFO 4.0)</td><td>Finance function evolution, Ind AS 109 ECL model, RPA in finance (UiPath), intelligent document processing, automated reconciliation</td><td><span className="tag-pill lab">LAB-C: ECL model Ind AS 109</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>11.7</td><td>FP&A Analytics & Treasury Management</td><td>Driver-based rolling forecasts, zero-based budgeting, ALM duration gap analysis, scenario planning in BFSI, CFO dashboard design</td><td><span className="tag-pill lab">LAB-C: Digital bank FP&A</span></td><td><span className="hrs-cell">2+2+4</span></td></tr>
-            <tr><td>11.8</td><td>AI Product Management in BFSI</td><td>PPP model (People, Process, Product), PRD writing for BFSI digital products, SDLC and reverse SDLC, AI-powered product features, responsible AI</td><td><span className="tag-pill lab">LAB-G + LAB-K: PRD + sprint</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div className={moduleClass("m12")} id="m12">
-      <div className="module-heading" style={{background: "#FFF0F0"}} onClick={() => toggleModule('m12')}>
-        <span className="mh-num" style={{background: "#C0392B", color: "var(--white)"}}>M12</span>
-        <span className="mh-title" style={{color: "#8B0000"}}>Innovation Lab, Product Pitch & Growth</span>
-        <span className="mh-meta" style={{color: "#C0392B"}}>16 Tr + 9 Sat + 23 Lab hrs</span>
-        <span className="mh-arrow">▾</span>
-      </div>
-      <div className="module-table-wrap">
-        <table className="syl-table">
-          <thead style={{background: "#8B0000"}}><tr><th style={{color: "#fff", width: "68px"}}>#</th><th style={{color: "#fff"}}>Lesson Title</th><th style={{color: "#fff"}}>Key Learning Outcomes</th><th style={{color: "#fff", width: "140px"}}>Innovation Lab</th><th style={{color: "#fff", width: "100px"}}>Hrs</th></tr></thead>
-          <tbody>
-            <tr><td>12.1</td><td>Innovation Lab MVP Sprint (4 weeks)</td><td>No-code MVP build using Bubble.io / Glide; 4-week structured sprint with weekly check-ins; demo day preparation and rehearsal</td><td><span className="tag-pill lab">LAB-B: Full BFSI MVP</span></td><td><span className="hrs-cell">2+2+5</span></td></tr>
-            <tr><td>12.2</td><td>Growth Hacking for BFSI Products</td><td>AARRR funnel mechanics, viral loop design, product-led growth in regulated environments, BFSI distribution hacks, referral program design</td><td><span className="tag-pill lab">LAB-C: Groww growth model</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>12.3</td><td>Investor Pitch Mastery</td><td>7-slide pitch deck structure (problem → solution → market → traction → team → ask), mock VC sessions, term sheet literacy, Q&A handling</td><td><span className="tag-pill lab">LAB-J: 2 pitch rehearsals</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>12.4</td><td>M&A in Financial Services</td><td>FinTech acquisition thesis, due diligence framework, integration playbook, EPS accretion/dilution model, HDFC-HDFC Bank merger case</td><td><span className="tag-pill lab">LAB-C: M&A accretion model</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>12.5</td><td>Crisis Management in BFSI</td><td>Bank run playbook, cyber attack communication strategy, regulatory censure management, media handling, Yes Bank / IL&FS case studies</td><td><span className="tag-pill lab">LAB-L: Crisis simulation</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>12.6</td><td>Digital Transformation Roadmapping</td><td>As-Is vs To-Be analysis, technology prioritisation framework, ADKAR change model, benefits realisation planning, DX governance</td><td><span className="tag-pill lab">LAB-A: DX tracker dashboard</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>12.7</td><td>DeFi Product Management & Strategy</td><td>DeFi product design constraints, regulatory positioning, institutional DeFi market, building in a Web3 context for BFSI professionals</td><td><span className="tag-pill lab">LAB-L: DeFi strategy brief</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>12.8</td><td>LinkedIn & Personal Branding (Pre-Placement)</td><td>Profile optimisation for BFSI roles, BFSI content strategy, connecting with 25 industry leaders, recruiter outreach messaging templates</td><td><span className="tag-pill lab">LAB-E: LinkedIn article</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
     <div className="capstone-box" style={{background: "linear-gradient(135deg,#FFF0F0,#FAE0E0)", borderColor: "#C0392B"}}>
       <div className="cap-label" style={{color: "#C0392B"}}>Capstone 3 + Placement Sprint — Month 14</div>
-      <h4>Digital BFSI Startup Proposal + Campus Placement Interviews</h4>
+      <h4>Digital BFSI Startup Proposal + Campus Interviews</h4>
       <p>Month 14 is the most intensive month. Week 1: Personality Development (2 full-day workshops) + Resume rewrite. Week 2: Mock Interview Round 1 (30 min per student, feedback report). Week 3: Mock Interview Round 2 (new evaluator). Week 4: Capstone 3 presentations to industry jury + Campus placement drives activated.</p>
       <div className="cap-meta">
         <span className="cap-tag" style={{background: "rgba(192,57,43,.1)", color: "#C0392B"}}>🏅 Earns: Certificate in Advanced BFSI & Digital Innovation</span>
@@ -2347,115 +2061,12 @@ export default function TwoYearsSemester() {
 
   
   <div className={sylPanelClass(3)} id="part-3">
-    <div className="syl-part-header" style={{background: "linear-gradient(135deg,#7A5800,#4A3300)"}}>
-      <div className="sph-left">
-        <h3>Part 4 — Digital Leadership & The MiniCEO Program</h3>
-        <p>Months 16–18 (Teaching) + Month 19 (MiniCEO Summit) · 4 Modules · 1-Month Buffer after Part 3</p>
-      </div>
-      <div className="sph-badges">
-        <span className="sph-badge">👑 MiniCEO (Full)</span>
-        <span className="sph-badge">🛡 InsuranceTech (Full)</span>
-        <span className="sph-badge">MBA++ / PGDFDB (BFSI)</span>
-      </div>
-    </div>
-    <div className={moduleClass("m13")} id="m13">
-      <div className="module-heading" style={{background: "#FFF8E1"}} onClick={() => toggleModule('m13')}>
-        <span className="mh-num" style={{background: "var(--gold)", color: "var(--navy)"}}>M13</span>
-        <span className="mh-title" style={{color: "#5C3D00"}}>The MiniCEO Program</span>
-        <span className="mh-meta" style={{color: "#8B6914"}}>16 Tr + 9 Sat + 20 Lab hrs · 👑 MiniCEO Flagship</span>
-        <span className="mh-arrow">▾</span>
-      </div>
-      <div className="module-table-wrap">
-        <table className="syl-table">
-          <thead style={{background: "#5C3D00"}}><tr><th style={{color: "#fff", width: "68px"}}>#</th><th style={{color: "#fff"}}>Lesson Title</th><th style={{color: "#fff"}}>Key Learning Outcomes</th><th style={{color: "#fff", width: "140px"}}>Innovation Lab</th><th style={{color: "#fff", width: "100px"}}>Hrs</th></tr></thead>
-          <tbody>
-            <tr><td>13.1</td><td>CEO Mindset & Strategic Thinking</td><td>First-principles thinking, second-order effects, decision trees under uncertainty, mental models for BFSI leaders (Inversion, 80/20, OODA loop)</td><td><span className="tag-pill lab">LAB-L: CEO decision sim</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>13.2</td><td>P&L Management & Financial Acumen</td><td>Reading BFSI income statements and balance sheets; RAROC, ROE, NIM decomposition; segment P&L analysis; cost-to-income ratio benchmarking</td><td><span className="tag-pill lab">LAB-C: HDFC P&L dissect</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>13.3</td><td>Building & Leading Digital Teams</td><td>Hiring for digital roles in BFSI, OKR goal setting, managing product + tech teams, delegation frameworks, distributed team leadership</td><td><span className="tag-pill lab">LAB-K: OKR design sprint</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>13.4</td><td>Board & Investor Communication</td><td>Board deck construction, investor relations narrative design, AGM communication, regulatory communication, managing board questions</td><td><span className="tag-pill lab">LAB-J: Board update deck</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>13.5</td><td>Digital Transformation Roadmapping (Advanced)</td><td>As-Is to To-Be for enterprise BFSI, technology prioritisation matrix, ADKAR change management, benefits realisation, governance structure</td><td><span className="tag-pill lab">LAB-A: DX Power BI tracker</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>13.6</td><td>M&A in Financial Services</td><td>FinTech acquisition thesis, pre-deal due diligence, post-merger integration playbook, accretion/dilution modelling, Axis-Citi, HDFC-HDFC Bank cases</td><td><span className="tag-pill lab">LAB-C: M&A accretion model</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>13.7</td><td>Crisis Management in BFSI</td><td>Bank run simulation, cyber attack communication playbook, RBI regulatory action response, media management, Yes Bank / PMC Bank cases</td><td><span className="tag-pill lab">LAB-L: Mock press conference</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>13.8</td><td>Personal Brand & Executive Presence</td><td>LinkedIn thought leadership strategy, speaking at industry events, business writing, mentoring as a leadership multiplier, personal brand architecture</td><td><span className="tag-pill lab">LAB-E: LinkedIn article + video</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div className={moduleClass("m14")} id="m14">
-      <div className="module-heading" style={{background: "#FFF8E1"}} onClick={() => toggleModule('m14')}>
-        <span className="mh-num" style={{background: "var(--gold)", color: "var(--navy)"}}>M14</span>
-        <span className="mh-title" style={{color: "#5C3D00"}}>Accounting, Finance Transformation & Reporting</span>
-        <span className="mh-meta" style={{color: "#8B6914"}}>16 Tr + 9 Sat + 23 Lab hrs</span>
-        <span className="mh-arrow">▾</span>
-      </div>
-      <div className="module-table-wrap">
-        <table className="syl-table">
-          <thead style={{background: "#5C3D00"}}><tr><th style={{color: "#fff", width: "68px"}}>#</th><th style={{color: "#fff"}}>Lesson Title</th><th style={{color: "#fff"}}>Key Learning Outcomes</th><th style={{color: "#fff", width: "140px"}}>Innovation Lab</th><th style={{color: "#fff", width: "100px"}}>Hrs</th></tr></thead>
-          <tbody>
-            <tr><td>14.1</td><td>CFO 4.0 — The Finance Function Evolution</td><td>From scorekeeper to strategic partner; AI-era CFO priorities — real-time reporting, scenario planning, ESG stewardship, finance talent transformation</td><td><span className="tag-pill lab">LAB-L: CFO interview insights</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>14.2</td><td>BFSI Financial Statements Deep Dive</td><td>Schedule III for banks, insurance P&L structure, NBFC balance sheet, key ratios — NIM, GNPA, NNPA, CAR, ROA, ROE with live company analysis</td><td><span className="tag-pill lab">LAB-C: SBI vs Bajaj analysis</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>14.3</td><td>Ind AS for BFSI Professionals</td><td>Ind AS 109 ECL model (Stage 1/2/3), Ind AS 107 (financial instruments disclosures), Ind AS 113 (fair value), Ind AS 116 (leases) in BFSI context</td><td><span className="tag-pill lab">LAB-C: ECL provision model</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>14.4</td><td>Revenue Recognition & Fee Income</td><td>Processing fees, interchange revenue, fund management fees, advisory fees, commission disclosure — accounting treatment and disclosure obligations</td><td><span className="tag-pill lab">LAB-A: Fee income dashboard</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>14.5</td><td>Treasury & ALM Technology</td><td>Asset-liability management, duration gap analysis, liquidity management, HTM/AFS/HFT classification, SLR/CRR compliance, treasury technology stack</td><td><span className="tag-pill lab">LAB-C: ALM duration model</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>14.6</td><td>Finance Automation — RPA & IDP</td><td>Robotic Process Automation in finance (UiPath, Blue Prism), Intelligent Document Processing, automated reconciliation, AI-powered accounts payable</td><td><span className="tag-pill lab">LAB-E: AI invoice workflow</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>14.7</td><td>FP&A Analytics & Driver-Based Modelling</td><td>Rolling 12-month forecasts, zero-based budgeting, driver-based P&L modelling, scenario analysis, board-ready financial narrative design</td><td><span className="tag-pill lab">LAB-C: Digital bank FP&A model</span></td><td><span className="hrs-cell">2+2+4</span></td></tr>
-            <tr><td>14.8</td><td>Global Reporting Standards — IFRS Journey</td><td>IFRS 17 (insurance contracts), IFRS 9 vs US GAAP comparison, India GAAP convergence path, ISSB S1/S2 and India's adoption timeline</td><td><span className="tag-pill lab">LAB-L: IFRS 17 impact brief</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div className={moduleClass("m15")} id="m15">
-      <div className="module-heading" style={{background: "#FFF8E1"}} onClick={() => toggleModule('m15')}>
-        <span className="mh-num" style={{background: "var(--gold)", color: "var(--navy)"}}>M15</span>
-        <span className="mh-title" style={{color: "#5C3D00"}}>Relationship Management, Cards & InsuranceTech</span>
-        <span className="mh-meta" style={{color: "#8B6914"}}>16 Tr + 9 Sat + 25 Lab hrs · 🛡 InsuranceTech Flagship</span>
-        <span className="mh-arrow">▾</span>
-      </div>
-      <div className="module-table-wrap">
-        <table className="syl-table">
-          <thead style={{background: "#5C3D00"}}><tr><th style={{color: "#fff", width: "68px"}}>#</th><th style={{color: "#fff"}}>Lesson Title</th><th style={{color: "#fff"}}>Key Learning Outcomes</th><th style={{color: "#fff", width: "140px"}}>Innovation Lab</th><th style={{color: "#fff", width: "100px"}}>Hrs</th></tr></thead>
-          <tbody>
-            <tr><td>15.1</td><td>Relationship Management in Banks</td><td>RM role in retail, SME, and corporate banking; KPI frameworks, CRM tools (Salesforce, Siebel), cross-sell playbook, client lifecycle management</td><td><span className="tag-pill lab">LAB-G: CRM dashboard design</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>15.2</td><td>Cards Business & Technology</td><td>Card issuance lifecycle, acquiring economics, interchange rates, co-branded card program design, rewards platform technology, PCI-DSS compliance</td><td><span className="tag-pill lab">LAB-C: Card P&L model</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>15.3</td><td>Private Banking & Wealth RM Technology</td><td>HNI asset allocation conversation frameworks, client risk profiling, estate planning tools, succession advisory technology, family office services</td><td><span className="tag-pill lab">LAB-G: Private banking CRM</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>15.4</td><td>Insurance Distribution Technology</td><td>PoSP onboarding and compliance, IRDAI-licensed aggregator platforms, bancassurance LMS technology, Bima Sugam architecture, ONDC for insurance</td><td><span className="tag-pill lab">LAB-B: Insurance comparison app</span></td><td><span className="hrs-cell">2+2+4</span></td></tr>
-            <tr><td>15.5</td><td>Claims Technology — End to End</td><td>Digital FNOL design, AI-based damage assessment, auto-claims processing, fraud scoring in claims, Lemonade vs LIC claims tech comparison</td><td><span className="tag-pill lab">LAB-B: Motor FNOL app</span></td><td><span className="hrs-cell">2+2+4</span></td></tr>
-            <tr><td>15.6</td><td>Mutual Fund Distribution Technology</td><td>MFD vs RIA regulatory framework, ARN registration, commission disclosure norms, digital B30 push strategies, direct vs regular plan dynamics</td><td><span className="tag-pill lab">LAB-A: MF distributor dashboard</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>15.7</td><td>Digital Collections & Recovery Technology</td><td>Soft vs hard collection strategy, early-bucket EWS, digital nudge design using behavioural economics, SARFAESI digital workflows, RBI fair practice code</td><td><span className="tag-pill lab">LAB-A: Collections dashboard</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>15.8</td><td>Emerging BFSI Roles — 2025 to 2030</td><td>Chief Data Officer, AI Ethics Officer, DeFi Product Lead, Open Banking Head, ESG & Sustainability Head, Prompt Engineer — BFSI; career transition map</td><td><span className="tag-pill lab">LAB-J: Emerging role pitch</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div className={moduleClass("m16")} id="m16">
-      <div className="module-heading" style={{background: "#FFF8E1"}} onClick={() => toggleModule('m16')}>
-        <span className="mh-num" style={{background: "var(--gold)", color: "var(--navy)"}}>M16</span>
-        <span className="mh-title" style={{color: "#5C3D00"}}>Global Pathways, Career Mastery & Alumni Launch</span>
-        <span className="mh-meta" style={{color: "#8B6914"}}>16 Tr + 9 Sat + 16 Lab hrs</span>
-        <span className="mh-arrow">▾</span>
-      </div>
-      <div className="module-table-wrap">
-        <table className="syl-table">
-          <thead style={{background: "#5C3D00"}}><tr><th style={{color: "#fff", width: "68px"}}>#</th><th style={{color: "#fff"}}>Lesson Title</th><th style={{color: "#fff"}}>Key Learning Outcomes</th><th style={{color: "#fff", width: "140px"}}>Innovation Lab</th><th style={{color: "#fff", width: "100px"}}>Hrs</th></tr></thead>
-          <tbody>
-            <tr><td>16.1</td><td>BFSI Careers in UAE & Gulf</td><td>DIFC, ADGM regulated roles, UAE CB regulations, top BFSI employers (Emirates NBD, ADCB, FAB, Mashreq), Golden Visa pathways, salary bands</td><td><span className="tag-pill lab">LAB-L: UAE career matrix</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>16.2</td><td>BFSI Careers in UK & Singapore</td><td>FCA-regulated UK roles, ACCA/CIMA relevance, City of London BFSI landscape; MAS Singapore framework, FinTech hub Singapore, Employment Pass</td><td><span className="tag-pill lab">LAB-L: UK vs SG suitability</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>16.3</td><td>BFSI Careers in Australia & Canada</td><td>APRA-regulated roles, Big 4 Australian banks, PR pathways via 189/190 visa; OSFI-regulated Canada, CDIC, Toronto vs Vancouver finance hubs</td><td><span className="tag-pill lab">LAB-L: Country readiness check</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>16.4</td><td>Advanced Salary Negotiation</td><td>BFSI compensation structures (fixed, variable, ESOPs, deferred bonus), senior-level negotiation tactics, offer evaluation framework, CTC comparison matrix</td><td><span className="tag-pill lab">LAB-L: Negotiation role play</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>16.5</td><td>First 90 Days in Your BFSI Role</td><td>Onboarding strategy, stakeholder mapping, quick wins identification, managing up, probation performance framework, building credibility fast</td><td><span className="tag-pill lab">LAB-J: 90-day plan build</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>16.6</td><td>Board-Ready Communication Practice</td><td>Delivering a 5-minute executive briefing, boardroom etiquette, responding to difficult questions, executive summary writing for senior audiences</td><td><span className="tag-pill lab">LAB-J: Board briefing delivery</span></td><td><span className="hrs-cell">2+2+2</span></td></tr>
-            <tr><td>16.7</td><td>MiniCEO Summit Preparation</td><td>Leadership thesis structure, 20-minute presentation design, portfolio integration, Q&A from investor panel, full rehearsal with mentor feedback</td><td><span className="tag-pill lab">LAB-J: Summit pitch 2 rehearsals</span></td><td><span className="hrs-cell">2+2+3</span></td></tr>
-            <tr><td>16.8</td><td>Upskillize Alumni Network Activation</td><td>Alumni portal onboarding, annual summit, BFSI Fellows recognition ceremony, pay-it-forward culture, lifelong mentoring commitment</td><td><span className="tag-pill lab">LAB-E: Alumni pledge + video</span></td><td><span className="hrs-cell">2+2+1</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
     <div className="capstone-box" style={{background: "linear-gradient(135deg,#FFF8E1,#FFF0C0)", borderColor: "var(--gold)"}}>
       <div className="cap-label" style={{color: "#8B6914"}}>Final Capstone — Month 19 · The MiniCEO Summit</div>
       <h4>Digital BFSI Leadership Thesis — Solo Graduation Showcase</h4>
       <p>Each student delivers a solo 20-minute "Digital BFSI Leadership Thesis" to an external panel of BFSI investors and CXOs: personal expertise domain, 3-year DX roadmap for a real company, AI + data strategy, ESG + regulatory positioning, P&L impact analysis, and complete 4-capstone portfolio review. Top 10% receive Upskillize BFSI Fellows recognition.</p>
       <div className="cap-meta">
-        <span className="cap-tag" style={{background: "rgba(201,168,76,.15)", color: "#8B6914"}}>🎓 Earns: MBA++ / PGDFDB (BFSI) — NSQF Level 7</span>
+        <span className="cap-tag" style={{background: "rgba(201,168,76,.15)", color: "#8B6914"}}>🎓 Earns: MBA++ / PGDFDB — NSQF Level 7</span>
         <span className="cap-tag" style={{background: "rgba(201,168,76,.15)", color: "#8B6914"}}>~48 student hours</span>
         <span className="cap-tag" style={{background: "rgba(201,168,76,.15)", color: "#8B6914"}}>Investor + CXO jury</span>
         <span className="cap-tag" style={{background: "rgba(201,168,76,.15)", color: "#8B6914"}}>BFSI Fellows Award</span>
@@ -2470,7 +2081,7 @@ export default function TwoYearsSemester() {
 <div className="container">
   <p className="section-label fade-up">Your Professional Future</p>
   <h2 className="section-title fade-up fade-up-d1">Roles, Salary Ranges<br/><em>& Internship Pathways</em></h2>
-  <p className="section-lead fade-up fade-up-d2">PGDFDB (BFSI) prepares you for a broad spectrum of high-growth careers across Banking, FinTech, WealthTech, InsurTech, and RegTech — both in India and globally. Here is exactly what the market looks like.</p>
+  <p className="section-lead fade-up fade-up-d2">PGDFDB prepares you for a broad spectrum of high-growth careers across Banking, FinTech, WealthTech, InsurTech, and RegTech — both in India and globally. Here is exactly what the market looks like.</p>
 
   <div className="careers-tabs fade-up">
     <button className={careerTabClass("banking")} onClick={() => showCareer('banking')}>🏦 Banking & NBFC</button>
@@ -2715,11 +2326,11 @@ export default function TwoYearsSemester() {
 
   {/* INTERNSHIPS */}
   <h3 style={{fontFamily: "var(--font-display)", fontSize: "28px", fontWeight: "800", color: "var(--text)", marginTop: "60px", marginBottom: "8px"}}>Internship Opportunities <em style={{fontStyle: "normal", color: "var(--purple)"}}>— Earn While You Learn</em></h3>
-  <p style={{fontSize: "15px", color: "var(--muted)", marginBottom: "0"}}>Students completing Part 2 (from Month 9 onwards) are eligible for structured 4–8 week BFSI internships through the Upskillize partner network. These are real work experiences — not letter-only internships — with several leading to pre-placement offers.</p>
+  <p style={{fontSize: "15px", color: "var(--muted)", marginBottom: "0"}}>Students completing Semester 2 (from Month 9 onwards) are eligible for structured 4–8 week BFSI internships through the Upskillize partner network. These are real work experiences — not letter-only internships — with several leading to pre-placement offers.</p>
   <div className="internship-grid">
     <div className="int-card fade-up">
       <div className="int-header" style={{background: "linear-gradient(135deg,#EBF4FF,#F0F8FF)"}}>
-        <div className="int-phase" style={{color: "var(--blue)"}}>Available from Month 9 (after Part 2)</div>
+        <div className="int-phase" style={{color: "var(--blue)"}}>Available from Month 9 (after Semester 2)</div>
         <div className="int-role">BFSI Business Analyst Internship</div>
         <div className="int-type">Banks · NBFCs · Consulting · 4–8 weeks</div>
       </div>
@@ -2811,7 +2422,7 @@ export default function TwoYearsSemester() {
   <div className="container">
     <p className="section-label fade-up">UGC Outcome-Based Education Framework</p>
     <h2 className="section-title fade-up fade-up-d1" style={{color:"#ffffff"}}>The <em style={{color:"var(--gold)"}}>RUBRIC</em> Framework:<br/>UGC OBE — Aligned &amp; Accredited.</h2>
-    <p className="section-lead fade-up fade-up-d2">PGDFDB (BFSI) is designed fully in accordance with the UGC Curriculum and Credit Framework for Postgraduate Programmes (2023) and AICTE's Outcome-Based Education (OBE) mandate. The RUBRIC framework below defines how every learning element of this programme is structured, delivered, assessed, and improved — ensuring NSQF Level 7 standards are met and CO-PO attainment is measurable at every stage.</p>
+    <p className="section-lead fade-up fade-up-d2">PGDFDB is designed fully in accordance with the UGC Curriculum and Credit Framework for Postgraduate Programmes (2023) and AICTE's Outcome-Based Education (OBE) mandate. The RUBRIC framework below defines how every learning element of this programme is structured, delivered, assessed, and improved — ensuring NSQF Level 7 standards are met and CO-PO attainment is measurable at every stage.</p>
 
     <div className="rubric-grid fade-up fade-up-d1" style={{marginTop: "16px"}}>
       <div className="rubric-card">
@@ -2829,13 +2440,13 @@ export default function TwoYearsSemester() {
       <div className="rubric-card">
         <div className="r-letter">B</div>
         <div className="r-title">Bloom's Taxonomy Aligned Assessments</div>
-        <div className="r-body">Part 1 establishes L1–L3 (Know, Understand, Apply). Parts 2–3 develop L4–L5 (Analyse, Evaluate). Part 4 and all capstones operate at L5–L6 (Evaluate, Create). PG standards require ≥60% of assessment at L4+. PGDFDB (BFSI) achieves 68%.</div>
+        <div className="r-body">Semester 1 establishes L1–L3 (Know, Understand, Apply). Parts 2–3 develop L4–L5 (Analyse, Evaluate). Semester 4 and all capstones operate at L5–L6 (Evaluate, Create). PG standards require ≥60% of assessment at L4+. PGDFDB achieves 68%.</div>
         <div className="r-example">→ L1 Recall → L2 Comprehension → L3 Application → L4 Analysis → L5 Evaluation → L6 Creation</div>
       </div>
       <div className="rubric-card">
         <div className="r-letter">R</div>
         <div className="r-title">Research, Reflection &amp; Real-World Application</div>
-        <div className="r-body">Four capstone projects requiring original research on live BFSI problems. 48 Saturday Innovation Lab sessions applying weekly learning to real data and real tools. Structured mentor-led reflection built into every Part milestone. Research aptitude developed progressively across all 4 Parts.</div>
+        <div className="r-body">Four capstone projects requiring original research on live BFSI problems. 48 Saturday Innovation Lab sessions applying weekly learning to real data and real tools. Structured mentor-led reflection built into every Semester milestone. Research aptitude developed progressively across all 4 Parts.</div>
         <div className="r-example">→ 4 capstones · 48 Innovation Lab sessions · Mentor milestone reviews · Real BFSI datasets (RBI, SEBI, AMFI)</div>
       </div>
       <div className="rubric-card">
@@ -2859,7 +2470,7 @@ export default function TwoYearsSemester() {
   <div className="container">
     <p className="section-label fade-up">UGC NHEQF Level 7 — Outcome-Based Education</p>
     <h2 className="section-title fade-up fade-up-d1">Outcomes Driven Learning  &amp;<br/><em>Lesson-Level CO Mapping</em></h2>
-    <p className="section-lead fade-up fade-up-d2">As mandated by UGC's Curriculum and Credit Framework for Postgraduate Programmes (2023) and AICTE's OBE Guidelines, every lesson in PGDFDB (BFSI) is mapped to Programme Outcomes (POs), assessed at a defined Bloom's Taxonomy level, and tracked for CO-PO attainment across the batch.</p>
+    <p className="section-lead fade-up fade-up-d2">As mandated by UGC's Curriculum and Credit Framework for Postgraduate Programmes (2023) and AICTE's OBE Guidelines, every lesson in PGDFDB is mapped to Programme Outcomes (POs), assessed at a defined Bloom's Taxonomy level, and tracked for CO-PO attainment across the batch.</p>
 
     {/* PO Definitions */}
     <h3 style={{fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: "800", color: "var(--text)", margin: "48px 0 20px"}}>The 8 Programme Outcomes (POs) — PGDFDB </h3>
@@ -2952,7 +2563,7 @@ export default function TwoYearsSemester() {
       <div style={{background: "linear-gradient(135deg,var(--light),#EDE9F7)", borderRadius: "14px", padding: "24px", border: "1px solid var(--border)"}}>
         <div style={{fontSize: "11px", fontWeight: "800", letterSpacing: ".1em", textTransform: "uppercase", color: "var(--purple)", marginBottom: "8px"}}>Indirect Assessment Indicators</div>
         <ul style={{listStyle: "none", fontSize: "13px", color: "var(--dark)", lineHeight: "2"}}>
-          <li>📣 Student satisfaction survey (end of each Part)</li>
+          <li>📣 Student satisfaction survey (end of each Semester)</li>
           <li>👔 Employer feedback on placed graduates</li>
           <li>💼 Placement rate &amp; average CTC tracking</li>
           <li>🤝 Alumni career progression survey (Year 2 post)</li>
@@ -2968,7 +2579,7 @@ export default function TwoYearsSemester() {
           <li>💼 Placement rate: ≥85% within 6 months</li>
           <li>⭐ Distinction rate: ≥30% (score ≥80%)</li>
           <li>🔄 Below-threshold trigger: Academic Review</li>
-          <li>📅 Review cycle: End of each Part (4× per year)</li>
+          <li>📅 Review cycle: End of each Semester (4× per year)</li>
         </ul>
       </div>
     </div>
@@ -2985,7 +2596,7 @@ export default function TwoYearsSemester() {
         <div style={{textAlign: "center"}}><div style={{fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: "800", color: "#aaa"}}>C</div><div style={{fontSize: "11px", color: "rgba(255,255,255,.6)"}}>Average<br/>50–54%</div></div>
         <div style={{textAlign: "center"}}><div style={{fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: "800", color: "#e74c3c"}}>F</div><div style={{fontSize: "11px", color: "rgba(255,255,255,.6)"}}>Fail<br/>Below 50%</div></div>
       </div>
-      <div style={{fontSize: "12px", color: "rgba(255,255,255,.45)", flex: "1", minWidth: "180px"}}>SGPA &amp; CGPA computed as per UGC CCFPGP 2023 §9. Grade cards issued per Part. Consolidated transcript at programme completion. Credits stored in ABC DigiLocker.</div>
+      <div style={{fontSize: "12px", color: "rgba(255,255,255,.45)", flex: "1", minWidth: "180px"}}>SGPA &amp; CGPA computed as per UGC CCFPGP 2023 §9. Grade cards issued per Semester. Consolidated transcript at programme completion. Credits stored in ABC DigiLocker.</div>
     </div>
   </div>
 </section>
@@ -3012,12 +2623,12 @@ export default function TwoYearsSemester() {
       <div className="icon">🎓</div>
       <div>
         <h5 style={{color: "var(--gold)"}}>UGC Outcome-Based Education (OBE) — RUBRIC Framework</h5>
-        <p style={{color: "rgba(255,255,255,.7)"}}>PGDFDB (BFSI) is fully designed in accordance with UGC's Curriculum and Credit Framework for Postgraduate Programmes 2023 (CCFPGP), AICTE's OBE Guidelines, and NEP 2020 mandates. The RUBRIC framework is not a proprietary acronym — it is Upskillize's structured operationalisation of UGC's OBE mandate, with each letter mapped to a specific UGC/AICTE/NCrF regulatory reference.</p>
+        <p style={{color: "rgba(255,255,255,.7)"}}>PGDFDB is fully designed in accordance with UGC's Curriculum and Credit Framework for Postgraduate Programmes 2023 (CCFPGP), AICTE's OBE Guidelines, and NEP 2020 mandates. The RUBRIC framework is not a proprietary acronym — it is Upskillize's structured operationalisation of UGC's OBE mandate, with each letter mapped to a specific UGC/AICTE/NCrF regulatory reference.</p>
       </div>
     </div>
 
     <h2 className="at-h2" style={{marginTop: "40px"}}>RUBRIC — The UGC OBE Operationalisation Framework</h2>
-    <p className="at-lead">Each letter of RUBRIC represents one pillar of the UGC Outcome-Based Education system. Together, they ensure that PGDFDB (BFSI) is not just content-rich but outcome-measurable, attainment-tracked, and continuously improved — as required by NAAC, NIRF, and BFSI SSC quality standards.</p>
+    <p className="at-lead">Each letter of RUBRIC represents one pillar of the UGC Outcome-Based Education system. Together, they ensure that PGDFDB is not just content-rich but outcome-measurable, attainment-tracked, and continuously improved — as required by NAAC, NIRF, and BFSI SSC quality standards.</p>
 
     <div className="rubric-full-grid">
 
@@ -3032,12 +2643,12 @@ export default function TwoYearsSemester() {
         </div>
         <div className="rf-body">
           <p>Every one of the 128 lessons is defined by explicit Programme Outcomes (POs) and Course Outcomes (COs) before any content is created. This is the OBE backward design principle mandated by UGC: define what graduates must achieve, then design instruction and assessment to ensure it happens.</p>
-          <p>In PGDFDB (BFSI), no lesson is planned around "what to teach" — it is always planned around "what must the student be able to do after this lesson." This shift from content-centric to outcome-centric delivery is the foundation of UGC's CCFPGP 2023.</p>
+          <p>In PGDFDB, no lesson is planned around "what to teach" — it is always planned around "what must the student be able to do after this lesson." This shift from content-centric to outcome-centric delivery is the foundation of UGC's CCFPGP 2023.</p>
           <ul>
             <li>128 lessons each carry defined Course Outcomes (COs)</li>
             <li>Every CO is mapped to at least one Programme Outcome (PO)</li>
             <li>Instruction, assessment, and feedback are all anchored to stated outcomes</li>
-            <li>CO attainment is measured at end of every Part (4× per programme)</li>
+            <li>CO attainment is measured at end of every Semester (4× per programme)</li>
             <li>Backwards design: Outcomes → Assessment → Instruction</li>
           </ul>
         </div>
@@ -3054,8 +2665,8 @@ export default function TwoYearsSemester() {
           </div>
         </div>
         <div className="rf-body">
-          <p>UGC's NHEQF Level 7 specifies that postgraduate graduates must demonstrate eight Universal Graduate Attributes — domain expertise, digital proficiency, critical thinking, communication, research aptitude, ethics, leadership, and global awareness. PGDFDB (BFSI) maps all eight across 16 modules.</p>
-          <p>The eight Programme Outcomes of PGDFDB (BFSI) are directly derived from these NHEQF Level 7 Graduate Attributes, ensuring that the programme produces graduates who meet the national postgraduate benchmark for knowledge, skills, and professional behaviour.</p>
+          <p>UGC's NHEQF Level 7 specifies that postgraduate graduates must demonstrate eight Universal Graduate Attributes — domain expertise, digital proficiency, critical thinking, communication, research aptitude, ethics, leadership, and global awareness. PGDFDB maps all eight across 16 modules.</p>
+          <p>The eight Programme Outcomes of PGDFDB are directly derived from these NHEQF Level 7 Graduate Attributes, ensuring that the programme produces graduates who meet the national postgraduate benchmark for knowledge, skills, and professional behaviour.</p>
           <ul>
             <li>8 POs derived directly from UGC NHEQF Level 7 descriptors</li>
             <li>Every lesson maps to a minimum of 3 POs</li>
@@ -3077,14 +2688,14 @@ export default function TwoYearsSemester() {
           </div>
         </div>
         <div className="rf-body">
-          <p>AICTE mandates that PG programmes demonstrate dominance of higher-order thinking — at least 60% of all assessments must operate at Bloom's Level 4 (Analyse) or above. PGDFDB (BFSI) achieves 68% at L4+, deliberately distributing lower-order levels to foundational lessons and progressively raising cognitive demand across the 24 months.</p>
-          <p>Part 1 establishes L1–L3. Parts 2–3 develop L3–L5. Part 4 and capstones operate entirely at L5–L6. This progressive Bloom's ladder is the backbone of the curriculum design.</p>
+          <p>AICTE mandates that PG programmes demonstrate dominance of higher-order thinking — at least 60% of all assessments must operate at Bloom's Level 4 (Analyse) or above. PGDFDB  achieves 68% at L4+, deliberately distributing lower-order levels to foundational lessons and progressively raising cognitive demand across the 24 months.</p>
+          <p>Semester 1 establishes L1–L3. Parts 2–3 develop L3–L5. Semester 4 and capstones operate entirely at L5–L6. This progressive Bloom's ladder is the backbone of the curriculum design.</p>
           <ul>
-            <li>Part 1 (Foundations): L1 Remember → L3 Apply</li>
-            <li>Part 2 (Intermediate): L3 Apply → L4 Analyse</li>
-            <li>Part 3 (Advanced): L4 Analyse → L5 Evaluate</li>
-            <li>Part 4 / Capstones: L5 Evaluate → L6 Create</li>
-            <li>68% of all PGDFDB (BFSI) assessments at L4 or above</li>
+            <li>Semester 1 (Foundations): L1 Remember → L3 Apply</li>
+            <li>Semester 2 (Intermediate): L3 Apply → L4 Analyse</li>
+            <li>Semester 3 (Advanced): L4 Analyse → L5 Evaluate</li>
+            <li>Semester 4 / Capstones: L5 Evaluate → L6 Create</li>
+            <li>68% of all PGDFDB assessments at L4 or above</li>
           </ul>
         </div>
         <div className="rf-ref" style={{background: "#8B6914", fontSize: "11px", color: "rgba(255,255,255,.6)", padding: "10px 24px"}}>📖 AICTE OBE Guidelines §4 — Bloom's Taxonomy &nbsp;·&nbsp; UGC CCFPGP 2023 §7</div>
@@ -3100,12 +2711,12 @@ export default function TwoYearsSemester() {
           </div>
         </div>
         <div className="rf-body">
-          <p>UGC's CCFPGP 2023 mandates that all PG programmes develop "research aptitude and analytical ability." PGDFDB (BFSI) operationalises this through four progressively complex capstone projects, 48 Saturday Innovation Lab sessions, and structured mentor-led reflection at every Part milestone.</p>
+          <p>UGC's CCFPGP 2023 mandates that all PG programmes develop "research aptitude and analytical ability." PGDFDB operationalises this through four progressively complex capstone projects, 48 Saturday Innovation Lab sessions, and structured mentor-led reflection at every Semester milestone.</p>
           <p>Students are not passive recipients of BFSI knowledge — they research, build, present, and receive industry-panel feedback at every stage. By graduation, each student has a portfolio of 4 research-backed deliverables that demonstrate original analysis of real BFSI problems.</p>
           <ul>
             <li>4 Capstone Projects requiring original research on live BFSI problems</li>
             <li>48 Innovation Lab sessions — applied learning on real BFSI data</li>
-            <li>Structured mentor-led reflection built into every Part milestone</li>
+            <li>Structured mentor-led reflection built into every Semester milestone</li>
             <li>RBI DBIE, SEBI, AMFI, NSE/BSE data used across all analytics modules</li>
             <li>External industry jury validates research quality at each capstone</li>
           </ul>
@@ -3123,7 +2734,7 @@ export default function TwoYearsSemester() {
           </div>
         </div>
         <div className="rf-body">
-          <p>NEP 2020 explicitly mandates that higher education institutions break silos between vocational and academic learning. UGC's CCFPGP 2023 requires PG programmes to include "vocational courses relevant to the chosen discipline." PGDFDB (BFSI) goes further — the entire programme IS the vocational component of the MBA, delivered by active industry practitioners.</p>
+          <p>NEP 2020 explicitly mandates that higher education institutions break silos between vocational and academic learning. UGC's CCFPGP 2023 requires PG programmes to include "vocational courses relevant to the chosen discipline." PGDFDB goes further — the entire programme IS the vocational component of the MBA, delivered by active industry practitioners.</p>
           <p>Every trainer is a top-1% BFSI professional. Every case study is drawn from Indian BFSI events. Every lesson is cross-tagged for relevance across MBA specialisations. Six distinct flagship courses are woven through 16 modules — ensuring breadth and depth simultaneously.</p>
           <ul>
             <li>Top 1% BFSI industry practitioners as trainers — zero academic-only faculty</li>
@@ -3146,10 +2757,10 @@ export default function TwoYearsSemester() {
           </div>
         </div>
         <div className="rf-body">
-          <p>AICTE's OBE Guidelines §8 mandate a closed-loop improvement cycle: measure CO-PO attainment, compare against targets, identify gaps, and implement curriculum improvements before the next delivery cycle. This is also a NAAC accreditation criterion. PGDFDB (BFSI) runs this cycle 4 times per programme — once at the end of every Part.</p>
+          <p>AICTE's OBE Guidelines §8 mandate a closed-loop improvement cycle: measure CO-PO attainment, compare against targets, identify gaps, and implement curriculum improvements before the next delivery cycle. This is also a NAAC accreditation criterion. PGDFDB runs this cycle 4 times per programme — once at the end of every Semester.</p>
           <p>Both direct indicators (quiz scores, capstone rubric scores) and indirect indicators (student surveys, employer feedback, placement outcomes) feed into the attainment calculation. Below-target COs trigger an Academic Review Committee intervention within 15 days.</p>
           <ul>
-            <li>CO-PO attainment measured 4× per programme (end of each Part)</li>
+            <li>CO-PO attainment measured 4× per programme (end of each Semester)</li>
             <li>Target: ≥75% of students achieve ≥60% in every CO</li>
             <li>Direct + indirect indicators used for a holistic attainment picture</li>
             <li>Academic Review Committee triggered if any PO falls below 2.0/3.0</li>
@@ -3164,8 +2775,8 @@ export default function TwoYearsSemester() {
 
   
   <div className={assessPanelClass("bloom-tab")} id="bloom-tab">
-    <h2 className="at-h2">Bloom's Taxonomy — PGDFDB (BFSI) Progression</h2>
-    <p className="at-lead">AICTE mandates that PG programmes operate primarily at Bloom's higher-order levels (L4–L6). The table below shows how PGDFDB (BFSI) uses Bloom's Taxonomy across all 4 Parts — beginning with foundational recall and building toward professional-level creation by the MiniCEO Summit.</p>
+    <h2 className="at-h2">Bloom's Taxonomy — PGDFDB Progression</h2>
+    <p className="at-lead">AICTE mandates that PG programmes operate primarily at Bloom's higher-order levels (L4–L6). The table below shows how PGDFDB uses Bloom's Taxonomy across all 4 Parts — beginning with foundational recall and building toward professional-level creation by the MiniCEO Summit.</p>
 
     <div className="bloom-levels">
       <div className="bl" style={{background: "#EBF4FF", border: "1px solid #C3D9F5"}}>
@@ -3206,11 +2817,11 @@ export default function TwoYearsSemester() {
       </div>
     </div>
 
-    <h3 className="at-h3">Bloom's Distribution Across PGDFDB (BFSI)</h3>
+    <h3 className="at-h3">Bloom's Distribution Across PGDFDB</h3>
     <table className="at-table">
       <thead style={{background: "var(--navy)"}}>
         <tr>
-          <th style={{color: "#fff", width: "160px"}}>Programme Part</th>
+          <th style={{color: "#fff", width: "160px"}}>Programme Semester</th>
           <th style={{color: "#fff"}}>Primary Bloom's Levels</th>
           <th style={{color: "#fff"}}>Dominant Assessment Type</th>
           <th style={{color: "#fff"}}>Example Activities</th>
@@ -3219,28 +2830,28 @@ export default function TwoYearsSemester() {
       </thead>
       <tbody>
         <tr>
-          <td>Part 1 — Foundations<br/><small style={{color: "var(--muted)"}}>Modules 1–4</small></td>
+          <td>Semester 1 — Foundations<br/><small style={{color: "var(--muted)"}}>Modules 1–4</small></td>
           <td><strong>L1 → L3</strong> with L4 in Modules 3–4</td>
           <td>MCQ quizzes, structured case study discussions, Excel model builds</td>
           <td>Build a credit scorecard (L3) · Compare bank vs FinTech business models (L4) · Map regulatory structure (L2)</td>
           <td style={{fontWeight: "700", color: "var(--orange)"}}>35%</td>
         </tr>
         <tr>
-          <td>Part 2 — Intermediate<br/><small style={{color: "var(--muted)"}}>Modules 5–8</small></td>
+          <td>Semester 2 — Intermediate<br/><small style={{color: "var(--muted)"}}>Modules 5–8</small></td>
           <td><strong>L3 → L5</strong> with growing L4–L5</td>
           <td>Power BI dashboards, API testing, Agile sprint simulations, SQL challenges</td>
           <td>Build NPA dashboard (L3) · Evaluate MDR impact on merchant economics (L5) · Analyse WealthTech platform (L4)</td>
           <td style={{fontWeight: "700", color: "var(--purple)"}}>58%</td>
         </tr>
         <tr>
-          <td>Part 3 — Advanced<br/><small style={{color: "var(--muted)"}}>Modules 9–12</small></td>
+          <td>Semester 3 — Advanced<br/><small style={{color: "var(--muted)"}}>Modules 9–12</small></td>
           <td><strong>L4 → L6</strong> — all assessments at L4+</td>
           <td>RegTech compliance audits, DeFi research briefs, VC pitch decks, MVP prototypes</td>
           <td>Evaluate BRSR disclosures of 5 banks (L5) · Build AML detector in Python (L3/L6) · Design CBDC wallet UX (L6)</td>
           <td style={{fontWeight: "700", color: "var(--green)"}}>82%</td>
         </tr>
         <tr>
-          <td>Part 4 — MiniCEO<br/><small style={{color: "var(--muted)"}}>Modules 13–16</small></td>
+          <td>Semester 4 — MiniCEO<br/><small style={{color: "var(--muted)"}}>Modules 13–16</small></td>
           <td><strong>L5 → L6</strong> — exclusively higher-order</td>
           <td>Board presentations, M&A models, crisis simulations, MiniCEO Summit thesis</td>
           <td>Formulate 3-yr DX roadmap for a real company (L6) · Evaluate M&A accretion/dilution (L5) · Create leadership thesis (L6)</td>
@@ -3260,7 +2871,7 @@ export default function TwoYearsSemester() {
       <div className="icon">✅</div>
       <div>
         <h5 style={{color: "var(--green)"}}>AICTE Compliance Note</h5>
-        <p style={{color: "#1A4A2A"}}>AICTE OBE Guidelines §4 require that PG programmes maintain ≥60% of all assessment activities at Bloom's Level 4 (Analyse) or above. PGDFDB (BFSI) achieves <strong>68%</strong> — exceeding the threshold by 8 percentage points. This is evidenced through the lesson-level CO classifications stored in EcoPro LMS and reported in the annual CO-PO attainment report.</p>
+        <p style={{color: "#1A4A2A"}}>AICTE OBE Guidelines §4 require that PG programmes maintain ≥60% of all assessment activities at Bloom's Level 4 (Analyse) or above. PGDFDB achieves <strong>68%</strong> — exceeding the threshold by 8 percentage points. This is evidenced through the lesson-level CO classifications stored in EcoPro LMS and reported in the annual CO-PO attainment report.</p>
       </div>
     </div>
   </div>
@@ -3268,7 +2879,7 @@ export default function TwoYearsSemester() {
   
   <div className={assessPanelClass("po-tab")} id="po-tab">
     <h2 className="at-h2">Programme Outcomes (POs)</h2>
-    <p className="at-lead">The 8 Programme Outcomes of PGDFDB (BFSI) are derived directly from UGC NHEQF Level 7 Graduate Attributes. They define what every student will be able to demonstrate upon successful completion of the programme — not what they will have been taught.</p>
+    <p className="at-lead">The 8 Programme Outcomes of PGDFDB  are derived directly from UGC NHEQF Level 7 Graduate Attributes. They define what every student will be able to demonstrate upon successful completion of the programme — not what they will have been taught.</p>
 
     <table className="at-table">
       <thead style={{background: "var(--navy)"}}>
@@ -3353,7 +2964,7 @@ export default function TwoYearsSemester() {
       <div className="icon">📌</div>
       <div>
         <h5 style={{color: "var(--gold)"}}>PO Verification &amp; Reporting</h5>
-        <p style={{color: "rgba(255,255,255,.7)"}}>PO attainment is verified at the end of every Part (4 times per programme) through a combined direct-indirect measurement process. Results are reported in the Upskillize Academic Quality Report, shared with partner colleges, and used to trigger curriculum adjustments where needed. All PO data is stored in EcoPro LMS and made available for NAAC/NBA/BFSI SSC audit purposes.</p>
+        <p style={{color: "rgba(255,255,255,.7)"}}>PO attainment is verified at the end of every Semester (4 times per programme) through a combined direct-indirect measurement process. Results are reported in the Upskillize Academic Quality Report, shared with partner colleges, and used to trigger curriculum adjustments where needed. All PO data is stored in EcoPro LMS and made available for NAAC/NBA/BFSI SSC audit purposes.</p>
       </div>
     </div>
   </div>
@@ -3465,7 +3076,7 @@ export default function TwoYearsSemester() {
   
   <div className={assessPanelClass("assess-tab")} id="assess-tab">
     <h2 className="at-h2">Assessment Framework</h2>
-    <p className="at-lead">PGDFDB (BFSI) uses a multi-modal assessment system consistent with UGC CCFPGP 2023 §7 and AICTE OBE Guidelines §5. Assessments span the full Bloom's taxonomy, use both direct and indirect measurement, and accumulate toward a final CGPA reported on the programme transcript.</p>
+    <p className="at-lead">PGDFDB uses a multi-modal assessment system consistent with UGC CCFPGP 2023 §7 and AICTE OBE Guidelines §5. Assessments span the full Bloom's taxonomy, use both direct and indirect measurement, and accumulate toward a final CGPA reported on the programme transcript.</p>
 
     <h3 className="at-h3">Assessment Components — Weightage & Description</h3>
     <table className="at-table">
@@ -3513,24 +3124,24 @@ export default function TwoYearsSemester() {
           <td>L4–L5</td>
         </tr>
         <tr>
-          <td>Mid-Part Mock Tests (Proctored)</td>
-          <td>60-minute proctored online test at the midpoint of each Part. 40 questions: 50% MCQ (L1–L3) + 50% scenario-based (L4–L5). AI-proctored via EcoPro LMS. One re-attempt allowed within 7 days.</td>
-          <td>Per Part (4×)</td>
+          <td>Mid-Semester Mock Tests (Proctored)</td>
+          <td>60-minute proctored online test at the midpoint of each Semester. 40 questions: 50% MCQ (L1–L3) + 50% scenario-based (L4–L5). AI-proctored via EcoPro LMS. One re-attempt allowed within 7 days.</td>
+          <td>Per Semester (4×)</td>
           <td style={{fontWeight: "700", color: "var(--teal)"}}>10%</td>
           <td>EcoPro LMS (AI proctored)</td>
           <td>L2–L5</td>
         </tr>
         <tr>
           <td>Capstone Projects (Major)</td>
-          <td>One capstone per Part (4 total). Individual or team deliverable presented to an external industry jury. Evaluated on domain accuracy, digital solution design, prototype quality, financial impact analysis, and communication clarity. Full rubric — see Scoring tab.</td>
-          <td>Per Part (4×)</td>
+          <td>One capstone per Semester (4 total). Individual or team deliverable presented to an external industry jury. Evaluated on domain accuracy, digital solution design, prototype quality, financial impact analysis, and communication clarity. Full rubric — see Scoring tab.</td>
+          <td>Per Semester (4×)</td>
           <td style={{fontWeight: "700", color: "var(--orange)"}}>35%</td>
           <td>Live presentation + LMS submission</td>
           <td>L4–L6</td>
         </tr>
         <tr>
           <td>Mock Interviews (Placement)</td>
-          <td>2 structured mock interviews per student (Part 3, Month 14). Round 1: mentor + peer panel (role-specific BFSI questions). Round 2: different evaluator testing improvement. 10-criteria rubric. Feedback report within 48 hrs. Part of professional readiness evidence (PO6).</td>
+          <td>2 structured mock interviews per student (Semester 3, Month 14). Round 1: mentor + peer panel (role-specific BFSI questions). Round 2: different evaluator testing improvement. 10-criteria rubric. Feedback report within 48 hrs. Semester of professional readiness evidence (PO6).</td>
           <td>2 per student</td>
           <td style={{fontWeight: "700", color: "var(--green)"}}>5%</td>
           <td>Mentor panel + EcoPro LMS report</td>
@@ -3538,8 +3149,8 @@ export default function TwoYearsSemester() {
         </tr>
         <tr>
           <td>Final Portfolio &amp; LinkedIn Audit</td>
-          <td>Student publishes complete project portfolio to EcoPro LMS and LinkedIn. Mentor audits: capstone documents, lab builds, innovation lab prototypes, GitHub repo, LinkedIn profile completeness. Part of final CGPA indirect indicator.</td>
-          <td>Once (end of Part 3)</td>
+          <td>Student publishes complete project portfolio to EcoPro LMS and LinkedIn. Mentor audits: capstone documents, lab builds, innovation lab prototypes, GitHub repo, LinkedIn profile completeness. Semester of final CGPA indirect indicator.</td>
+          <td>Once (end of Semester 3)</td>
           <td style={{fontWeight: "700", color: "var(--green)"}}>5%</td>
           <td>LinkedIn + GitHub + LMS</td>
           <td>L3</td>
@@ -3547,13 +3158,13 @@ export default function TwoYearsSemester() {
         <tr style={{background: "var(--navy)"}}>
           <td colSpan="3" style={{color: "var(--white)", fontWeight: "700"}}>Total Weightage</td>
           <td style={{color: "var(--gold)", fontWeight: "800", fontSize: "18px"}}>100%</td>
-          <td colSpan="2" style={{color: "rgba(255,255,255,.5)", fontSize: "12px"}}>All stored in EcoPro LMS. Transcript generated per Part.</td>
+          <td colSpan="2" style={{color: "rgba(255,255,255,.5)", fontSize: "12px"}}>All stored in EcoPro LMS. Transcript generated per Semester.</td>
         </tr>
       </tbody>
     </table>
 
     <h3 className="at-h3">Capstone Assessment Rubric — Detailed Criteria</h3>
-    <p className="at-p">All four Capstone Projects are evaluated using a standardised 5-criterion rubric scored on a 4-point scale (1=Needs Improvement, 2=Satisfactory, 3=Good, 4=Excellent). The rubric is provided to students at the start of each Part and is applied consistently by all external jury members.</p>
+    <p className="at-p">All four Capstone Projects are evaluated using a standardised 5-criterion rubric scored on a 4-point scale (1=Needs Improvement, 2=Satisfactory, 3=Good, 4=Excellent). The rubric is provided to students at the start of each Semester and is applied consistently by all external jury members.</p>
 
     <div style={{overflowX: "auto"}}>
     <table className="rub-matrix">
@@ -3617,7 +3228,7 @@ export default function TwoYearsSemester() {
   
   <div className={assessPanelClass("scoring-tab")} id="scoring-tab">
     <h2 className="at-h2">Student Scoring, Grading & Transcript</h2>
-    <p className="at-lead">PGDFDB (BFSI) adopts the UGC 10-point grading scale as mandated by UGC CCFPGP 2023 §9 and UGC (Examination Reforms) Regulations 2022. SGPA is computed at the end of each Part; CGPA is computed at programme completion. All records are stored in EcoPro LMS and linked to the student's ABC DigiLocker account.</p>
+    <p className="at-lead">PGDFDB adopts the UGC 10-point grading scale as mandated by UGC CCFPGP 2023 §9 and UGC (Examination Reforms) Regulations 2022. SGPA is computed at the end of each Semester; CGPA is computed at programme completion. All records are stored in EcoPro LMS and linked to the student's ABC DigiLocker account.</p>
 
     <h3 className="at-h3">UGC 10-Point Grading Scale</h3>
     <div className="score-grid">
@@ -3675,21 +3286,21 @@ export default function TwoYearsSemester() {
         <div className="sc-name" style={{color: "#C0392B"}}>Fail</div>
         <div className="sc-range" style={{color: "#8B0000"}}>Below 40%</div>
         <div className="sc-gp" style={{color: "#C0392B"}}>0 GP</div>
-        <div className="sc-desc">Re-assessment required. Max 1 re-attempt per Part. Credits NOT banked until passing grade achieved.</div>
+        <div className="sc-desc">Re-assessment required. Max 1 re-attempt per Semester. Credits NOT banked until passing grade achieved.</div>
       </div>
     </div>
 
     <h3 className="at-h3">SGPA & CGPA Calculation</h3>
     <div className="formula-box">
-      <h4>SGPA Formula (Per Part)</h4>
-      <div className="formula">SGPA = <span>Σ (Credit × Grade Point) / Σ Credits</span> &nbsp;&nbsp; [for all courses in that Part]</div>
-      <div className="formula-note">Each module = 11–12 credits. Capstone = 8 credits. Buffer/mentoring = 2–3 credits. Total per Part ≈ 12 credits.</div>
+      <h4>SGPA Formula (Per Semester)</h4>
+      <div className="formula">SGPA = <span>Σ (Credit × Grade Point) / Σ Credits</span> &nbsp;&nbsp; [for all courses in that Semester]</div>
+      <div className="formula-note">Each module = 11–12 credits. Capstone = 8 credits. Buffer/mentoring = 2–3 credits. Total per Semester ≈ 12 credits.</div>
       <h4 style={{marginTop: "20px"}}>CGPA Formula (Programme Total)</h4>
-      <div className="formula">CGPA = <span>Σ (SGPA × Credits in Part) / Σ Total Credits</span> &nbsp;&nbsp; [across all 4 Parts]</div>
-      <div className="formula-note">Total credits = 50. CGPA rounded to 2 decimal places. Grade card issued per Part. Consolidated transcript at programme end.</div>
+      <div className="formula">CGPA = <span>Σ (SGPA × Credits in Semester) / Σ Total Credits</span> &nbsp;&nbsp; [across all 4 Parts]</div>
+      <div className="formula-note">Total credits = 50. CGPA rounded to 2 decimal places. Grade card issued per Semester. Consolidated transcript at programme end.</div>
       <h4 style={{marginTop: "20px"}}>Credit Points (For Honours Classification)</h4>
       <div className="formula">Credit Points = <span>Credits × Grade Point × NCrF Level (Level 7)</span></div>
-      <div className="formula-note">PGDFDB (BFSI) = Level 7. Credit Points earned = Credits × GP × 7. Stored in ABC DigiLocker. Used for RPL and lateral entry to Master's programmes.</div>
+      <div className="formula-note">PGDFDB = Level 7. Credit Points earned = Credits × GP × 7. Stored in ABC DigiLocker. Used for RPL and lateral entry to Master's programmes.</div>
     </div>
 
     <h3 className="at-h3">Honours Classification & Special Recognition</h3>
@@ -3712,26 +3323,26 @@ export default function TwoYearsSemester() {
         <tr>
           <td style={{color: "var(--blue)"}}>🥇 First Class with Distinction</td>
           <td>CGPA ≥ 8.0 (A+ grade)</td>
-          <td>No Part SGPA below 7.5 + portfolio published</td>
+          <td>No Semester SGPA below 7.5 + portfolio published</td>
           <td>Innovation Award nomination; industry mentor referral letter; priority placement partner access</td>
         </tr>
         <tr>
           <td style={{color: "var(--purple)"}}>🥈 First Class</td>
           <td>CGPA ≥ 7.0 (A grade)</td>
           <td>Passed all 4 Parts in first attempt + all COs attained</td>
-          <td>Standard PGDFDB (BFSI) certificate; LinkedIn badge; Alumni network access</td>
+          <td>Standard PGDFDB certificate; LinkedIn badge; Alumni network access</td>
         </tr>
         <tr>
           <td style={{color: "var(--green)"}}>🥉 Second Class</td>
           <td>CGPA ≥ 5.5 (C grade)</td>
           <td>Passed all 4 Parts; may include 1 re-assessment</td>
-          <td>PGDFDB (BFSI) certificate; Alumni network access; extended placement support</td>
+          <td>PGDFDB certificate; Alumni network access; extended placement support</td>
         </tr>
         <tr>
           <td style={{color: "var(--orange)"}}>Pass</td>
           <td>CGPA ≥ 4.0 (D grade)</td>
           <td>All Parts passed (may include re-assessments)</td>
-          <td>PGDFDB (BFSI) certificate awarded; 12-month extended placement support; no Honours classification</td>
+          <td>PGDFDB certificate awarded; 12-month extended placement support; no Honours classification</td>
         </tr>
       </tbody>
     </table>
@@ -3740,9 +3351,9 @@ export default function TwoYearsSemester() {
     <div className="at-callout" style={{background: "var(--light)", border: "1px solid var(--border)"}}>
       <div className="icon">📄</div>
       <div>
-        <h5>Per-Part Grade Card includes:</h5>
-        <p>Student name &amp; ID · Part number &amp; duration · All modules with credit, marks, grade, grade point · Part SGPA · Cumulative CGPA to date · CO attainment summary · Innovation Lab portfolio link · NCrF Level 7 declaration · Upskillize Authorised Signatory + Partner College Countersignature · ABC DigiLocker credit entry reference number. <br/><br/>
-        <strong>Final Consolidated Transcript</strong> additionally includes: All 4 Part SGPAs · Final CGPA · Honours classification · Capstone titles and jury scores · Placement outcome (role, organisation, CTC) · Certificate serial number · BFSI SSC QP code (post-validation) · QR code for instant digital verification.</p>
+        <h5>Per-Semester Grade Card includes:</h5>
+        <p>Student name &amp; ID · Part number &amp; duration · All modules with credit, marks, grade, grade point · Semester SGPA · Cumulative CGPA to date · CO attainment summary · Innovation Lab portfolio link · NCrF Level 7 declaration · Upskillize Authorised Signatory + Partner College Countersignature · ABC DigiLocker credit entry reference number. <br/><br/>
+        <strong>Final Consolidated Transcript</strong> additionally includes: All 4 Semester SGPAs · Final CGPA · Honours classification · Capstone titles and jury scores · Placement outcome (role, organisation, CTC) · Certificate serial number · BFSI SSC QP code (post-validation) · QR code for instant digital verification.</p>
       </div>
     </div>
   </div>
@@ -3750,7 +3361,7 @@ export default function TwoYearsSemester() {
   
   <div className={assessPanelClass("attain-tab")} id="attain-tab">
     <h2 className="at-h2">Attainment Measurement & Continuous Improvement</h2>
-    <p className="at-lead">The closed-loop quality improvement cycle is mandated by AICTE OBE Guidelines §8 and is a key criterion for NAAC accreditation. PGDFDB (BFSI) runs this cycle 4 times per programme — once at the end of every Part — ensuring the curriculum is continuously refined based on evidence.</p>
+    <p className="at-lead">The closed-loop quality improvement cycle is mandated by AICTE OBE Guidelines §8 and is a key criterion for NAAC accreditation. PGDFDB runs this cycle 4 times per programme — once at the end of every Semester — ensuring the curriculum is continuously refined based on evidence.</p>
 
     <h3 className="at-h3">Attainment Targets — Programme Level</h3>
     <div className="attain-grid">
@@ -3758,7 +3369,7 @@ export default function TwoYearsSemester() {
         <div className="attain-num" style={{color: "var(--blue)"}}>75%</div>
         <div className="attain-label" style={{color: "var(--blue)"}}>CO Attainment Target</div>
         <div className="progress-bar"><div className="progress-fill" style={{width: "75%", background: "var(--blue)"}}></div></div>
-        <div className="attain-desc">Minimum 75% of students must achieve ≥60% in each Course Outcome. Measured at end of every Part through direct assessment data.</div>
+        <div className="attain-desc">Minimum 75% of students must achieve ≥60% in each Course Outcome. Measured at end of every Semester through direct assessment data.</div>
       </div>
       <div className="attain-card" style={{background: "linear-gradient(135deg,var(--light),#EDE9F7)", borderColor: "#C8C0E0"}}>
         <div className="attain-num" style={{color: "var(--purple)"}}>2.0</div>
@@ -3790,7 +3401,7 @@ export default function TwoYearsSemester() {
           <tr style={{borderBottom: "1px solid var(--border)"}}><td style={{padding: "8px 0", fontWeight: "600"}}>Case study submissions</td><td style={{textAlign: "right", color: "var(--purple)"}}>≥75% submission rate</td></tr>
           <tr style={{borderBottom: "1px solid var(--border)"}}><td style={{padding: "8px 0", fontWeight: "600"}}>Innovation Lab deliverables</td><td style={{textAlign: "right", color: "var(--purple)"}}>Rubric avg ≥60%</td></tr>
           <tr style={{borderBottom: "1px solid var(--border)"}}><td style={{padding: "8px 0", fontWeight: "600"}}>Module assignments</td><td style={{textAlign: "right", color: "var(--purple)"}}>Average ≥60%</td></tr>
-          <tr style={{borderBottom: "1px solid var(--border)"}}><td style={{padding: "8px 0", fontWeight: "600"}}>Mid-Part mock tests</td><td style={{textAlign: "right", color: "var(--purple)"}}>Average ≥60%</td></tr>
+          <tr style={{borderBottom: "1px solid var(--border)"}}><td style={{padding: "8px 0", fontWeight: "600"}}>Mid-Semester mock tests</td><td style={{textAlign: "right", color: "var(--purple)"}}>Average ≥60%</td></tr>
           <tr><td style={{padding: "8px 0", fontWeight: "600"}}>Capstone jury scores</td><td style={{textAlign: "right", color: "var(--purple)"}}>Rubric avg ≥3.0/4</td></tr>
         </table>
       </div>
@@ -3798,7 +3409,7 @@ export default function TwoYearsSemester() {
         <div style={{fontSize: "12px", fontWeight: "800", letterSpacing: ".1em", textTransform: "uppercase", color: "var(--teal)", marginBottom: "16px"}}>🔍 Indirect Indicators (30% weight)</div>
         <p style={{fontSize: "13px", color: "var(--muted)", marginBottom: "12px"}}>Evidence gathered through perceptions, feedback, and outcomes — supplementing direct measurement with real-world validation.</p>
         <table style={{width: "100%", fontSize: "12px"}}>
-          <tr style={{borderBottom: "1px solid var(--border)"}}><td style={{padding: "8px 0", fontWeight: "600"}}>Student satisfaction survey</td><td style={{textAlign: "right", color: "var(--teal)"}}>End of each Part</td></tr>
+          <tr style={{borderBottom: "1px solid var(--border)"}}><td style={{padding: "8px 0", fontWeight: "600"}}>Student satisfaction survey</td><td style={{textAlign: "right", color: "var(--teal)"}}>End of each Semester</td></tr>
           <tr style={{borderBottom: "1px solid var(--border)"}}><td style={{padding: "8px 0", fontWeight: "600"}}>Employer feedback form</td><td style={{textAlign: "right", color: "var(--teal)"}}>3 months post-placement</td></tr>
           <tr style={{borderBottom: "1px solid var(--border)"}}><td style={{padding: "8px 0", fontWeight: "600"}}>Placement rate tracking</td><td style={{textAlign: "right", color: "var(--teal)"}}>Monthly</td></tr>
           <tr style={{borderBottom: "1px solid var(--border)"}}><td style={{padding: "8px 0", fontWeight: "600"}}>Alumni career survey</td><td style={{textAlign: "right", color: "var(--teal)"}}>1 yr &amp; 2 yr post</td></tr>
@@ -3822,37 +3433,37 @@ export default function TwoYearsSemester() {
       <tbody>
         <tr>
           <td>Measure</td>
-          <td>End of each Part (Month 4/9/14/19)</td>
-          <td>Compute CO-PO attainment scores using direct + indirect data. Generate Part-level Attainment Report in EcoPro LMS.</td>
-          <td>Automatic — runs at end of every Part</td>
+          <td>End of each Semester (Month 4/9/14/19)</td>
+          <td>Compute CO-PO attainment scores using direct + indirect data. Generate Semester-level Attainment Report in EcoPro LMS.</td>
+          <td>Automatic — runs at end of every Semester</td>
           <td>EcoPro LMS + Programme Director</td>
         </tr>
         <tr>
           <td>Review</td>
-          <td>Within 15 days of Part completion</td>
+          <td>Within 15 days of Semester completion</td>
           <td>Academic Review Committee meeting: analyse attainment data, identify underperforming COs/POs, review trainer feedback and student survey results.</td>
           <td>Any CO with &lt;75% attainment or any PO &lt;2.0</td>
           <td>Academic Review Committee (Upskillize + College rep)</td>
         </tr>
         <tr>
           <td>Improve</td>
-          <td>Before next Part begins</td>
+          <td>Before next Semester begins</td>
           <td>Implement curriculum adjustments — update lesson content, revise lab activities, add supplementary resources, retrain trainer if needed.</td>
           <td>Any CO attainment &lt;65% triggers mandatory intervention</td>
           <td>Programme Director + Trainer</td>
         </tr>
         <tr>
           <td>Verify</td>
-          <td>Next Part (ongoing)</td>
+          <td>Next Semester (ongoing)</td>
           <td>Monitor whether improvements have raised CO attainment in the targeted areas. Compare Part N attainment vs Part N-1 for same CO/PO.</td>
-          <td>Improvement must be demonstrated within 1 Part cycle</td>
+          <td>Improvement must be demonstrated within 1 Semester cycle</td>
           <td>Programme Director + EcoPro LMS Analytics</td>
         </tr>
         <tr>
           <td>Annual Audit</td>
           <td>End of each programme year</td>
           <td>Full programme quality audit: CO-PO attainment across all cohorts, placement outcomes, alumni survey, employer feedback, trainer performance review, curriculum currency check.</td>
-          <td>Annual — irrespective of individual Part performance</td>
+          <td>Annual — irrespective of individual Semester performance</td>
           <td>Upskillize Quality Council + BFSI SSC (post-validation)</td>
         </tr>
       </tbody>
@@ -3862,7 +3473,7 @@ export default function TwoYearsSemester() {
       <div className="icon" style={{color: "var(--gold)"}}>🏛</div>
       <div>
         <h5 style={{color: "var(--gold)"}}>NAAC, BFSI SSC & ABC Reporting Compliance</h5>
-        <p style={{color: "rgba(255,255,255,.7)"}}>All CO-PO attainment data, capstone rubric scores, placement records, and improvement action plans are stored in EcoPro LMS in a format compatible with NAAC Criterion II (Teaching-Learning and Evaluation) and Criterion III (Research, Innovations and Extension). Student credits are registered in the UGC Academic Bank of Credits (ABC) via DigiLocker at the end of each Part. BFSI SSC validation audit can access the full data repository through the Upskillize Academic Quality Report portal.</p>
+        <p style={{color: "rgba(255,255,255,.7)"}}>All CO-PO attainment data, capstone rubric scores, placement records, and improvement action plans are stored in EcoPro LMS in a format compatible with NAAC Criterion II (Teaching-Learning and Evaluation) and Criterion III (Research, Innovations and Extension). Student credits are registered in the UGC Academic Bank of Credits (ABC) via DigiLocker at the end of each Semester. BFSI SSC validation audit can access the full data repository through the Upskillize Academic Quality Report portal.</p>
       </div>
     </div>
   </div>
@@ -3873,7 +3484,7 @@ export default function TwoYearsSemester() {
 {/* INNOVATION LAB */}
 <section className="lab-section" id="lab">
   <div className="container">
-    <p className="section-label fade-up">Where Theory Becomes a Product</p>
+    <p className="section-label fade-up">Where Theory Becomes a Product(Add On)</p>
     <h2 className="section-title fade-up fade-up-d1">The BFSI <em>Innovation Lab</em>:<br/>India's First of Its Kind.</h2>
     <p className="section-lead fade-up fade-up-d2">The Upskillize BFSI Innovation Lab is a dedicated physical and digital workspace established inside every partner college. It is the engine that transforms learning into building — and building into careers.</p>
     <div className="lab-hero-banner fade-up">
@@ -3939,7 +3550,7 @@ export default function TwoYearsSemester() {
       <div className="lab-card fade-up fade-up-d2">
         <div className="lab-card-icon">💼</div>
         <h4>Placement Portfolio Builder</h4>
-        <p>Dedicated sessions in Part 3 to publish every project — Power BI reports, Figma designs, app prototypes, and pitch decks — onto GitHub and LinkedIn as a professional digital portfolio that recruiters can actually explore.</p>
+        <p>Dedicated sessions in Semester 3 to publish every project — Power BI reports, Figma designs, app prototypes, and pitch decks — onto GitHub and LinkedIn as a professional digital portfolio that recruiters can actually explore.</p>
         <span className="lab-tag">Portfolio</span>
       </div>
     </div>
@@ -3951,7 +3562,7 @@ export default function TwoYearsSemester() {
   <div className="container">
     <p className="section-label fade-up">Product Management · Startup Ecosystem · Digital Business</p>
     <h2 className="section-title fade-up fade-up-d1">Not just a job-seeker.<br/>An <em>industry builder.</em></h2>
-    <p className="section-lead fade-up fade-up-d2">PGDFDB (BFSI) equips you for three futures simultaneously: a high-growth corporate career in BFSI, a startup founding team role, or launching your own FinTech venture. The same skills serve all three paths.</p>
+    <p className="section-lead fade-up fade-up-d2">PGDFDB equips you for three futures simultaneously: a high-growth corporate career in BFSI, a startup founding team role, or launching your own FinTech venture. The same skills serve all three paths.</p>
     <div className="startup-layout">
       <div className="startup-cards">
         <div className="sc fade-up">
@@ -3993,7 +3604,7 @@ export default function TwoYearsSemester() {
           <div className="sc-icon" style={{background: "#FAE0E0"}}>🏆</div>
           <div>
             <h4>The MiniCEO Program</h4>
-            <p>The crown jewel of PGDFDB (BFSI). Learn CEO-level thinking: P&L management, board communication, digital transformation roadmapping, M&A in financial services, and crisis management. Graduate as a professional who thinks like a business owner, not a job applicant.</p>
+            <p>The crown jewel of PGDFDB. Learn CEO-level thinking: P&L management, board communication, digital transformation roadmapping, M&A in financial services, and crisis management. Graduate as a professional who thinks like a business owner, not a job applicant.</p>
           </div>
         </div>
       </div>
@@ -4038,46 +3649,12 @@ export default function TwoYearsSemester() {
   </div>
 </section>
 
-{/* CAREER JOURNEY */}
-<section className="career" id="careers">
-  <div className="container">
-    <p className="section-label text-center mx-auto fade-up">From Student to Industry Representative</p>
-    <h2 className="section-title text-center mx-auto fade-up fade-up-d1">Your 24-Month<br/><em>Transformation Path</em></h2>
-    <div className="journey-steps fade-up fade-up-d2">
-      <div className="js-step">
-        <div className="js-circle" style={{background: "linear-gradient(135deg,#EBF4FF,#D6E8F5)"}}>🎓</div>
-        <div className="js-num" style={{fontFamily: "var(--font-display)", fontSize: "13px", fontWeight: "700", color: "var(--blue)", marginBottom: "8px"}}>MONTHS 1–5</div>
-        <h4>BFSI Domain Scholar</h4>
-        <p>Master the full BFSI ecosystem. Earn your first certificate. Build your first credit model and FinTech pitch.</p>
-      </div>
-      <div className="js-step">
-        <div className="js-circle" style={{background: "linear-gradient(135deg,var(--light),#EDE9F7)"}}>⚙</div>
-        <div className="js-num" style={{fontFamily: "var(--font-display)", fontSize: "13px", fontWeight: "700", color: "var(--purple)", marginBottom: "8px"}}>MONTHS 6–10</div>
-        <h4>BFSI Technology Builder</h4>
-        <p>Payments, WealthTech, Data & Agile mastery. Build live Power BI dashboards and robo-advisory apps. Eligible for BFSI internships.</p>
-      </div>
-      <div className="js-step">
-        <div className="js-circle" style={{background: "linear-gradient(135deg,#FFF0F0,#FAE0E0)"}}>🎯</div>
-        <div className="js-num" style={{fontFamily: "var(--font-display)", fontSize: "13px", fontWeight: "700", color: "#C0392B", marginBottom: "8px"}}>MONTHS 11–15</div>
-        <h4>Interview-Ready Professional</h4>
-        <p>RegTech, ESG, AI Product Mgmt. Full Placement Sprint. 2 mock interviews. Portfolio live. Campus interviews at Month 14.</p>
-      </div>
-      <div className="js-step">
-        <div className="js-circle" style={{background: "linear-gradient(135deg,#FFF8E1,#FFF0C0)"}}>👑</div>
-        <div className="js-num" style={{fontFamily: "var(--font-display)", fontSize: "13px", fontWeight: "700", color: "#8B6914", marginBottom: "8px"}}>MONTHS 16–19</div>
-        <h4>Digital Business Leader</h4>
-        <p>MiniCEO Program. Finance transformation. Global career mapping. MiniCEO Summit. PGDFDB (BFSI) — MBA++. BFSI Fellow.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 {/* PLACEMENTS & INTERNSHIPS */}
 <section className="placement-section" id="placements">
   <div className="container">
     <p className="section-label fade-up">Built Into the Program — Not an Afterthought</p>
     <h2 className="section-title fade-up fade-up-d1">Placements &<br/><em>Internships</em></h2>
-    <p className="section-lead fade-up fade-up-d2">Placement is the ultimate metric. We design every element of PGDFDB (BFSI) — from the first module to the last capstone — with one question in mind: "Will this help our student get hired and thrive?"</p>
+    <p className="section-lead fade-up fade-up-d2">Placement is the ultimate metric. We design every element of PGDFDB — from the first module to the last capstone — with one question in mind: "Will this help our student get hired and thrive?"</p>
     <div className="placement-grid">
       <div className="pf-list">
         <div className="pf fade-up">
@@ -4098,7 +3675,7 @@ export default function TwoYearsSemester() {
         </div>
         <div className="pf fade-up fade-up-d1">
           <div className="pf-icon">🌍</div>
-          <div><h4>Internships from Month 9 Onwards</h4><p>Students completing Part 2 are eligible for structured 4–8 week BFSI internships through the Upskillize partner network. Real work experience. Letter of recommendation. In many cases, a pre-placement offer before your final semester.</p></div>
+          <div><h4>Internships from Month 9 Onwards</h4><p>Students completing Semester 2 are eligible for structured 4–8 week BFSI internships through the Upskillize partner network. Real work experience. Letter of recommendation. In many cases, a pre-placement offer before your final semester.</p></div>
         </div>
         <div className="pf fade-up fade-up-d2">
           <div className="pf-icon">🤝</div>
@@ -4122,7 +3699,7 @@ export default function TwoYearsSemester() {
         </div>
         <div className="internship-band">
           <h4>🚀 Internship Pathways Available</h4>
-          <p>Eligible after Part 2 (Month 9+). BFSI Analyst, Data Analytics, Product Management, RegTech/Compliance, InsurTech, and WealthTech internships through our partner network — some leading to pre-placement offers.</p>
+          <p>Eligible after Semester 2 (Month 9+). BFSI Analyst, Data Analytics, Product Management, RegTech/Compliance, InsurTech, and WealthTech internships through our partner network — some leading to pre-placement offers.</p>
         </div>
       </div>
     </div>
@@ -4133,34 +3710,34 @@ export default function TwoYearsSemester() {
 <section className="certs-section" id="certificates">
   <div className="container" style={{position: "relative", zIndex: "1"}}>
     <p className="section-label fade-up">4 Certificates. One Extraordinary Destination.</p>
-    <h2 className="section-title fade-up fade-up-d1">Every Part. A new<br/><em style={{color: "var(--gold)"}}>credential on your resume.</em></h2>
-    <p className="section-lead fade-up fade-up-d2">You don't wait 24 months for recognition. With PGDFDB (BFSI), you earn a formal Upskillize certificate at the end of every Part — a progressive credential that builds your professional profile in real-time, even before you graduate.</p>
+    <h2 className="section-title fade-up fade-up-d1">Every Semester. A new<br/><em style={{color: "var(--gold)"}}>credential on your resume.</em></h2>
+    <p className="section-lead fade-up fade-up-d2">You don't wait 24 months for recognition. With PGDFDB, you earn a formal Upskillize certificate at the end of every Semester — a progressive credential that builds your professional profile in real-time, even before you graduate.</p>
     <div className="cert-path fade-up fade-up-d1">
       <div className="cert-step">
-        <span className="cs-num" style={{color: "var(--blue)"}}>Part 1 · Month 4</span>
+        <span className="cs-num" style={{color: "var(--blue)"}}>Semester 1 · Month 4</span>
         <span className="cs-icon">🏦</span>
         <div className="cs-title">Certificate in BFSI Domain Excellence</div>
         <div className="cs-sub">Foundational BFSI Professional</div>
         <span className="cs-badge">BFSI-DE Flagship</span>
       </div>
       <div className="cert-step">
-        <span className="cs-num" style={{color: "var(--purple)"}}>Part 2 · Month 9</span>
+        <span className="cs-num" style={{color: "var(--purple)"}}>Semester 2 · Month 9</span>
         <span className="cs-icon">📈</span>
         <div className="cs-title">Certificate in Digital BFSI Technologies</div>
         <div className="cs-sub">Intermediate Technology Professional</div>
         <span className="cs-badge">InvestmentTech + D2D</span>
       </div>
       <div className="cert-step">
-        <span className="cs-num" style={{color: "#C0392B"}}>Part 3 · Month 14</span>
+        <span className="cs-num" style={{color: "#C0392B"}}>Semester 3 · Month 14</span>
         <span className="cs-icon">🔒</span>
         <div className="cs-title">Certificate in Advanced BFSI & Digital Innovation</div>
         <div className="cs-sub">Advanced Digital Professional</div>
         <span className="cs-badge">RegTech Flagship</span>
       </div>
       <div className="cert-step">
-        <span className="cs-num" style={{color: "var(--gold)"}}>Part 4 · Month 19</span>
+        <span className="cs-num" style={{color: "var(--gold)"}}>Semester 4 · Month 19</span>
         <span className="cs-icon">👑</span>
-        <div className="cs-title">PGDFDB (BFSI) — MBA++</div>
+        <div className="cs-title">PGDFDB — MBA++</div>
         <div className="cs-sub">Digital Business Leader</div>
         <span className="cs-badge">MiniCEO + NSQF 7</span>
       </div>
@@ -4168,7 +3745,7 @@ export default function TwoYearsSemester() {
     <div className="final-cert fade-up fade-up-d2">
       <div className="fc-eyebrow">The Final Destination</div>
       <div className="fc-title">Post Graduate Diploma in FinTech & Digital Business — BFSI</div>
-      <div className="fc-sub">MBA++ · PGDFDB (BFSI) · Unique opportunity to be a Fintech & Digital Business Leader"</div>
+      <div className="fc-sub">MBA++ · PGDFDB · Unique opportunity to be a Fintech & Digital Business Leader"</div>
       <div className="fc-tags">
         <span className="fc-tag">NSQF Level 7</span>
         <span className="fc-tag">BFSI SSC Aligned</span>
@@ -4185,8 +3762,7 @@ export default function TwoYearsSemester() {
 
 {/* QUOTE STRIP */}
 <div className="quote-strip">
-  <blockquote>"These 2 years can transform 20 years of your career. We don't teach you about BFSI. We make you part of it."</blockquote>
-  <cite>— Ramesh Gupta, Co-Founder & CPO, Upskillize | FRM · PRM · MBA · SAFe 6 PC · PABF (IIM-B)</cite>
+  <blockquote>"These 2 years can transform 20 years of your career. We make you part of it."</blockquote>
 </div>
 
 {/* COLLEGES CTA */}
@@ -4198,7 +3774,7 @@ export default function TwoYearsSemester() {
       <div className="cta-card for-colleges fade-up">
         <div className="eyebrow">For Academic Leaders & Placement Heads</div>
         <h3>Partner with Upskillize</h3>
-        <p>Bring PGDFDB (BFSI) to your MBA students and transform your placement outcomes, institutional reputation, and industry partnerships — without adding any burden to your faculty or timetable.</p>
+        <p>Bring PGDFDB to your MBA students and transform your placement outcomes, institutional reputation, and industry partnerships — without adding any burden to your faculty or timetable.</p>
         <ul className="points">
           <li>Upskillize provides all content, trainers, LMS, and assessments — zero faculty load</li>
           <li>BFSI Innovation Lab established on your campus at no cost</li>
@@ -4212,7 +3788,7 @@ export default function TwoYearsSemester() {
       <div className="cta-card for-students fade-up fade-up-d2">
         <div className="eyebrow">For MBA & PGDM Students</div>
         <h3>Start Your BFSI Journey</h3>
-        <p>PGDFDB (BFSI) runs alongside your MBA — on weekday evenings and Saturday mornings. No career gap, no extra year. Just 24 months of building, learning, and becoming an industry representative.</p>
+        <p>PGDFDB runs alongside your MBA — on weekday evenings and Saturday mornings. No career gap, no extra year. Just 24 months of building, learning, and becoming an industry representative.</p>
         <ul className="points">
           <li>Earn 4 certificates on the way — each one resume-ready immediately</li>
           <li>Build a real project portfolio in the Innovation Lab</li>

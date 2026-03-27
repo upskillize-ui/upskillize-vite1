@@ -61,7 +61,6 @@ const TIER_DATA = [
       "Bank / NBFC MoU facilitation",
       "ESG reporting framework lab",
       "National hackathon hosting rights",
-      "NAAC/NBA documentation support",
       "Research paper publication support",
     ],
   },
@@ -1356,7 +1355,7 @@ export default function FintechAIInnovationLab() {
               </div>
               <ul className="bp-list">
                 <li><strong>"First mover" institutional brand</strong> — be among the first colleges in India with a dedicated, accredited FinTech &amp; AI Innovation Lab</li>
-                <li><strong>NAAC / NBA accreditation evidence</strong> — tangible industry linkages, live projects, and outcome metrics</li>
+                <li><strong>NBA accreditation evidence</strong> — tangible industry linkages, live projects, and outcome metrics</li>
                 <li><strong>Zero infrastructure burden</strong> — Upskillize delivers Lab-in-a-Box: layout, software, trainers, LMS, curriculum calendar</li>
                 <li><strong>Placement ranking advantage</strong> — dual-credential students command higher offers, boosting institutional placement stats</li>
                 <li><strong>New revenue stream</strong> — co-branded certification fees create revenue with no capital expenditure</li>
@@ -1369,19 +1368,19 @@ export default function FintechAIInnovationLab() {
           </div>
         </section>
 
-        {/* ── NAAC DOCUMENTATION SUPPORT ── */}
+        {/* ── DOCUMENTATION SUPPORT ── */}
         <section className="naac-sec" id="naac">
           <div className="sc">
-            <div className="naac-badge"><span>NAAC / NBA</span> Documentation &amp; Accreditation Support</div>
+            <div className="naac-badge"><span>NBA</span> Documentation &amp; Accreditation Support</div>
             <h2 className="sec-title">Every Session Generates <span className="ht">Accreditation Evidence.</span></h2>
-            <p className="naac-intro">The FinTech &amp; AI Innovation Lab isn't just a learning asset — it's a living accreditation engine. Every sprint, every capstone, every industry interaction generates structured evidence that maps directly to NAAC criteria and NBA OBE requirements. Upskillize provides pre-formatted documentation templates, data dashboards, and SSR-ready reports.</p>
+            <p className="naac-intro">The FinTech &amp; AI Innovation Lab isn't just a learning asset — it's a living accreditation engine. Every sprint, every capstone, every industry interaction generates structured evidence that maps directly to criteria and NBA OBE requirements. Upskillize provides pre-formatted documentation templates, data dashboards, and SSR-ready reports.</p>
           </div>
           <div className="naac-grid reveal">
             {[
               {crit:"C 2.1",cls:"c2",title:"Teaching-Learning & Evaluation",sub:"Student-Centric Learning · ICT Integration · Outcome Assessment",evs:["Experiential learning logs from 10 perimeter workstations — timestamped, exportable","Peer-working model documented per session (2 students per station, structured pair reviews)","LMS analytics: engagement hours, assignment completion, quiz scores per student cohort","Agile standup attendance records with sprint velocity data — OBE competency maps","Blended learning evidence: physical lab + lms.upskillize.com digital sessions"]},
               {crit:"C 3.1",cls:"c3",title:"Research, Innovation & Extension",sub:"Student Projects · Industry Problem Solving · Innovation Culture",evs:["Student-built AI products (Robo Advisory models, Fraud Detection engines, Stablecoin simulations) — structured capstone reports","Live industry problem statements sourced from CROs, CDOs, CPOs — real BFSI challenges","Capstone Demo Day deliverables: pitch decks, prototypes, research papers per cohort","Industry Connect Lounge records: CXO session logs, MoU-linked project documentation","Publication support: structured pathways to SEBI, RBI, and IRDAI policy briefs"]},
-              {crit:"C 5.1",cls:"c5",title:"Student Support & Progression",sub:"Placement Pipeline · Certifications · Career Mentoring",evs:["Co-certification records: CAIP, CDBL, FRM-track completions with pass rates and scores","Placement funnel reports: students placed in banks, NBFCs, fintechs — salary benchmarks","Mentoring logs: structured 1:1 interactions with CROs, CDOs, CPOs — documented outcomes","500+ years collective faculty expertise — CVs, credentials, and delivery records available","Alumni tracking: post-placement domain alignment data for NAAC outcome mapping"]},
-              {crit:"C 6.2",cls:"c6",title:"Governance & Industry Linkages",sub:"MoUs · Industry Interface · Structured Partnerships",evs:["Signed MoU / Partnership Deed between Upskillize Solutions and college — NAAC-ready format","Structured bank and NBFC linkage documentation for internship pipeline","Industry expert visit logs: CXO sessions, guest lectures, panel records with attendance","Lab governance framework: session plans, attendance registers, assessment rubrics (AICTE/NAAC)","Quarterly review reports between Upskillize and college leadership — audit trail maintained"]},
+              {crit:"C 5.1",cls:"c5",title:"Student Support & Progression",sub:"Placement Pipeline · Certifications · Career Mentoring",evs:["Co-certification records: CAIP, CDBL, FRM-track completions with pass rates and scores","Placement funnel reports: students placed in banks, NBFCs, fintechs — salary benchmarks","Mentoring logs: structured 1:1 interactions with CROs, CDOs, CPOs — documented outcomes","500+ years collective faculty expertise — CVs, credentials, and delivery records available","Alumni tracking: post-placement domain alignment data for outcome mapping"]},
+              {crit:"C 6.2",cls:"c6",title:"Governance & Industry Linkages",sub:"MoUs · Industry Interface · Structured Partnerships",evs:["Signed MoU / Partnership Deed between Upskillize Solutions and college — ready format","Structured bank and NBFC linkage documentation for internship pipeline","Industry expert visit logs: CXO sessions, guest lectures, panel records with attendance","Lab governance framework: session plans, attendance registers, assessment rubrics (AICTE)","Quarterly review reports between Upskillize and college leadership — audit trail maintained"]},
               {crit:"C 7.1",cls:"c7",title:"Institutional Values & Best Practices",sub:"ESG · Sustainability · Green Campus · Ethics",evs:["ESG Observatory outputs: student-generated Scope 1–3 reports, BRSR templates — publishable","Green lab design: LED lighting, energy-star hardware, living green walls — carbon audit records","Sustainability finance curriculum: PPP structures, Cradle-to-Cradle models, RBI green taxonomy","Inclusive peer-working model documented: perimeter layout, diversity of domain exposure","Digital ethics modules: DPDPA, data privacy, responsible AI — assessment records"]},
               {crit:"NBA",cls:"cx",title:"NBA Outcomes-Based Education",sub:"POs · COs · PSOs · Attainment Mapping",evs:["Programme Outcomes (POs) mapped to lab activities: PO3 (Design/Analysis), PO4 (Research), PO6 (Ethics)","Course Outcomes (COs) mapped per zone: Fintech CO → Open Banking; AI CO → Robo Advisory","Programme Specific Outcomes (PSOs) documented: BFSI domain competency levels per student","Attainment calculation data: rubric-based assessment scores exportable for NBA filing","AICTE RUBRIC scoring automation via lms.upskillize.com — direct NBA report generation"]},
             ].map(card=>(
@@ -1397,11 +1396,11 @@ export default function FintechAIInnovationLab() {
             ))}
           </div>
           <div className="naac-artefacts reveal">
-            <div className="naac-art-title">📁 NAAC/NBA Documentation Package — Included with Every Partnership</div>
-            <div className="naac-art-sub">All documents are pre-formatted, institution-branded, and ready to upload to NAAC's Self-Study Report (SSR) portal and NBA's ABET-aligned system.</div>
+            <div className="naac-art-title">📁 NBA Documentation Package — Included with Every Partnership</div>
+            <div className="naac-art-sub">All documents are pre-formatted, institution-branded, and ready to upload to Self-Study Report (SSR) portal and NBA's ABET-aligned system.</div>
             <div className="naac-art-grid">
               {[
-                {icon:"📋",name:"MoU & Partnership Deed",desc:"NAAC-compliant MoU template between college and Upskillize — industry linkage evidence for C6.2"},
+                {icon:"📋",name:"MoU & Partnership Deed",desc:"Compliant MoU template between college and Upskillize — industry linkage evidence for C6.2"},
                 {icon:"📊",name:"Student Outcome Reports",desc:"Per-cohort analytics: certification pass rates, placement data, competency attainment — mapped to C5.1"},
                 {icon:"🏆",name:"Capstone & Project Logs",desc:"Structured capstone documentation: problem statement, methodology, outcome — C3.1 research evidence"},
                 {icon:"🗓️",name:"Session & Attendance Records",desc:"LMS-generated session logs, standup records, lab utilisation data — C2.1 teaching-learning evidence"},
@@ -1457,8 +1456,8 @@ export default function FintechAIInnovationLab() {
               </Link>
             </div>
             <div className="signup-trust">
+              <div className="signup-trust-item">✓ <span>Industry Oriented</span></div>
               <div className="signup-trust-item">✓ <span>Live in 60 days</span></div>
-              <div className="signup-trust-item">✓ <span>NAAC documentation included</span></div>
               <div className="signup-trust-item">✓ <span>Co-certified graduates</span></div>
             </div>
           </div>
