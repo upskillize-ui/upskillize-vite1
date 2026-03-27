@@ -75,13 +75,13 @@ function CourseRow({ c, onSelect }) {
       onMouseEnter={e => { e.currentTarget.style.background = "#f9fafb"; onSelect && onSelect(c.label); }}
       onMouseLeave={e => { e.currentTarget.style.background = "transparent"; onSelect && onSelect(null); }}
     >
-      <div style={{ display: "flex", alignItems: "center", gap: ".5rem", padding: ".35rem .875rem .18rem" }}>
-        <a href={c.href} style={{ display: "flex", alignItems: "center", gap: ".5rem", flex: 1, textDecoration: "none", minWidth: 0 }}>
-          <IconBox icon={c.icon} size={22} bg={c.iconBg} />
-          <span style={{ flex: 1, fontSize: ".875rem", fontWeight: 600, color: "#1f2937", lineHeight: 1.3 }}>{c.label}</span>
+      <div style={{ display: "flex", alignItems: "center", gap: ".4rem", padding: ".28rem .75rem .15rem" }}>
+        <a href={c.href} style={{ display: "flex", alignItems: "center", gap: ".4rem", flex: 1, textDecoration: "none", minWidth: 0 }}>
+          <IconBox icon={c.icon} size={19} bg={c.iconBg} />
+          <span style={{ flex: 1, fontSize: ".78rem", fontWeight: 600, color: "#1f2937", lineHeight: 1.25 }}>{c.label}</span>
         </a>
       </div>
-      <div style={{ display: "flex", alignItems: "center", gap: ".25rem", padding: "0 .875rem .32rem 2.875rem" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: ".2rem", padding: "0 .75rem .25rem 2.55rem" }}>
         {INFO_TABS.map(t => (
           <button key={t.key}
             onClick={e => { e.preventDefault(); e.stopPropagation(); setActiveInfo(activeInfo === t.key ? null : t.key); }}
@@ -110,7 +110,7 @@ function CourseRow({ c, onSelect }) {
 // ── Pill badge ──
 function Pill({ children, bg, color }) {
   return (
-    <span style={{ fontSize: ".56rem", background: bg, borderRadius: 3, padding: "1px 4px", color, fontWeight: 600, whiteSpace: "nowrap" }}>
+    <span style={{ fontSize: ".5rem", background: bg, borderRadius: 3, padding: "1px 4px", color, fontWeight: 600, whiteSpace: "nowrap" }}>
       {children}
     </span>
   );
@@ -141,6 +141,12 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
+    const onResize = () => { if (window.innerWidth >= 768) setMobileOpen(false); };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
   }, [mobileOpen]);
 
@@ -168,19 +174,19 @@ export default function Navbar() {
         .nb{position:fixed;top:0;left:0;right:0;z-index:9999}
         .nb-bar{background:var(--c-bg);border-bottom:1px solid transparent;transition:border-color .25s,box-shadow .25s}
         .nb-bar.scrolled{border-color:var(--c-border);box-shadow:0 2px 14px rgba(0,0,0,.07)}
-        .nb-inner{max-width:1280px;margin:0 auto;padding:0 1.25rem;height:64px;display:flex;align-items:center;width:100%}
-        .nb-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;margin-right:1.75rem}
-        .nb-logo img{height:42px;width:auto;display:block}
-        .nb-logo-text{font-size:1.35rem;font-weight:800;color:var(--c-indigo);display:none}
+        .nb-inner{max-width:1280px;margin:0 auto;padding:0 1rem;height:56px;display:flex;align-items:center;width:100%}
+        .nb-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;margin-right:1rem}
+        .nb-logo img{height:36px;width:auto;display:block}
+        .nb-logo-text{font-size:1.1rem;font-weight:800;color:var(--c-indigo);display:none}
         .nb-desk{display:none;flex:1;align-items:center;justify-content:space-between;min-width:0}
         @media(min-width:768px){.nb-desk{display:flex!important}}
-        .nb-left{display:flex;align-items:center;gap:.125rem;flex-wrap:nowrap}
-        .nb-right{display:flex;align-items:center;gap:.5rem;margin-left:auto;flex-shrink:0}
-        .nbb{display:inline-flex;align-items:center;gap:.3rem;padding:.45rem .7rem;border-radius:.5rem;
-          font-size:.82rem;font-weight:500;color:var(--c-text);background:none;border:none;
+        .nb-left{display:flex;align-items:center;gap:0;flex-wrap:nowrap}
+        .nb-right{display:flex;align-items:center;gap:.25rem;margin-left:auto;flex-shrink:0}
+        .nbb{display:inline-flex;align-items:center;gap:.2rem;padding:.38rem .55rem;border-radius:.4rem;
+          font-size:.78rem;font-weight:500;color:var(--c-text);background:none;border:none;
           cursor:pointer;text-decoration:none;white-space:nowrap;transition:background .15s,color .15s}
         .nbb:hover{background:var(--c-hover-bg);color:var(--c-hover)}
-        .nbc{transition:transform .2s;flex-shrink:0}
+        .nbc{transition:transform .2s;flex-shrink:0;width:13px;height:13px}
         @media(min-width:768px){.nb-ham{display:none!important}}
 
         /* Simple dropdowns */
@@ -198,10 +204,10 @@ export default function Navbar() {
         /* ── HIGHER EDUCATION MEGA PANEL ── */
         .nb-ind{position:relative}
         .nb-panel{
-          position:absolute;top:calc(100% + 8px);left:-40px;
+          position:absolute;top:calc(100% + 6px);left:-20px;
           background:transparent;
-          width:740px;
-          display:grid;grid-template-columns:248px 1fr;column-gap:10px;
+          width:580px;
+          display:grid;grid-template-columns:192px 1fr;column-gap:8px;
           align-items:stretch;
           opacity:0;visibility:hidden;transform:translateY(-8px);
           transition:all .2s cubic-bezier(.4,0,.2,1);z-index:10001;
@@ -211,60 +217,64 @@ export default function Navbar() {
         /* COL 1 – Institutions */
         .nb-left-col{
           display:flex;flex-direction:column;
-          background:#fff;border:1px solid #e0e7ff;border-radius:.875rem;overflow:hidden;
+          background:#fff;border:1px solid #e0e7ff;border-radius:.75rem;overflow:hidden;
           box-shadow:0 4px 18px rgba(79,70,229,.08);
         }
         .nb-col-header{
-          font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
-          color:#fff;padding:.6rem .875rem .5rem;flex-shrink:0;
+          font-size:.6rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+          color:#fff;padding:.35rem .65rem .3rem;flex-shrink:0;
           background:linear-gradient(135deg,#4f46e5,#7c3aed);
         }
         .nb-prog-section-label{
-          padding:.42rem .875rem .12rem;font-size:.6rem;font-weight:700;
+          padding:.22rem .65rem .06rem;font-size:.54rem;font-weight:700;
           letter-spacing:.06em;text-transform:uppercase;color:#0891b2;display:block;
           background:linear-gradient(160deg,#f8faff,#f5f3ff);
         }
         .nb-prog-row{
-          display:flex;flex-direction:column;
-          padding:0;text-decoration:none;
+          display:flex;flex-direction:column;padding:0;text-decoration:none;
           transition:background .12s;border-bottom:1px solid #f3f4f6;
         }
         .nb-prog-row:hover{background:#f5f3ff}
         .nb-prog-thumb{
-          width:100%;height:90px;border-radius:0;
+          width:100%;height:48px;border-radius:0;
           overflow:hidden;flex-shrink:0;position:relative;
         }
         .nb-prog-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
         .nb-prog-row:hover .nb-prog-thumb img{transform:scale(1.04)}
         .nb-prog-new{
-          position:absolute;bottom:5px;right:6px;
-          font-size:.58rem;font-weight:800;z-index:1;
-          background:#FAEEDA;color:#633806;padding:2px 5px;border-radius:2px;
+          position:absolute;bottom:3px;right:4px;font-size:.5rem;font-weight:800;z-index:1;
+          background:#FAEEDA;color:#633806;padding:1px 3px;border-radius:2px;
         }
-        .nb-prog-info{flex:1;min-width:0;padding:.45rem .875rem .22rem}
+        .nb-prog-info{flex:1;min-width:0;padding:.25rem .65rem .12rem}
         .nb-prog-badge{
-          display:inline-block;font-size:.6rem;font-weight:800;
-          padding:.08rem .42rem;border-radius:999px;margin-bottom:.15rem;
+          display:inline-block;font-size:.52rem;font-weight:800;
+          padding:.04rem .3rem;border-radius:999px;margin-bottom:.08rem;
         }
-        .nb-prog-title{font-size:.8rem;font-weight:700;color:#111827;line-height:1.28;margin-bottom:.18rem}
-        .nb-prog-pills{display:flex;flex-wrap:wrap;gap:.18rem}
-        .nb-prog-reg{
-          display:flex;align-items:center;justify-content:center;gap:.3rem;
-          margin:.25rem .875rem .5rem;padding:.4rem .5rem;border-radius:.375rem;
-          font-size:.76rem;font-weight:700;color:#fff;text-decoration:none;
-          transition:opacity .15s;flex-shrink:0;
-        }
-        .nb-prog-reg:hover{opacity:.88}
+        .nb-prog-title{font-size:.68rem;font-weight:700;color:#111827;line-height:1.2;margin-bottom:.1rem}
+        .nb-prog-pills{display:flex;flex-wrap:wrap;gap:.1rem}
         .nb-prog-divider{height:1px;background:#ede9fe;margin:0}
+
+        /* Program section footer */
+        .nb-prog-section{display:flex;flex-direction:column;flex:1;min-height:0}
+        .nb-prog-footer{flex-shrink:0;margin-top:auto}
+        .nb-prog-footer-btn{
+          display:flex;align-items:center;justify-content:center;
+          gap:.25rem;width:100%;padding:.32rem .65rem;
+          font-size:.68rem;font-weight:700;color:#fff;text-decoration:none;
+          transition:opacity .15s;white-space:nowrap;
+        }
+        .nb-prog-footer-btn:hover{opacity:.88}
+        .nb-prog-footer-indigo{background:#4f46e5;border-top:2px solid #4338ca}
+        .nb-prog-footer-green{background:#059669;border-top:2px solid #047857;border-radius:0 0 .75rem .75rem}
 
         /* COL 2 – Certifications */
         .nb-certcol{
           display:flex;flex-direction:column;
-          background:#fff;border:1px solid #e0e7ff;border-radius:.875rem;overflow:hidden;
+          background:#fff;border:1px solid #e0e7ff;border-radius:.75rem;overflow:hidden;
           box-shadow:0 4px 18px rgba(124,58,237,.08);
         }
         .nb-certcol-header{
-          display:block;padding:.6rem .875rem .5rem;font-size:.68rem;font-weight:700;
+          display:block;padding:.35rem .65rem .3rem;font-size:.6rem;font-weight:700;
           letter-spacing:.06em;text-transform:uppercase;color:#fff;flex-shrink:0;
           background:linear-gradient(135deg,#7c3aed,#4f46e5);
         }
@@ -274,15 +284,15 @@ export default function Navbar() {
         }
         .nb-cert-tab{
           display:flex;flex-direction:column;align-items:center;justify-content:center;
-          gap:.15rem;padding:.45rem .25rem;font-size:.7rem;font-weight:600;color:#6b7280;
+          gap:.08rem;padding:.28rem .18rem;font-size:.58rem;font-weight:600;color:#6b7280;
           background:none;border:none;border-right:1px solid #f3f4f6;
-          cursor:pointer;transition:all .18s;text-align:center;line-height:1.2;
+          cursor:pointer;transition:all .18s;text-align:center;line-height:1.15;
           border-bottom:2px solid transparent;
         }
         .nb-cert-tab:last-child{border-right:none}
         .nb-cert-tab:hover{background:#f5f3ff;color:#4f46e5}
         .nb-cert-tab.active{background:#fff;color:#4f46e5;font-weight:700;border-bottom:2px solid #4f46e5}
-        .nb-cert-tab-icon{font-size:1rem;line-height:1}
+        .nb-cert-tab-icon{font-size:.85rem;line-height:1}
         .nb-cert-courses{flex:1}
         .nb-cert-list{animation:slideIn .2s cubic-bezier(.4,0,.2,1)}
         @keyframes slideIn{from{opacity:0;transform:translateX(6px)}to{opacity:1;transform:translateX(0)}}
@@ -291,13 +301,11 @@ export default function Navbar() {
         .nb-cert-footer{flex-shrink:0;width:100%}
         .nb-cert-footer a{
           display:flex;align-items:center;justify-content:center;
-          gap:.35rem;width:100%;padding:.58rem .875rem;
-          font-size:.82rem;font-weight:700;color:#fff;text-decoration:none;
-          background:#4f46e5;
-          border-top:2px solid #4338ca;
-          border-radius:0 0 .875rem .875rem;
-          transition:background .2s;
-          white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+          gap:.3rem;width:100%;padding:.38rem .65rem;
+          font-size:.72rem;font-weight:700;color:#fff;text-decoration:none;
+          background:#4f46e5;border-top:2px solid #4338ca;
+          border-radius:0 0 .75rem .75rem;
+          transition:background .2s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
         }
         .nb-cert-footer a:hover{background:#4338ca}
 
@@ -305,12 +313,15 @@ export default function Navbar() {
         .nb-ham{display:flex;padding:.5rem;border:none;background:transparent;
           cursor:pointer;color:var(--c-text);border-radius:.375rem;transition:background .15s}
         .nb-ham:hover{background:#f3f4f6}
-        @media(min-width:768px){.nb-ham{display:none!important}}
-        .nb-mob{position:fixed;top:64px;left:0;right:0;bottom:0;background:#fff;
+        .nb-mob{position:fixed;top:56px;left:0;right:0;bottom:0;background:#fff;
           overflow-y:auto;transform:translateX(100%);
           transition:transform .3s cubic-bezier(.4,0,.2,1);z-index:10000}
         .nb-mob.open{transform:translateX(0)}
-        @media(min-width:768px){.nb-mob{display:none!important}}
+        @media(min-width:768px){
+          .nb-ham{display:none!important}
+          .nb-mob{display:none!important}
+          .nb-mob.open{display:none!important}
+        }
         .nb-mnav{padding:.75rem 1rem 4rem;display:flex;flex-direction:column;gap:.125rem}
         .ma{display:flex;align-items:center;justify-content:space-between;
           padding:.875rem;border-radius:.5rem;font-size:.975rem;font-weight:600;
@@ -331,9 +342,9 @@ export default function Navbar() {
           text-decoration:none;transition:background .12s,color .12s}
         .msl:hover{background:var(--c-hover-bg);color:var(--c-hover)}
         .mdiv{height:1px;background:#f3f4f6;margin:.375rem 0}
-        .nb-sp{height:64px}
-        @media(max-width:767px){.nb-inner{padding:0 .875rem}.nb-logo img{height:36px}}
-        @media(max-width:480px){.nb-logo img{height:32px}.nb-inner{padding:0 .625rem}}
+        .nb-sp{height:56px}
+        @media(max-width:767px){.nb-inner{padding:0 .75rem}.nb-logo img{height:32px}}
+        @media(max-width:480px){.nb-logo img{height:28px}.nb-inner{padding:0 .5rem}}
       `}</style>
 
       <div className="nb">
@@ -365,52 +376,59 @@ export default function Navbar() {
                     <div className="nb-left-col">
                       <div className="nb-col-header">For Institutions</div>
 
-                      {/* Two Years */}
-                      <span className="nb-prog-section-label">Two Years</span>
-                      <a href="/courses/pgdfdb" className="nb-prog-row" onClick={closeAll}>
-                        <div className="nb-prog-thumb">
-                          <img src="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?w=200&q=80" alt="PGDFDB" />
-                          <span className="nb-prog-new">NEW</span>
-                        </div>
-                        <div className="nb-prog-info">
-                          <span className="nb-prog-badge" style={{ background: "#e8f4f0", color: "#0F6E56" }}>PGDFDB</span>
-                          <div className="nb-prog-title">PG Diploma in FinTech &amp; Digital Business</div>
-                          <div className="nb-prog-pills">
-                            <Pill bg="#fef3c7" color="#92400e">Parallel to MBA/PGDM</Pill>
-                            <Pill bg="#e0f2fe" color="#0369a1">Online / Hybrid</Pill>
-                            <Pill bg="#f4f6fb" color="#6b7fa3">4 Semesters</Pill>
+                      {/* Two Years section */}
+                      <div className="nb-prog-section">
+                        <span className="nb-prog-section-label">Two Years</span>
+                        <a href="/courses/pgdfdb" className="nb-prog-row" onClick={closeAll}>
+                          <div className="nb-prog-thumb">
+                            <img src="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?w=200&q=80" alt="PGDFDB" />
+                            <span className="nb-prog-new">NEW</span>
                           </div>
+                          <div className="nb-prog-info">
+                            <span className="nb-prog-badge" style={{ background: "#e8f4f0", color: "#0F6E56" }}>PGDFDB</span>
+                            <div className="nb-prog-title">PG Diploma in FinTech &amp; Digital Business</div>
+                            <div className="nb-prog-pills">
+                              <Pill bg="#fef3c7" color="#92400e">Parallel to MBA/PGDM</Pill>
+                              <Pill bg="#e0f2fe" color="#0369a1">Online / Hybrid</Pill>
+                              <Pill bg="#f4f6fb" color="#6b7fa3">4 Semesters</Pill>
+                            </div>
+                          </div>
+                        </a>
+                        <div className="nb-prog-footer">
+                          <Link to="/register?course=PG%20Diploma%20in%20FinTech%20%26%20Digital%20Business"
+                            onClick={closeAll} className="nb-prog-footer-btn nb-prog-footer-indigo">
+                            ✦ Register for PGDFDB →
+                          </Link>
                         </div>
-                      </a>
-                      <Link to="/register?course=PG%20Diploma%20in%20FinTech%20%26%20Digital%20Business"
-                        className="nb-prog-reg" onClick={closeAll}
-                        style={{ background: "linear-gradient(135deg,#4f46e5,#7c3aed)" }}>
-                        ✦ Register for PGDFDB →
-                      </Link>
+                      </div>
 
                       <div className="nb-prog-divider" />
 
-                      {/* One Year */}
-                      <span className="nb-prog-section-label">One Year</span>
-                      <a href="/courses/pgcdf" className="nb-prog-row" onClick={closeAll}>
-                        <div className="nb-prog-thumb">
-                          <img src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=200&q=80" alt="ADFBA" />
-                        </div>
-                        <div className="nb-prog-info">
-                          <span className="nb-prog-badge" style={{ background: "#dcfce7", color: "#15803d" }}>ADFBA</span>
-                          <div className="nb-prog-title">Advanced Diploma in FinTech, Banking &amp; AI</div>
-                          <div className="nb-prog-pills">
-                            <Pill bg="#fef3c7" color="#92400e">Final Year &amp; Above</Pill>
-                            <Pill bg="#e0f2fe" color="#0369a1">Online / Hybrid</Pill>
-                            <Pill bg="#f4f6fb" color="#6b7fa3">6 Bimesters</Pill>
+                      {/* One Year section */}
+                      <div className="nb-prog-section">
+                        <span className="nb-prog-section-label">One Year</span>
+                        <a href="/courses/pgcdf" className="nb-prog-row" onClick={closeAll}>
+                          <div className="nb-prog-thumb">
+                            <img src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=200&q=80" alt="ADFBA" />
                           </div>
+                          <div className="nb-prog-info">
+                            <span className="nb-prog-badge" style={{ background: "#dcfce7", color: "#15803d" }}>ADFBA</span>
+                            <div className="nb-prog-title">Advanced Diploma in FinTech, Banking &amp; AI</div>
+                            <div className="nb-prog-pills">
+                              <Pill bg="#fef3c7" color="#92400e">Final Year &amp; Above</Pill>
+                              <Pill bg="#e0f2fe" color="#0369a1">Online / Hybrid</Pill>
+                              <Pill bg="#f4f6fb" color="#6b7fa3">6 Bimesters</Pill>
+                            </div>
+                          </div>
+                        </a>
+                        <div className="nb-prog-footer">
+                          <Link to="/register?course=Advanced%20Diploma%20in%20FinTech%2C%20Banking%20%26%20AI"
+                            onClick={closeAll} className="nb-prog-footer-btn nb-prog-footer-green">
+                            ✦ Register for ADFBA →
+                          </Link>
                         </div>
-                      </a>
-                      <Link to="/register?course=Advanced%20Diploma%20in%20FinTech%2C%20Banking%20%26%20AI"
-                        className="nb-prog-reg" onClick={closeAll}
-                        style={{ background: "linear-gradient(135deg,#059669,#047857)" }}>
-                        ✦ Register for ADFBA →
-                      </Link>
+                      </div>
+
                     </div>
 
                     {/* ── COL 2: Professional Certifications ── */}
