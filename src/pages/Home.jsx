@@ -817,7 +817,7 @@ export default function Home() {
       {/* STATS SECTION */}
       <section className="py-16 bg-gradient-to-br from-[#0f1729] via-[#1a2847] to-[#243452]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               {
                 value: "70%",
@@ -865,7 +865,7 @@ export default function Home() {
               Specialized programs aligned with real-world industry demands
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {courses.map((category, index) => {
               const availablePrograms = category.subCourses.filter(
                 (course) =>
@@ -950,7 +950,7 @@ export default function Home() {
               transformation, FinTech, product strategy, and cybersecurity
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-10">
             {[
               {
                 icon: <Cpu className="w-8 h-8" />,
@@ -1038,7 +1038,7 @@ export default function Home() {
           <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="inline-block mb-6">
                 <span className="bg-gradient-to-r from-indigo-500/10 to-purple-500/10 backdrop-blur-sm px-4 py-2 rounded-full border border-indigo-500/20 text-indigo-400 text-sm font-semibold tracking-wider uppercase">
@@ -1162,7 +1162,7 @@ export default function Home() {
               management, and cost optimization
             </p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 to: "/products/optimize",
@@ -1579,7 +1579,7 @@ export default function Home() {
               their workforce transformation
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {[
               {
                 quote:

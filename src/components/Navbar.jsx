@@ -494,9 +494,6 @@ export default function Navbar() {
                   <button className="nbb">BFSI Lab <ChevronDown size={15} className="nbc" /></button>
                   <div className="nbd-menu">
                     <a href="/bfsiinnovationlab"          className="nbd-item">Explore the Lab</a>
-                    <a href="/bfsiinnovationlab/projects" className="nbd-item">Lab Projects</a>
-                    <a href="/bfsiinnovationlab/mentors"  className="nbd-item">Expert Mentors</a>
-                    <a href="/connect"                    className="nbd-item">Set Up Our Lab</a>
                   </div>
                 </div>
 

@@ -16,8 +16,7 @@ const GlobalStyle = () => (
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--dark); color: var(--w); overflow-x: hidden; line-height: 1.6; }
-    h1, h2, h3, h4, h5, h6 { color: #FFFFFF; }
+    body { overflow-x: hidden; }
 
 
 
@@ -179,10 +178,18 @@ const GlobalStyle = () => (
     .tri-card.rv.in, .prog-card.rv.in, .tcard.rv.in, .benefit.rv.in, .si.rv.in, .job-card.rv.in { opacity: 1; transform: translateY(0); }
     .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; } .d3 { transition-delay: .3s; } .d4 { transition-delay: .4s; }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1100px) {
+      .hero-inner, .skills-inner, .pl-grid, .col-grid { grid-template-columns: 1fr !important; }
+      .hero-visual { display: none; }
+      .tri-grid { grid-template-columns: repeat(2,1fr); }
+      .testi-grid { grid-template-columns: repeat(2,1fr); }
+      .prog-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
       .hero-inner, .skills-inner, .pl-grid, .col-grid, .prog-grid, .tri-grid { grid-template-columns: 1fr !important; }
       .hero-visual { display: none; }
       .testi-grid { grid-template-columns: 1fr; }
+      .job-grid { grid-template-columns: 1fr; }
     }
   `}</style>
 );
