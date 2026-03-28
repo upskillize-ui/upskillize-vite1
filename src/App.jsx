@@ -116,7 +116,7 @@ function App() {
             <Route path="/courses/ai-ml-business-leaders" element={<CAIPLandingPage />} />
             <Route path="/courses/digital-business-strategy-innovation" element={<DigitalStrategyProgram />} />
             <Route path="/course/corporate-readiness-program" element={<CorporateReadinessProgram />} />
-            <Route path="/courses/pgcdf" element={<PgCDFLandingPage />} />
+            <Route path="/courses/adfba" element={<PgCDFLandingPage />} />
             <Route path="/courses/pgcdb" element={<PgCDBLandingPage />} />
             <Route path="/courses/threeyearscourse" element={<ThreeYearsCourse />} />
             <Route path="/courses/pgdfdb" element={<TwoYearsSemester />} />

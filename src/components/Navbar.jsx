@@ -119,7 +119,7 @@ function Pill({ children, bg, color }) {
 // ── Main Navbar ──
 export default function Navbar() {
   const [isScrolled,     setIsScrolled]     = useState(false);
-  const [mobileOpen,     setMobileOpen]     = useState(false);   // FIX: was declared outside component — moved inside
+  const [mobileOpen,     setMobileOpen]     = useState(false);
   const [industryOpen,   setIndustryOpen]   = useState(false);
   const [activeCertTab,  setActiveCertTab]  = useState(0);
   const [selectedCourse, setSelectedCourse] = useState(null);
@@ -130,7 +130,11 @@ export default function Navbar() {
   const [mobileLab,      setMobileLab]      = useState(false);
   const [mobileAbout,    setMobileAbout]    = useState(false);
 
+  // Track which desktop dropdown is open (click-based)
+  const [openDropdown, setOpenDropdown] = useState(null); // 'corp' | 'prod' | 'lab' | 'career' | 'about'
+
   const industryTimer = useRef(null);
+  const dropdownRefs  = useRef({});
 
   const handleTabChange = (i) => { setActiveCertTab(i); setSelectedCourse(null); };
 
@@ -140,27 +144,53 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  // FIX: Close mobile menu when viewport expands to desktop width
   useEffect(() => {
     const onResize = () => { if (window.innerWidth >= 768) setMobileOpen(false); };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  // FIX: Cleanup overflow on unmount
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
+  // Close click-based dropdowns when clicking outside
+  useEffect(() => {
+    const handler = (e) => {
+      if (openDropdown) {
+        const ref = dropdownRefs.current[openDropdown];
+        if (ref && !ref.contains(e.target)) setOpenDropdown(null);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [openDropdown]);
+
   const closeAll = () => {
     setMobileOpen(false); setMobileIndustry(false); setMobileCorp(false);
     setMobileProd(false); setMobileCareer(false); setMobileLab(false);
-    setMobileAbout(false); setIndustryOpen(false);
+    setMobileAbout(false); setIndustryOpen(false); setOpenDropdown(null);
   };
 
+  // Higher Education: hover-based (unchanged)
   const onEnter = () => { clearTimeout(industryTimer.current); setIndustryOpen(true); };
   const onLeave = () => { industryTimer.current = setTimeout(() => setIndustryOpen(false), 160); };
+
+  // Toggle a click-based dropdown
+  const toggleDropdown = (key) => setOpenDropdown(prev => prev === key ? null : key);
+
+  // Dropdown trigger button style (matches .nbb)
+  const triggerStyle = {
+    display: "inline-flex", alignItems: "center", gap: ".2rem",
+    padding: ".38rem clamp(.3rem,.6vw,.55rem)",
+    borderRadius: ".4rem",
+    fontSize: "clamp(.72rem,.9vw,.85rem)",
+    fontWeight: 500, color: "var(--c-text)", background: "none", border: "none",
+    cursor: "pointer", whiteSpace: "nowrap",
+    transition: "background .15s, color .15s",
+    flexShrink: 0,
+  };
 
   return (
     <>
@@ -173,7 +203,6 @@ export default function Navbar() {
           --shadow:0 8px 32px rgba(0,0,0,.11);
         }
 
-        /* ── NAV BAR ── */
         .nb{position:fixed;top:0;left:0;right:0;z-index:9999}
         .nb-bar{
           background:var(--c-bg);
@@ -183,12 +212,10 @@ export default function Navbar() {
         .nb-bar.scrolled{
           border-color:var(--c-border);
           box-shadow:0 2px 14px rgba(0,0,0,.07);
-          /* FIX: backdrop-filter now correctly separated */
           backdrop-filter:blur(8px);
           background:rgba(255,255,255,0.95);
         }
 
-        /* FIX: Responsive padding using clamp — no max-width constraint */
         .nb-inner{
           width:100%;
           padding:0 clamp(0.5rem,2vw,1.5rem);
@@ -199,19 +226,16 @@ export default function Navbar() {
           gap:0.5rem;
         }
 
-        /* FIX: Responsive logo height */
         .nb-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;margin-right:clamp(0.25rem,1vw,1rem)}
         .nb-logo img{height:clamp(28px,5vw,36px);width:auto;display:block}
         .nb-logo-text{font-size:1.1rem;font-weight:800;color:var(--c-indigo);display:none}
 
-        /* FIX: Desktop nav uses display:flex, hidden on mobile via display:none */
         .nb-desk{display:none;flex:1;align-items:center;justify-content:space-between;min-width:0;overflow:visible}
         @media(min-width:768px){.nb-desk{display:flex!important}}
 
         .nb-left{display:flex;align-items:center;gap:0;flex-wrap:nowrap;min-width:0;overflow:visible}
         .nb-right{display:flex;align-items:center;gap:.25rem;margin-left:auto;flex-shrink:0}
 
-        /* FIX: Nav buttons use clamp font-size — shrink gracefully on 768-1024px */
         .nbb{
           display:inline-flex;align-items:center;gap:.2rem;
           padding:.38rem clamp(.3rem,.6vw,.55rem);
@@ -222,10 +246,21 @@ export default function Navbar() {
           transition:background .15s,color .15s;
           flex-shrink:0;
         }
-        .nbb:hover{background:var(--c-hover-bg);color:var(--c-hover)}
+        .nbb:hover,.nbb-btn:hover{background:var(--c-hover-bg);color:var(--c-hover)}
+        /* Button variant of .nbb — no link styles */
+        .nbb-btn{
+          display:inline-flex;align-items:center;gap:.2rem;
+          padding:.38rem clamp(.3rem,.6vw,.55rem);
+          border-radius:.4rem;
+          font-size:clamp(.72rem,.9vw,.85rem);
+          font-weight:500;color:var(--c-text);background:none;border:none;
+          cursor:pointer;white-space:nowrap;
+          transition:background .15s,color .15s;
+          flex-shrink:0;
+        }
         .nbc{transition:transform .2s;flex-shrink:0;width:13px;height:13px}
 
-        /* Simple dropdowns */
+        /* Click-based dropdowns */
         .nbd{position:relative}
         .nbd-menu{
           position:absolute;top:calc(100% + 8px);left:0;
@@ -239,7 +274,7 @@ export default function Navbar() {
           transition:all .18s ease;z-index:99999;
         }
         .nbd-menu.r{left:auto;right:0}
-        .nbd:hover .nbd-menu{opacity:1;visibility:visible;transform:translateY(0)}
+        .nbd-menu.open{opacity:1;visibility:visible;transform:translateY(0)}
         .nbd-item{
           display:block;padding:.6rem 1rem;
           font-size:.875rem;font-weight:500;
@@ -249,12 +284,11 @@ export default function Navbar() {
         }
         .nbd-item:hover{background:var(--c-hover-bg);color:var(--c-hover)}
 
-        /* ── HIGHER EDUCATION MEGA PANEL ── */
+        /* ── HIGHER EDUCATION MEGA PANEL (hover-based) ── */
         .nb-ind{position:relative}
         .nb-panel{
           position:absolute;top:calc(100% + 6px);left:0;
           background:transparent;
-          /* FIX: calc(100vw - 2rem) prevents panel from overflowing viewport */
           width:min(700px,calc(100vw - 2rem));
           display:grid;grid-template-columns:192px 1fr;column-gap:8px;
           align-items:stretch;
@@ -263,7 +297,6 @@ export default function Navbar() {
         }
         .nb-panel.open{opacity:1;visibility:visible;transform:translateY(0)}
 
-        /* FIX: Narrower 2-col layout on 768-900px tablets */
         @media(min-width:768px) and (max-width:900px){
           .nb-panel{
             grid-template-columns:160px 1fr;
@@ -271,7 +304,6 @@ export default function Navbar() {
           }
         }
 
-        /* COL 1 – Institutions */
         .nb-left-col{
           display:flex;flex-direction:column;
           background:#fff;border:1px solid #e0e7ff;border-radius:.75rem;overflow:hidden;
@@ -321,7 +353,6 @@ export default function Navbar() {
         .nb-prog-footer-indigo{background:#4f46e5;border-top:2px solid #4338ca}
         .nb-prog-footer-green{background:#059669;border-top:2px solid #047857;border-radius:0 0 .75rem .75rem}
 
-        /* COL 2 – Certifications */
         .nb-certcol{
           display:flex;flex-direction:column;
           background:#fff;border:1px solid #e0e7ff;border-radius:.75rem;overflow:hidden;
@@ -368,16 +399,13 @@ export default function Navbar() {
           transition:background .15s;flex-shrink:0;
         }
         .nb-ham:hover{background:#f3f4f6}
-        /* FIX: Hide hamburger on desktop screens */
         @media(min-width:768px){.nb-ham{display:none!important}}
 
-        /* ── MOBILE MENU FULL-SCREEN PANEL ── */
         .nb-mob{
           position:fixed;top:0;left:0;right:0;bottom:0;
           background:#fff;
           padding-top:56px;
           overflow-y:auto;
-          /* FIX: slide in from right — uses transform, not display:none, for smooth animation */
           transform:translateX(100%);
           transition:transform .3s cubic-bezier(.4,0,.2,1);
           z-index:10000;
@@ -389,14 +417,12 @@ export default function Navbar() {
           pointer-events:auto;
           visibility:visible;
         }
-        /* FIX: Always hidden on desktop regardless of mobileOpen state */
         @media(min-width:768px){
           .nb-mob,.nb-mob.open{display:none!important}
         }
 
         .nb-mnav{padding:.75rem 1rem 4rem;display:flex;flex-direction:column;gap:.125rem}
 
-        /* FIX: Mobile accordion triggers — responsive padding & font */
         .ma{
           display:flex;align-items:center;justify-content:space-between;
           padding:clamp(.75rem,3vw,1rem);
@@ -409,7 +435,6 @@ export default function Navbar() {
         .ma:hover{background:#f9fafb}
         .mc{transition:transform .2s}.mc.o{transform:rotate(180deg)}
 
-        /* FIX: Mobile direct links — responsive */
         .ml{
           display:block;
           padding:clamp(.75rem,3vw,.875rem);
@@ -420,7 +445,6 @@ export default function Navbar() {
         }
         .ml:hover{background:#f9fafb}
 
-        /* Mobile accordion panel */
         .mp{
           max-height:0;overflow:hidden;
           transition:max-height .4s cubic-bezier(.4,0,.2,1);
@@ -447,8 +471,6 @@ export default function Navbar() {
 
         .mdiv{height:1px;background:#f3f4f6;margin:.375rem 0}
 
-        /* ── SPACER ── */
-        /* FIX: Fixed height — not clamp. Navbar height is fixed, not fluid. */
         .nb-sp{height:56px;width:100%;flex-shrink:0}
       `}</style>
 
@@ -473,16 +495,17 @@ export default function Navbar() {
             <div className="nb-desk">
               <div className="nb-left">
 
-                {/* Higher Education — Mega Panel */}
+                {/* Higher Education — Mega Panel (hover-based, unchanged) */}
                 <div className="nb-ind" onMouseEnter={onEnter} onMouseLeave={onLeave}>
-                  <Link to="/academic" className="nbb" onClick={closeAll}>
+                  {/* CHANGED: was <Link to="/academic"> — now a button, no navigation */}
+                  <button className="nbb-btn" type="button">
                     Higher Education
                     <ChevronDown
                       size={13}
                       className="nbc"
                       style={{ transform: industryOpen ? "rotate(180deg)" : "rotate(0)" }}
                     />
-                  </Link>
+                  </button>
 
                   <div className={`nb-panel${industryOpen ? " open" : ""}`}>
 
@@ -490,7 +513,6 @@ export default function Navbar() {
                     <div className="nb-left-col">
                       <div className="nb-col-header">For Institutions</div>
 
-                      {/* Two Years */}
                       <div className="nb-prog-section">
                         <span className="nb-prog-section-label">Two Years</span>
                         <Link to="/courses/pgdfdb" className="nb-prog-row" onClick={closeAll}>
@@ -521,10 +543,9 @@ export default function Navbar() {
 
                       <div className="nb-prog-divider" />
 
-                      {/* One Year */}
                       <div className="nb-prog-section">
                         <span className="nb-prog-section-label">One Year</span>
-                        <Link to="/courses/pgcdf" className="nb-prog-row" onClick={closeAll}>
+                        <Link to="/courses/adfba" className="nb-prog-row" onClick={closeAll}>
                           <div className="nb-prog-thumb">
                             <img src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=200&q=80" alt="ADFBA" />
                           </div>
@@ -588,37 +609,93 @@ export default function Navbar() {
                   </div>
                 </div>
 
-                {/* Corporates */}
-                <div className="nbd">
-                  <Link to="/corporate" className="nbb" onClick={closeAll}>Corporates <ChevronDown size={13} className="nbc" /></Link>
-                  <div className="nbd-menu">
+                {/* Corporates — CHANGED: trigger is now a button, dropdown is click-based */}
+                <div
+                  className="nbd"
+                  ref={el => dropdownRefs.current["corp"] = el}
+                >
+                  <button
+                    className="nbb-btn"
+                    type="button"
+                    onClick={() => toggleDropdown("corp")}
+                  >
+                    Corporates
+                    <ChevronDown
+                      size={13}
+                      className="nbc"
+                      style={{ transform: openDropdown === "corp" ? "rotate(180deg)" : "rotate(0)" }}
+                    />
+                  </button>
+                  <div className={`nbd-menu${openDropdown === "corp" ? " open" : ""}`}>
                     <Link to="/corporate/consulting" className="nbd-item" onClick={closeAll}>Business Consulting</Link>
                     <Link to="/corporate/training"   className="nbd-item" onClick={closeAll}>Corporate Training</Link>
                   </div>
                 </div>
 
-                {/* AI Products */}
-                <div className="nbd">
-                  <Link to="/solutions" className="nbb" onClick={closeAll}>AI Products <ChevronDown size={13} className="nbc" /></Link>
-                  <div className="nbd-menu">
+                {/* AI Products — CHANGED: trigger is now a button, dropdown is click-based */}
+                <div
+                  className="nbd"
+                  ref={el => dropdownRefs.current["prod"] = el}
+                >
+                  <button
+                    className="nbb-btn"
+                    type="button"
+                    onClick={() => toggleDropdown("prod")}
+                  >
+                    AI Products
+                    <ChevronDown
+                      size={13}
+                      className="nbc"
+                      style={{ transform: openDropdown === "prod" ? "rotate(180deg)" : "rotate(0)" }}
+                    />
+                  </button>
+                  <div className={`nbd-menu${openDropdown === "prod" ? " open" : ""}`}>
                     <Link to="/products/compliize" className="nbd-item" onClick={closeAll}>Data Complize</Link>
                     <Link to="/products/optimize"  className="nbd-item" onClick={closeAll}>Cost Optimize</Link>
                     <Link to="/products/vendorize" className="nbd-item" onClick={closeAll}>De-risk Vendorize</Link>
                   </div>
                 </div>
 
-                {/* BFSI Lab */}
-                <div className="nbd">
-                  <Link to="/bfsiinnovationlab" className="nbb" onClick={closeAll}>BFSI Lab <ChevronDown size={13} className="nbc" /></Link>
-                  <div className="nbd-menu">
+                {/* BFSI Lab — CHANGED: trigger is now a button, dropdown is click-based */}
+                <div
+                  className="nbd"
+                  ref={el => dropdownRefs.current["lab"] = el}
+                >
+                  <button
+                    className="nbb-btn"
+                    type="button"
+                    onClick={() => toggleDropdown("lab")}
+                  >
+                    BFSI Lab
+                    <ChevronDown
+                      size={13}
+                      className="nbc"
+                      style={{ transform: openDropdown === "lab" ? "rotate(180deg)" : "rotate(0)" }}
+                    />
+                  </button>
+                  <div className={`nbd-menu${openDropdown === "lab" ? " open" : ""}`}>
                     <Link to="/bfsiinnovationlab" className="nbd-item" onClick={closeAll}>Explore the Lab</Link>
                   </div>
                 </div>
 
-                {/* Career Accelerator */}
-                <div className="nbd">
-                  <Link to="/careers/internship" className="nbb" onClick={closeAll}>Career Accelerator <ChevronDown size={13} className="nbc" /></Link>
-                  <div className="nbd-menu">
+                {/* Career Accelerator — CHANGED: trigger is now a button, dropdown is click-based */}
+                <div
+                  className="nbd"
+                  ref={el => dropdownRefs.current["career"] = el}
+                >
+                  <button
+                    className="nbb-btn"
+                    type="button"
+                    onClick={() => toggleDropdown("career")}
+                  >
+                    Career Accelerator
+                    <ChevronDown
+                      size={13}
+                      className="nbc"
+                      style={{ transform: openDropdown === "career" ? "rotate(180deg)" : "rotate(0)" }}
+                    />
+                  </button>
+                  <div className={`nbd-menu${openDropdown === "career" ? " open" : ""}`}>
                     <Link to="/careers/internship" className="nbd-item" onClick={closeAll}>Internship Program</Link>
                     <Link to="/careers/placement"  className="nbd-item" onClick={closeAll}>Placement Assistance</Link>
                   </div>
@@ -627,18 +704,34 @@ export default function Navbar() {
               </div>{/* end nb-left */}
 
               <div className="nb-right">
-                <div className="nbd">
-                  <Link to="/about" className="nbb" onClick={closeAll}>About <ChevronDown size={13} className="nbc" /></Link>
-                  <div className="nbd-menu r">
+                {/* About — CHANGED: trigger is now a button, dropdown is click-based */}
+                <div
+                  className="nbd"
+                  ref={el => dropdownRefs.current["about"] = el}
+                >
+                  <button
+                    className="nbb-btn"
+                    type="button"
+                    onClick={() => toggleDropdown("about")}
+                  >
+                    About
+                    <ChevronDown
+                      size={13}
+                      className="nbc"
+                      style={{ transform: openDropdown === "about" ? "rotate(180deg)" : "rotate(0)" }}
+                    />
+                  </button>
+                  <div className={`nbd-menu r${openDropdown === "about" ? " open" : ""}`}>
                     <Link to="/about"             className="nbd-item" onClick={closeAll}>About Us</Link>
                     <Link to="/about/eco-pro-lms" className="nbd-item" onClick={closeAll}>EcoPro LMS</Link>
                   </div>
                 </div>
+                {/* Contact Us — direct link, navigates as expected */}
                 <Link to="/contact" className="nbb" onClick={closeAll}>Contact Us</Link>
               </div>
             </div>{/* end nb-desk */}
 
-            {/* ── Hamburger (mobile only — hidden on desktop via CSS) ── */}
+            {/* ── Hamburger (mobile only) ── */}
             <button
               className="nb-ham"
               onClick={() => setMobileOpen(v => !v)}
@@ -692,7 +785,7 @@ export default function Navbar() {
               <div className="mdiv" />
 
               <span className="ms">One Year</span>
-              <Link to="/courses/pgcdf" onClick={closeAll} className="msl" style={{ flexDirection: "column", alignItems: "flex-start", gap: ".3rem" }}>
+              <Link to="/courses/adfba" onClick={closeAll} className="msl" style={{ flexDirection: "column", alignItems: "flex-start", gap: ".3rem" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: ".4rem", flexWrap: "wrap" }}>
                   <span style={{ background: "#dcfce7", color: "#15803d", fontSize: ".7rem", fontWeight: 700, padding: ".15rem .45rem", borderRadius: 999 }}>ADFBA</span>
                   Advanced Diploma in FinTech, Banking &amp; AI
@@ -744,13 +837,11 @@ export default function Navbar() {
                         }}
                       >
                         <IconBox icon={c.icon} size={17} bg={c.iconBg} radius=".2rem" />
-                        {/* FIX: text-overflow ellipsis on long course names */}
                         <span style={{ flex: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                           › {c.label}
                         </span>
                       </a>
                       <div style={{ display: "flex", gap: ".2rem", flexShrink: 0 }}>
-                        {/* FIX: Shortened labels — "3 Mo" and "Online" fit on 320px */}
                         <span style={{ fontSize: ".55rem", background: "#ede9fe", color: "#4f46e5", padding: ".08rem .28rem", borderRadius: 999, fontWeight: 600 }}>3 Mo</span>
                         <span style={{ fontSize: ".55rem", background: "#e0f2fe", color: "#0891b2", padding: ".08rem .28rem", borderRadius: 999, fontWeight: 600 }}>Online</span>
                       </div>
@@ -816,7 +907,7 @@ export default function Navbar() {
         </nav>
       </div>
 
-      {/* Spacer — keeps page content below the fixed navbar */}
+      {/* Spacer */}
       <div className="nb-sp" />
     </>
   );
