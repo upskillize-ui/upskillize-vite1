@@ -382,15 +382,17 @@ export default function Navbar() {
         .nb-cert-list{animation:slideIn .2s cubic-bezier(.4,0,.2,1)}
         @keyframes slideIn{from{opacity:0;transform:translateX(6px)}to{opacity:1;transform:translateX(0)}}
         .nb-cert-footer{flex-shrink:0;width:100%}
-        .nb-cert-footer a{
+        .nb-cert-footer-register{
           display:flex;align-items:center;justify-content:center;
-          gap:.3rem;width:100%;padding:.38rem .65rem;
+          gap:.3rem;width:100%;padding:.42rem .65rem;
           font-size:.72rem;font-weight:700;color:#fff;text-decoration:none;
-          background:#4f46e5;border-top:2px solid #4338ca;
+          background:#4f46e5;
+          border-top:2px solid #4338ca;
           border-radius:0 0 .75rem .75rem;
-          transition:background .2s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+          transition:background .2s;white-space:nowrap;
+          overflow:hidden;text-overflow:ellipsis;
         }
-        .nb-cert-footer a:hover{background:#4338ca}
+        .nb-cert-footer-register:hover{background:#4338ca;}
 
         /* ── MOBILE HAMBURGER ── */
         .nb-ham{
@@ -599,6 +601,7 @@ export default function Navbar() {
                       <div className="nb-cert-footer">
                         <Link
                           to={`/register?course=${encodeURIComponent(selectedCourse || CERT_CATEGORIES[activeCertTab].label)}`}
+                          className="nb-cert-footer-register"
                           onClick={closeAll}
                         >
                           ✦ Register for {selectedCourse || CERT_CATEGORIES[activeCertTab].label} →
