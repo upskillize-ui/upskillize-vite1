@@ -55,6 +55,7 @@ import ThreeYearsCourse from "./pages/courses/ThreeYearsCourse";
 import BFSIInnovationLab from "./pages/BFSIInnovationLab";
 import TwoYearsSemester from "./pages/courses/TwoYearsSemester";
 import RegisterPage from "./pages/RegisterPage";
+import PIMCoursePage from "./pages/courses/PIMCoursePage";
 
 import "./App.css";
 
@@ -121,6 +122,7 @@ function App() {
             <Route path="/courses/threeyearscourse" element={<ThreeYearsCourse />} />
             <Route path="/courses/pgdfdb" element={<TwoYearsSemester />} />
             <Route path="/bfsiinnovationlab" element={<BFSIInnovationLab />} />
+            <Route path="/courses/professional-insurance-manager" element={<PIMCoursePage />} />
 
             {/* DYNAMIC */}
             <Route path="/courses/:category" element={<CoursesPage />} />

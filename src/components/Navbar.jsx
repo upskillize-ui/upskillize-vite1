@@ -24,7 +24,7 @@ const CERT_CATEGORIES = [
       { label: "Investment Banking & Wealth Tech",  href: "/courses/investment-banking-wealth-tech",        icon: "📈", iconBg: "#dcfce7", available: true,  duration: "3 Months", mode: "Online / Hybrid" },
       { label: "Risk Management & RegTech",         href: "/courses/risk-management-regtech-program",       icon: "🛡️", iconBg: "#fef3c7", available: true,  duration: "3 Months", mode: "Online / Hybrid" },
       { label: "FinTech & AI Mastery",              href: "/courses/ai-fintech",                            icon: "🤖", iconBg: "#f3e8ff", available: false, duration: "3 Months", mode: "Online / Hybrid" },
-      { label: "Insurance, InsurTech & DPDPA",      href: "/courses/ai-fintech",                            icon: "🔐", iconBg: "#fce7f3", available: false, duration: "3 Months", mode: "Online / Hybrid" },
+      { label: "Insurance, InsurTech & DPDPA",      href: "/courses/professional-insurance-manager",        icon: "🔐", iconBg: "#fce7f3", available: true,  duration: "10 Weeks",  mode: "Online / Hybrid" },
       { label: "AI in Financial Services",          href: "/courses/ai-fintech",                            icon: "💹", iconBg: "#d1fae5", available: false, duration: "3 Months", mode: "Online / Hybrid" },
     ],
   },

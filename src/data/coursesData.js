@@ -181,27 +181,39 @@ export const courses = [
         salary: "₹16-38 LPA",
         hasDetailPage: true,
       },
+
+      // ── ✅ PIM — Professional Insurance Manager ──────────────────────────────
+      // slug:          'professional-insurance-manager'
+      // hasDetailPage: true  →  CoursesDetails renders PIMCoursePage
+      // Also add this slug to availableCourses.js Set so the card shows
+      // "Learn More" instead of "Coming Soon" in the CoursesPage grid.
+      // ─────────────────────────────────────────────────────────────────────────
       {
         id: 1.5,
-        title: "Insurance, InsurTech & DPDPA Course",
-        slug: "insurance-insurtech-dpdpa-course",
-        duration: "40 Hours (8 Weeks)",
-        certification: "Certified InsurTech Professional",
-        shortCode: "CITP",
-        certType: "Professional",
+        title: "Insurance, InsurTech & DPDPA",
+        slug: "professional-insurance-manager",
+        duration: "72 Hours (10 Weeks)",
+        certification: "Professional Insurance Manager (PIM)",
+        shortCode: "PIM",
+        certType: "Professional Designation",
         description:
-          "Insurance technology and data protection in the insurance sector.",
+          "India's first AI-powered Insurance certification combining Insurance core, InsurTech, DPDPA data privacy, and 20+ AI tools — in 10 weekends.",
         highlights: [
-          "Insurance operations",
-          "InsurTech platforms",
-          "DPDPA compliance",
-          "Digital insurance",
+          "Insurance, InsurTech & DPDPA core",
+          "20+ AI tools hands-on every module",
+          "10 real graded case studies",
+          "Capstone project with industry panel",
+          "4 AICTE NEP 2020 academic credits",
+          "5–7 industry guest lectures",
+          "Credly digital badge + LinkedIn badge",
+          "90-day placement support",
         ],
-        level: "Intermediate",
-        students: "2.1K+",
-        salary: "₹14-32 LPA",
-        hasDetailPage: false,
+        level: "Beginner to Advanced",
+        students: "40 per batch",
+        salary: "₹4-22 LPA",
+        hasDetailPage: true,
       },
+
       {
         id: 1.6,
         title: "AI in Financial Services",

@@ -12,6 +12,7 @@ import DataToDecisionsPowerBI from "./DataToDecisionsPowerBI";
 import CIPLandingPage from "./CIPLandingPage";
 import CorporateReadinessProgram from "./CorporateReadinessProgram";
 import PgCDFLandingPage from "./OneYearCourse";
+import PIMCoursePage from "./PIMCoursePage";
 
 export default function CourseDetails() {
   const { slug } = useParams();
@@ -60,6 +61,7 @@ export default function CourseDetails() {
     'digital-business-strategy-innovation': DigitalStrategyProgram,
     'corporate-readiness-program': CorporateReadinessProgram,
     'pgcdf': PgCDFLandingPage,
+    'professional-insurance-manager': PIMCoursePage,
   };
 
   const DetailComponent = detailPageComponents[slug];
