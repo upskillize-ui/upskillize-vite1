@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // ── Icon helper ──
 function IconBox({ icon, size = 22, bg = "#ede9fe", radius = ".25rem" }) {
@@ -119,7 +119,7 @@ function Pill({ children, bg, color }) {
 // ── Main Navbar ──
 export default function Navbar() {
   const [isScrolled,     setIsScrolled]     = useState(false);
-  const [mobileOpen,     setMobileOpen]     = useState(false);
+  const [mobileOpen,     setMobileOpen]     = useState(false);   // FIX: was declared outside component — moved inside
   const [industryOpen,   setIndustryOpen]   = useState(false);
   const [activeCertTab,  setActiveCertTab]  = useState(0);
   const [selectedCourse, setSelectedCourse] = useState(null);
@@ -140,14 +140,17 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
+  // FIX: Close mobile menu when viewport expands to desktop width
   useEffect(() => {
     const onResize = () => { if (window.innerWidth >= 768) setMobileOpen(false); };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
+  // FIX: Cleanup overflow on unmount
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
   const closeAll = () => {
@@ -172,32 +175,78 @@ export default function Navbar() {
 
         /* ── NAV BAR ── */
         .nb{position:fixed;top:0;left:0;right:0;z-index:9999}
-        .nb-bar{background:var(--c-bg);border-bottom:1px solid transparent;transition:border-color .25s,box-shadow .25s,backdrop-filter: blur(8px);}
-        .nb-bar.scrolled{border-color:var(--c-border);box-shadow:0 2px 14px rgba(0,0,0,.07)}
-        .nb-inner{ width:100%;margin:0 auto;padding:0 1rem;height:56px;width:100%;display:flex;align-items:center;justify-content:space-between;}
-        .nb-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;margin-right:1rem}
-        .nb-logo img{height:36px;width:auto;display:block}
+        .nb-bar{
+          background:var(--c-bg);
+          border-bottom:1px solid transparent;
+          transition:border-color .25s,box-shadow .25s;
+        }
+        .nb-bar.scrolled{
+          border-color:var(--c-border);
+          box-shadow:0 2px 14px rgba(0,0,0,.07);
+          /* FIX: backdrop-filter now correctly separated */
+          backdrop-filter:blur(8px);
+          background:rgba(255,255,255,0.95);
+        }
+
+        /* FIX: Responsive padding using clamp — no max-width constraint */
+        .nb-inner{
+          width:100%;
+          padding:0 clamp(0.5rem,2vw,1.5rem);
+          height:56px;
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+          gap:0.5rem;
+        }
+
+        /* FIX: Responsive logo height */
+        .nb-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;margin-right:clamp(0.25rem,1vw,1rem)}
+        .nb-logo img{height:clamp(28px,5vw,36px);width:auto;display:block}
         .nb-logo-text{font-size:1.1rem;font-weight:800;color:var(--c-indigo);display:none}
-        .nb-desk{display:none;flex:1;align-items:center;justify-content:space-between;min-width:0}
+
+        /* FIX: Desktop nav uses display:flex, hidden on mobile via display:none */
+        .nb-desk{display:none;flex:1;align-items:center;justify-content:space-between;min-width:0;overflow:visible}
         @media(min-width:768px){.nb-desk{display:flex!important}}
-        .nb-left{display:flex;align-items:center;gap:0;flex-wrap:nowrap}
+
+        .nb-left{display:flex;align-items:center;gap:0;flex-wrap:nowrap;min-width:0;overflow:visible}
         .nb-right{display:flex;align-items:center;gap:.25rem;margin-left:auto;flex-shrink:0}
-        .nbb{display:inline-flex;align-items:center;gap:.2rem;padding:.38rem .55rem;border-radius:.4rem;
-          font-size:.78rem;font-weight:500;color:var(--c-text);background:none;border:none;
-          cursor:pointer;text-decoration:none;white-space:nowrap;transition:background .15s,color .15s}
+
+        /* FIX: Nav buttons use clamp font-size — shrink gracefully on 768-1024px */
+        .nbb{
+          display:inline-flex;align-items:center;gap:.2rem;
+          padding:.38rem clamp(.3rem,.6vw,.55rem);
+          border-radius:.4rem;
+          font-size:clamp(.72rem,.9vw,.85rem);
+          font-weight:500;color:var(--c-text);background:none;border:none;
+          cursor:pointer;text-decoration:none;white-space:nowrap;
+          transition:background .15s,color .15s;
+          flex-shrink:0;
+        }
         .nbb:hover{background:var(--c-hover-bg);color:var(--c-hover)}
         .nbc{transition:transform .2s;flex-shrink:0;width:13px;height:13px}
 
         /* Simple dropdowns */
         .nbd{position:relative}
-        .nbd-menu{position:absolute;top:calc(100% + 8px);left:0;background:var(--c-bg);
-          border:1px solid var(--c-border);border-radius:.75rem;box-shadow:var(--shadow);
-          min-width:190px;padding:.375rem 0;opacity:0;visibility:hidden;
-          transform:translateY(-6px);transition:all .18s ease;z-index:99999;}
+        .nbd-menu{
+          position:absolute;top:calc(100% + 8px);left:0;
+          background:var(--c-bg);
+          border:1px solid var(--c-border);
+          border-radius:.75rem;
+          box-shadow:var(--shadow);
+          min-width:190px;padding:.375rem 0;
+          opacity:0;visibility:hidden;
+          transform:translateY(-6px);
+          transition:all .18s ease;z-index:99999;
+        }
         .nbd-menu.r{left:auto;right:0}
         .nbd:hover .nbd-menu{opacity:1;visibility:visible;transform:translateY(0)}
-        .nbd-item{display:block;padding:.6rem 1rem;font-size:.875rem;font-weight:500;
-          color:var(--c-text);text-decoration:none;transition:background .12s,color .12s}
+        .nbd-item{
+          display:block;padding:.6rem 1rem;
+          font-size:.875rem;font-weight:500;
+          color:var(--c-text);text-decoration:none;
+          transition:background .12s,color .12s;
+          white-space:nowrap;
+        }
         .nbd-item:hover{background:var(--c-hover-bg);color:var(--c-hover)}
 
         /* ── HIGHER EDUCATION MEGA PANEL ── */
@@ -205,13 +254,22 @@ export default function Navbar() {
         .nb-panel{
           position:absolute;top:calc(100% + 6px);left:0;
           background:transparent;
-          width:min(700px, 95vw);
+          /* FIX: calc(100vw - 2rem) prevents panel from overflowing viewport */
+          width:min(700px,calc(100vw - 2rem));
           display:grid;grid-template-columns:192px 1fr;column-gap:8px;
           align-items:stretch;
           opacity:0;visibility:hidden;transform:translateY(-8px);
           transition:all .2s cubic-bezier(.4,0,.2,1);z-index:99999;
         }
         .nb-panel.open{opacity:1;visibility:visible;transform:translateY(0)}
+
+        /* FIX: Narrower 2-col layout on 768-900px tablets */
+        @media(min-width:768px) and (max-width:900px){
+          .nb-panel{
+            grid-template-columns:160px 1fr;
+            width:min(560px,calc(100vw - 1rem));
+          }
+        }
 
         /* COL 1 – Institutions */
         .nb-left-col{
@@ -303,58 +361,102 @@ export default function Navbar() {
         }
         .nb-cert-footer a:hover{background:#4338ca}
 
-        /* ── MOBILE ── */
-        .nb-ham{display:flex;padding:.5rem;border:none;background:transparent;
-          cursor:pointer;color:var(--c-text);border-radius:.375rem;transition:background .15s}
-        .nb-ham:hover{background:#f3f4f6}
-        .nb-mob{position:fixed;top:0;left:0;right:0;height:100vh;background:#fff;padding-top:56px;
-          overflow-y:auto;transform:translateX(100%);
-          transition:transform .3s cubic-bezier(.4,0,.2,1);z-index:10000}
-        .nb-mob.open{transform:translateX(0)}
-        @media(min-width:768px){
-          .nb-ham{display:none!important}
-          .nb-mob{display:none!important}
-          .nb-mob.open{display:none!important}
+        /* ── MOBILE HAMBURGER ── */
+        .nb-ham{
+          display:flex;padding:.5rem;border:none;background:transparent;
+          cursor:pointer;color:var(--c-text);border-radius:.375rem;
+          transition:background .15s;flex-shrink:0;
         }
+        .nb-ham:hover{background:#f3f4f6}
+        /* FIX: Hide hamburger on desktop screens */
+        @media(min-width:768px){.nb-ham{display:none!important}}
+
+        /* ── MOBILE MENU FULL-SCREEN PANEL ── */
+        .nb-mob{
+          position:fixed;top:0;left:0;right:0;bottom:0;
+          background:#fff;
+          padding-top:56px;
+          overflow-y:auto;
+          /* FIX: slide in from right — uses transform, not display:none, for smooth animation */
+          transform:translateX(100%);
+          transition:transform .3s cubic-bezier(.4,0,.2,1);
+          z-index:10000;
+          pointer-events:none;
+          visibility:hidden;
+        }
+        .nb-mob.open{
+          transform:translateX(0);
+          pointer-events:auto;
+          visibility:visible;
+        }
+        /* FIX: Always hidden on desktop regardless of mobileOpen state */
+        @media(min-width:768px){
+          .nb-mob,.nb-mob.open{display:none!important}
+        }
+
         .nb-mnav{padding:.75rem 1rem 4rem;display:flex;flex-direction:column;gap:.125rem}
-        .ma{display:flex;align-items:center;justify-content:space-between;
-          padding:1rem;border-radius:.5rem;font-size:.975rem;font-weight:600;
-          color:var(--c-text);background:none;border:none;cursor:pointer;
-          width:100%;text-align:left;transition:background .13s}
+
+        /* FIX: Mobile accordion triggers — responsive padding & font */
+        .ma{
+          display:flex;align-items:center;justify-content:space-between;
+          padding:clamp(.75rem,3vw,1rem);
+          border-radius:.5rem;
+          font-size:clamp(.875rem,4vw,.975rem);
+          font-weight:600;color:var(--c-text);
+          background:none;border:none;cursor:pointer;
+          width:100%;text-align:left;transition:background .13s;
+        }
         .ma:hover{background:#f9fafb}
         .mc{transition:transform .2s}.mc.o{transform:rotate(180deg)}
-        .ml{display:block;padding:.875rem;border-radius:.5rem;font-size:.975rem;
-          font-weight:600;color:var(--c-text);text-decoration:none;transition:background .13s}
-        .ml:hover{background:#f9fafb}
-        .mp{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1);
-          padding-left:.5rem;border-left:3px solid #e0e7ff;margin-left:.875rem;margin-bottom:.25rem}
-        .mp.o{max-height:3200px}
-        .ms{display:block;padding:.625rem .75rem .35rem;font-size:.67rem;
-          font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c-cyan)}
-        .msl{display:flex;align-items:center;gap:.5rem;padding:.55rem .75rem;
-          border-radius:.375rem;font-size:.875rem;font-weight:500;color:#374151;
-          text-decoration:none;transition:background .12s,color .12s}
-        .msl:hover{background:var(--c-hover-bg);color:var(--c-hover)}
-        .mdiv{height:1px;background:#f3f4f6;margin:.375rem 0}
-        .nb-sp{height:56px}
-        @media(min-width:768px){.nb-sp{ height:56px}}
-        @media(max-width:767px){.nb-inner{padding:0 .75rem}.nb-logo img{height:32px}}
-        @media(max-width:480px){.nb-logo img{height:28px}.nb-inner{padding:0 .5rem}}
-        
-  .nb-left, .nb-right {
-  min-width: 0;
-}
 
-.nbb {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+        /* FIX: Mobile direct links — responsive */
+        .ml{
+          display:block;
+          padding:clamp(.75rem,3vw,.875rem);
+          border-radius:.5rem;
+          font-size:clamp(.875rem,4vw,.975rem);
+          font-weight:600;color:var(--c-text);
+          text-decoration:none;transition:background .13s;
+        }
+        .ml:hover{background:#f9fafb}
+
+        /* Mobile accordion panel */
+        .mp{
+          max-height:0;overflow:hidden;
+          transition:max-height .4s cubic-bezier(.4,0,.2,1);
+          padding-left:.5rem;
+          border-left:3px solid #e0e7ff;
+          margin-left:.875rem;margin-bottom:.25rem;
+        }
+        .mp.o{max-height:3200px}
+
+        .ms{
+          display:block;padding:.22rem .75rem .06rem;
+          font-size:.67rem;font-weight:700;
+          letter-spacing:.08em;text-transform:uppercase;color:var(--c-cyan);
+        }
+
+        .msl{
+          display:flex;align-items:center;gap:.5rem;
+          padding:.55rem .75rem;border-radius:.375rem;
+          font-size:clamp(.8rem,3.5vw,.875rem);
+          font-weight:500;color:#374151;
+          text-decoration:none;transition:background .12s,color .12s;
+        }
+        .msl:hover{background:var(--c-hover-bg);color:var(--c-hover)}
+
+        .mdiv{height:1px;background:#f3f4f6;margin:.375rem 0}
+
+        /* ── SPACER ── */
+        /* FIX: Fixed height — not clamp. Navbar height is fixed, not fluid. */
+        .nb-sp{height:56px;width:100%;flex-shrink:0}
       `}</style>
 
       <div className="nb">
         <header className={`nb-bar${isScrolled ? " scrolled" : ""}`}>
           <div className="nb-inner">
-            {/* Logo */}
+
+            {/* ── Logo ── */}
             <Link to="/" className="nb-logo" onClick={closeAll}>
               <img
                 src="/images/logo.png"
@@ -367,20 +469,20 @@ export default function Navbar() {
               <span className="nb-logo-text">Upskillize</span>
             </Link>
 
-            {/* ── DESKTOP ── */}
+            {/* ── DESKTOP NAV ── */}
             <div className="nb-desk">
               <div className="nb-left">
 
-                {/* Higher Education */}
+                {/* Higher Education — Mega Panel */}
                 <div className="nb-ind" onMouseEnter={onEnter} onMouseLeave={onLeave}>
-                  <button className="nbb" aria-haspopup="true" aria-expanded={industryOpen}>
+                  <Link to="/academic" className="nbb" onClick={closeAll}>
                     Higher Education
                     <ChevronDown
-                      size={15}
+                      size={13}
                       className="nbc"
                       style={{ transform: industryOpen ? "rotate(180deg)" : "rotate(0)" }}
                     />
-                  </button>
+                  </Link>
 
                   <div className={`nb-panel${industryOpen ? " open" : ""}`}>
 
@@ -422,7 +524,7 @@ export default function Navbar() {
                       {/* One Year */}
                       <div className="nb-prog-section">
                         <span className="nb-prog-section-label">One Year</span>
-                        <a href="/courses/pgcdf" className="nb-prog-row" onClick={closeAll}>
+                        <Link to="/courses/pgcdf" className="nb-prog-row" onClick={closeAll}>
                           <div className="nb-prog-thumb">
                             <img src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=200&q=80" alt="ADFBA" />
                           </div>
@@ -435,7 +537,7 @@ export default function Navbar() {
                               <Pill bg="#f4f6fb" color="#6b7fa3">6 Bimesters</Pill>
                             </div>
                           </div>
-                        </a>
+                        </Link>
                         <div className="nb-prog-footer">
                           <Link
                             to="/register?course=Advanced%20Diploma%20in%20FinTech%2C%20Banking%20%26%20AI"
@@ -488,68 +590,69 @@ export default function Navbar() {
 
                 {/* Corporates */}
                 <div className="nbd">
-                  <button className="nbb">Corporates <ChevronDown size={15} className="nbc" /></button>
+                  <Link to="/corporate" className="nbb" onClick={closeAll}>Corporates <ChevronDown size={13} className="nbc" /></Link>
                   <div className="nbd-menu">
-                    <Link to="/corporate/consulting" className="nbd-item">Business Consulting</Link>
-                    <a href="/corporate/training"    className="nbd-item">Corporate Training</a>
+                    <Link to="/corporate/consulting" className="nbd-item" onClick={closeAll}>Business Consulting</Link>
+                    <Link to="/corporate/training"   className="nbd-item" onClick={closeAll}>Corporate Training</Link>
                   </div>
                 </div>
 
                 {/* AI Products */}
                 <div className="nbd">
-                  <button className="nbb">AI Products <ChevronDown size={15} className="nbc" /></button>
+                  <Link to="/solutions" className="nbb" onClick={closeAll}>AI Products <ChevronDown size={13} className="nbc" /></Link>
                   <div className="nbd-menu">
-                    <a href="/products/compliize" className="nbd-item">Data Complize</a>
-                    <a href="/products/optimize"  className="nbd-item">Cost Optimize</a>
-                    <a href="/products/vendorize" className="nbd-item">De-risk Vendorize</a>
+                    <Link to="/products/compliize" className="nbd-item" onClick={closeAll}>Data Complize</Link>
+                    <Link to="/products/optimize"  className="nbd-item" onClick={closeAll}>Cost Optimize</Link>
+                    <Link to="/products/vendorize" className="nbd-item" onClick={closeAll}>De-risk Vendorize</Link>
                   </div>
                 </div>
 
                 {/* BFSI Lab */}
                 <div className="nbd">
-                  <button className="nbb">BFSI Lab <ChevronDown size={15} className="nbc" /></button>
+                  <Link to="/bfsiinnovationlab" className="nbb" onClick={closeAll}>BFSI Lab <ChevronDown size={13} className="nbc" /></Link>
                   <div className="nbd-menu">
-                    <a href="/bfsiinnovationlab"          className="nbd-item">Explore the Lab</a>
+                    <Link to="/bfsiinnovationlab" className="nbd-item" onClick={closeAll}>Explore the Lab</Link>
                   </div>
                 </div>
 
                 {/* Career Accelerator */}
                 <div className="nbd">
-                  <button className="nbb">Career Accelerator <ChevronDown size={15} className="nbc" /></button>
+                  <Link to="/careers/internship" className="nbb" onClick={closeAll}>Career Accelerator <ChevronDown size={13} className="nbc" /></Link>
                   <div className="nbd-menu">
-                    <a href="/careers/internship" className="nbd-item">Internship Program</a>
-                    <a href="/careers/placement"  className="nbd-item">Placement Assistance</a>
+                    <Link to="/careers/internship" className="nbd-item" onClick={closeAll}>Internship Program</Link>
+                    <Link to="/careers/placement"  className="nbd-item" onClick={closeAll}>Placement Assistance</Link>
                   </div>
                 </div>
 
-              </div>
+              </div>{/* end nb-left */}
 
               <div className="nb-right">
                 <div className="nbd">
-                  <button className="nbb">About <ChevronDown size={15} className="nbc" /></button>
+                  <Link to="/about" className="nbb" onClick={closeAll}>About <ChevronDown size={13} className="nbc" /></Link>
                   <div className="nbd-menu r">
-                    <a href="/about"             className="nbd-item">About Us</a>
-                    <a href="/about/eco-pro-lms" className="nbd-item">EcoPro LMS</a>
+                    <Link to="/about"             className="nbd-item" onClick={closeAll}>About Us</Link>
+                    <Link to="/about/eco-pro-lms" className="nbd-item" onClick={closeAll}>EcoPro LMS</Link>
                   </div>
                 </div>
-                <Link to="/contact" className="nbb">Contact Us</Link>
+                <Link to="/contact" className="nbb" onClick={closeAll}>Contact Us</Link>
               </div>
-            </div>
+            </div>{/* end nb-desk */}
 
-            {/* Hamburger */}
+            {/* ── Hamburger (mobile only — hidden on desktop via CSS) ── */}
             <button
               className="nb-ham"
               onClick={() => setMobileOpen(v => !v)}
               aria-label="Toggle menu"
               aria-expanded={mobileOpen}
             >
-              {mobileOpen ? <X size={26} /> : <Menu size={26} />}
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
-          </div>
+
+          </div>{/* end nb-inner */}
         </header>
 
         {/* ── MOBILE MENU ── */}
-        <nav className={`nb-mob${mobileOpen ? " open" : ""}`}>
+        <nav className={`nb-mob${mobileOpen ? " open" : ""}`} aria-hidden={!mobileOpen}>
           <div className="nb-mnav">
 
             {/* Higher Education */}
@@ -558,12 +661,12 @@ export default function Navbar() {
             </button>
             <div className={`mp${mobileIndustry ? " o" : ""}`}>
               <span className="ms">For Institutions</span>
-              <a href="/about" onClick={closeAll} className="msl">🏛️ Upskillize Institute of FinTech &amp; AI</a>
+              <Link to="/about" onClick={closeAll} className="msl">🏛️ Upskillize Institute of FinTech &amp; AI</Link>
               <div className="mdiv" />
 
               <span className="ms">Two Years</span>
-              <a href="/courses/pgdfdb" onClick={closeAll} className="msl" style={{ flexDirection: "column", alignItems: "flex-start", gap: ".3rem" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: ".4rem" }}>
+              <Link to="/courses/pgdfdb" onClick={closeAll} className="msl" style={{ flexDirection: "column", alignItems: "flex-start", gap: ".3rem" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: ".4rem", flexWrap: "wrap" }}>
                   <span style={{ background: "#CCFBF1", color: "#065F46", fontSize: ".7rem", fontWeight: 700, padding: ".15rem .45rem", borderRadius: 999 }}>PGDFDB</span>
                   PG Diploma in FinTech &amp; Digital Business
                   <span style={{ fontSize: ".65rem", fontWeight: 700, background: "#FAEEDA", color: "#633806", padding: ".1rem .35rem", borderRadius: 3 }}>NEW</span>
@@ -573,7 +676,7 @@ export default function Navbar() {
                   <Pill bg="#e0f2fe" color="#0369a1">Online / Hybrid</Pill>
                   <Pill bg="#f4f6fb" color="#6b7fa3">4 Semesters</Pill>
                 </div>
-              </a>
+              </Link>
               <Link
                 to="/register?course=PG%20Diploma%20in%20FinTech%20%26%20Digital%20Business"
                 onClick={closeAll}
@@ -589,8 +692,8 @@ export default function Navbar() {
               <div className="mdiv" />
 
               <span className="ms">One Year</span>
-              <a href="/courses/pgcdf" onClick={closeAll} className="msl" style={{ flexDirection: "column", alignItems: "flex-start", gap: ".3rem" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: ".4rem" }}>
+              <Link to="/courses/pgcdf" onClick={closeAll} className="msl" style={{ flexDirection: "column", alignItems: "flex-start", gap: ".3rem" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: ".4rem", flexWrap: "wrap" }}>
                   <span style={{ background: "#dcfce7", color: "#15803d", fontSize: ".7rem", fontWeight: 700, padding: ".15rem .45rem", borderRadius: 999 }}>ADFBA</span>
                   Advanced Diploma in FinTech, Banking &amp; AI
                 </div>
@@ -599,7 +702,7 @@ export default function Navbar() {
                   <Pill bg="#e0f2fe" color="#0369a1">Online / Hybrid</Pill>
                   <Pill bg="#f4f6fb" color="#6b7fa3">6 Bimesters</Pill>
                 </div>
-              </a>
+              </Link>
               <Link
                 to="/register?course=Advanced%20Diploma%20in%20FinTech%2C%20Banking%20%26%20AI"
                 onClick={closeAll}
@@ -617,9 +720,9 @@ export default function Navbar() {
               <span className="ms">Professional Certifications</span>
               {CERT_CATEGORIES.map(cat => (
                 <div key={cat.slug}>
-                  <a href={`/courses/${cat.slug}`} onClick={closeAll} className="msl" style={{ fontWeight: 700, gap: ".4rem" }}>
+                  <Link to={`/courses/${cat.slug}`} onClick={closeAll} className="msl" style={{ fontWeight: 700, gap: ".4rem" }}>
                     <span>{cat.icon}</span> {cat.label}
-                  </a>
+                  </Link>
                   {cat.courses.map(c => (
                     <div
                       key={c.label}
@@ -641,11 +744,15 @@ export default function Navbar() {
                         }}
                       >
                         <IconBox icon={c.icon} size={17} bg={c.iconBg} radius=".2rem" />
-                        <span style={{ flex: 1 }}>› {c.label}</span>
+                        {/* FIX: text-overflow ellipsis on long course names */}
+                        <span style={{ flex: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                          › {c.label}
+                        </span>
                       </a>
                       <div style={{ display: "flex", gap: ".2rem", flexShrink: 0 }}>
-                        <span style={{ fontSize: ".55rem", background: "#ede9fe", color: "#4f46e5", padding: ".08rem .28rem", borderRadius: 999, fontWeight: 600 }}>3 Months</span>
-                        <span style={{ fontSize: ".55rem", background: "#e0f2fe", color: "#0891b2", padding: ".08rem .28rem", borderRadius: 999, fontWeight: 600 }}>Online / Hybrid</span>
+                        {/* FIX: Shortened labels — "3 Mo" and "Online" fit on 320px */}
+                        <span style={{ fontSize: ".55rem", background: "#ede9fe", color: "#4f46e5", padding: ".08rem .28rem", borderRadius: 999, fontWeight: 600 }}>3 Mo</span>
+                        <span style={{ fontSize: ".55rem", background: "#e0f2fe", color: "#0891b2", padding: ".08rem .28rem", borderRadius: 999, fontWeight: 600 }}>Online</span>
                       </div>
                     </div>
                   ))}
@@ -658,8 +765,8 @@ export default function Navbar() {
               Corporates <ChevronDown size={18} className={`mc${mobileCorp ? " o" : ""}`} />
             </button>
             <div className={`mp${mobileCorp ? " o" : ""}`}>
-              <a href="/corporate/consulting" onClick={closeAll} className="msl">Business Consulting</a>
-              <a href="/corporate/training"   onClick={closeAll} className="msl">Corporate Training</a>
+              <Link to="/corporate/consulting" onClick={closeAll} className="msl">Business Consulting</Link>
+              <Link to="/corporate/training"   onClick={closeAll} className="msl">Corporate Training</Link>
             </div>
 
             {/* AI Products */}
@@ -667,9 +774,9 @@ export default function Navbar() {
               AI Products <ChevronDown size={18} className={`mc${mobileProd ? " o" : ""}`} />
             </button>
             <div className={`mp${mobileProd ? " o" : ""}`}>
-              <a href="/products/compliize" onClick={closeAll} className="msl">Data Complize</a>
-              <a href="/products/optimize"  onClick={closeAll} className="msl">Cost Optimize</a>
-              <a href="/products/vendorize" onClick={closeAll} className="msl">De-risk Vendorize</a>
+              <Link to="/products/compliize" onClick={closeAll} className="msl">Data Complize</Link>
+              <Link to="/products/optimize"  onClick={closeAll} className="msl">Cost Optimize</Link>
+              <Link to="/products/vendorize" onClick={closeAll} className="msl">De-risk Vendorize</Link>
             </div>
 
             {/* BFSI Lab */}
@@ -677,10 +784,10 @@ export default function Navbar() {
               BFSI Lab <ChevronDown size={18} className={`mc${mobileLab ? " o" : ""}`} />
             </button>
             <div className={`mp${mobileLab ? " o" : ""}`}>
-              <a href="/bfsiinnovationlab"          onClick={closeAll} className="msl">Explore the Lab</a>
-              <a href="/bfsiinnovationlab/projects" onClick={closeAll} className="msl">Lab Projects</a>
-              <a href="/bfsiinnovationlab/mentors"  onClick={closeAll} className="msl">Expert Mentors</a>
-              <a href="/connect"                    onClick={closeAll} className="msl">Set Up Our Lab</a>
+              <Link to="/bfsiinnovationlab"          onClick={closeAll} className="msl">Explore the Lab</Link>
+              <Link to="/bfsiinnovationlab/projects" onClick={closeAll} className="msl">Lab Projects</Link>
+              <Link to="/bfsiinnovationlab/mentors"  onClick={closeAll} className="msl">Expert Mentors</Link>
+              <Link to="/connect"                    onClick={closeAll} className="msl">Set Up Our Lab</Link>
             </div>
 
             {/* Career Accelerator */}
@@ -688,8 +795,8 @@ export default function Navbar() {
               Career Accelerator <ChevronDown size={18} className={`mc${mobileCareer ? " o" : ""}`} />
             </button>
             <div className={`mp${mobileCareer ? " o" : ""}`}>
-              <a href="/careers/internship" onClick={closeAll} className="msl">Internship Program</a>
-              <a href="/careers/placement"  onClick={closeAll} className="msl">Placement Assistance</a>
+              <Link to="/careers/internship" onClick={closeAll} className="msl">Internship Program</Link>
+              <Link to="/careers/placement"  onClick={closeAll} className="msl">Placement Assistance</Link>
             </div>
 
             <div className="mdiv" />
@@ -699,11 +806,11 @@ export default function Navbar() {
               About <ChevronDown size={18} className={`mc${mobileAbout ? " o" : ""}`} />
             </button>
             <div className={`mp${mobileAbout ? " o" : ""}`}>
-              <a href="/about"             onClick={closeAll} className="msl">About Us</a>
-              <a href="/about/eco-pro-lms" onClick={closeAll} className="msl">EcoPro LMS</a>
+              <Link to="/about"             onClick={closeAll} className="msl">About Us</Link>
+              <Link to="/about/eco-pro-lms" onClick={closeAll} className="msl">EcoPro LMS</Link>
             </div>
 
-            <a href="/contact" onClick={closeAll} className="ml">Contact Us</a>
+            <Link to="/contact" onClick={closeAll} className="ml">Contact Us</Link>
 
           </div>
         </nav>

@@ -118,10 +118,10 @@ export default function BFSIExcellenceProgram() {
         </div>
         
         <div className="relative z-10">
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-4">🏦 FinTech Domain Excellence Program</h1>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4">🏦 FinTech Domain Excellence Program</h1>
           <p className="text-lg md:text-xl mb-6">40-Hour Professional Certification in Banking, Financial Services & Insurance</p>
           
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4 mt-8 max-w-5xl mx-auto">
             {stats.map((stat, i) => (
               <div key={i} className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border-2 border-yellow-400 hover:scale-105 transition-transform">
                 <div className="text-3xl font-black text-yellow-300">{stat.number}</div>
@@ -133,8 +133,8 @@ export default function BFSIExcellenceProgram() {
       </section>
 
       {/* Overview */}
-      <section className="px-6 py-12">
-        <h2 className="text-center text-4xl font-bold text-blue-900 mb-10 relative">
+      <section className="px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-bold text-blue-900 mb-10 relative">
           Transform Your Career in FinTech
           <div className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-blue-500 to-blue-700 rounded"></div>
         </h2>
@@ -151,8 +151,8 @@ export default function BFSIExcellenceProgram() {
       </section>
 
       {/* Curriculum */}
-      <section className="bg-gray-50 px-6 py-12">
-        <h2 className="text-center text-4xl font-bold text-blue-900 mb-10 relative">
+      <section className="px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-bold text-blue-900 mb-10  relative">
           Complete 40-Hour FinTech Curriculum
           <div className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-blue-500 to-blue-700 rounded"></div>
         </h2>
@@ -206,8 +206,8 @@ export default function BFSIExcellenceProgram() {
       </section>
 
       {/* Careers */}
-      <section className="px-6 py-12">
-        <h2 className="text-center text-4xl font-bold text-blue-900 mb-10 relative">
+      <section className="px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-bold text-blue-900 mb-10  relative">
           FinTech Career Prospects & Salary Ranges
           <div className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-blue-500 to-blue-700 rounded"></div>
         </h2>
@@ -226,8 +226,8 @@ export default function BFSIExcellenceProgram() {
       </section>
 
       {/* Success Factors */}
-      <section className="bg-gradient-to-br from-blue-900 to-blue-700 text-white px-6 py-12">
-        <h2 className="text-center text-4xl font-bold mb-10">What You Need to Succeed in Fintech</h2>
+      <section className="bg-gradient-to-br from-blue-900 to-blue-700 text-white px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-10">What You Need to Succeed in Fintech</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {successFactors.map((factor, i) => (
@@ -241,7 +241,7 @@ export default function BFSIExcellenceProgram() {
       </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-br from-green-500 to-green-600 text-white px-6 py-12 text-center">
+      <section className="bg-gradient-to-br from-green-500 to-green-600 text-white px-4 sm:px-6 py-8 sm:py-12 text-center">
         <h2 className="text-3xl md:text-4xl font-extrabold mb-3">🚀 Transform Students Into FinTech Professionals</h2>
         <p className="text-lg mb-6">Join 75+ colleges already building industry-ready talent</p>
         
@@ -251,7 +251,7 @@ export default function BFSIExcellenceProgram() {
           </div>
         </div>
         
-        <div className="flex flex-wrap gap-4 justify-center mt-6">
+        <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center mt-6">
           <button className="bg-white text-green-600 px-6 py-3 rounded-full font-bold hover:scale-105 hover:shadow-xl transition-all">
             📅 Schedule Demo Session
           </button>
@@ -262,9 +262,9 @@ export default function BFSIExcellenceProgram() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-blue-900 text-white px-6 py-8 text-center">
+      <footer className="bg-blue-900 text-white px-4 sm:px-6 py-6 sm:py-8 text-center">
         <h3 className="text-yellow-400 font-bold text-lg mb-4">🏆 Program Highlights</h3>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 text-sm mb-6">
           <div>✅ Industry-Recognized Certification</div>
           <div>✅ 100% Practical Learning</div>
           <div>✅ Expert Industry Mentors</div>

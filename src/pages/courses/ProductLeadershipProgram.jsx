@@ -160,7 +160,7 @@ export default function ProductLeadershipProgram() {
     hero: {
       background: 'linear-gradient(135deg, #006B7D 0%, #1E3A5F 100%)',
       color: '#FFFFFF',
-      padding: '100px 20px 80px',
+      padding: 'clamp(4rem,10vw,6.25rem) clamp(1rem,4vw,1.25rem) clamp(3rem,7vw,5rem)',
       textAlign: 'center',
       position: 'relative',
       overflow: 'hidden'
@@ -216,7 +216,7 @@ export default function ProductLeadershipProgram() {
       opacity: 0.95
     },
     section: {
-      padding: '80px 20px',
+      padding: 'clamp(2.5rem,6vw,5rem) clamp(1rem,4vw,1.25rem)',
       background: '#FFFFFF'
     },
     sectionAlt: {
@@ -354,7 +354,7 @@ export default function ProductLeadershipProgram() {
     toolsSection: {
       background: 'linear-gradient(135deg, #006B7D 0%, #1E3A5F 100%)',
       color: '#FFFFFF',
-      padding: '60px 20px'
+      padding: 'clamp(2rem,5vw,3.75rem) clamp(1rem,4vw,1.25rem)'
     },
     toolsGrid: {
       display: 'grid',
@@ -382,7 +382,7 @@ export default function ProductLeadershipProgram() {
     ctaSection: {
       background: '#FF6B35',
       color: '#FFFFFF',
-      padding: '80px 20px',
+      padding: 'clamp(2.5rem,6vw,5rem) clamp(1rem,4vw,1.25rem)',
       textAlign: 'center'
     },
     ctaButton: {
@@ -802,7 +802,7 @@ export default function ProductLeadershipProgram() {
 
       {/* Career Progression */}
       <section style={{background: 'linear-gradient(135deg, #E6F7F9 0%, #F4F6F8 100%)', padding: '80px 20px'}}>
-        <div style={{maxWidth: 1400, margin: '0 auto', background: 'white', padding: 50, borderRadius: 20, boxShadow: '0 20px 60px rgba(102,126,234,0.15)'}}>
+        <div style={{maxWidth: 1400, margin: '0 auto', background: 'white', padding: 'clamp(1rem,3vw,50px)', borderRadius: 20, boxShadow: '0 20px 60px rgba(102,126,234,0.15)'}}>
           <div style={{textAlign: 'center', marginBottom: 60}}>
             <div style={{display: 'inline-block', background: 'linear-gradient(135deg, #006B7D 0%, #1E3A5F 100%)', color: 'white', padding: '8px 24px', borderRadius: 25, fontSize: 12, fontWeight: 'bold', letterSpacing: 1, marginBottom: 20, boxShadow: '0 4px 15px rgba(79,70,229,0.3)'}}>FULFILLING, CHALLENGING & REWARDING</div>
             <h1 style={{fontSize: '3rem', background: 'linear-gradient(135deg, #006B7D 0%, #1E3A5F 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', marginBottom: 10, fontWeight: 800}}>Product Management Career Progression Path</h1>
@@ -855,14 +855,14 @@ export default function ProductLeadershipProgram() {
 
       {/* Fun Facts */}
       <section style={{background: 'linear-gradient(135deg, #E6F7F9 0%, #F4F6F8 100%)', padding: '80px 20px'}}>
-        <div style={{maxWidth: 1200, margin: '0 auto', background: 'white', padding: '60px 50px', borderRadius: 25, boxShadow: '0 20px 60px rgba(79,70,229,0.15)'}}>
+        <div style={{maxWidth: 1200, margin: '0 auto', background: 'white', padding: 'clamp(1.5rem,4vw,3.75rem) clamp(1rem,4vw,3.125rem)', borderRadius: 25, boxShadow: '0 20px 60px rgba(79,70,229,0.15)'}}>
           <div style={{textAlign: 'center', marginBottom: 50}}>
             <div style={{display: 'inline-block', background: 'linear-gradient(135deg, #FBBF24 0%, #F7B731 100%)', color: 'white', padding: '10px 30px', borderRadius: 30, fontSize: 14, fontWeight: 'bold', letterSpacing: 1.5, marginBottom: 20, boxShadow: '0 4px 15px rgba(251,191,36,0.4)'}}>✨ FUN FACTS ✨</div>
             <h1 style={{fontSize: '3.5rem', background: 'linear-gradient(135deg, #006B7D 0%, #1E3A5F 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', marginBottom: 15, fontWeight: 900}}>The PM Life</h1>
             <p style={{fontSize: '1.1rem', color: '#64748B', fontStyle: 'italic'}}>What They Don't Tell You in Job Descriptions 😄</p>
           </div>
 
-          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(500px, 1fr))', gap: 30, marginBottom: 40}}>
+          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 30, marginBottom: 40}}>
             {funFacts.map((f, i) => (
               <div key={i} style={{background: 'linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%)', borderRadius: 20, padding: 35, border: `3px solid ${f.color}`}}>
                 <div style={{width: 80, height: 80, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 20, fontSize: 40, background: `linear-gradient(135deg, ${f.color} 0%, ${f.color}dd 100%)`, boxShadow: '0 8px 20px rgba(0,0,0,0.1)'}}>{f.icon}</div>
@@ -893,7 +893,7 @@ export default function ProductLeadershipProgram() {
       </section>
 
       {/* Final CTA */}
-      <section style={{background: '#FF6B35', color: '#FFF', padding: '80px 20px', textAlign: 'center'}}>
+      <section style={{background: '#FF6B35', color: '#FFF', padding: 'clamp(2.5rem,6vw,5rem) clamp(1rem,4vw,1.25rem)', textAlign: 'center'}}>
         <div style={{maxWidth: 1200, margin: '0 auto'}}>
           <h2 style={{fontSize: '2.5rem', marginBottom: 20}}>Ready to Build Products That Matter?</h2>
           <p style={{fontSize: '1.3rem', marginBottom: 20}}>Master the complete PM journey from user research to product launch</p>

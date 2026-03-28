@@ -159,7 +159,7 @@ nav.scrolled{
   background: linear-gradient(135deg, #0D1B3E 0%, #1A1048 40%, #2D1B69 75%, #0D1B3E 100%);
   position:relative;overflow:hidden;
   display:flex;align-items:center;
-  padding:120px 48px 80px;
+  padding:clamp(5rem,12vw,7.5rem) clamp(1rem,4vw,3rem) clamp(3rem,7vw,5rem);
 }
 .hero::before {
   content:'';position:absolute;inset:0;
@@ -271,7 +271,7 @@ nav.scrolled{
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ── SECTIONS general ──────────────────────────────────────────────────── */
-section{padding:96px 48px;}
+section{padding:clamp(2.5rem,7vw,6rem) clamp(1rem,4vw,3rem);}
 .container{max-width:1280px;margin:0 auto;}
 .section-label{
   font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
@@ -307,7 +307,7 @@ h2.section-title em{font-style:normal;color:var(--purple);}
 }
 .mstat:hover{background:rgba(91,75,138,.2);}
 .mstat-num{
-  font-family:var(--font-display),sans-serif;font-size:52px;font-weight:800;
+  font-family:var(--font-display),sans-serif;font-size:clamp(1.75rem,4.5vw,3.25rem);font-weight:800;
   background:linear-gradient(135deg,var(--gold),var(--gold-l));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
   margin-bottom:8px;
@@ -453,7 +453,7 @@ h2.section-title em{font-style:normal;color:var(--purple);}
 }
 .rubric-card:hover{background:rgba(255,255,255,.05);}
 .r-letter{
-  font-family:var(--font-display),sans-serif;font-size:64px;font-weight:900;
+  font-family:var(--font-display),sans-serif;font-size:clamp(2rem,5.5vw,4rem);font-weight:900;
   line-height:1;margin-bottom:16px;
   background:linear-gradient(135deg,var(--gold),var(--gold-l));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
@@ -624,7 +624,7 @@ h2.section-title em{font-style:normal;color:var(--purple);}
 .final-cert{
   background:linear-gradient(135deg,rgba(201,168,76,.15),rgba(201,168,76,.08));
   border:1px solid rgba(201,168,76,.3);border-radius:20px;
-  padding:56px;margin-top:32px;text-align:center;position:relative;z-index:1;
+  padding:clamp(1.5rem,4vw,3.5rem);margin-top:32px;text-align:center;position:relative;z-index:1;
   overflow:hidden;
 }
 .final-cert::before{
@@ -644,7 +644,7 @@ h2.section-title em{font-style:normal;color:var(--purple);}
 
 /* ── QUOTE STRIP ───────────────────────────────────────────────────────── */
 .quote-strip{
-  background:var(--purple);padding:72px 48px;
+  background:var(--purple);padding:clamp(2rem,6vw,4.5rem) clamp(1rem,4vw,3rem);
   text-align:center;position:relative;overflow:hidden;
 }
 .quote-strip::before{
@@ -885,7 +885,7 @@ h2.section-title em { font-style: normal; color: var(--purple); }
 /* ── Market stats ────────────────────────────────────────────────────────── */
 .mstat-num {
   font-family: var(--font-display);
-  font-size: 56px;
+  font-size: clamp(1.75rem,4.5vw,3.5rem);
   font-weight: 900;
   letter-spacing: -0.04em;
   line-height: 1;
@@ -942,7 +942,7 @@ h2.section-title em { font-style: normal; color: var(--purple); }
 .int-tag    { font-family:var(--font-body),sans-serif; font-size:11px; font-weight:700; }
 
 /* ── Rubric ──────────────────────────────────────────────────────────────── */
-.r-letter { font-family:var(--font-display),sans-serif;    font-size:68px; font-weight:900; letter-spacing:-0.04em; line-height:1; }
+.r-letter { font-family:var(--font-display),sans-serif;    font-size:clamp(2.25rem,5.5vw,4.25rem); font-weight:900; letter-spacing:-0.04em; line-height:1; }
 .r-title  { font-family:var(--font-display),sans-serif;    font-size:18px; font-weight:800; letter-spacing:-0.015em; }
 .r-body   { font-family:var(--font-body),sans-serif; font-size:13.5px; line-height:1.7; }
 .r-example{ font-family:var(--font-body),sans-serif; font-size:12px; font-style:italic; line-height:1.55; }
@@ -972,7 +972,7 @@ h2.section-title em { font-style: normal; color: var(--purple); }
 .bl-name { font-family:var(--font-body),sans-serif; font-size:11.5px; font-weight:800; letter-spacing:.06em; }
 .bl-desc { font-family:var(--font-body),sans-serif; font-size:11.5px; line-height:1.55; }
 .bl-verbs{ font-family:var(--font-body),sans-serif; font-size:10.5px; font-style:italic; }
-.rf-letter    { font-family:var(--font-display),sans-serif;    font-size:52px; font-weight:900; letter-spacing:-0.04em; }
+.rf-letter    { font-family:var(--font-display),sans-serif;    font-size:clamp(1.75rem,4.5vw,3.25rem); font-weight:900; letter-spacing:-0.04em; }
 .rf-head-text h4 { font-family:var(--font-display),sans-serif; font-size:15px; font-weight:800; letter-spacing:-0.01em; }
 .rf-head-text p  { font-family:var(--font-body),sans-serif; font-size:11px; font-weight:700; letter-spacing:.08em; }
 .rf-body p  { font-family:var(--font-body),sans-serif; font-size:13.5px; line-height:1.7; }
@@ -1084,7 +1084,7 @@ h2.section-title em { font-style: normal; color: var(--purple); }
 
 
 /* ── SYLLABUS STYLES ─────────────────────────────────────── */
-.syllabus-section{background:var(--white);padding:100px 48px;}
+.syllabus-section{background:var(--white);padding:clamp(2.5rem,8vw,6.25rem) clamp(1rem,4vw,3rem);}
 .syl-tabs{display:flex;gap:0;border-radius:12px;overflow:hidden;
   border:1px solid var(--border);margin:48px 0 0;flex-wrap:wrap;}
 .syl-tab{

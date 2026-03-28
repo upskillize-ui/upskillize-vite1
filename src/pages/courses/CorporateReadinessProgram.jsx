@@ -276,7 +276,7 @@ export default function CorporateReadinessProgram() {
               and unwavering ethical foundations that prepare students for real-world success
             </p>
             
-            <div className="flex gap-6 flex-wrap justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 flex-wrap justify-center">
               <a
                 href="#curriculum"
                 className="inline-flex items-center gap-3 py-[1.1rem] px-[2.8rem] rounded-xl font-semibold text-base bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 hover:border-white/50 transition-all duration-[400ms]"
@@ -309,7 +309,7 @@ export default function CorporateReadinessProgram() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {stats.map((stat, i) => (
               <div key={i} className="bg-gradient-to-br from-[#1e2d4a]/80 to-[#2a3f5f]/80 backdrop-blur-sm rounded-xl p-8 border border-white/10 text-center hover:border-purple-400/50 transition-all">
-                <div className="text-5xl font-bold text-purple-400 mb-3">{stat.value}</div>
+                <div className="text-2xl sm:text-4xl lg:text-5xl font-bold text-purple-400 mb-3">{stat.value}</div>
                 <div className="text-xl text-white font-semibold mb-2">{stat.label}</div>
                 <div className="text-sm text-gray-400">{stat.sublabel}</div>
               </div>
@@ -540,14 +540,14 @@ export default function CorporateReadinessProgram() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all shadow-xl hover:shadow-2xl hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg transition-all shadow-xl hover:shadow-2xl hover:scale-105"
             >
               Enroll Your Students
               <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-lg font-bold text-lg border-2 border-white/30 hover:bg-white/20 transition-all"
+              className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm text-white w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg border-2 border-white/30 hover:bg-white/20 transition-all"
             >
               Request Partnership Info
               <ArrowRight className="w-5 h-5" />

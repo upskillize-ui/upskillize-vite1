@@ -368,8 +368,8 @@ export default function EcoProLMS() {
           overflow: "hidden",
           display: "flex",
           alignItems: "center",
-          paddingTop: 110,
-          paddingBottom: 80,
+          paddingTop: "clamp(5rem, 12vw, 6.875rem)", 
+          paddingBottom: "clamp(3rem, 6vw, 5rem)",
         }}
       >
         {/* Background images — crossfade between both */}

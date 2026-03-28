@@ -21,7 +21,7 @@ export default function AIProductManagementMastery() {
           max-width: 1300px;
           margin: 0 auto;
           background: #ffffff;
-          border-radius: 30px;
+          border-radius: clamp(0px, 2vw, 30px);
           box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
           overflow: hidden;
           animation: fadeInUp 1.2s ease-out;
@@ -42,7 +42,7 @@ export default function AIProductManagementMastery() {
           background: linear-gradient(135deg, #667eea 0%, #764ba2 40%, #f093fb 80%, #f5576c 100%);
           color: white;
           text-align: center;
-          padding: 80px 50px;
+           padding: clamp(2rem, 6vw, 5rem) clamp(1rem, 5vw, 3.125rem);
           position: relative;
           overflow: hidden;
         }
@@ -83,7 +83,7 @@ export default function AIProductManagementMastery() {
 
         .hero-title {
           font-family: 'Poppins', sans-serif;
-          font-size: 4em;
+          font-size: clamp(1.75rem, 5vw, 4rem);
           font-weight: 800;
           margin-bottom: 25px;
           line-height: 1.1;
@@ -106,15 +106,15 @@ export default function AIProductManagementMastery() {
         }
 
         .ai-mascot {
-          width: 250px;
-          height: 250px;
+          width: clamp(120px, 40vw, 250px);
+  height: clamp(120px, 40vw, 250px);
           margin: 40px auto 50px;
           background: linear-gradient(135deg, #ff6b6b, #ee5a24, #ffa726, #42a5f5);
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 6em;
+           font-size: clamp(3em, 10vw, 6em);
           box-shadow: 0 25px 50px rgba(0,0,0,0.3);
           border: 10px solid rgba(255,255,255,0.3);
           animation: float 3s ease-in-out infinite;
@@ -178,9 +178,9 @@ export default function AIProductManagementMastery() {
 
         .key-highlight {
           background: rgba(255,255,255,0.25);
-          padding: 25px 40px;
+          padding: clamp(1rem,3vw,1.5rem) clamp(1.25rem,4vw,2.5rem);
           border-radius: 20px;
-          font-size: 1.6em;
+          font-size: clamp(1rem,2.5vw,1.4rem);
           font-weight: 600;
           margin-top: 40px;
           backdrop-filter: blur(15px);
@@ -189,7 +189,7 @@ export default function AIProductManagementMastery() {
 
         .curriculum-section {
           background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-          padding: 80px 50px;
+          padding: clamp(2rem,5vw,5rem) clamp(1rem,5vw,3.125rem);
         }
 
         .section-header {
@@ -721,8 +721,21 @@ export default function AIProductManagementMastery() {
           }
         }
 
-        html {
-          scroll-behavior: smooth;
+        html { scroll-behavior: smooth; }
+
+        @media (max-width: 640px) {
+          .brochure-container { border-radius: 0 !important; margin: 0 !important; }
+          .hero-section,
+          .curriculum-section,
+          .info-section,
+          .capstone-section,
+          .cta-section { padding-left: 1rem !important; padding-right: 1rem !important; }
+          .section-title { font-size: clamp(1.4rem, 5.5vw, 2rem) !important; }
+          .key-highlight { font-size: clamp(0.9rem, 3.5vw, 1.2rem) !important; padding: 0.875rem 1rem !important; }
+          .stats-grid { grid-template-columns: repeat(2,1fr) !important; gap: 12px !important; }
+          .stat-number { font-size: 2.5em !important; }
+          .cta-button { padding: 14px 24px !important; font-size: 1rem !important; width: 100% !important; }
+          .topic-card { padding: 1.25rem !important; }
         }
       `}</style>
 

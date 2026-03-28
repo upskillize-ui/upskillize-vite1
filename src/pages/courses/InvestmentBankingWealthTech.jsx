@@ -92,8 +92,8 @@ const InvestmentBankingWealthTech = () => {
         </section>
 
         {/* Value Proposition Section */}
-        <section className="py-16 px-8 bg-gray-50">
-          <h2 className="text-4xl md:text-5xl font-black text-center text-blue-900 mb-12">
+        <section className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-center text-blue-900 mb-12">
             Transform Your Career in Investment Banking & WealthTech
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
@@ -120,8 +120,8 @@ const InvestmentBankingWealthTech = () => {
         </section>
 
         {/* Curriculum Section */}
-        <section className="py-16 px-8 bg-white">
-          <h2 className="text-4xl md:text-5xl font-black text-center text-blue-900 mb-8">
+        <section className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-white">
+          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-center text-blue-900 mb-8">
             📚 Complete 40-Hour Investment Banking & WealthTech Curriculum
           </h2>
           
@@ -185,11 +185,11 @@ const InvestmentBankingWealthTech = () => {
           ].map((topic, i) => (
             <div key={i} className="mb-12 rounded-3xl overflow-hidden shadow-2xl border-2 border-gray-200 hover:border-yellow-500 transition-all fade-in">
               <div className="bg-gradient-to-r from-blue-900 via-gray-800 to-gray-900 text-white p-8 text-center">
-                <div className="text-6xl font-black text-yellow-400 mb-2">{topic.num}</div>
+                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-yellow-400 mb-2">{topic.num}</div>
                 <div className="text-2xl font-bold mb-2">{topic.title}</div>
                 <div className="text-xl text-yellow-400 font-semibold">{topic.duration}</div>
               </div>
-              <div className="p-8 bg-gray-50">
+              <div className="p-8 bg-gray-50 p-4 sm:p-8">
                 <div className="grid md:grid-cols-2 gap-6">
                   {topic.modules.map((module, j) => (
                     <div key={j} className="scale-in bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-xl hover:-translate-y-2 transition-all relative overflow-hidden">
@@ -220,11 +220,11 @@ const InvestmentBankingWealthTech = () => {
           ))}
 
           {/* Assessment Section */}
-          <div className="p-8 bg-gray-50 border-l-4 border-yellow-500 rounded-2xl my-12">
+          <div className="p-8 bg-gray-50 p-4 sm:p-8 border-l-4 border-yellow-500 rounded-2xl my-12">
             <h3 className="text-3xl font-black text-center text-blue-900 mb-8">🎯 Assessment & Dual Certification Structure</h3>
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               <div className="fade-in bg-white rounded-2xl p-8 text-center shadow-xl border border-gray-200">
-                <div className="text-6xl font-black text-blue-900 mb-4">70%</div>
+                <div className="text-3xl sm:text-5xl lg:text-6xl font-black text-blue-900 mb-4">70%</div>
                 <div className="text-2xl font-bold mb-4 text-blue-900">Continuous Assessment</div>
                 <ul className="text-left space-y-3">
                   {["Simple projects and assignments (25%)", "Group exercises and case studies (20%)", "Presentations and demonstrations (15%)", "Class participation and activities (10%)"].map((item, i) => (
@@ -236,7 +236,7 @@ const InvestmentBankingWealthTech = () => {
                 </ul>
               </div>
               <div className="fade-in bg-white rounded-2xl p-8 text-center shadow-xl border border-gray-200">
-                <div className="text-6xl font-black text-blue-900 mb-4">30%</div>
+                <div className="text-3xl sm:text-5xl lg:text-6xl font-black text-blue-900 mb-4">30%</div>
                 <div className="text-2xl font-bold mb-4 text-blue-900">Final Certification</div>
                 <ul className="text-left space-y-3">
                   {["Written examination covering key concepts", "Final project presentation", "Portfolio of completed exercises", "Dual certification: IB & WealthTech Professional"].map((item, i) => (
@@ -252,8 +252,8 @@ const InvestmentBankingWealthTech = () => {
         </section>
 
         {/* Career Section */}
-        <section className="py-16 px-8 bg-gradient-to-br from-gray-50 to-gray-100">
-          <h2 className="text-4xl md:text-5xl font-black text-center text-blue-900 mb-12">
+        <section className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-gray-100">
+          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-center text-blue-900 mb-12">
             💼 Investment Banking & WealthTech Career Prospects
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
@@ -292,7 +292,7 @@ const InvestmentBankingWealthTech = () => {
           </h2>
           
           <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <a href="tel:+919620368991" className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-blue-900 px-8 py-4 rounded-full text-lg font-bold hover:scale-105 hover:shadow-2xl transition-all inline-block">
+            <a href="tel:+919620368991" className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-blue-900 px-6 sm:px-8 py-3 sm:py-4 rounded-full text-lg font-bold hover:scale-105 hover:shadow-2xl transition-all inline-block w-full sm:w-auto justify-center">
               📞 Call and Register - Limited Seats
             </a>
             <a href="mailto:gupta1070@gmail.com" className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-blue-900 px-8 py-4 rounded-full text-lg font-bold hover:scale-105 hover:shadow-2xl transition-all inline-block">

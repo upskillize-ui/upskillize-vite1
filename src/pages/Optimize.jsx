@@ -272,7 +272,7 @@ export default function Optimize() {
               <span className="text-cyan-400 font-semibold">Industry-Agnostic AI Solution</span>
             </div>
             
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-white mb-6 leading-tight">
               Optimize
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 mt-3">
                 AI-Powered Cost Allocation Platform
@@ -292,13 +292,13 @@ export default function Optimize() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <button className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-10 py-5 rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all transform">
+              <button className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white w-full sm:w-auto px-6 sm:px-10 py-3 sm:py-5 rounded-xl font-bold text-base sm:text-lg hover:shadow-2xl hover:scale-105 transition-all transform">
                 Start Free Trial
                 <ArrowRight className="w-5 h-5" />
               </button>
                    <Link
                       to="/contact"
-                      className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-10 py-5 rounded-xl font-bold text-lg border-2 border-white/30 hover:bg-white/20 transition-all"
+                      className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm text-white w-full sm:w-auto px-6 sm:px-10 py-3 sm:py-5 rounded-xl font-bold text-base sm:text-lg border-2 border-white/30 hover:bg-white/20 transition-all"
                    >
                        <Brain className="w-5 h-5" />
                        Schedule Demo
@@ -308,7 +308,7 @@ export default function Optimize() {
             {/* Impact Metrics */}
             <div className="inline-block bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-sm border border-green-400/30 rounded-2xl px-8 py-4">
               <p className="text-gray-300 text-sm mb-1">Average Cost Reduction</p>
-              <p className="text-5xl font-bold text-green-400">
+              <p className="text-3xl sm:text-5xl font-bold text-green-400">
                 {animatedSavings}%
               </p>
             </div>
@@ -328,7 +328,7 @@ export default function Optimize() {
                 <div className={`${item.color} mb-4`}>
                   {item.icon}
                 </div>
-                <h3 className="text-4xl font-bold text-white mb-2">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">
                   {item.metric}
                 </h3>
                 <p className="text-gray-300 font-semibold mb-2">{item.label}</p>
@@ -539,9 +539,9 @@ export default function Optimize() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
+      <section className="py-10 sm:py-16 lg:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-3xl p-10 lg:p-16 text-center overflow-hidden">
+          <div className="relative bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-3xl p-6 sm:p-10 lg:p-16 text-center overflow-hidden">
             <div className="absolute inset-0 bg-black/20"></div>
             <div className="relative z-10">
               <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
@@ -555,13 +555,13 @@ export default function Optimize() {
                 Join leading organizations that have optimized their cost structure with OptiCost's AI-powered platform
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <button className="bg-white text-indigo-600 px-10 py-5 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all shadow-2xl hover:scale-105 flex items-center justify-center gap-2">
+                <button className="bg-white text-indigo-600 w-full sm:w-auto px-6 sm:px-10 py-3 sm:py-5 rounded-xl font-bold text-base sm:text-lg hover:bg-gray-100 transition-all shadow-2xl hover:scale-105 flex items-center justify-center gap-2">
                   <Zap className="w-5 h-5" />
                   Start Free 30-Day Trial
                 </button>
                  <Link
                       to="/contact"
-                      className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-10 py-5 rounded-xl font-bold text-lg border-2 border-white/30 hover:bg-white/20 transition-all"
+                      className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm text-white w-full sm:w-auto px-6 sm:px-10 py-3 sm:py-5 rounded-xl font-bold text-base sm:text-lg border-2 border-white/30 hover:bg-white/20 transition-all"
                    >
                        <Brain className="w-5 h-5" />
                        Schedule Personalized Demo

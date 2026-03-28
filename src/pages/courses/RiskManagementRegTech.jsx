@@ -69,7 +69,7 @@ const RiskManagementRegTech = () => {
 
       <div className="bg-white w-full">
         {/* Hero Section */}
-        <section className="relative overflow-hidden text-white py-20 px-10 text-center" style={{
+        <section className="relative overflow-hidden text-white py-10 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-10 text-center" style={{
           background: 'linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%)',
           backgroundSize: '400% 400%',
           animation: 'gradientShift 8s ease infinite'
@@ -95,7 +95,7 @@ const RiskManagementRegTech = () => {
                 { num: "100%", label: "Hands-on Learning" }
               ].map((stat, i) => (
                 <div key={i} className="bg-white/15 backdrop-blur-lg p-6 rounded-2xl border border-white/20 hover:scale-105 hover:shadow-2xl transition-all duration-300">
-                  <div className="text-5xl font-black text-yellow-300 mb-2">{stat.num}</div>
+                  <div className="text-2xl sm:text-3xl md:text-5xl font-black text-yellow-300 mb-2">{stat.num}</div>
                   <div className="text-sm">{stat.label}</div>
                 </div>
               ))}
@@ -104,8 +104,8 @@ const RiskManagementRegTech = () => {
         </section>
 
         {/* Overview Section */}
-        <section className="py-20 px-10">
-          <h2 className="text-4xl md:text-5xl font-black text-center mb-12 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+        <section className="py-10 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-10">
+          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-center mb-12 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
             Master the Future of Risk Management
           </h2>
           
@@ -117,7 +117,7 @@ const RiskManagementRegTech = () => {
               { icon: "🏆", title: "Industry Certification", desc: "Earn professional certification aligned with Basel IV, IFRS 9, and global risk standards." }
             ].map((card, i) => (
               <div key={i} className="animate-on-scroll bg-white p-8 rounded-3xl shadow-xl border border-gray-200 hover:shadow-2xl hover:-translate-y-3 transition-all duration-300">
-                <div className="text-6xl mb-6">{card.icon}</div>
+                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6">{card.icon}</div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{card.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{card.desc}</p>
               </div>
@@ -126,7 +126,7 @@ const RiskManagementRegTech = () => {
         </section>
 
         {/* AI Focus */}
-        <section className="py-20 px-10">
+        <section className="py-10 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-10">
           <div className="relative overflow-hidden rounded-3xl p-10 text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
             <h3 className="text-3xl md:text-4xl font-bold mb-5 text-center">🤖 GenAI & RegTech Revolution</h3>
             <p className="text-xl text-center mb-8 opacity-95">Learn how AI is transforming risk management with cutting-edge applications</p>
@@ -148,8 +148,8 @@ const RiskManagementRegTech = () => {
         </section>
 
         {/* Curriculum */}
-        <section className="py-20 px-10 bg-gray-50">
-          <h2 className="text-4xl md:text-5xl font-black text-center mb-8 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+        <section className="py-10 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-10 bg-gray-50">
+          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-center mb-8 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
             Complete 40-Hour Risk & RegTech Curriculum
           </h2>
           
@@ -216,7 +216,7 @@ const RiskManagementRegTech = () => {
             ].map((topic, i) => (
               <div key={i} className="animate-on-scroll rounded-3xl overflow-hidden shadow-xl border-2 border-gray-200 hover:border-indigo-500 transition-all">
                 <div className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-8 text-center">
-                  <div className="text-5xl font-black mb-2">{topic.day}</div>
+                  <div className="text-2xl sm:text-4xl lg:text-5xl font-black mb-2">{topic.day}</div>
                   <div className="text-xl font-bold">{topic.title}</div>
                 </div>
                 <div className="p-8 bg-white space-y-4">
@@ -239,7 +239,7 @@ const RiskManagementRegTech = () => {
         </section>
 
         {/* Risk Failures */}
-        <section className="py-20 px-10">
+        <section className="py-10 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-10">
           <h2 className="text-4xl font-black text-center mb-12 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
             Why Risk Management is Critical Now 
           </h2>
@@ -263,7 +263,7 @@ const RiskManagementRegTech = () => {
         </section>
 
         {/* Careers */}
-        <section className="py-20 px-10 bg-gray-50">
+        <section className="py-10 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-10 bg-gray-50">
           <h2 className="text-4xl font-black text-center mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
             Lucrative Career Opportunities
           </h2>
@@ -292,7 +292,7 @@ const RiskManagementRegTech = () => {
         </section>
 
         {/* Success */}
-        <section className="py-20 px-10 text-white bg-gradient-to-r from-gray-900 via-indigo-900 to-gray-900">
+        <section className="py-10 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-10 text-white bg-gradient-to-r from-gray-900 via-indigo-900 to-gray-900">
           <h2 className="text-4xl font-black text-center mb-12">What Makes Our Program Unique</h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">

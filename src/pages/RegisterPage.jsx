@@ -222,9 +222,20 @@ export default function RegisterPage() {
           flex-direction: column;
         }
         @media (max-width: 768px) {
-          .reg-card { grid-template-columns: 1fr; }
-          .reg-col-left { border-right: none; border-bottom: 1.5px solid #EEF2FA; }
-        }
+  .reg-card { grid-template-columns: 1fr; }
+  .reg-col-left {
+    border-right: none;
+    border-bottom: 1.5px solid #EEF2FA;
+    padding: 1.25rem !important;    /* ← ADD: was 2.5rem */
+  }
+  .reg-col-right {
+    padding: 1.25rem !important;    /* ← ADD: was 2.5rem */
+  }
+  .reg-hero-strip {
+    padding-left: 1rem !important;  /* ← ADD: was 24px, fine, but make consistent */
+    padding-right: 1rem !important;
+  }
+}
         .reg-input {
           transition: border-color .18s, box-shadow .18s;
           background: #F8FAFC !important;
@@ -528,7 +539,7 @@ export default function RegisterPage() {
 
           </div>{/* end reg-card */}
 
-          <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:"2rem", flexWrap:"wrap", padding:"1.5rem 0 0", color:"#7A8CAB", fontSize:".78rem" }}>
+          <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:"2rem", flexWrap:"wrap", padding:"clamp(2rem, 8vw, 6rem) 1rem clamp(1.5rem, 4vw, 3rem)" , color:"#7A8CAB", fontSize:".78rem" }}>
             {["✓ 20,000+ enrolled students", "✓ Industry-recognised certificates", "✓ CRO & CDO mentors"].map(t => (
               <span key={t} style={{ display:"flex", alignItems:"center", gap:".3rem" }}>
                 <span style={{ color:"#00C9A7", fontWeight:700 }}>{t.slice(0,1)}</span>

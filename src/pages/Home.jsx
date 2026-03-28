@@ -1032,7 +1032,7 @@ export default function Home() {
       </section>
 
       {/* CORPORATE TRAINING */}
-      <section className="py-20 bg-gradient-to-br from-[#0f1729] via-[#1a2847] to-[#243452] relative overflow-hidden">
+      <section className="py-10 sm:py-16 lg:py-20 bg-gradient-to-br from-[#0f1729] via-[#1a2847] to-[#243452] relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -left-40 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl"></div>
           <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
@@ -1045,10 +1045,10 @@ export default function Home() {
                   🎯 Workforce Transformation
                 </span>
               </div>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight">
                 Strategic Corporate Training Programs
               </h2>
-              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+              <p className="text-base sm:text-xl text-gray-300 mb-8 leading-relaxed">
                 Bridge critical skill gaps and drive behavioral change through
                 proven ADDIE methodology—transforming knowledge into measurable
                 business impact
@@ -1088,12 +1088,12 @@ export default function Home() {
               </div>
               <Link
                 to="/corporate/training"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all shadow-xl hover:shadow-2xl hover:scale-105 transform"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg transition-all shadow-xl hover:shadow-2xl hover:scale-105 transform w-full sm:w-auto justify-center"
               >
                 Explore Training Programs <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-4 sm:gap-6">
               {[
                 {
                   value: "85%",
@@ -1118,14 +1118,14 @@ export default function Home() {
               ].map((stat, index) => (
                 <div
                   key={index}
-                  className="bg-gradient-to-br from-[#1e2d4a]/80 to-[#2a3f5f]/80 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl group"
+                  className="bg-gradient-to-br from-[#1e2d4a]/80 to-[#2a3f5f]/80 backdrop-blur-sm rounded-2xl p-4 sm:p-8 border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl group"
                 >
                   <div
-                    className={`text-6xl font-extrabold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-4`}
+                    className={`text-3xl sm:text-5xl lg:text-6xl font-extrabold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-4`}
                   >
                     {stat.value}
                   </div>
-                  <div className="text-gray-300 font-semibold text-lg">
+                  <div className="text-gray-300 font-semibold text-sm sm:text-lg">
                     {stat.label}
                   </div>
                   <div
@@ -1139,7 +1139,7 @@ export default function Home() {
       </section>
 
       {/* SAAS PRODUCTS */}
-      <section className="py-20 bg-gradient-to-br from-[#0a1628] via-[#0f1f3d] to-[#152847] relative overflow-hidden">
+      <section className="py-10 sm:py-16 lg:py-20 bg-gradient-to-br from-[#0a1628] via-[#0f1f3d] to-[#152847] relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
@@ -1307,7 +1307,7 @@ export default function Home() {
 
       
             {/* VETERANS FROM LEADING ORGANIZATIONS */}
-      <section className="py-20 bg-gradient-to-br from-[#0a1628] via-[#0f1f3d] to-[#152847] relative overflow-hidden">
+      <section className="py-10 sm:py-16 lg:py-20 bg-gradient-to-br from-[#0a1628] via-[#0f1f3d] to-[#152847] relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl"></div>
             <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl"></div>

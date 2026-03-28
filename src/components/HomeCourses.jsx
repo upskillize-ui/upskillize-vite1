@@ -149,7 +149,7 @@ function DiplomaCard({ item }) {
         onMouseLeave={e => { e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,.05)"; e.currentTarget.style.borderColor = "#e5e7eb"; }}
       >
         {/* Thumbnail */}
-        <div style={{ width: 148, flexShrink: 0, position: "relative", overflow: "hidden" }}>
+        <div style={{ width: "clamp(90px, 35vw, 148px)", flexShrink: 0, position: "relative", overflow: "hidden" }}>
           <img
             src={item.img}
             alt={item.title}
@@ -247,8 +247,8 @@ export default function HomeCourses() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <section style={{ width: "100%", background: "linear-gradient(135deg, #f8faff 0%, #f5f3ff 50%, #f0fdf9 100%)", padding: "5rem 0" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 1.5rem" }}>
+    <section style={{ width: "100%", background: "linear-gradient(135deg, #f8faff 0%, #f5f3ff 50%, #f0fdf9 100%)", padding: "clamp(2rem, 5vw, 5rem) 0" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(1rem, 3vw, 1.5rem)" }}>
 
         {/* ── Heading ── */}
         <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
@@ -297,6 +297,7 @@ export default function HomeCourses() {
             <div style={{
               display: "grid", gridTemplateColumns: "repeat(4, 1fr)",
               borderBottom: "1px solid #e5e7eb", background: "#fafafa",
+              overflowX: "auto",
             }}>
               {CERT_CATEGORIES.map((cat, i) => (
                 <button
@@ -353,8 +354,8 @@ export default function HomeCourses() {
             background: "linear-gradient(160deg, #f0fdf9 0%, #f0f7ff 100%)",
             border: "1px solid #d1fae5",
             borderRadius: "0.875rem",
-            padding: "1.75rem 2rem",
-            display: "flex", gap: "1.25rem", alignItems: "flex-start",
+            padding: "1.25rem clamp(1rem, 3vw, 2rem)",
+            display: "flex", gap: "1rem", alignItems: "flex-start", flexWrap: "wrap",
             boxShadow: "0 2px 14px rgba(0,201,167,.08)",
           }}>
             <div style={{

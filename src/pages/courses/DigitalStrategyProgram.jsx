@@ -6,7 +6,7 @@ export default function DigitalStrategyProgram() {
       <div className="max-w-7xl mx-auto p-5">
         {/* Hero Section */}
         <div className="bg-gradient-to-r from-purple-700 via-purple-600 to-teal-500 text-white p-16 rounded-3xl mb-10 shadow-2xl">
-          <h1 className="text-6xl font-bold mb-4 text-center drop-shadow-lg">
+          <h1 className="text-2xl sm:text-4xl md:text-xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-4 text-center drop-shadow-lg">
             Digital Business Strategy & Innovation
           </h1>
           <h2 className="text-3xl mb-3 text-center font-light">
@@ -33,7 +33,7 @@ export default function DigitalStrategyProgram() {
                 { number: '₹12-50L', label: 'Salary Range' }
               ].map((stat, idx) => (
                 <div key={idx} className="bg-white bg-opacity-20 p-5 rounded-xl backdrop-blur-sm border-2 border-white border-opacity-30">
-                  <span className="block text-5xl font-bold mb-1">{stat.number}</span>
+                  <span className="block text-2xl sm:text-3xl md:text-5xl font-bold mb-1">{stat.number}</span>
                   <span className="block text-base opacity-90">{stat.label}</span>
                 </div>
               ))}
@@ -43,7 +43,7 @@ export default function DigitalStrategyProgram() {
 
         {/* Four Pillar Framework */}
         <div className="bg-white p-12 rounded-3xl mb-10 shadow-xl">
-          <h2 className="text-center text-5xl mb-10 text-purple-700 font-bold">
+          <h2 className="text-center text-xl sm:text-3xl md:text-4xl lg:text-5xl mb-10 text-purple-700 font-bold">
             🎯 Our 4-Pillar Learning Framework
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -65,7 +65,7 @@ export default function DigitalStrategyProgram() {
 
         {/* Value Proposition */}
         <div className="bg-white p-12 rounded-3xl mb-10 shadow-xl">
-          <h2 className="text-center text-5xl mb-10 text-teal-500 font-bold">
+          <h2 className="text-center text-xl sm:text-3xl md:text-4xl lg:text-5xl mb-10 text-teal-500 font-bold">
             💎 Why This Program Transforms MBA Careers
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -563,7 +563,7 @@ export default function DigitalStrategyProgram() {
 
         {/* Assessment Section */}
         <div className="bg-gradient-to-br from-purple-700 to-purple-600 text-white p-12 rounded-3xl mb-10 shadow-2xl">
-          <h2 className="text-center text-5xl mb-10 font-bold">📊 Assessment & Certification Structure</h2>
+          <h2 className="text-center text-xl sm:text-3xl md:text-4xl lg:text-5xl mb-10 font-bold">📊 Assessment & Certification Structure</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white bg-opacity-15 p-8 rounded-2xl backdrop-blur-md border-2 border-white border-opacity-30">
               <h3 className="text-2xl font-bold mb-4">📝 Continuous Assessment (70%)</h3>
@@ -592,7 +592,7 @@ export default function DigitalStrategyProgram() {
 
         {/* Career Outcomes */}
         <div className="bg-white p-12 rounded-3xl mb-10 shadow-xl">
-          <h2 className="text-center text-5xl mb-10 text-blue-600 font-bold">💼 Career Outcomes & Salary Expectations</h2>
+          <h2 className="text-center text-xl sm:text-3xl md:text-4xl lg:text-5xl mb-10 text-blue-600 font-bold">💼 Career Outcomes & Salary Expectations</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
@@ -654,7 +654,7 @@ export default function DigitalStrategyProgram() {
 
         {/* Placement Assistance */}
         <div className="bg-gradient-to-br from-teal-500 to-teal-600 text-white p-12 rounded-3xl mb-10 shadow-2xl">
-          <h2 className="text-center text-5xl mb-5 font-bold">🎯 Placement Assistance Program</h2>
+          <h2 className="text-center text-xl sm:text-3xl md:text-4xl lg:text-5xl mb-5 font-bold">🎯 Placement Assistance Program</h2>
           <div className="text-center text-xl mb-10 font-semibold bg-white bg-opacity-20 p-4 rounded-xl">
             ⚠️ PLACEMENT ASSISTANCE - NOT GUARANTEE
           </div>
@@ -737,7 +737,7 @@ export default function DigitalStrategyProgram() {
 
         {/* Contact Section */}
         <div className="bg-gradient-to-br from-gray-800 to-gray-900 text-white p-12 rounded-3xl text-center shadow-2xl">
-          <h2 className="text-5xl mb-8 font-bold">📞 Ready to Transform Your Career?</h2>
+          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl mb-8 font-bold">📞 Ready to Transform Your Career?</h2>
           <p className="text-xl mb-8">
             Join India's most comprehensive Digital Business Strategy & Innovation program<br />
             Build the skills that McKinsey, BCG, and tech giants demand

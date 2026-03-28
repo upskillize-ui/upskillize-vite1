@@ -32,7 +32,7 @@ export default function SubCourses() {
     <div className="min-h-screen bg-gradient-to-br from-[#1a2847] via-[#2d3e5f] to-[#3d5278]">
       {/* Back Navigation */}
       <div className="bg-gradient-to-br from-[#1a2847] via-[#2d3e5f] to-[#3d5278] py-4">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <Link 
             to={`/courses/${foundCategory.slug}`}
             className="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold transition"
@@ -45,13 +45,13 @@ export default function SubCourses() {
 
       {isComingSoon ? (
         /* ========== COMING SOON VIEW ========== */
-        <div className="py-16 px-6">
+        <div className="py-8 sm:py-12 lg:py-16 px-4 sm:px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
             <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
               {/* Header with gradient */}
-              <div className={`bg-gradient-to-r ${foundCategory.color} text-white p-12 text-center`}>
+              <div className={`bg-gradient-to-r ${foundCategory.color} text-white p-6 sm:p-8 md:p-12 text-center`}>
                 <div className="text-6xl mb-6">🚀</div>
-                <h1 className="text-4xl font-bold mb-4">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
                   {foundCourse.title}
                 </h1>
                 <p className="text-lg opacity-90">
@@ -148,15 +148,15 @@ export default function SubCourses() {
         </div>
       ) : (
         /* ========== FULL COURSE DETAIL VIEW (for ready courses) ========== */
-        <div className="py-16 px-6">
+        <div className="py-8 sm:py-12 lg:py-16 px-4 sm:px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
             <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
               {/* Course Header */}
               <div className={`bg-gradient-to-r ${foundCategory.color} text-white p-12`}>
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
                   {foundCourse.title}
                 </h1>
-                <p className="text-xl opacity-90 mb-6">
+                <p className="text-base sm:text-lg md:text-xl opacity-90 mb-6">
                   {foundCourse.description}
                 </p>
                 
@@ -174,9 +174,9 @@ export default function SubCourses() {
               </div>
 
               {/* Course Content */}
-              <div className="p-12">
+              <div className="p-6 sm:p-8 md:p-12">
                 {/* Stats Grid */}
-                <div className="grid md:grid-cols-4 gap-6 mb-12">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
                   <div className="text-center p-6 bg-gray-50 rounded-xl">
                     <Clock size={32} className="mx-auto text-indigo-600 mb-2" />
                     <p className="text-sm text-gray-600">Duration</p>
@@ -201,7 +201,7 @@ export default function SubCourses() {
 
                 {/* What You'll Learn */}
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
                     What You'll Learn
                   </h2>
                   <div className="grid md:grid-cols-2 gap-4">
@@ -215,8 +215,8 @@ export default function SubCourses() {
                 </div>
 
                 {/* Certification */}
-                <div className="mb-12 p-8 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <div className="mb-12 p-5 sm:p-8 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl">
+                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
                     🎓 Certification
                   </h2>
                   <p className="text-lg text-gray-700">

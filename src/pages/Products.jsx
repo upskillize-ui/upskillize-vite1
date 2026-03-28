@@ -112,14 +112,14 @@ export default function Products() {
               <span className="text-cyan-400 font-semibold">AI-Powered Business Solutions</span>
             </div>
             
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold text-white mb-6 leading-tight">
               Our Products
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 mt-3">
                 Transform Your Business
               </span>
             </h1>
             
-            <p className="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               Cutting-edge AI solutions designed to optimize costs, maximize revenue, and deliver actionable insights
             </p>
           </div>
@@ -129,7 +129,7 @@ export default function Products() {
       {/* Products Grid */}
       <section className="py-12 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {products.map((product) => (
               <div
                 key={product.id}
@@ -233,7 +233,7 @@ export default function Products() {
           <div className="relative bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-3xl p-10 lg:p-16 text-center overflow-hidden">
             <div className="absolute inset-0 bg-black/20"></div>
             <div className="relative z-10">
-              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
                 Ready to Transform Your Business?
               </h2>
               <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
@@ -242,14 +242,14 @@ export default function Products() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/products/optimize"
-                  className="bg-white text-indigo-600 px-10 py-5 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all shadow-2xl hover:scale-105 inline-flex items-center justify-center gap-2"
+                  className="bg-white text-indigo-600 px-6 sm:px-10 py-3 sm:py-5 rounded-xl font-bold text-base sm:text-lg hover:bg-gray-100 transition-all shadow-2xl hover:scale-105 inline-flex items-center justify-center gap-2"
                 >
                   <Zap className="w-5 h-5" />
                   Try OptiCost Free
                 </Link>
                 <Link
                   to="/contact"
-                  className="bg-white/10 backdrop-blur-sm text-white px-10 py-5 rounded-xl font-bold text-lg border-2 border-white/30 hover:bg-white/20 transition-all inline-flex items-center justify-center gap-2"
+                  className="bg-white/10 backdrop-blur-sm text-white px-6 sm:px-10 py-3 sm:py-5 rounded-xl font-bold text-base sm:text-lg border-2 border-white/30 hover:bg-white/20 transition-all inline-flex items-center justify-center gap-2"
                 >
                   Contact Sales
                   <ArrowRight className="w-5 h-5" />

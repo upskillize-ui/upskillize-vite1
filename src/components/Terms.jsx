@@ -8,18 +8,18 @@ export default function Terms() {
       {/* Hero Header */}
       <div className="relative overflow-hidden pt-8">
         <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/20 to-purple-900/20"></div>
-        <div className="max-w-7xl mx-auto px-6 py-20 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-16 lg:py-20 relative">
           <div className="text-center">
             <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full mb-6 shadow-lg">
               <Scale className="w-10 h-10 text-white" />
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
               Terms of Service
             </h1>
-            <p className="text-xl text-gray-200 mb-2">
+            <p className="text-base sm:text-xl text-gray-200 mb-2">
               Please read these terms carefully before using our services
             </p>
-            <p className="text-lg text-gray-300">
+            <p className="text-sm sm:text-lg text-gray-300">
               Last Updated: January 10, 2026
             </p>
           </div>
@@ -27,7 +27,7 @@ export default function Terms() {
       </div>
 
       {/* Quick Overview */}
-      <div className="max-w-7xl mx-auto px-6 -mt-8 mb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 -mt-8 mb-12">
         <div className="bg-[#1e2d4a] rounded-2xl shadow-xl p-8 border border-gray-700/50">
           <h3 className="text-2xl font-bold text-white mb-6 text-center">Quick Overview</h3>
           <div className="grid md:grid-cols-3 gap-6">
@@ -71,7 +71,7 @@ export default function Terms() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-6 pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-12 sm:pb-20">
         <div className="grid lg:grid-cols-3 gap-8">
           
           {/* Sidebar */}

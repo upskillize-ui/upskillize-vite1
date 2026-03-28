@@ -240,7 +240,7 @@ const CIPLandingPage = () => {
       `}</style>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden text-white py-20 px-5 text-center" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}>
+      <section className="relative overflow-hidden text-white py-10 sm:py-16 lg:py-20 px-4 sm:px-5 text-center" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}>
         <div className="absolute top-0 right-0 w-full h-full opacity-30 animate-pulse-custom"
              style={{
                background: 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%)',
@@ -249,7 +249,7 @@ const CIPLandingPage = () => {
              }}>
         </div>
         <div className="relative z-10 max-w-6xl mx-auto">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-5 animate-fadeInUp">
+          <h1 className="text-4xl md:text-2xl sm:text-4xl lg:text-5xl lg:text-6xl font-bold mb-5 animate-fadeInUp">
             Applied AI for Business Professionals
           </h1>
           <p className="text-xl md:text-2xl lg:text-3xl mb-4 font-light">
@@ -262,7 +262,7 @@ const CIPLandingPage = () => {
       </section>
 
       {/* AI Revolution Section */}
-      <section className="py-20 px-5" style={{ background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%)' }}>
+      <section className="py-10 sm:py-16 lg:py-20 px-4 sm:px-5" style={{ background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%)' }}>
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-5 gradient-text">
             🚀 The AI Revolution is Here
@@ -312,7 +312,7 @@ const CIPLandingPage = () => {
       </section>
 
       {/* Program Overview */}
-      <section className="py-20 px-5 bg-white">
+      <section className="py-10 sm:py-16 lg:py-20 px-4 sm:px-5 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-5 gradient-text">
             Program at a Glance
@@ -336,7 +336,7 @@ const CIPLandingPage = () => {
       </section>
 
       {/* Program Philosophy */}
-      <section className="py-20 px-5" style={{ background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%)' }}>
+      <section className="py-10 sm:py-16 lg:py-20 px-4 sm:px-5" style={{ background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%)' }}>
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-5 gradient-text">
             Program Philosophy
@@ -381,7 +381,7 @@ const CIPLandingPage = () => {
       </section>
 
       {/* Modules Section */}
-      <section className="py-20 px-5" style={{ background: 'linear-gradient(to bottom right, rgba(240, 147, 251, 0.08), rgba(245, 87, 108, 0.08))' }}>
+      <section className="py-10 sm:py-16 lg:py-20 px-4 sm:px-5" style={{ background: 'linear-gradient(to bottom right, rgba(240, 147, 251, 0.08), rgba(245, 87, 108, 0.08))' }}>
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-5 gradient-text">
             Comprehensive Curriculum
@@ -461,7 +461,7 @@ const CIPLandingPage = () => {
       </section>
 
       {/* Assessment Section */}
-      <section className="py-20 px-5 bg-white">
+      <section className="py-10 sm:py-16 lg:py-20 px-4 sm:px-5 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-5 gradient-text">
             Assessment & Certification
@@ -550,7 +550,7 @@ const CIPLandingPage = () => {
       </section>
 
       {/* Career Assistance */}
-      <section className="py-20 px-5" style={{ background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%)' }}>
+      <section className="py-10 sm:py-16 lg:py-20 px-4 sm:px-5" style={{ background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%)' }}>
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-5 gradient-text">
             Career Assistance Program
@@ -579,7 +579,7 @@ const CIPLandingPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-5 text-white text-center" style={{ background: 'linear-gradient(135deg, #2d3561 0%, #1f1c2e 100%)' }}>
+      <section className="py-10 sm:py-16 lg:py-20 px-4 sm:px-5 text-white text-center" style={{ background: 'linear-gradient(135deg, #2d3561 0%, #1f1c2e 100%)' }}>
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-5">Ready to Become a Certified AI Professional?</h2>
           <p className="text-lg md:text-xl mb-10 opacity-90">

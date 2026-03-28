@@ -154,10 +154,10 @@ function CertGroup({ cat }) {
 
 export default function Footer() {
   return (
-    <footer className="w-full mt-16 text-white">
+    <footer className="w-full text-white">
 
       {/* ===== MAIN FOOTER ===== */}
-      <div className="bg-gradient-to-r bg-gradient-to-br via-cyan-500 to-green-400">
+      <div className="bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e]">
         <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
           {/* Brand */}

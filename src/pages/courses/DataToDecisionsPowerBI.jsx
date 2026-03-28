@@ -74,7 +74,7 @@ export default function PowerBILandingPage() {
         {/* Hero */}
         <section className="hero-bg text-white py-20 px-10 text-center relative z-10">
           <div className="text-2xl font-bold text-orange-400 mb-2 uppercase tracking-widest">UPSKILLIZE</div>
-          <h1 className="text-5xl md:text-6xl font-black mb-5 drop-shadow-lg">Data to Decisions:<br/>Power BI, AI & Data Mastery</h1>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-5 drop-shadow-lg">Data to Decisions:<br/>Power BI, AI & Data Mastery</h1>
           <p className="text-xl md:text-2xl mb-4 opacity-95">40-Hour Intensive Certification for High-Impact Analytics Careers</p>
           <p className="text-lg md:text-xl text-orange-400 font-semibold mb-10 italic">"Where Data Meets Intelligence Meets Career Success"</p>
           
@@ -117,7 +117,7 @@ export default function PowerBILandingPage() {
 
         {/* Value Props */}
         <section className="py-20 px-10">
-          <h2 className="text-center text-5xl font-extrabold text-blue-900 mb-16 relative inline-block w-full section-title">Why This Program Changes Everything</h2>
+          <h2 className="text-center text-xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-blue-900 mb-16 relative inline-block w-full section-title">Why This Program Changes Everything</h2>
           
           <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -162,14 +162,14 @@ export default function PowerBILandingPage() {
 
         {/* STAGE 1: Foundations */}
         <section className="py-20 px-10 bg-gray-100">
-          <h2 className="text-center text-5xl font-extrabold text-blue-900 mb-12 relative inline-block w-full section-title">📊 STAGE 1: Strong Fundamentals (Modules 1-2)</h2>
+          <h2 className="text-center text-xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-blue-900 mb-12 relative inline-block w-full section-title">📊 STAGE 1: Strong Fundamentals (Modules 1-2)</h2>
           <p className="text-center text-xl text-gray-600 mb-10 max-w-3xl mx-auto">Build unshakeable foundations in data quality, SQL, analytics thinking, and visualization principles</p>
           
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Module 1 */}
             <div className="module-card bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-gray-200 hover:-translate-y-2 hover:shadow-2xl hover:border-blue-600 transition-all duration-400">
               <div className="module-header bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6">
-                <div className="text-5xl font-black text-orange-400 mb-3">Module 1</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-orange-400 mb-3">Module 1</div>
                 <div className="text-2xl font-bold mb-2">Data Fundamentals & BI Foundation</div>
                 <div className="text-lg text-orange-400 font-semibold">5 Hours</div>
               </div>
@@ -200,7 +200,7 @@ export default function PowerBILandingPage() {
             {/* Module 2 */}
             <div className="module-card bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-gray-200 hover:-translate-y-2 hover:shadow-2xl hover:border-blue-600 transition-all duration-400">
               <div className="module-header bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6">
-                <div className="text-5xl font-black text-orange-400 mb-3">Module 2</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-orange-400 mb-3">Module 2</div>
                 <div className="text-2xl font-bold mb-2">Data Management & SQL Essentials</div>
                 <div className="text-lg text-orange-400 font-semibold">5 Hours</div>
               </div>
@@ -232,14 +232,14 @@ export default function PowerBILandingPage() {
 
         {/* STAGE 2: Power BI Mastery */}
         <section className="py-20 px-10">
-          <h2 className="text-center text-5xl font-extrabold text-blue-900 mb-12 relative inline-block w-full section-title">🔧 STAGE 2: Power BI Tools Mastery (Modules 3-5)</h2>
+          <h2 className="text-center text-xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-blue-900 mb-12 relative inline-block w-full section-title">🔧 STAGE 2: Power BI Tools Mastery (Modules 3-5)</h2>
           <p className="text-center text-xl text-gray-600 mb-10 max-w-3xl mx-auto">Complete Power BI expertise from basics to enterprise deployment</p>
           
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Module 3 */}
             <div className="module-card bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-gray-200 hover:-translate-y-2 hover:shadow-2xl hover:border-blue-600 transition-all duration-400">
               <div className="module-header bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6">
-                <div className="text-5xl font-black text-orange-400 mb-3">Module 3</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-orange-400 mb-3">Module 3</div>
                 <div className="text-2xl font-bold mb-2">Power BI Desktop Mastery - Core Skills</div>
                 <div className="text-lg text-orange-400 font-semibold">5 Hours</div>
               </div>
@@ -270,7 +270,7 @@ export default function PowerBILandingPage() {
             {/* Module 4 */}
             <div className="module-card bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-gray-200 hover:-translate-y-2 hover:shadow-2xl hover:border-blue-600 transition-all duration-400">
               <div className="module-header bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6">
-                <div className="text-5xl font-black text-orange-400 mb-3">Module 4</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-orange-400 mb-3">Module 4</div>
                 <div className="text-2xl font-bold mb-2">Advanced Power BI - Data Modeling & DAX</div>
                 <div className="text-lg text-orange-400 font-semibold">5 Hours</div>
               </div>
@@ -301,7 +301,7 @@ export default function PowerBILandingPage() {
             {/* Module 5 */}
             <div className="module-card bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-gray-200 hover:-translate-y-2 hover:shadow-2xl hover:border-blue-600 transition-all duration-400 md:col-span-2 max-w-3xl mx-auto">
               <div className="module-header bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6">
-                <div className="text-5xl font-black text-orange-400 mb-3">Module 5</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-orange-400 mb-3">Module 5</div>
                 <div className="text-2xl font-bold mb-2">Enterprise Power BI & Real-World Applications</div>
                 <div className="text-lg text-orange-400 font-semibold">5 Hours</div>
               </div>
@@ -333,14 +333,14 @@ export default function PowerBILandingPage() {
 
         {/* STAGE 3: AI Intelligence */}
         <section className="py-20 px-10 bg-gray-100">
-          <h2 className="text-center text-5xl font-extrabold text-blue-900 mb-12 relative inline-block w-full section-title">🤖 STAGE 3: AI-Powered Intelligent Decisions (Modules 6-7)</h2>
+          <h2 className="text-center text-xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-blue-900 mb-12 relative inline-block w-full section-title">🤖 STAGE 3: AI-Powered Intelligent Decisions (Modules 6-7)</h2>
           <p className="text-center text-xl text-gray-600 mb-10 max-w-3xl mx-auto">Leverage AI, ML, and GenAI for competitive decision-making advantage</p>
           
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Module 6 */}
             <div className="module-card bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-gray-200 hover:-translate-y-2 hover:shadow-2xl hover:border-purple-600 transition-all duration-400">
               <div className="module-header bg-gradient-to-r from-purple-600 to-indigo-600 text-white p-6">
-                <div className="text-5xl font-black text-orange-400 mb-3">Module 6</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-orange-400 mb-3">Module 6</div>
                 <div className="text-2xl font-bold mb-2">AI & Machine Learning for Business Analytics</div>
                 <div className="text-lg text-orange-400 font-semibold">5 Hours</div>
               </div>
@@ -371,7 +371,7 @@ export default function PowerBILandingPage() {
             {/* Module 7 */}
             <div className="module-card bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-gray-200 hover:-translate-y-2 hover:shadow-2xl hover:border-purple-600 transition-all duration-400">
               <div className="module-header bg-gradient-to-r from-indigo-600 to-blue-600 text-white p-6">
-                <div className="text-5xl font-black text-orange-400 mb-3">Module 7</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-orange-400 mb-3">Module 7</div>
                 <div className="text-2xl font-bold mb-2">GenAI Revolution - Decision Intelligence</div>
                 <div className="text-lg text-orange-400 font-semibold">5 Hours</div>
               </div>
@@ -403,13 +403,13 @@ export default function PowerBILandingPage() {
 
         {/* STAGE 4: Career Excellence */}
         <section className="py-20 px-10">
-          <h2 className="text-center text-5xl font-extrabold text-blue-900 mb-12 relative inline-block w-full section-title">🚀 STAGE 4: Career Excellence & Capstone (Module 8)</h2>
+          <h2 className="text-center text-xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-blue-900 mb-12 relative inline-block w-full section-title">🚀 STAGE 4: Career Excellence & Capstone (Module 8)</h2>
           <p className="text-center text-xl text-gray-600 mb-10 max-w-3xl mx-auto">Launch your high-paying analytics career with confidence and portfolio-ready projects</p>
           
           <div className="max-w-3xl mx-auto">
             <div className="module-card bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-gray-200 hover:-translate-y-2 hover:shadow-2xl hover:border-green-600 transition-all duration-400">
               <div className="module-header bg-gradient-to-r from-green-600 to-green-700 text-white p-6">
-                <div className="text-5xl font-black text-orange-400 mb-3">Module 8</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-orange-400 mb-3">Module 8</div>
                 <div className="text-2xl font-bold mb-2">Career Success & Capstone Project</div>
                 <div className="text-lg text-orange-400 font-semibold">5 Hours</div>
               </div>
@@ -441,7 +441,7 @@ export default function PowerBILandingPage() {
 
         {/* Career Prospects */}
         <section className="py-20 px-10 bg-gray-100">
-          <h2 className="text-center text-5xl font-extrabold text-blue-900 mb-12 relative inline-block w-full section-title">💼 Career Prospects & Salary Ranges</h2>
+          <h2 className="text-center text-xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-blue-900 mb-12 relative inline-block w-full section-title">💼 Career Prospects & Salary Ranges</h2>
           <p className="text-center text-xl text-gray-600 mb-10 max-w-3xl mx-auto">Data-driven decision-makers are in unprecedented demand across all industries</p>
           
           <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">

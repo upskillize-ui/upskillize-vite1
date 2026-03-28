@@ -68,8 +68,8 @@ const globalStyles = `
 
   /* ─── Layout Utilities ─── */
   .container   { max-width:1180px; margin:0 auto; padding:0 24px; }
-  .section     { padding:88px 0; }
-  .section-sm  { padding:56px 0; }
+  .section     { padding:clamp(2.5rem,7vw,5.5rem) 0; }
+  .section-sm  { padding:clamp(1.75rem,5vw,3.5rem) 0; }
   .text-center { text-align:center; }
 
   /* ─── Heading Scale (Syne) ─── */
@@ -209,7 +209,11 @@ const globalStyles = `
   .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
   .grid4 { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
   @media(max-width:900px){ .grid2,.grid3,.grid4{ grid-template-columns:1fr 1fr; } }
-  @media(max-width:600px){ .grid2,.grid3,.grid4{ grid-template-columns:1fr; } }
+  @media(max-width:600px){
+  .grid2,.grid3,.grid4{ grid-template-columns:1fr; }
+  .section,.section-sm { padding-left:1rem!important; padding-right:1rem!important; }
+  .container { padding-left:1rem!important; padding-right:1rem!important; }
+}
 
   /* ─── Scrollbar ─── */
   ::-webkit-scrollbar { width:6px; }
