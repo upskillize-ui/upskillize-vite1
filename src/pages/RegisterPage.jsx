@@ -15,7 +15,7 @@ const ALL_COURSES = [
   { group: "AI in FinTech",      label: "Certified BFSI Domain Excellence Program",                    badge: "CBFSP",    duration: "3 Months",  fee: "₹25,000",   feeNum: 25000,  feeNote: "per course" },
   { group: "AI in FinTech",      label: "Certified Investment Banking & Wealth Tech Program",          badge: "CWTP",     duration: "3 Months",  fee: "₹25,000",   feeNum: 25000,  feeNote: "per course" },
   { group: "AI in FinTech",      label: "Certified Risk Management & RegTech Program",                 badge: "CRPP",     duration: "3 Months",  fee: "₹25,000",   feeNum: 25000,  feeNote: "per course" },
-  { group: "AI in FinTech",      label: "Certified Insurance, InsurTech & DPDPA Course",               badge: "CITP",     duration: "3 Months",  fee: "₹25,000",   feeNum: 25000,  feeNote: "per course" },
+  { group: "AI in FinTech",      label: "Certified Insurance, InsurTech & DPDPA Course",               badge: "CITP",     duration: "3 Months",  fee: "₹35,000",   feeNum: 35000,  feeNote: "per course" },
   { group: "AI in FinTech",      label: "Certified AI in Financial Services Program",                  badge: "CFAP",     duration: "3 Months",  fee: "₹25,000",   feeNum: 25000,  feeNote: "per course" },
   { group: "Product Leadership", label: "Certified The Mini CEO Program",                              badge: "CTPM",     duration: "3 Months",  fee: "₹25,000",   feeNum: 25000,  feeNote: "per course" },
   { group: "Product Leadership", label: "Certified AI Product Management Mastery",                     badge: "CAIPM",    duration: "3 Months",  fee: "₹25,000",   feeNum: 25000,  feeNote: "per course" },
