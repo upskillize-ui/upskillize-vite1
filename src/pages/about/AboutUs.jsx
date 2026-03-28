@@ -205,11 +205,11 @@ const About = () => {
             united by a single purpose: bridging academia and real-world excellence.
           </p>
           <div className="aup-hero-stats">
-            <div className="stat-item"><span className="stat-num">12</span><span className="stat-label">Industry Experts</span></div>
+            <div className="stat-item"><span className="stat-num">50+</span><span className="stat-label">Industry Experts</span></div>
             <div className="stat-divider" />
-            <div className="stat-item"><span className="stat-num">5</span><span className="stat-label">Our Advisory Board Members</span></div>
+            <div className="stat-item"><span className="stat-num">6</span><span className="stat-label">Our Advisory Board Members</span></div>
             <div className="stat-divider" />
-            <div className="stat-item"><span className="stat-num">4+</span><span className="stat-label">Domains Covered</span></div>
+            <div className="stat-item"><span className="stat-num">19+</span><span className="stat-label">Domains Covered</span></div>
           </div>
         </div>
       </section>
