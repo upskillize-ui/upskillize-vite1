@@ -1671,7 +1671,7 @@ export default function TwoYearsSemester() {
       <div className="hero-pills">
         <span className="pill">NSQF Level 7</span>
         <span className="pill">BFSI SSC Aligned</span>
-        <span className="pill">24 Months</span>
+        <span className="pill">2 Years</span>
         <span className="pill">6 Flagship Courses</span>
         <span className="pill">Top 1% Industry Trainers</span>
         <span className="pill">Employment-Linked</span>
@@ -1914,7 +1914,7 @@ export default function TwoYearsSemester() {
 {/* PROGRAM OVERVIEW */}
 <section className="overview" id="overview">
   <div className="container">
-    <p className="section-label fade-up">24 Months. 4 Parts. 4 Certificates.</p>
+    <p className="section-label fade-up">2 Years. 4 Parts. 4 Certificates.</p>
     <h2 className="section-title fade-up fade-up-d1">A Complete <em>Digital BFSI</em><br/>Learning Journey</h2>
     <p className="section-lead fade-up fade-up-d2">PGDFDB is structured in four progressive parts — each 4 months long, each ending with a capstone project presented to an industry panel, and each earning you a formal certificate milestone you can add to your resume immediately.</p>
     <div className="parts-grid">
@@ -2006,7 +2006,7 @@ export default function TwoYearsSemester() {
 <div className="container">
   <p className="section-label fade-up">What You'll Learn</p>
   <h2 className="section-title fade-up fade-up-d1">Lesson-by-Lesson.<br/><em>Outcome-by-Outcome.</em></h2>
-  <p className="section-lead fade-up fade-up-d2">Every lesson carries a course number, a flagship course tag, an Innovation Lab activity, and an hours breakdown — so you know exactly what you are building, learning, and earning at every step of the 24-month journey.</p>
+  <p className="section-lead fade-up fade-up-d2">Every lesson carries a course number, a flagship course tag, an Innovation Lab activity, and an hours breakdown — so you know exactly what you are building, learning, and earning at every step of the 2-years journey.</p>
 
   <div className="syl-tabs fade-up fade-up-d1">
     <button className={sylTabClass(0)} onClick={() => showPart(0)}><span className="tab-part">Months 1–4</span>Semester 1 · BFSI Foundations</button>
@@ -2020,7 +2020,7 @@ export default function TwoYearsSemester() {
     <div className="capstone-box">
       <div className="cap-label">Capstone 1 — Month 4</div>
       <h4>BFSI Domain Discovery Report</h4>
-      <p>20-page professional document + 15-minute presentation to an industry panel. Students choose one BFSI sub-sector, analyse 3 digital disruptions, and map a personal 24-month career development plan. Innovation Lab: publish on LinkedIn + upload full portfolio to EcoPro LMS.</p>
+      <p>20-page professional document + 15-minute presentation to an industry panel. Students choose one BFSI sub-sector, analyse 3 digital disruptions, and map a personal 2-years career development plan. Innovation Lab: publish on LinkedIn + upload full portfolio to EcoPro LMS.</p>
       <div className="cap-meta">
         <span className="cap-tag">🏅 Earns: Certificate in BFSI Domain Excellence</span>
         <span className="cap-tag">~56 student hours</span>
@@ -2434,7 +2434,7 @@ export default function TwoYearsSemester() {
       <div className="rubric-card">
         <div className="r-letter">U</div>
         <div className="r-title">Universal Graduate Attributes (NHEQF Level 7)</div>
-        <div className="r-body">All eight UGC NHEQF Level 7 Graduate Attributes are developed across the 24-month journey: domain expertise, digital proficiency, regulatory intelligence, product thinking, data leadership, professional readiness, strategic leadership, and global awareness.</div>
+        <div className="r-body">All eight UGC NHEQF Level 7 Graduate Attributes are developed across the 2-years journey: domain expertise, digital proficiency, regulatory intelligence, product thinking, data leadership, professional readiness, strategic leadership, and global awareness.</div>
         <div className="r-example">→ PO1 to PO8 · Every lesson maps to ≥3 POs · Finance + Marketing + HR + Systems all covered</div>
       </div>
       <div className="rubric-card">
@@ -2688,7 +2688,7 @@ export default function TwoYearsSemester() {
           </div>
         </div>
         <div className="rf-body">
-          <p>AICTE mandates that PG programmes demonstrate dominance of higher-order thinking — at least 60% of all assessments must operate at Bloom's Level 4 (Analyse) or above. PGDFDB  achieves 68% at L4+, deliberately distributing lower-order levels to foundational lessons and progressively raising cognitive demand across the 24 months.</p>
+          <p>AICTE mandates that PG programmes demonstrate dominance of higher-order thinking — at least 60% of all assessments must operate at Bloom's Level 4 (Analyse) or above. PGDFDB  achieves 68% at L4+, deliberately distributing lower-order levels to foundational lessons and progressively raising cognitive demand across the 2 years.</p>
           <p>Semester 1 establishes L1–L3. Parts 2–3 develop L3–L5. Semester 4 and capstones operate entirely at L5–L6. This progressive Bloom's ladder is the backbone of the curriculum design.</p>
           <ul>
             <li>Semester 1 (Foundations): L1 Remember → L3 Apply</li>
@@ -2861,7 +2861,7 @@ export default function TwoYearsSemester() {
           <td><strong>Programme Total</strong></td>
           <td><strong>Balanced L1–L6 progression</strong></td>
           <td>Mix of formative + summative + capstone</td>
-          <td>Progressive complexity engineered across 24 months</td>
+          <td>Progressive complexity engineered across 2 years</td>
           <td style={{fontWeight: "800", color: "var(--purple)", fontSize: "16px"}}>68%</td>
         </tr>
       </tbody>
@@ -3711,7 +3711,7 @@ export default function TwoYearsSemester() {
   <div className="container" style={{position: "relative", zIndex: "1"}}>
     <p className="section-label fade-up">4 Certificates. One Extraordinary Destination.</p>
     <h2 className="section-title fade-up fade-up-d1">Every Semester. A new<br/><em style={{color: "var(--gold)"}}>credential on your resume.</em></h2>
-    <p className="section-lead fade-up fade-up-d2">You don't wait 24 months for recognition. With PGDFDB, you earn a formal Upskillize certificate at the end of every Semester — a progressive credential that builds your professional profile in real-time, even before you graduate.</p>
+    <p className="section-lead fade-up fade-up-d2">You don't wait 2 years for recognition. With PGDFDB, you earn a formal Upskillize certificate at the end of every Semester — a progressive credential that builds your professional profile in real-time, even before you graduate.</p>
     <div className="cert-path fade-up fade-up-d1">
       <div className="cert-step">
         <span className="cs-num" style={{color: "var(--blue)"}}>Semester 1 · Month 4</span>
@@ -3788,11 +3788,11 @@ export default function TwoYearsSemester() {
       <div className="cta-card for-students fade-up fade-up-d2">
         <div className="eyebrow">For MBA & PGDM Students</div>
         <h3>Start Your BFSI Journey</h3>
-        <p>PGDFDB runs alongside your MBA — on weekday evenings and Saturday mornings. No career gap, no extra year. Just 24 months of building, learning, and becoming an industry representative.</p>
+        <p>PGDFDB runs alongside your MBA — on weekday evenings and Saturday mornings. No career gap, no extra year. Just 2 years of building, learning, and becoming an industry representative.</p>
         <ul className="points">
           <li>Earn 4 certificates on the way — each one resume-ready immediately</li>
           <li>Build a real project portfolio in the Innovation Lab</li>
-          <li>Get a personal mentor for 24 months — bookable whenever you need</li>
+          <li>Get a personal mentor for 2 years — bookable whenever you need</li>
           <li>Graduate with 5+ interview opportunities already activated</li>
           <li>Access global BFSI career pathways in UAE, UK, Singapore, and more</li>
           <li>Join the Upskillize Alumni network for life</li>
