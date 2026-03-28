@@ -70,7 +70,7 @@ const MANAGEMENT = [
   },
   {
     initials: 'SKP', photo: '/images/advisorsIMG/SKP.jpg',
-    name: 'Mrs. Pushpa Latha', role: 'Head of Legal & Compliance',
+    name: 'Sunil Kumar Pandey', role: 'Consulting Director, Insurance Practice',
     bio: 'I help banks and insurers execute regulatory-resilient digital transformation — not just technology implementation.With 24+ years in BFSI across banking and insurance, I have led ₹750Cr+ enterprise IT portfolios spanning core banking transformation, RBI-mandated programs , audit remediation, and digital modernization.',
     linkedin: 'https://www.linkedin.com/in/sunil-kumar-pandey-816b2a50/',
   }
