@@ -185,7 +185,7 @@ export default function Navbar() {
     display: "inline-flex", alignItems: "center", gap: ".2rem",
     padding: ".38rem clamp(.3rem,.6vw,.55rem)",
     borderRadius: ".4rem",
-    fontSize: "clamp(.85rem,1.05vw,1rem)",
+    fontSize: "clamp(.90rem,1.08vw,1rem)",
     fontWeight: 500, color: "var(--c-text)", background: "none", border: "none",
     cursor: "pointer", whiteSpace: "nowrap",
     transition: "background .15s, color .15s",
