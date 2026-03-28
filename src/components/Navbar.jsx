@@ -185,7 +185,7 @@ export default function Navbar() {
     display: "inline-flex", alignItems: "center", gap: ".2rem",
     padding: ".38rem clamp(.3rem,.6vw,.55rem)",
     borderRadius: ".4rem",
-    fontSize: "clamp(.90rem,1.08vw,1rem)",
+    fontSize: "clamp(.9rem,1.1vw,1.05rem)",
     fontWeight: 500, color: "var(--c-text)", background: "none", border: "none",
     cursor: "pointer", whiteSpace: "nowrap",
     transition: "background .15s, color .15s",
@@ -240,7 +240,7 @@ export default function Navbar() {
           display:inline-flex;align-items:center;gap:.2rem;
           padding:.38rem clamp(.3rem,.6vw,.55rem);
           border-radius:.4rem;
-          font-size:clamp(.85rem,1.05vw,1rem);
+          font-size:clamp(.9rem,1.1vw,1.05rem);
           font-weight:500;color:var(--c-text);background:none;border:none;
           cursor:pointer;text-decoration:none;white-space:nowrap;
           transition:background .15s,color .15s;
@@ -252,7 +252,7 @@ export default function Navbar() {
           display:inline-flex;align-items:center;gap:.2rem;
           padding:.38rem clamp(.3rem,.6vw,.55rem);
           border-radius:.4rem;
-          font-size:clamp(.85rem,1.05vw,1rem);
+          font-size:clamp(.9rem,1.1vw,1.05rem);
           font-weight:500;color:var(--c-text);background:none;border:none;
           cursor:pointer;white-space:nowrap;
           transition:background .15s,color .15s;
