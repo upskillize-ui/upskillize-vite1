@@ -35,6 +35,12 @@ const ADVISORS = [
     bio: 'PhD in Computer Science with 20+ years bridging academic research and industry practice. Expert in DevOps architectures, cloud platforms, and Java technologies. Pioneering work in quantum computing algorithms, quantum cryptography, and quantum-inspired NLP.',
     linkedin: 'https://www.linkedin.com/in/bobbepalli/',
   },
+  {
+    initials: 'PK', photo: '/images/advisorsIMG/PK.png',
+    name: 'Pavan Koduri', title: 'CA | AGM F&A at Nava Limited | Ex-Aurobindo | Ex-GMR',
+    bio: 'PhD in Computer Science with 20+ years bridging academic research and industry practice. Expert in DevOps architectures, cloud platforms, and Java technologies. Pioneering work in quantum computing algorithms, quantum cryptography, and quantum-inspired NLP.',
+    linkedin: 'https://www.linkedin.com/in/pavan-kumar-koduri/',
+  },
 ];
 
 const MANAGEMENT = [
@@ -63,11 +69,11 @@ const MANAGEMENT = [
     linkedin: 'https://www.linkedin.com/in/pushpa-latha-24382a190/',
   },
   {
-    initials: 'PV', photo: null,
-    name: 'Pavan', role: 'Chartered Accountant (CA)',
-    bio: 'A qualified Chartered Accountant responsible for financial strategy, audit compliance, and fiscal governance at Upskillize. His expertise ensures sound financial stewardship as the organisation scales its reach across India and beyond.',
-    linkedin: null,
-  },
+    initials: 'SKP', photo: '/images/advisorsIMG/SKP.jpg',
+    name: 'Mrs. Pushpa Latha', role: 'Head of Legal & Compliance',
+    bio: 'I help banks and insurers execute regulatory-resilient digital transformation — not just technology implementation.With 24+ years in BFSI across banking and insurance, I have led ₹750Cr+ enterprise IT portfolios spanning core banking transformation, RBI-mandated programs , audit remediation, and digital modernization.',
+    linkedin: 'https://www.linkedin.com/in/sunil-kumar-pandey-816b2a50/',
+  }
 ];
 
 const TECHNICAL = [
@@ -201,7 +207,7 @@ const About = () => {
           <div className="aup-hero-stats">
             <div className="stat-item"><span className="stat-num">12</span><span className="stat-label">Industry Experts</span></div>
             <div className="stat-divider" />
-            <div className="stat-item"><span className="stat-num">5</span><span className="stat-label">Advisory Board Members</span></div>
+            <div className="stat-item"><span className="stat-num">5</span><span className="stat-label">Our Advisory Board Members</span></div>
             <div className="stat-divider" />
             <div className="stat-item"><span className="stat-num">4+</span><span className="stat-label">Domains Covered</span></div>
           </div>
@@ -226,7 +232,7 @@ const About = () => {
         <div className="aup-container">
           <SectionDivider label="Guiding Vision" />
           <div className="aup-section-head">
-            <h2 className="aup-section-title">Advisory Board</h2>
+            <h2 className="aup-section-title">Our Advisory Board</h2>
             <p className="aup-section-desc">
               Distinguished thought leaders providing strategic direction and deep domain mentorship
             </p>
